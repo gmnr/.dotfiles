@@ -49,6 +49,7 @@ nnoremap k gk
 set hidden
 nnoremap <A-h> :bnext<CR>
 nnoremap <A-l> :bprevious<CR>
+nnoremap <A-x> :bd!<CR>
 
 " Window Size
 set lines=45 columns=88
@@ -100,6 +101,7 @@ let g:user_emmet_leader_key='<C-S>'
 
 " leader setting
 let mapleader=" "
+let maplocalleader=" "
 
 " append / insert custom mappings
 " text object
@@ -128,7 +130,6 @@ nnoremap <leader>i] vi]o<Esc>i
 
 " clear the buffer F5
 nnoremap <F3> :%d<CR>
-nnoremap <leader><F3> :bd!<CR>
 
 " NERD shortcuts
 nmap <F7> :NERDTreeToggle<CR>
