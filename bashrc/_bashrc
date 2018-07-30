@@ -63,11 +63,12 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 # Prompt Colors custom made
-name=$(tput setaf 203);
+name=$(tput setaf 1);
 git=$(tput setaf 75);
-host=$(tput setaf 221);
+host=$(tput setaf 203);
 directory=$(tput setaf 113);
 white=$(tput setaf 15);
+green=$(tput setaf 2);
 bold=$(tput bold);
 reset=$(tput sgr0);
 
@@ -79,15 +80,14 @@ parse_git_branch() {
 # settings for prompt
 if [ "$color_prompt" = yes ]; then
  PS1="\[${bold}\]\n";
+ PS1+="\[${green}\][\A] ";  # display time
  PS1+="\[${name}\]\u"  # username
  PS1+="\[${white}\] at ";
- PS1+="\[${host}\]\h";  # host
- PS1+="\[${white}\] in ";
+ PS1+="\[${host}\]\h ";  # host
  PS1+="\[${directory}\]\w ";  # complete working directory
  PS1+="\[${git}\]\$(parse_git_branch)";  # git branching
- # PS1+="\[${white}\]@ \A";
  PS1+="\n";
- PS1+="\[${white}\]\$ \[${reset}\]";  # true PS1 and reset
+ PS1+="\[${reset}\]\$ ";  # true PS1 and reset
 else
  PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(parse_git_branch)\ $ '
 fi
@@ -199,12 +199,5 @@ esac
 
 
 # Custom Aliases
-alias sudo='sudo '
 alias python='python3'
-alias vim='gvim'
 alias pip='pip3'
-alias emacs='emacs25'
-alias pprojects='cd ~/Documents/Coding/Python/Projects'
-alias hprojects='cd ~/Documents/Coding/HTML-CSS'
-alias jprojects='cd ~/Documents/Coding/JavaScript'
-alias coding='cd ~/Documents/Coding'
