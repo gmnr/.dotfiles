@@ -1,0 +1,24 @@
+[user]
+	name = Guido Minieri
+	email = guido.minieri@gmail.com
+[alias]
+	ll = log --oneline
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = red
+[core]
+	excludesfile = /Users/guiduccio/.gitexcludes
