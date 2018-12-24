@@ -6,7 +6,7 @@ alias ll='ls -lt'
 alias cu='chmod u+x'
 alias home='ssh home-server'
 alias berry='ssh pi'
-alias pprj='cd ~/Desktop/Projects'
+alias pproj='cd ~/Desktop/Projects'
 
 
 # get the branch in prompt
