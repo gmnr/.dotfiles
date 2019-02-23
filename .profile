@@ -4,9 +4,7 @@ alias lt='ls -alh'
 alias l='ls -CF'
 alias ll='ls -lt'
 alias cu='chmod u+x'
-alias home='ssh home-server'
-alias berry='ssh pi'
-alias pproj='cd ~/Desktop/Projects'
+alias pproj='cd ~/Documents/Coding'
 
 
 # get the branch in prompt
