@@ -1,5 +1,5 @@
 [user]
-	name = Guido Minieri
+	name = mini-gui
 	email = guido.minieri@gmail.com
 [alias]
 	ll = log --oneline
@@ -21,4 +21,6 @@
 	changed = yellow
 	untracked = red
 [core]
-	excludesfile = /Users/guiduccio/.gitexcludes
+	excludesfile = /Users/guido/.gitexcludes
+[credential]
+	helper = osxkeychain
