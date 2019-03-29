@@ -5,6 +5,7 @@ alias l='ls -CF'
 alias ll='ls -lt'
 alias cu='chmod u+x'
 alias pproj='cd ~/Documents/Coding'
+alias home='ssh home-server'
 
 
 # get the branch in prompt
