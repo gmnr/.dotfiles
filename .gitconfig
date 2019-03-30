@@ -3,6 +3,8 @@
 	email = guido.minieri@gmail.com
 [alias]
 	ll = log --oneline
+    ss = status
+    au = add -u
 [color]
 	branch = auto
 	diff = auto
