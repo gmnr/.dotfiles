@@ -5,6 +5,7 @@
 	ll = log --oneline
     ss = status
     au = add -u
+    pu = push origin master
 [color]
 	branch = auto
 	diff = auto
