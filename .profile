@@ -9,10 +9,16 @@ alias home='ssh home-server'
 alias python='python3'
 
 
-# get the branch in prompt
-source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
-GIT_PS1_SHOWDIRTYSTATE=true
-export PS1='\[\033[93m\][\A] \[\033[1;91m\]\u \[\033[1;92m\]\w\[\033[1;94m\]$(__git_ps1) \[\033[00m\]\$ '
+# parse the git branch to show dirty status and the branch name
+function parse_git_dirty {
+      [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+  }
+
+function parse_git_branch {
+      git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1$(parse_git_dirty))/"
+  }
+
+export PS1='\[\033[93m\][\A] \[\033[1;91m\]\u \[\033[1;92m\]\w\[\033[1;94m\] $(parse_git_branch) \[\033[00m\]\$ '
 
 
 # better colors
