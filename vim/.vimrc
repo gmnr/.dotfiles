@@ -28,7 +28,7 @@ let g:airline_theme='one'
 set t_Co=256
 
 " cursorline
-hi CursorLine cterm=NONE ctermbg=darkgrey ctermfg=white
+hi CursorLine cterm=NONE ctermbg=darkgrey
 
 " fix esc delay
 set timeoutlen=1000 ttimeoutlen=0
