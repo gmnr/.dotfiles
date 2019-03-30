@@ -6,6 +6,7 @@ alias ll='ls -lt'
 alias cu='chmod u+x'
 alias pproj='cd ~/Documents/Coding'
 alias home='ssh home-server'
+alias python='python3'
 
 
 # get the branch in prompt
