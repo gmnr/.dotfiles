@@ -4,18 +4,12 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #NoTrayIcon ; disable icon in tray
 
+; F12 to toggle the script
+F12::Suspend, Toggle
+
 ; use Esc with Capslock
 Capslock::Esc 
 
-; useful quitting
-;- easy delete
-^q::Send {Delete}
-return
-
-; make window always on top
-^=:: Winset, Alwaysontop, , A
-
-; MEDIA KEYS MAPPINGS
 ; Next Song
 ^0::Send {Media_Next}
 
@@ -31,14 +25,28 @@ return
 ; Volume down
 +PgDn::Send {Volume_Down 5}
 
-; Run vim
-^.::run, "C:\Program Files (x86)\Vim\vim80\gvim.exe", C:\Users\rem\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu18.04onWindows_79rhkp1fndgsc\LocalState\rootfs\home\guido
+; Mute Mic with WIN + F4 in Skype for Business
+^m::Send #{F4}
 
-; Run Sublime Text 3
-^/::run, "C:\Program Files\Sublime Text 3\sublime_text.exe"
+; make window always on top
+^=:: Winset, Alwaysontop, , A
 
 ; Run Spotify
-^|::run spotify.exe
+^|::run "C:\Users\guido.minieri\AppData\Roaming\Spotify\Spotify.exe"
+
+; Run Vim
+^?::run, "C:\Program Files (x86)\Vim\vim81\gvim.exe", C:\Users\guido.minieri
+
+
+; send accented letters
+:?:a''::{Asc 133}   ; a
+:?:'e'::{Asc 130}   ; e acuto
+:?:e''::{Asc 138}   ; e grave
+:?:i''::{Asc 141}  ; i
+:?:o''::{Asc 149}   ; o
+:?:u''::{Asc 151}  ; u
+
+
 
 ; Launch Snipping tool
 ^\::
