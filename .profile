@@ -9,7 +9,7 @@ function parse_git_branch {
       git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1$(parse_git_dirty))/"
   }
 
-export PS1='\[\033[93m\][\A] \[\033[1;91m\]\u \[\033[00m\]at \[\033[1;35m\]\h \[\033[1;92m\]\w\[\033[1;94m\] $(parse_git_branch) \[\033[00m\]\$ '
+export PS1='\[\033[1;93m\][\A] \[\033[1;91m\]\u \[\033[1;97m\]at \[\033[1;94m\]\h \[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch) \[\033[00m\]\$ '
 
 
 # better colors
