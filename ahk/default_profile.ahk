@@ -3,6 +3,7 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #NoTrayIcon ; disable icon in tray
+#Hotstring EndChars `n `t ; enter, space and tab trigger the hotstring
 
 ; F12 to toggle the script
 F12::Suspend, Toggle
@@ -40,7 +41,7 @@ Capslock::Esc
 
 ; send accented letters
 :?:a''::{Asc 133}   ; a
-:?:'e'::{Asc 130}   ; e acuto
+:?:e'''::{Asc 130}   ; e acuto
 :?:e''::{Asc 138}   ; e grave
 :?:i''::{Asc 141}  ; i
 :?:o''::{Asc 149}   ; o
