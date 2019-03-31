@@ -1,12 +1,5 @@
-# aliases
-alias ll='ls -alh'
-alias ls='ls -lt'
-alias cu='chmod u+x'
-alias pproj='cd ~/Documents/Coding'
-alias home='ssh home-server'
-alias python='python3'
-
-
+# customized PS1
+##
 # parse the git branch to show dirty status and the branch name
 function parse_git_dirty {
       [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
@@ -26,3 +19,8 @@ export GREP_OPTIONS='--color=auto'
 
 # dsable ctrl-s (terminal freeze)
 stty -ixon
+
+# read aliases
+if [ -f ~/.alias ]; then
+    . ~/.alias
+fi
