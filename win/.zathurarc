@@ -1,0 +1,21 @@
+# set default width at open
+set adjust-open width
+
+
+# fullscreen settings
+unmap f
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
+
+# unmap d for double layout
+unmap d
+unmap [fullscreen] d
+
+# clipboard settings
+set selection-clipboard clipboard
+
+# scrolling feautres without CTRL
+map d scroll half-down
+map u scroll half-up
+map [fullscreen] d scroll half-down
+map [fullscreen] u scroll half-up
