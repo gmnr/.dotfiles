@@ -1,8 +1,6 @@
 # aliases
-alias la='ls -alt'
-alias lt='ls -alh'
-alias l='ls -CF'
-alias ll='ls -lt'
+alias lt='ls -alht'
+alias ls='ls -lt'
 alias cu='chmod u+x'
 alias pproj='cd ~/Documents/Coding'
 alias home='ssh home-server'
