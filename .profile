@@ -25,3 +25,6 @@ export PS1='\[\033[93m\][\A] \[\033[1;91m\]\u \[\033[1;92m\]\w\[\033[1;94m\] $(p
 export CLICOLOR=1;
 export LSCOLORS=Exfxcxdxbxegedabagacad;
 export GREP_OPTIONS='--color=auto'
+
+# dsable ctrl-s (terminal freeze)
+stty -ixon
