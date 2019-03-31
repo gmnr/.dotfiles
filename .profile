@@ -1,5 +1,5 @@
 # aliases
-alias lt='ls -alht'
+alias ll='ls -alh'
 alias ls='ls -lt'
 alias cu='chmod u+x'
 alias pproj='cd ~/Documents/Coding'
