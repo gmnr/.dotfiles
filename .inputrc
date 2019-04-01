@@ -9,3 +9,7 @@ set visible-stats On
 # # commands (basically more intelligent Up/Down behavior)
 "\e[A": history-search-backward
 "\e[B": history-search-forward
+
+# set vim keybindings in the terminal
+set editing-mode vi
+set keymap vi
