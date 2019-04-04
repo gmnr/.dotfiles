@@ -13,3 +13,5 @@ set visible-stats On
 # set vim keybindings in the terminal
 set editing-mode vi
 set keymap vi
+set keymap vi-insert
+Control-l: clear-screen    # these are for vi-insert mode
