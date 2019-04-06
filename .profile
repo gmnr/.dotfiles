@@ -13,6 +13,7 @@ export PS1='\[\033[1;93m\][\A] \[\033[1;91m\]\u \[\033[1;97m\]at \[\033[1;94m\]\
 
 
 # better colors
+export CLICOLOR=1;
 export CLICOLOR_FORCE=1;
 export LSCOLORS=Exfxcxdxbxegedabagacad;
 export GREP_OPTIONS='--color=always'
