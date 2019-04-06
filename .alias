@@ -1,6 +1,4 @@
 # aliases
-alias ll='ls -alth'
-alias ls='ls -lt'
 alias pprj='cd ~/Documents/Coding'
 alias home='ssh home-server'
 alias python='python3'
@@ -8,3 +6,12 @@ alias less='less -R'
 alias mv='mv -v'
 alias rm='rm -i -v'
 alias cp='cp -v'
+
+# check os version
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    alias ll='gls -alth --color=auto'
+    alias ls='gls -lt --color=auto'
+else
+    alias ll='ls -alth --color=auto'
+    alias ls='ls -lt --color=auto'
+fi
