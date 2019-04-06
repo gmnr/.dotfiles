@@ -5,7 +5,6 @@ syntax on
 set t_Co=256
 set showcmd
 set cursorline
-set cmdheight=2
 set cot=menu
 set updatetime=100
 set showmatch
@@ -18,6 +17,7 @@ set smartcase
 set nojoinspaces
 set nrformats=
 set autochdir
+set noshowmode
 
 " fix esc delay
 set timeoutlen=1000 ttimeoutlen=0
@@ -109,3 +109,33 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Right> <Nop>
 noremap <Left> <Nop>
+
+" statusline settings
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
+
+set laststatus=2
+set statusline=
+set statusline+=%2*::
+set statusline+=%{StatuslineGit()}\ 
+set statusline+=%1*\ %F
+set statusline+=\ %m
+set statusline+=%=
+set statusline+=\%y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\ \[%{&fileformat}\]
+set statusline+=\ %3l
+set statusline+=/
+set statusline+=%3L\ 
+set statusline+=%2*\ %3p%%\ 
+set statusline+=\ ::
+
+" statusline colors
+hi User1 ctermbg=white ctermfg=black
+hi User2 ctermbg=black ctermfg=white
