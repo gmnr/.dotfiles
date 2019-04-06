@@ -25,6 +25,17 @@ set timeoutlen=1000 ttimeoutlen=0
 " fix cursorline
 hi CursorLine cterm=NONE ctermbg=darkgrey
 
+" cursor in terminal vim
+if exists('$TMUX')
+    let &t_SI = "\ePtmux;\e\e[4 q\e\\"
+    let &t_SR = "\ePtmux;\e\e[3 q\e\\"
+    let &t_EI = "\ePtmux;\e\e[2 q\e\\"
+else
+    let &t_SI = "\e[4 q"
+    let &t_SR = "\e[3 q"
+    let &t_EI = "\e[2 q"
+endif
+
 " relative numbering with autocmd
 set number
 set relativenumber
