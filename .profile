@@ -25,3 +25,7 @@ stty -ixon
 if [ -f ~/.alias ]; then
     . ~/.alias
 fi
+
+# make vim default editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
