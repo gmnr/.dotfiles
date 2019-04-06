@@ -10,8 +10,16 @@ set visible-stats On
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 
-# set vim keybindings in the terminal
+# vim keys in terminal
+# add mode into prompt
 set editing-mode vi
-set keymap vi
+set show-mode-in-prompt on
+set vi-ins-mode-string \1\e[4 q\2
+set vi-cmd-mode-string \1\e[2 q\2
+
+# block dalay reduction
+set keyseq-timeout 30
+
+# clear screen also in vim-insert mode
 set keymap vi-insert
 Control-l: clear-screen    # these are for vi-insert mode
