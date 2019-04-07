@@ -64,10 +64,6 @@ set hidden
 nnoremap <C-l>l :bnext<CR>
 nnoremap <C-l>h :bprevious<CR>
 
-" Enter and <S-Enter> to insert empty lines
-nmap <S-CR> O<Esc>
-nmap <CR> o<Esc>
-
 " ctrl + directions to move lines
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
@@ -75,6 +71,13 @@ inoremap <C-j> <Esc>:m .+1<CR>==gi
 inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
+
+" quick save
+nnoremap <leader>ev :vsplit ~/.vimrc<CR>
+nnoremap <leader>sv :source ~/.vimrc<CR>
+nnoremap <leader>ww :w<CR>
+nnoremap <leader>wq :wq<CR>
+nnoremap <leader>qq :q<CR>
 
 " Line Wrapping
 :set wrap
@@ -98,7 +101,6 @@ let maplocalleader=" "
 " Quick Search
 nnoremap <leader>ff :%s/
 set gdefault
-
 
 " more natural split openings
 set splitbelow
