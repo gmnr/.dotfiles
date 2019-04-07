@@ -91,7 +91,7 @@ let mapleader=" "
 let maplocalleader=" "
 
 " quick save
-nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>ev :sp $MYVIMRC<CR>
 nnoremap <leader>sv :so $MYVIMRC<CR>
 nnoremap <leader>ww :w<CR>
 nnoremap <leader>wq :wq<CR>
