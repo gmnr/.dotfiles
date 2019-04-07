@@ -72,19 +72,12 @@ inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
-" quick save
-nnoremap <leader>ev :vsplit ~/.vimrc<CR>
-nnoremap <leader>sv :source ~/.vimrc<CR>
-nnoremap <leader>ww :w<CR>
-nnoremap <leader>wq :wq<CR>
-nnoremap <leader>qq :q<CR>
-
-" Line Wrapping
+" line wrapping
 :set wrap
 :set linebreak
 :set nolist
 
-" Tab Settings
+" tab settings
 set tabstop=4
 set softtabstop=4
 set expandtab
@@ -97,8 +90,14 @@ set smartindent
 let mapleader=" "
 let maplocalleader=" "
 
+" quick save
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>sv :so $MYVIMRC<CR>
+nnoremap <leader>ww :w<CR>
+nnoremap <leader>wq :wq<CR>
+nnoremap <leader>qq :q<CR>
 
-" Quick Search
+" quick search
 nnoremap <leader>ff :%s/
 set gdefault
 
@@ -106,7 +105,7 @@ set gdefault
 set splitbelow
 set splitright
 
-" Enforcing purity
+" enforcing purity
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Right> <Nop>
