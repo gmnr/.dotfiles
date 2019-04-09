@@ -6,7 +6,7 @@ function parse_git_dirty {
   }
 
 function parse_git_branch {
-      git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1$(parse_git_dirty))/"
+      git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/<\1$(parse_git_dirty)>/"
   }
 
 export PS1='\[\033[1;91m\]\u\[\033[1;97m\]@\[\033[1;94m\]\h\[\033[1;97m\]:\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)\[\033[00m\]\$ '
