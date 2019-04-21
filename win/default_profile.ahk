@@ -10,6 +10,7 @@ F12::Suspend, Toggle
 
 ; use Esc with Capslock
 Capslock::Esc 
+Esc::Capslock 
 
 ; Next Song
 ^0::Send {Media_Next}
