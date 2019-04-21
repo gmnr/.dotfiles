@@ -141,5 +141,5 @@ set statusline+=%2*\ %3p%%\
 set statusline+=\ ::
 
 " statusline colors
-hi User1 ctermbg=white ctermfg=black
-hi User2 ctermbg=black ctermfg=white
+hi User1 cterm=bold ctermbg=white ctermfg=black
+hi User2 cterm=bold ctermbg=black ctermfg=white
