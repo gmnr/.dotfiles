@@ -5,6 +5,7 @@ syntax on
 set t_Co=256
 set showcmd
 set cursorline
+set ttyfast
 set cot=menu
 set updatetime=100
 set showmatch
