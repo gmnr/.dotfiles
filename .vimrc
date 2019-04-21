@@ -4,7 +4,7 @@ filetype plugin indent on
 syntax on
 set t_Co=256
 set showcmd
-set cursorline
+" set cursorline
 set ttyfast
 set cot=menu
 set updatetime=100
@@ -23,8 +23,8 @@ set noshowmode
 " fix esc delay
 set timeoutlen=1000 ttimeoutlen=0
 
-" fix cursorline
-hi CursorLine cterm=NONE ctermbg=darkgrey
+" fix cursorline color
+" hi CursorLine cterm=NONE ctermbg=darkgrey
 
 " cursor in terminal vim
 if exists('$TMUX')
