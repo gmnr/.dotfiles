@@ -23,8 +23,10 @@ set noshowmode
 " fix esc delay
 set timeoutlen=1000 ttimeoutlen=-1
 
-" fix cursorline color
+" override color format for cursor and numbers
 hi CursorLine cterm=NONE ctermbg=234
+hi LineNr cterm=NONE ctermfg=214
+hi CursorLineNr cterm=NONE ctermfg=214
 
 " cursor in terminal vim
 if exists('$TMUX')
