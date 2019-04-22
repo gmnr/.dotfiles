@@ -4,7 +4,7 @@ filetype plugin indent on
 syntax on
 set t_Co=256
 set showcmd
-" set cursorline
+set cursorline
 set ttyfast
 set cot=menu
 set updatetime=100
@@ -21,10 +21,10 @@ set autochdir
 set noshowmode
 
 " fix esc delay
-set timeoutlen=1000 ttimeoutlen=0
+set timeoutlen=1000 ttimeoutlen=-1
 
 " fix cursorline color
-" hi CursorLine cterm=NONE ctermbg=darkgrey
+hi CursorLine cterm=NONE ctermbg=darkgrey
 
 " cursor in terminal vim
 if exists('$TMUX')
@@ -113,14 +113,14 @@ noremap <Right> <Nop>
 noremap <Left> <Nop>
 
 " statusline settings
-function! GitBranch()
-  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-endfunction
-
-function! StatuslineGit()
-  let l:branchname = GitBranch()
-  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
-endfunction
+" function! GitBranch()
+"   return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+" endfunction
+" 
+" function! StatuslineGit()
+"   let l:branchname = GitBranch()
+"   return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+" endfunction
 
 " use incremental search
 set incsearch
@@ -128,7 +128,7 @@ set incsearch
 set laststatus=2
 set statusline=
 set statusline+=%2*::
-set statusline+=%{StatuslineGit()}\ 
+" set statusline+=%{StatuslineGit()}\ 
 set statusline+=%1*\ %F
 set statusline+=\ %m
 set statusline+=%=
