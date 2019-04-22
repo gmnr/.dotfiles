@@ -24,7 +24,7 @@ set noshowmode
 set timeoutlen=1000 ttimeoutlen=-1
 
 " fix cursorline color
-hi CursorLine cterm=NONE ctermbg=darkgrey
+hi CursorLine cterm=NONE ctermbg=234
 
 " cursor in terminal vim
 if exists('$TMUX')
