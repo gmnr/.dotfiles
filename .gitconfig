@@ -8,6 +8,7 @@
     au = add -u
     pu = push origin master
     cm = commit -m
+    co = checkout
 [color]
 	branch = auto
 	diff = auto
