@@ -13,20 +13,33 @@ set wildmenu
 set lazyredraw
 set encoding=utf-8
 set breakindent
-set ignorecase
-set smartcase
 set nojoinspaces
 set nrformats=
 set autochdir
 set noshowmode
 
+" search settings
+set hlsearch
+set ignorecase
+set smartcase
+nnoremap <leader>c :silent! nohls<cr>
+
+" Enter and <S-Enter> to insert empty lines
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+
 " fix esc delay
-set timeoutlen=1000 ttimeoutlen=-1
+set ttimeout
+set ttimeoutlen=100
+set timeoutlen=3000
 
 " override color format for cursor and numbers
+hi MatchParen cterm=reverse
 hi CursorLine cterm=NONE ctermbg=234
 hi LineNr cterm=NONE ctermfg=214
 hi CursorLineNr cterm=NONE ctermfg=214
+hi QuickFixLine term=reverse cterm=reverse
+hi Search term=reverse cterm=reverse
 
 " cursor in terminal vim
 if exists('$TMUX')
@@ -66,6 +79,9 @@ nnoremap k gk
 set hidden
 nnoremap <C-l>l :bnext<CR>
 nnoremap <C-l>h :bprevious<CR>
+
+" prefix for navigation same as tmux
+nnoremap <C-s> <C-w>
 
 " ctrl + directions to move lines
 nnoremap <C-j> :m .+1<CR>==
