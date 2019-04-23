@@ -34,12 +34,13 @@ set ttimeoutlen=100
 set timeoutlen=3000
 
 " override color format for cursor and numbers
-hi MatchParen cterm=reverse
+hi MatchParen ctermbg=231
 hi CursorLine cterm=NONE ctermbg=234
 hi LineNr cterm=NONE ctermfg=214
 hi CursorLineNr cterm=NONE ctermfg=214
 hi QuickFixLine term=reverse cterm=reverse
 hi Search term=reverse cterm=reverse
+hi Visual cterm=NONE ctermbg=232
 
 " cursor in terminal vim
 if exists('$TMUX')
@@ -79,9 +80,6 @@ nnoremap k gk
 set hidden
 nnoremap <C-l>l :bnext<CR>
 nnoremap <C-l>h :bprevious<CR>
-
-" prefix for navigation same as tmux
-nnoremap <C-s> <C-w>
 
 " ctrl + directions to move lines
 nnoremap <C-j> :m .+1<CR>==
