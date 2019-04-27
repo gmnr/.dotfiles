@@ -18,6 +18,9 @@ set nrformats=
 set autochdir
 set noshowmode
 
+" disable swapfiles
+set noswapfile
+
 " search settings
 set hlsearch
 set ignorecase
