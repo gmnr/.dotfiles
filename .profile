@@ -28,3 +28,14 @@ fi
 # make vim default editor
 export VISUAL=vim
 export EDITOR="$VISUAL"
+
+# add bash-completion
+if [ -f /usr/local/share/bash-completion/bash_completion ]; then
+    . /usr/local/share/bash-completion/bash_completion
+fi
+
+# add git-completion
+if [ -f /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash ]; then
+    . /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
+fi
+
