@@ -21,6 +21,9 @@ set noshowmode
 " disable swapfiles
 set noswapfile
 
+" disable autoformat comments in newline
+set formatoptions-=ro
+
 " search settings
 set hlsearch
 set ignorecase
