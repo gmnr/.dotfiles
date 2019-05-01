@@ -22,7 +22,7 @@ set noshowmode
 set noswapfile
 
 " disable autoformat comments in newline
-set formatoptions-=ro
+au FileType * set fo-=c fo-=r fo-=o
 
 " search settings
 set hlsearch
@@ -87,13 +87,17 @@ set hidden
 nnoremap <C-l>l :bnext<CR>
 nnoremap <C-l>h :bprevious<CR>
 
-" ctrl + directions to move lines
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-inoremap <C-j> <Esc>:m .+1<CR>==gi
-inoremap <C-k> <Esc>:m .-2<CR>==gi
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
+" smart suggestion
+inoremap <C-j> <C-n>
+inoremap <C-k> <C-p>
+
+" ctrl + n / p to move lines
+nnoremap <C-n> :m .+1<CR>==
+inoremap <C-n> <Esc>:m .+1<CR>==gi
+vnoremap <C-n> :m '>+1<CR>gv=gv
+nnoremap <C-p> :m .-2<CR>==
+inoremap <C-p> <Esc>:m .-2<CR>==gi
+vnoremap <C-p> :m '<-2<CR>gv=gv
 
 " line wrapping
 :set wrap
