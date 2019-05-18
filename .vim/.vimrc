@@ -36,7 +36,6 @@ au FileType * set fo-=c fo-=r fo-=o
 set hlsearch
 set ignorecase
 set smartcase
-nnoremap <leader>c :silent! nohls<cr>
 
 " Enter and <S-Enter> to insert empty lines
 nmap <S-Enter> O<Esc>
