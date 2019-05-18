@@ -66,6 +66,9 @@ hi QuickFixLine term=reverse cterm=reverse
 hi Search term=reverse cterm=reverse
 hi Visual cterm=NONE ctermbg=232
 
+"colorscheme settings 
+colorscheme onedark
+
 " cursor in terminal vim
 if exists('$TMUX')
     let &t_SI = "\ePtmux;\e\e[4 q\e\\"
