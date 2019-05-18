@@ -1,11 +1,15 @@
 " initialize pathogen
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+set nocp
+if exists('$DOTFILES')
+    source $DOTFILES/.vim/autoload/pathogen.vim
+endif
+
+execute pathogen#infect('bundle/{}', '~/.dotfiles/.vim/bundle/{}')
+execute pathogen#helptags()
 
 " general settings
-set nocompatible
-filetype plugin indent on
 syntax on
+filetype plugin indent on
 set t_Co=256
 set showcmd
 set cursorline
