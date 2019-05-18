@@ -57,16 +57,8 @@ set ttimeout
 set ttimeoutlen=100
 set timeoutlen=3000
 
-" override color format for cursor and numbers
-hi MatchParen ctermbg=231
-hi CursorLine cterm=NONE ctermbg=234
-hi LineNr cterm=NONE ctermfg=214
-hi CursorLineNr cterm=NONE ctermfg=214
-hi QuickFixLine term=reverse cterm=reverse
-hi Search term=reverse cterm=reverse
-hi Visual cterm=NONE ctermbg=232
-
 "colorscheme settings 
+let g:onedark_termcolors=16
 colorscheme onedark
 
 " cursor in terminal vim
