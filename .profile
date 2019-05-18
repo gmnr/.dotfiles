@@ -29,6 +29,9 @@ fi
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+# export the location of the dotfiles
+export DOTFILES=~/.dotfiles
+
 # add bash-completion
 if [ -f /usr/local/share/bash-completion/bash_completion ]; then
     . /usr/local/share/bash-completion/bash_completion
