@@ -14,3 +14,7 @@
 	path = .vim/bundle/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
     ignore = dirty
+[submodule ".vim/bundle/auto-pairs"]
+	path = .vim/bundle/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs.git
+    ignore = dirty
