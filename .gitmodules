@@ -14,7 +14,3 @@
 	path = .vim/bundle/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
     ignore = dirty
-[submodule ".vim/bundle/delimitMate"]
-	path = .vim/bundle/delimitMate
-	url = https://github.com/Raimondi/delimitMate.git
-    ignore = dirty
