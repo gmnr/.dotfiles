@@ -130,6 +130,9 @@ set smartindent
 let mapleader=" "
 let maplocalleader=" "
 
+"python syntax
+let g:python_highlight_all = 1
+
 " quick save
 nnoremap <leader>ev :sp $MYVIMRC<CR>
 nnoremap <leader>sv :so $MYVIMRC<CR>
