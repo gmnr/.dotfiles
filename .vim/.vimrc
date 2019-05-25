@@ -36,10 +36,10 @@ au FileType * set fo-=c fo-=r fo-=o
 set hlsearch
 set ignorecase
 set smartcase
+set incsearch
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
-set hlsearch
 let g:incsearch#auto_nohlsearch = 1
 map n  <Plug>(incsearch-nohl-n)
 map N  <Plug>(incsearch-nohl-N)
@@ -162,8 +162,10 @@ noremap <Left> <Nop>
 "   return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
 " endfunction
 
-" use incremental search
-set incsearch
+" backups
+set nobackup
+set noswapfile
+set nowritebackup
 
 set laststatus=2
 set statusline=
