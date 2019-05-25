@@ -11,6 +11,7 @@
     cm = commit -m
     co = checkout
     br = branch -v
+    sb = submodule
 
 [color]
 	branch = auto
