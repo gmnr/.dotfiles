@@ -155,6 +155,10 @@ noremap <Down> <Nop>
 noremap <Right> <Nop>
 noremap <Left> <Nop>
 
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
 " statusline settings
 " function! GitBranch()
 "   return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
