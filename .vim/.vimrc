@@ -151,10 +151,10 @@ set splitbelow
 set splitright
 
 " enforcing purity
-noremap <Up> <Nop>
-noremap <Down> <Nop>
+noremap <Up>    <Nop>
+noremap <Down>  <Nop>
 noremap <Right> <Nop>
-noremap <Left> <Nop>
+noremap <Left>  <Nop>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
