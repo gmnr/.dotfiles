@@ -456,6 +456,9 @@ key_bindings:
   #- { key: Q,      mods: Command, action: Quit             }
   #- { key: W,      mods: Command, action: Quit             }
 
+# added custom shortcut for entering in fullscreen
+  #- { key: Return,   mods: Command, action: ToggleFullscreen }
+
   - { key: Paste,                   action: Paste                            }
   - { key: Copy,                    action: Copy                             }
   - { key: L,        mods: Control, action: ClearLogNotice                   }
