@@ -173,6 +173,7 @@ nmap ga <Plug>(EasyAlign)
 set nobackup
 set noswapfile
 set nowritebackup
+set viminfo="NONE"
 
 set laststatus=2
 set statusline=
