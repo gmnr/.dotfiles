@@ -139,7 +139,8 @@ nnoremap <leader>sv :so $MYVIMRC<CR>
 nnoremap <leader>ww :w<CR>
 nnoremap <leader>wq :wq<CR>
 nnoremap <leader>qq :q<CR>
-nnoremap <leader>Q :q!<CR>
+nnoremap <leader>QQ :q!<CR>
+nnoremap <leader>QA :qa!<CR>
 
 " quick search
 nnoremap <leader>ff :%s/
