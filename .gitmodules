@@ -34,3 +34,7 @@
 	path = .vim/bundle/python-syntax
 	url = https://github.com/vim-python/python-syntax.git
     ignore = dirty
+[submodule ".vim/bundle/targets.vim"]
+	path = .vim/bundle/targets.vim
+	url = https://github.com/wellle/targets.vim.git
+    ignore = dirty
