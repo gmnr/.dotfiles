@@ -15,7 +15,11 @@ export PS1='\[\033[1;91m\]\u\[\033[00m\]@\[\033[1;94m\]\h\[\033[00m\]:\[\033[1;9
 # better colors
 export CLICOLOR=1;
 export CLICOLOR_FORCE=1;
-export GREP_OPTIONS='--color=always'
+
+# add compatibility for GREP_OPTION in macOS
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    export GREP_OPTIONS='--color=always'
+fi
 
 # dsable ctrl-s (terminal freeze)
 stty -ixon
