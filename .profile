@@ -17,7 +17,7 @@ export CLICOLOR=1;
 export CLICOLOR_FORCE=1;
 
 # add compatibility for GREP_OPTION in macOS
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
+if [[ "$OSTYPE" == "darwin"* ]]; then
     export GREP_OPTIONS='--color=always'
 fi
 
