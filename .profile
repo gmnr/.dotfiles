@@ -19,6 +19,8 @@ export CLICOLOR_FORCE=1;
 # add compatibility for GREP_OPTION in macOS
 if [[ "$OSTYPE" == "darwin"* ]]; then
     export GREP_OPTIONS='--color=always'
+else
+    export LESS="-SRXF"
 fi
 
 # dsable ctrl-s (terminal freeze)
