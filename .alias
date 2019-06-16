@@ -15,4 +15,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 else
     alias ll='ls -alth --color=auto'
     alias ls='ls -lt --color=auto'
+    alias upd='sudo apt update'
+    alias upg='sudo apt upgrade'
 fi
