@@ -3,35 +3,33 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #NoTrayIcon ; disable icon in tray
-#Hotstring EndChars `n!? `t ; enter, space and tab trigger the hotstring
-
-; F12 to toggle the script
-F12::Suspend, Toggle
+#Hotstring EndChars `n?.,! `t ; enter, space and tab trigger the hotstring
+;(also include puntuation)
 
 ; use Esc with Capslock
 Capslock::Esc 
-Esc::Capslock 
+Esc::Capslock
 
 ; Next Song
-^0::Send {Media_Next}
+#Right::Send {Media_Next}
 
 ; Previous Song
-^8::Send {Media_Prev}
+#Left::Send {Media_Prev}
 
 ; Play/Pause
-^9::Send {Media_Play_Pause}
+#Space::Send {Media_Play_Pause}
 
 ; Volume up
-+PgUp::Send {Volume_Up 5}
+#Up::Send {Volume_Up 5}
 
 ; Volume down
-+PgDn::Send {Volume_Down 5}
+#Down::Send {Volume_Down 5}
 
 ; Mute Mic with WIN + F4 in Skype for Business
 ^m::Send #{F4}
 
 ; make window always on top
-^=:: Winset, Alwaysontop, , A
+^]:: Winset, Alwaysontop, , A
 
 ; Run Spotify
 ^|::run "C:\Users\guido.minieri\AppData\Roaming\Spotify\Spotify.exe"
@@ -58,4 +56,44 @@ else
 	Run "c:\windows\system32\SnippingTool.exe"
     WinWait,  Snipping Tool,,1
 	ControlClick, x11 y45, Snipping Tool
+return
+
+!`:: ; Next window
+WinGetClass, ActiveClass, A
+WinGet, WinClassCount, Count, ahk_class %ActiveClass%
+IF WinClassCount = 1
+    Return
+Else
+WinGet, List, List, % "ahk_class " ActiveClass
+Loop, % List
+{
+    index := List - A_Index + 1
+    WinGet, State, MinMax, % "ahk_id " List%index%
+    if (State <> -1)
+    {
+        WinID := List%index%
+        break
+    }
+}
+WinActivate, % "ahk_id " WinID
+return
+
+!^`:: ; Last window
+WinGetClass, ActiveClass, A
+WinGet, WinClassCount, Count, ahk_class %ActiveClass%
+IF WinClassCount = 1
+    Return
+Else
+WinGet, List, List, % "ahk_class " ActiveClass
+Loop, % List
+{
+    index := List - A_Index + 1
+    WinGet, State, MinMax, % "ahk_id " List%index%
+    if (State <> -1)
+    {
+        WinID := List%index%
+        break
+    }
+}
+WinActivate, % "ahk_id " WinID
 return
