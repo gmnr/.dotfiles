@@ -104,6 +104,9 @@ nnoremap <C-l>h :bprevious<CR>
 inoremap <C-j> <C-n>
 inoremap <C-k> <C-p>
 
+" disable Q for ex-mode
+nnoremap Q <nop>
+
 " ctrl + n / p to move lines
 nnoremap <C-n> :m .+1<CR>==
 inoremap <C-n> <Esc>:m .+1<CR>==gi
