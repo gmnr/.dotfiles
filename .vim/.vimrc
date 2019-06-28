@@ -120,6 +120,9 @@ vnoremap <C-p> :m '<-2<CR>gv=gv
 :set linebreak
 :set nolist
 
+" define templates
+au BufNewFile *.py 0r ~/.dotfiles/.vim/templates/python.template
+
 " tab settings
 set tabstop=4
 set softtabstop=4
