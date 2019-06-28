@@ -6,4 +6,5 @@ Docstring
 """
 
 __author__ = 'Guido Minieri'
-__version__ = '1.0.0'
+__license__ = 'GPL'
+__version__ = 'x.x.x'
