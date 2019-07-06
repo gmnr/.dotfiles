@@ -42,14 +42,6 @@
 	path = .vim/bundle/vim-quickrun
 	url = https://github.com/thinca/vim-quickrun.git
     ignore = dirty
-[submodule ".vim/bundle/vim-tmux-focus-events"]
-	path = .vim/bundle/vim-tmux-focus-events
-	url = https://github.com/tmux-plugins/vim-tmux-focus-events
-    ignore = dirty
-[submodule ".vim/bundle/vim-tmux-clipboard"]
-	path = .vim/bundle/vim-tmux-clipboard
-	url = https://github.com/roxma/vim-tmux-clipboard
-    ignore = dirty
 [submodule ".vim/bundle/vim-tmux-navigator"]
 	path = .vim/bundle/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator
