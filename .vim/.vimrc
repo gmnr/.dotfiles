@@ -236,6 +236,7 @@ let g:quickrun_config = {
     \},
 \}
 
+" seamles tmux navigation
 let g:tmux_navigator_disable_when_zoomed = 1
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <c-s>h :TmuxNavigateLeft<cr>
@@ -243,3 +244,12 @@ nnoremap <silent> <c-s>j :TmuxNavigateDown<cr>
 nnoremap <silent> <c-s>k :TmuxNavigateUp<cr>
 nnoremap <silent> <c-s>l :TmuxNavigateRight<cr>
 nnoremap <silent> <c-s>/ :TmuxNavigatePrevious<cr>
+
+" airline simple settings
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" buffer navigation
+nnoremap <leader>hh :bprevious<CR>
+nnoremap <leader>ll :bnext<CR>
+nnoremap <leader>ii :confirm bd<CR>
