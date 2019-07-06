@@ -236,3 +236,9 @@ let g:quickrun_config = {
     \},
 \}
 
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <C-s>h :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-s>j :TmuxNavigateDown<cr>
+nnoremap <silent> <C-s>k :TmuxNavigateUp<cr>
+nnoremap <silent> <C-s>l :TmuxNavigateRight<cr>
+nnoremap <silent> <C-s>/ :TmuxNavigatePrevious<cr>
