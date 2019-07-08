@@ -25,6 +25,8 @@ set nojoinspaces
 set nrformats=
 set autochdir
 set noshowmode
+set clipboard^=unnamed
+
 
 " disable swapfiles
 set noswapfile
@@ -225,7 +227,7 @@ function! Insert(type, ...)
     endif
 endfunction
 
-nmap <leader>bb :QuickRun<CR>
+nmap <leader>tt :QuickRun<CR>
 let g:quickrun_config = {
     \'*': {
     \'outputter/buffer/split': ':8split',
