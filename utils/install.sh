@@ -5,16 +5,15 @@
 # initialize the variable that holds the dirctory
 dir=~/.dotfiles
 
-# the files to be symlinked in the home directory
-files="profile tmux.conf inputrc vimrc alias gitconfig gitexcludes"
-
-# move into the directory (if you are working somewhere else)
+# change in the working directory of the files to be symlinked in the home 
 echo "Changing to the $dir directory"
 cd $dir
-echo "...done"
+files=`find . -maxdepth 1 -type f -printf "%f\n" | grep -v .gitmodules`    # all except .gitmodules
+echo "Fetched list of files to be symlinked"
+
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
 for file in $files; do
         echo "Creating symlink to $file in home directory."
-        ln -s $dir/.$file ~/.$file 2> /dev/null
+        ln -s $dir/$file ~/$file 2> /dev/null
 done
