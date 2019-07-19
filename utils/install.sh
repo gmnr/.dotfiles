@@ -19,7 +19,7 @@ ln -s $dir/config/alacritty.yml ~/.config/alacritty/alacritty.yml 2> /dev/null
 echo "Creating symlink for .vimrc"
 ln -s $dir/.vim/.vimrc ~/.vimrc 2> /dev/null
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
+# create the symlinks for the files in the .dotfiles folder
 for file in $files; do
     echo "Creating symlink for $file"
     ln -s $dir/$file ~/$file 2> /dev/null
