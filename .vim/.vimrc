@@ -254,4 +254,4 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " buffer navigation
 nnoremap <leader>hh :bprevious<CR>
 nnoremap <leader>ll :bnext<CR>
-nnoremap <leader>ii :confirm bd<CR>
+nnoremap <leader>oo :confirm bd<CR>
