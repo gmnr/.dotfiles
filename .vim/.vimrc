@@ -250,6 +250,7 @@ nnoremap <silent> <c-s>/ :TmuxNavigatePrevious<cr>
 " airline simple settings
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod = ':t'
+let airline#extensions#tabline#ignore_bufadd_pat =  '\c\vgundo|undotree|vimfiler|tagbar|nerd_tree|split'
 
 " buffer navigation
 nnoremap <leader>hh :bprevious<CR>
