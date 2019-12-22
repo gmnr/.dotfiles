@@ -102,20 +102,16 @@ set hidden
 nnoremap <C-l>l :bnext<CR>
 nnoremap <C-l>h :bprevious<CR>
 
-" smart suggestion
-inoremap <C-j> <C-n>
-inoremap <C-k> <C-p>
-
 " disable Q for ex-mode
 nnoremap Q <nop>
 
 " ctrl + n / p to move lines
-nnoremap <C-n> :m .+1<CR>==
-inoremap <C-n> <Esc>:m .+1<CR>==gi
-vnoremap <C-n> :m '>+1<CR>gv=gv
-nnoremap <C-p> :m .-2<CR>==
-inoremap <C-p> <Esc>:m .-2<CR>==gi
-vnoremap <C-p> :m '<-2<CR>gv=gv
+nnoremap <C-j> :m .+1<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " line wrapping
 :set wrap
