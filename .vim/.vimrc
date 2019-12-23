@@ -138,7 +138,7 @@ let maplocalleader=" "
 let g:python_highlight_all = 1
 
 " quick save
-nnoremap <leader>ev :sp $MYVIMRC<CR>
+nnoremap <leader>ev :vs $MYVIMRC<CR>
 nnoremap <leader>sv :so $MYVIMRC<CR>
 nnoremap <leader>ww :w<CR>
 nnoremap <leader>wq :wq<CR>
@@ -223,11 +223,22 @@ function! Insert(type, ...)
     endif
 endfunction
 
+" keep the old config
+"nmap <leader>tt :QuickRun<CR>
+"let g:quickrun_config = {
+    "\'*': {
+    "\'outputter/buffer/split': ':8split',
+    "\'ouputter/buffer/into': 1,
+    "\'hook/time/enable': 1,
+    "\'hook/time/format': '[Finished in %gs]',
+    "\},
+"\}
+
+
+" vsplit config
 nmap <leader>tt :QuickRun<CR>
 let g:quickrun_config = {
     \'*': {
-    \'outputter/buffer/split': ':8split',
-    \'ouputter/buffer/into': 1,
     \'hook/time/enable': 1,
     \'hook/time/format': '[Finished in %gs]',
     \},
