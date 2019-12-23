@@ -228,7 +228,6 @@ let g:quickrun_config = {
     \'*': {
     \'outputter/buffer/split': ':8split',
     \'ouputter/buffer/into': 1,
-    \'ouputter/buffer/close_on_emply': 1,
     \'hook/time/enable': 1,
     \'hook/time/format': '[Finished in %gs]',
     \},
