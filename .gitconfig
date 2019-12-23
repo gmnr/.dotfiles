@@ -12,6 +12,7 @@
     co = checkout
     br = branch -v
     sb = submodule
+    df = diff
 
 [color]
 	branch = auto
