@@ -50,3 +50,7 @@
 	path = .vim/bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
     ignore = dirty
+[submodule ".vim/bundle/vim-indexed-search"]
+	path = .vim/bundle/vim-indexed-search
+	url = https://github.com/henrik/vim-indexed-search.git
+    ignore = dirty
