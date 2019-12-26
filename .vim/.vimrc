@@ -260,3 +260,7 @@ let airline#extensions#tabline#ignore_bufadd_pat =  '\c\vgundo|undotree|vimfiler
 nnoremap <leader>hh :bprevious<CR>
 nnoremap <leader>ll :bnext<CR>
 nnoremap <leader>oo :confirm bd<CR>
+
+" delimitMate settings
+let g:delimitMate_expand_cr=1
+let g:delimitMate_nesting_quotes = ['"',"'"]
