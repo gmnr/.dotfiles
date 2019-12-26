@@ -232,8 +232,7 @@ endfunction
     "\},
 "\}
 
-
-" vsplit config
+" quickrun config
 nmap <leader>tt :QuickRun<CR>
 let g:quickrun_config = {
     \'*': {
@@ -262,5 +261,4 @@ nnoremap <leader>ll :bnext<CR>
 nnoremap <leader>oo :confirm bd<CR>
 
 " delimitMate settings
-let g:delimitMate_expand_cr=1
 let g:delimitMate_nesting_quotes = ['"',"'"]
