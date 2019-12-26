@@ -200,8 +200,6 @@ set statusline+=\ ::
 hi User1 cterm=bold ctermbg=white ctermfg=black
 hi User2 cterm=bold ctermbg=black ctermfg=white
 
-" auto-pairs config (support for f-strings)
-autocmd FileType python let b:AutoPairs = AutoPairsDefine({"f'" : "'"})
 
 " append.vim
 nnoremap <silent> <Leader>a :set opfunc=Append<CR>g@
