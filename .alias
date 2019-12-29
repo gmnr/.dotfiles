@@ -8,15 +8,15 @@ alias rm='rm -i -v'
 alias cp='cp -v'
 alias dot='cd ~/.dotfiles'
 alias tmux='TERM=xterm-256color tmux'
-
+alias upd='sudo apt update'
+alias upg='sudo apt upgrade'
 
 # check os version
 if [[ "$OSTYPE" == "darwin"* ]]; then
     alias ll='gls -alth --color=auto'
     alias ls='gls -lt --color=auto'
+    alias cy='pbcopy'
 else
     alias ll='ls -alth --color=auto'
     alias ls='ls -lt --color=auto'
-    alias upd='sudo apt update'
-    alias upg='sudo apt upgrade'
 fi
