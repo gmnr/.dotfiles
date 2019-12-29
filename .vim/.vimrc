@@ -137,7 +137,7 @@ let maplocalleader=" "
 "python syntax
 let g:python_highlight_all = 1
 
-" quick save
+" nuick save
 nnoremap <leader>ev :vs $MYVIMRC<CR>
 nnoremap <leader>sv :so $MYVIMRC<CR>
 nnoremap <leader>ww :w<CR>
@@ -181,24 +181,26 @@ set nowritebackup
 set viminfo="NONE"
 
 set laststatus=2
-set statusline=
-set statusline+=%2*::
-" set statusline+=%{StatuslineGit()}\ 
-set statusline+=%1*\ %F
-set statusline+=\ %m
-set statusline+=%=
-set statusline+=\%y
-set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\ \[%{&fileformat}\]
-set statusline+=\ %3l
-set statusline+=/
-set statusline+=%3L\ 
-set statusline+=%2*\ %3p%%\ 
-set statusline+=\ ::
 
-" statusline colors
-hi User1 cterm=bold ctermbg=white ctermfg=black
-hi User2 cterm=bold ctermbg=black ctermfg=white
+" comment out old statusline settings overwritten by Airline
+"set statusline=
+"set statusline+=%2*::
+"" set statusline+=%{StatuslineGit()}\ 
+"set statusline+=%1*\ %F
+"set statusline+=\ %m
+"set statusline+=%=
+"set statusline+=\%y
+"set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+"set statusline+=\ \[%{&fileformat}\]
+"set statusline+=\ %3l
+"set statusline+=/
+"set statusline+=%3L\ 
+"set statusline+=%2*\ %3p%%\ 
+"set statusline+=\ ::
+
+"" statusline colors
+"hi User1 cterm=bold ctermbg=white ctermfg=black
+"hi User2 cterm=bold ctermbg=black ctermfg=white
 
 
 " append.vim
@@ -240,6 +242,12 @@ let g:quickrun_config = {
     \'hook/time/format': '[Finished in %gs]',
     \},
 \}
+
+" close if final buffer is netrw or the quickfix
+"augroup QuickRunOutputter
+"au!
+    "autocmd BufUnload * if (bufname("b:[quickrun output]")) || &buftype == 'nofile' | q | endif
+"augroup END
 
 " seamles tmux navigation
 let g:tmux_navigator_disable_when_zoomed = 1
