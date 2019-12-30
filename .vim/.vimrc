@@ -270,3 +270,5 @@ nnoremap <leader>oo :confirm bd<CR>
 
 " delimitMate settings
 let g:delimitMate_nesting_quotes = ['"',"'"]
+let g:delimitMate_expand_cr = 2
+let g:delimitMate_expand_space = 1
