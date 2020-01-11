@@ -1,5 +1,5 @@
 # aliases
-alias pprj='cd ~/Documents/Coding'
+alias dev='cd ~/dev'
 alias home='ssh home-server'
 alias python='python3'
 alias less='less -R'
