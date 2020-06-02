@@ -13,6 +13,7 @@
     br = branch -v
     sb = submodule
     df = diff
+    rb = rebase -i
 
 [color]
 	branch = auto
