@@ -272,3 +272,7 @@ nnoremap <leader>oo :confirm bd<CR>
 let g:delimitMate_nesting_quotes = ['"',"'"]
 let g:delimitMate_expand_cr = 2
 let g:delimitMate_expand_space = 1
+
+" emmet settings
+let g:user_emmet_mode='n'
+let g:user_emmet_leader_key='<leader>'
