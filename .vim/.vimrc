@@ -150,6 +150,9 @@ nnoremap <leader>QA :qa!<CR>
 nnoremap <leader>ff :%s/
 set gdefault
 
+" quick norm
+nnoremap <leader>nn :%norm 
+
 " more natural split openings
 set splitbelow
 set splitright
