@@ -3,11 +3,10 @@ set nocp
 if exists('$DOTFILES')
     source $DOTFILES/.vim/autoload/pathogen.vim
 endif
-
 execute pathogen#infect('bundle/{}', '~/.dotfiles/.vim/bundle/{}')
 execute pathogen#helptags()
 
-" general settings
+" must have .vimrc
 syntax on
 filetype plugin indent on
 set t_Co=256
@@ -25,10 +24,9 @@ set encoding=utf-8
 set breakindent
 set nojoinspaces
 set nrformats=
-"set autochdir
+"set autochdir --> set the working directory
 set noshowmode
 set clipboard^=unnamed
-
 
 " disable swapfiles
 set noswapfile
