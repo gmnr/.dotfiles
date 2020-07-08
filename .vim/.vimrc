@@ -25,7 +25,7 @@ set encoding=utf-8
 set breakindent
 set nojoinspaces
 set nrformats=
-set autochdir
+"set autochdir
 set noshowmode
 set clipboard^=unnamed
 
