@@ -12,12 +12,14 @@ syntax on
 filetype plugin indent on
 set t_Co=256
 set showcmd
+set cmdheight=2
 set cursorline
 set ttyfast
 set cot=menu
 set updatetime=100
 set showmatch
 set wildmenu
+set wildignorecase
 set lazyredraw
 set encoding=utf-8
 set breakindent
