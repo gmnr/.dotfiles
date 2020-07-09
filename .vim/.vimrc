@@ -271,6 +271,9 @@ nnoremap <leader>hh :bprevious<CR>
 nnoremap <leader>ll :bnext<CR>
 nnoremap <leader>oo :confirm bd<CR>
 
+" remap backspace so that goes to last used buffer
+nnoremap <BS> <C-^>
+
 " delimitMate settings
 let g:delimitMate_nesting_quotes = ['"',"'"]
 let g:delimitMate_expand_cr = 2
