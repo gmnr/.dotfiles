@@ -49,6 +49,7 @@ map *  <Plug>(incsearch-nohl-*)
 map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)k
+set shortmess-=S
 
 " Enter and <S-Enter> to insert empty lines
 nmap <S-Enter> O<Esc>
