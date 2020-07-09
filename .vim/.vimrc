@@ -138,8 +138,8 @@ let maplocalleader=" "
 "python syntax
 let g:python_highlight_all = 1
 
-" nuick save
-nnoremap <leader>ev :vs $MYVIMRC<CR>
+" quick save
+nnoremap <leader>ev :e $MYVIMRC<CR>
 nnoremap <leader>sv :so $MYVIMRC<CR>
 nnoremap <leader>ww :w<CR>
 nnoremap <leader>wq :wq<CR>
@@ -158,7 +158,7 @@ nnoremap <leader>nn :%norm
 set splitbelow
 set splitright
 
-" enforcing purity
+" enforcing purity --> maybe remapping to something useful?
 noremap <Up>    <Nop>
 noremap <Down>  <Nop>
 noremap <Right> <Nop>
@@ -178,7 +178,7 @@ nmap ga <Plug>(EasyAlign)
 "   return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
 " endfunction
 
-" backups
+" no backups
 set nobackup
 set noswapfile
 set nowritebackup
@@ -246,26 +246,6 @@ let g:quickrun_config = {
     \'hook/time/format': '[Finished in %gs]',
     \},
 \}
-
-" close if final buffer is netrw or the quickfix
-"augroup QuickRunOutputter
-"au!
-    "autocmd BufUnload * if (bufname("b:[quickrun output]")) || &buftype == 'nofile' | q | endif
-"augroup END
-
-" seamles tmux navigation
-let g:tmux_navigator_disable_when_zoomed = 1
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <c-s>h :TmuxNavigateLeft<cr>
-nnoremap <silent> <c-s>j :TmuxNavigateDown<cr>
-nnoremap <silent> <c-s>k :TmuxNavigateUp<cr>
-nnoremap <silent> <c-s>l :TmuxNavigateRight<cr>
-nnoremap <silent> <c-s>/ :TmuxNavigatePrevious<cr>
-
-" airline simple settings
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let airline#extensions#tabline#ignore_bufadd_pat =  '\c\vgundo|undotree|vimfiler|tagbar|nerd_tree|split'
 
 " buffer navigation
 nnoremap <leader>hh :bprevious<CR>
