@@ -23,7 +23,7 @@ set lazyredraw
 set encoding=utf-8
 set breakindent
 set nojoinspaces
-set nrformats=
+set nrformats-=octal
 "set autochdir --> set the working directory
 set noshowmode
 set clipboard^=unnamed
@@ -263,3 +263,14 @@ let g:delimitMate_expand_space = 1
 " emmet settings
 let g:user_emmet_mode='n'
 let g:user_emmet_leader_key='<leader>'
+
+" in visual mode use '*' and '#' to search for highlighted word
+xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
+
+function! s:VSetSearch(cmdtype)
+  let temp = @s
+  norm! gv"sy
+  let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
+  let @s = temp
+endfunction
