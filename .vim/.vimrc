@@ -261,7 +261,7 @@ let g:delimitMate_expand_cr = 2
 let g:delimitMate_expand_space = 1
 
 " emmet settings
-let g:user_emmet_mode='n'
+let g:user_emmet_mode='nv'
 let g:user_emmet_leader_key='<leader>'
 
 " in visual mode use '*' and '#' to search for highlighted word
