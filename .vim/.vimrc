@@ -51,10 +51,6 @@ map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)k
 set shortmess-=S
 
-" Enter and <S-Enter> to insert empty lines
-nmap [<Space> O<Esc>
-nmap ]<Space> o<Esc>
-
 " fix esc delay
 set ttimeout
 set ttimeoutlen=100
