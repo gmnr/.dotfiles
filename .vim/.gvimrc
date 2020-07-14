@@ -17,6 +17,7 @@ set lazyredraw
 set encoding=utf-8
 set breakindent
 set ignorecase
+set infercase
 set smartcase
 set nojoinspaces
 set nrformats=
