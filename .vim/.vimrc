@@ -134,11 +134,15 @@ let maplocalleader=" "
 "python syntax
 let g:python_highlight_all = 1
 
-" quick save
+" open and load .vimrc
 nnoremap <leader>ev :e $MYVIMRC<CR>
 nnoremap <leader>sv :so $MYVIMRC<CR>
+
+" quick save
 nnoremap <leader>ww :w<CR>
-nnoremap <leader>wq :wq<CR>
+nnoremap <leader>wq :x<CR>
+
+" quick exit
 nnoremap <leader>qq :q<CR>
 nnoremap <leader>QQ :q!<CR>
 nnoremap <leader>QA :qa!<CR>
@@ -276,3 +280,32 @@ let g:netrw_banner=0
 let g:netrw_liststyle=3
 let g:netrw_browse_split=4
 let g:netrw_winsize=20
+
+" remove trailing whitespaces
+autocmd FileType css,py,c,html,xml,js autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" add function to create scratch buffer
+function! s:DScratch()
+  let scratch_dir  = '~'
+  let scratch_date = strftime('%Y-%m-%d')
+  let scratch_file = 'notes-'. scratch_date . '.md'
+  let scratch_buf  = bufnr(scratch_file)
+
+  if scratch_buf == -1
+    exe 'split ' . scratch_dir . '/' . scratch_file
+
+    if empty(glob(scratch_dir . '/' . scratch_file))
+      exe ':normal i# Quick Notes - ' . scratch_date
+      exe ':normal A #'
+      exe ':normal o'
+      exe ':normal 28a-'
+      exe ':normal o'
+      exe ':w'
+    endif
+  else
+    exe 'split +buffer' . scratch_buf
+  endif
+endfunction
+
+command! Scratch call s:DScratch()
+nnoremap <leader>nn :Scratch<CR>
