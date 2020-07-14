@@ -79,10 +79,10 @@ au InsertLeave * set relativenumber
 
 " always show at least one line after cursor
 if !&scrolloff
-  set scrolloff=1
+    set scrolloff=1
 endif
 if !&sidescrolloff
-  set sidescrolloff=5
+    set sidescrolloff=5
 endif
 set display+=lastline
 
@@ -269,10 +269,10 @@ xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
 
 function! s:VSetSearch(cmdtype)
-  let temp = @s
-  norm! gv"sy
-  let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
-  let @s = temp
+    let temp = @s
+    norm! gv"sy
+    let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
+    let @s = temp
 endfunction
 
 " netrw settings
@@ -286,25 +286,30 @@ autocmd FileType css,py,c,html,xml,js autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " add function to create scratch buffer
 function! s:DScratch()
-  let scratch_dir  = '~'
-  let scratch_date = strftime('%Y-%m-%d')
-  let scratch_file = 'notes-'. scratch_date . '.md'
-  let scratch_buf  = bufnr(scratch_file)
-
-  if scratch_buf == -1
-    exe 'split ' . scratch_dir . '/' . scratch_file
-
-    if empty(glob(scratch_dir . '/' . scratch_file))
-      exe ':normal i# Quick Notes - ' . scratch_date
-      exe ':normal A #'
-      exe ':normal o'
-      exe ':normal 28a-'
-      exe ':normal o'
-      exe ':w'
+    let scratch_dir  = '~'
+    let scratch_date = strftime('%Y-%m-%d')
+    let scratch_file = 'notes-'. scratch_date . '.md'
+    let scratch_buf  = bufnr(scratch_file)
+    let bufinfo = getbufinfo(scratch_buf)
+    if scratch_buf == -1
+        " if buffer don't exist create it
+        exe 'split ' . scratch_dir . '/' . scratch_file
+        if empty(glob(scratch_dir . '/' . scratch_file))
+            exe ':normal i# Quick Notes - ' . scratch_date
+            exe ':normal 28a-'
+            exe ':normal o'
+            exe ':w'
+            exe ':startinsert'
+        endif
+    elseif empty(bufinfo[0].windows)
+        " if buffer exist open it
+        exe 'split +buffer' . scratch_buf
+    else
+        " if buffer exists but its open, close it
+        let scratch_win = filter(getwininfo(), 'v:val.bufnr == scratch_buf')[0].winnr
+        exe ':w'
+        exe scratch_win .. 'wincmd c'
     endif
-  else
-    exe 'split +buffer' . scratch_buf
-  endif
 endfunction
 
 command! Scratch call s:DScratch()
