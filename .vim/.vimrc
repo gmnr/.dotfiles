@@ -296,6 +296,7 @@ function! s:DScratch()
         exe 'split ' . scratch_dir . '/' . scratch_file
         if empty(glob(scratch_dir . '/' . scratch_file))
             exe ':normal i# Quick Notes - ' . scratch_date
+            exe ':normal o'
             exe ':normal 28a-'
             exe ':normal o'
             exe ':w'
@@ -308,7 +309,7 @@ function! s:DScratch()
         " if buffer exists but its open, close it
         let scratch_win = filter(getwininfo(), 'v:val.bufnr == scratch_buf')[0].winnr
         exe ':w'
-        exe scratch_win .. 'wincmd c'
+        exe scratch_win . 'wincmd c'
     endif
 endfunction
 
