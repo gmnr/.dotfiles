@@ -139,8 +139,9 @@ nnoremap <leader>ev :e $MYVIMRC<CR>
 nnoremap <leader>sv :so $MYVIMRC<CR>
 
 " quick save
+command!  Wd write|bdelete
 nnoremap <leader>ww :w<CR>
-nnoremap <leader>wq :w|bd<CR>
+nnoremap <leader>wq :Wd<CR>
 
 " quick exit
 nnoremap <leader>qq :bd<CR>
@@ -227,16 +228,6 @@ function! Insert(type, ...)
     endif
 endfunction
 
-" keep the old config
-"nmap <leader>tt :QuickRun<CR>
-"let g:quickrun_config = {
-    "\'*': {
-    "\'outputter/buffer/split': ':8split',
-    "\'ouputter/buffer/into': 1,
-    "\'hook/time/enable': 1,
-    "\'hook/time/format': '[Finished in %gs]',
-    "\},
-"\}
 
 " quickrun config
 nmap <leader>tt :QuickRun<CR>
@@ -246,11 +237,13 @@ let g:quickrun_config = {
     \'hook/time/format': '[Finished in %gs]',
     \},
 \}
+" extra mappings to open the output in a predetermined split and to put the cursor there
+" 'outputter/buffer/split': ':8split',
+" 'ouputter/buffer/into': 1,
 
 " buffer navigation
 nnoremap <leader>hh :bprevious<CR>
 nnoremap <leader>ll :bnext<CR>
-nnoremap <leader>oo :confirm bd<CR>
 
 " remap backspace so that goes to last used buffer
 nnoremap <BS> <C-^>
@@ -302,7 +295,7 @@ function! s:ToggleWindow(file) abort
     let win_info = filter(getwininfo(), 'v:val.bufnr == bufnr(a:file)')
     if empty(win_info)
         execute 'split ' . a:file
-        execute ':normal GG'
+        execute ':normal G'
         execute ':startinsert'
     else
         let winnr = win_info[0].winnr
@@ -315,5 +308,6 @@ endfunction
 command! Scratch call s:DScratch()
 nnoremap <leader>nn :Scratch<CR>
 
-" filter g output
-command! -nargs=? Filter let @a='' | execute 'g/<args>/y A' | new | setlocal bt=nofile | put! a
+" filter g output in a new buffer
+command! -nargs=? Filter let @a='' | execute 'g/<args>/y A' | new | setlocal bt=nofile | put! a | exe ":normal ggdd"
+nnoremap <leader>gg :Filter 
