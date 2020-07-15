@@ -140,11 +140,11 @@ nnoremap <leader>sv :so $MYVIMRC<CR>
 
 " quick save
 nnoremap <leader>ww :w<CR>
-nnoremap <leader>wq :x<CR>
+nnoremap <leader>wq :w|bd<CR>
 
 " quick exit
-nnoremap <leader>qq :q<CR>
-nnoremap <leader>QQ :q!<CR>
+nnoremap <leader>qq :bd<CR>
+nnoremap <leader>QQ :q<CR>
 nnoremap <leader>QA :qa!<CR>
 
 " quick search
@@ -152,7 +152,7 @@ nnoremap <leader>ff :%s/
 set gdefault
 
 " quick norm
-nnoremap <leader>nn :%norm 
+nnoremap <leader>no :%norm 
 
 " more natural split openings
 set splitbelow
@@ -285,33 +285,35 @@ let g:netrw_winsize=20
 autocmd FileType css,py,c,html,xml,js autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " add function to create scratch buffer
+let scratch_dir = $HOME
 function! s:DScratch()
-    let scratch_dir  = '~'
-    let scratch_date = strftime('%Y-%m-%d')
-    let scratch_file = 'notes-'. scratch_date . '.md'
-    let scratch_buf  = bufnr(scratch_file)
-    let bufinfo = getbufinfo(scratch_buf)
-    if scratch_buf == -1
-        " if buffer don't exist create it
-        exe 'split ' . scratch_dir . '/' . scratch_file
-        if empty(glob(scratch_dir . '/' . scratch_file))
-            exe ':normal i# Quick Notes - ' . scratch_date
-            exe ':normal o'
-            exe ':normal 28a-'
-            exe ':normal o'
-            exe ':w'
-            exe ':startinsert'
-        endif
-    elseif empty(bufinfo[0].windows)
-        " if buffer exist open it
-        exe 'split +buffer' . scratch_buf
+    let dir = g:scratch_dir
+    let date = strftime('%Y-%m-%d')
+    let file = printf('%s/notes-%s.md', dir, date)
+
+    if !filereadable(file)
+        let lines = [printf('# Quick Notes - %s', date), repeat('-', 28), '']
+        call writefile(lines, file)
+    endif
+    call s:ToggleWindow(file)
+endfunction
+
+function! s:ToggleWindow(file) abort
+    let win_info = filter(getwininfo(), 'v:val.bufnr == bufnr(a:file)')
+    if empty(win_info)
+        execute 'split ' . a:file
+        execute ':normal GG'
+        execute ':startinsert'
     else
-        " if buffer exists but its open, close it
-        let scratch_win = filter(getwininfo(), 'v:val.bufnr == scratch_buf')[0].winnr
-        exe ':w'
-        exe scratch_win . 'wincmd c'
+        let winnr = win_info[0].winnr
+        execute winnr . 'wincmd w'
+        silent write
+        execute winnr . 'wincmd c'
     endif
 endfunction
 
 command! Scratch call s:DScratch()
 nnoremap <leader>nn :Scratch<CR>
+
+" filter g output
+command! -nargs=? Filter let @a='' | execute 'g/<args>/y A' | new | setlocal bt=nofile | put! a
