@@ -295,8 +295,6 @@ function! s:ToggleWindow(file) abort
     let win_info = filter(getwininfo(), 'v:val.bufnr == bufnr(a:file)')
     if empty(win_info)
         execute 'split ' . a:file
-        execute ':normal G'
-        execute ':startinsert'
     else
         let winnr = win_info[0].winnr
         execute winnr . 'wincmd w'
@@ -306,7 +304,7 @@ function! s:ToggleWindow(file) abort
 endfunction
 
 command! Scratch call s:DScratch()
-nnoremap <leader>nn :Scratch<CR>
+nnoremap <leader>oo :Scratch<CR>
 
 " filter g output in a new buffer
 command! -nargs=? Filter let @a='' | execute 'g/<args>/y A' | new | setlocal bt=nofile | put! a | exe ":normal ggdd"
