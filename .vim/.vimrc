@@ -25,8 +25,9 @@ set breakindent
 set nojoinspaces
 set nrformats-=octal
 "set autochdir --> set the working directory
-set noshowmode
-set clipboard^=unnamed
+"set noshowmode
+"set clipboard^=unnamed
+set ruler
 
 " disable swapfiles
 set noswapfile
@@ -61,15 +62,15 @@ let g:onedark_termcolors=16
 colorscheme onedark
 
 " cursor in terminal vim
-if exists('$TMUX')
-    let &t_SI = "\ePtmux;\e\e[4 q\e\\"
-    let &t_SR = "\ePtmux;\e\e[3 q\e\\"
-    let &t_EI = "\ePtmux;\e\e[2 q\e\\"
-else
-    let &t_SI = "\e[4 q"
-    let &t_SR = "\e[3 q"
-    let &t_EI = "\e[2 q"
-endif
+"if exists('$TMUX')
+    "let &t_SI = "\ePtmux;\e\e[4 q\e\\"
+    "let &t_SR = "\ePtmux;\e\e[3 q\e\\"
+    "let &t_EI = "\ePtmux;\e\e[2 q\e\\"
+"else
+    "let &t_SI = "\e[4 q"
+    "let &t_SR = "\e[3 q"
+    "let &t_EI = "\e[2 q"
+"endif
 
 " relative numbering with autocmd
 set number
