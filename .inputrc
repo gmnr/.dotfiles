@@ -1,9 +1,9 @@
 # completion is case insensitive
 set completion-ignore-case on
-set colored-stats On
+set colored-stats on
 
 # Show extra file information when completing, like `ls -F` does
-set visible-stats On
+set visible-stats on
 
 # Use the text that has already been typed as the prefix for searching through
 # # commands (basically more intelligent Up/Down behavior)
@@ -14,8 +14,10 @@ set visible-stats On
 # add mode into prompt
 set editing-mode vi
 set show-mode-in-prompt on
-set vi-ins-mode-string \1\e[4 q\2
-set vi-cmd-mode-string \1\e[2 q\2
+#set vi-ins-mode-string \1\e[4 q\2
+#set vi-cmd-mode-string \1\e[2 q\2
+set vi-ins-mode-string "+"
+set vi-cmd-mode-string ":"
 
 # block dalay reduction
 set keyseq-timeout 30
