@@ -71,3 +71,5 @@ if [ -f /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.ba
     . /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
 fi
 
+# add options for fzf
+export FZF_DEFAULT_OPTS='--height 30% --layout=reverse'
