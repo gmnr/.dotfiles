@@ -29,6 +29,9 @@ set nrformats-=octal
 "set clipboard^=unnamed
 set ruler
 
+" use fzf
+set rtp+=/usr/local/opt/fzf
+
 " disable swapfiles
 set noswapfile
 
