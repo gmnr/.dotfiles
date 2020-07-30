@@ -313,3 +313,8 @@ nnoremap <leader>oo :Scratch<CR>
 " filter g output in a new buffer
 command! -nargs=? Filter let @a='' | execute 'g/<args>/y A' | new | setlocal bt=nofile | put! a | exe ":normal ggdd"
 nnoremap <leader>gg :Filter 
+
+" fzf mappings
+nnoremap <leader>pp :Files<CR>
+nnoremap <leader>gi :GFiles<CR>
+nnoremap <leader>ss :GFiles?<CR>
