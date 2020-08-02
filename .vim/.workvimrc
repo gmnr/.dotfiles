@@ -1,9 +1,8 @@
 " vimwiki settings
-let g:vimwiki_list =[{'path': '/mnt/c/Users/guido.minieri/OneDrive\ -\ Accenture/notes', 'syntax': 'markdown', 'ext': '.md', 'diary_rel_path': 'todo/', 'diary_header': 'To-Do'}]
+let g:vimwiki_list =[{'path': '/mnt/c/Users/guido.minieri/OneDrive - Accenture/notes', 'syntax': 'markdown', 'ext': '.md', 'diary_rel_path': 'todo/', 'diary_header': 'To-Do'}]
 
 " set the directory of the scratch buffer
-"let scratch_dir = '/mnt/c/Users/guido.minieri/OneDrive\ -\ Accenture/notes/scratch'
-let scratch_dir = '/mnt/c/Users/guido.minieri/Desktop'
+let scratch_dir = '/mnt/c/Users/guido.minieri/OneDrive - Accenture/notes/scratch'
 :cd /mnt/c/Users/guido.minieri/OneDrive\ -\ Accenture/notes
 
 " vimwiki shortcuts
