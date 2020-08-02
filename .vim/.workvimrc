@@ -1,0 +1,19 @@
+" vimwiki settings
+let g:vimwiki_list =[{'path': '/mnt/c/Users/guido.minieri/OneDrive\ -\ Accenture/notes', 'syntax': 'markdown', 'ext': '.md', 'diary_rel_path': 'todo/', 'diary_header': 'To-Do'}]
+
+" set the directory of the scratch buffer
+"let scratch_dir = '/mnt/c/Users/guido.minieri/OneDrive\ -\ Accenture/notes/scratch'
+let scratch_dir = '/mnt/c/Users/guido.minieri/Desktop'
+:cd /mnt/c/Users/guido.minieri/OneDrive\ -\ Accenture/notes
+
+" vimwiki shortcuts
+nmap <leader>mm <Plug>VimwikiIndex
+nmap <leader>mi <Plug>VimwikiDiaryIndex
+nmap <leader>md <Plug>VimwikiMakeDiaryNote
+nmap <leader>my <Plug>VimwikiMakeYesterdayDiaryNote
+nmap <leader>mt <Plug>VimwikiMakeTomorrowDiaryNote
+nmap <leader>mh <Plug>Vimwiki2HTMLBrowse
+"nmap <leader>mn <Plug>VimwikiGoto
+nmap <leader>mx <Plug>VimwikiDeleteFile
+nmap <leader>mf :VWS* /
+nmap <leader>mg <Plug>VimwikiNextLink
