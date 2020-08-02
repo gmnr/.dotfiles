@@ -320,7 +320,7 @@ nnoremap <leader>gi :GFiles<CR>
 nnoremap <leader>ss :GFiles?<CR>
 
 " accomodate for wsl on work laptop
-if has('unix')
+if !has('macunix')
     source ~/.dotfiles/.vim/.workvimrc
     source ~/.fzf/plugin/fzf.vim
 endif
