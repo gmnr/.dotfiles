@@ -72,5 +72,5 @@ if [ -f /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.ba
 fi
 
 # add options for fzf
-export FZF_DEFAULT_OPTS='--height 30% --layout=reverse'
+export FZF_DEFAULT_OPTS='--height 30% --layout=reverse --no-bold'
 #export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
