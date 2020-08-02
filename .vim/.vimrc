@@ -289,7 +289,7 @@ function! s:DScratch()
     let file = printf('%s/notes-%s.md', dir, date)
 
     if !filereadable(file)
-        let lines = [printf('# Quick Notes - %s', date), repeat('-', 28), '']
+        let lines = [printf('# Scratchpad - %s', date), repeat('-', 28), '']
         call writefile(lines, file)
     endif
     call s:ToggleWindow(file)
@@ -318,3 +318,9 @@ nnoremap <leader>gg :Filter
 nnoremap <leader>pp :Files<CR>
 nnoremap <leader>gi :GFiles<CR>
 nnoremap <leader>ss :GFiles?<CR>
+
+" accomodate for wsl on work laptop
+if has('unix')
+    source ~/.dotfiles/.vim/.workvimrc
+    source ~/.fzf/plugin/fzf.vim
+endif
