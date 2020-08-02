@@ -286,10 +286,10 @@ let scratch_dir = $HOME
 function! s:DScratch()
     let dir = g:scratch_dir
     let date = strftime('%Y-%m-%d')
-    let file = printf('%s/notes-%s.md', dir, date)
+    let file = printf('%s/%s.md', dir, date)
 
     if !filereadable(file)
-        let lines = [printf('# Scratchpad - %s', date), repeat('-', 28), '']
+        let lines = [printf('# Quicknotes - %s', date), repeat('-', 28), '']
         call writefile(lines, file)
     endif
     call s:ToggleWindow(file)
