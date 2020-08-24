@@ -50,3 +50,7 @@
 	path = .vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
     ignore = dirty
+[submodule ".vim/bundle/vim-diminactive"]
+	path = .vim/bundle/vim-diminactive
+	url = https://github.com/blueyed/vim-diminactive.git
+    ignore = dirty
