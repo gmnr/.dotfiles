@@ -10,6 +10,8 @@ alias dot='cd ~/.dotfiles'
 alias tmux='TERM=xterm-256color tmux'
 alias upd='sudo apt update'
 alias upg='sudo apt upgrade'
+alias ..='cd ..'
+alias ...='cd ../..'
 
 # check os version
 if [[ "$OSTYPE" == "darwin"* ]]; then
