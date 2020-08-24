@@ -10,7 +10,6 @@ execute pathogen#helptags()
 syntax on
 filetype plugin indent on
 set t_Co=256
-set showcmd
 set cmdheight=2
 set cursorline
 set ttyfast
@@ -18,6 +17,8 @@ set cot=menu
 set updatetime=100
 set showmatch
 set wildmenu
+set wildmode=list:longest,full
+set showcmd
 set wildignorecase
 set lazyredraw
 set encoding=utf-8
@@ -260,6 +261,7 @@ let g:delimitMate_expand_space = 1
 " emmet settings
 let g:user_emmet_mode='nv'
 let g:user_emmet_leader_key='<leader>'
+let g:user_emmet_settings = {'html' : {'block_all_childless': 1,},}
 
 " in visual mode use '*' and '#' to search for highlighted word
 xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
@@ -314,8 +316,14 @@ nnoremap <leader>oo :Scratch<CR>
 command! -nargs=? Filter let @a='' | execute 'g/<args>/y A' | new | setlocal bt=nofile | put! a | exe ":normal ggdd"
 nnoremap <leader>gg :Filter 
 
-" fzf mappings
-nnoremap <leader>pp :Files<CR>
+" find the root of a file
+function! s:find_git_root()
+    return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
+
+command! ProjectFiles execute 'Files' s:find_git_root()
+nnoremap <leader>pp :ProjectFiles<CR>
+nnoremap <leader>pb :Buffers<CR>
 nnoremap <leader>gi :GFiles<CR>
 nnoremap <leader>ss :GFiles?<CR>
 
