@@ -324,6 +324,7 @@ endfunction
 command! ProjectFiles execute 'Files' s:find_git_root()
 nnoremap <leader>pp :ProjectFiles<CR>
 nnoremap <leader>pb :Buffers<CR>
+nnoremap <leader>pl :Rg<CR>
 nnoremap <leader>gi :GFiles<CR>
 nnoremap <leader>ss :GFiles?<CR>
 
