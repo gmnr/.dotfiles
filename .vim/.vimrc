@@ -21,6 +21,7 @@ set wildmode=list:longest,full
 set showcmd
 set wildignorecase
 set lazyredraw
+set redrawtime=10000
 set encoding=utf-8
 set breakindent
 set nojoinspaces
