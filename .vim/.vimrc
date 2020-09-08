@@ -100,10 +100,8 @@ set undolevels=1000
 nnoremap j gj
 nnoremap k gk
 
-" buffer navigation
+" set hidden buffer
 set hidden
-nnoremap <C-l>l :bnext<CR>
-nnoremap <C-l>h :bprevious<CR>
 
 " disable Q for ex-mode
 nnoremap Q <nop>
