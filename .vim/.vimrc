@@ -330,7 +330,7 @@ nnoremap <leader>oo :Scratch<CR>
 
 " filter g output in a new buffer
 command! -nargs=? Filter let @a='' | execute 'g/<args>/y A' | new | setlocal bt=nofile | put! a | exe ":normal ggdd"
-nnoremap <leader>gg :Filter 
+nnoremap <leader>fg :Filter 
 
 " find the root of a file
 function! s:find_git_root()
