@@ -40,7 +40,7 @@ set encoding=utf-8                    " set encoding utf-8
 set breakindent                       " wrapped lines will be visually indented
 set nrformats-=octal                  " remove the octal notation from the number formats
 set wildmenu                          " enable wildmenu
-set wildmode=list:longest,full        " set wildmenu options TODO change
+set wildmode=list:longest,full        " set wildmenu options
 set ruler                             " in the statusline show line number and column number of cursor
 set rtp+=/usr/local/opt/fzf           " add fzf to runtimepath
 set noswapfile                        " disable swapfiles
@@ -269,7 +269,7 @@ endfunction
 "  =>  Plug-in Configuration
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " InSearch
-let g:incsearch#auto_nohlsearch = 1   " disable seasrch higlight when searching is done
+let g:incsearch#auto_nohlsearch = 1                          " disable higlight when searching is done
 
 " Quickrun
 let g:quickrun_config = {
@@ -277,26 +277,27 @@ let g:quickrun_config = {
     \'hook/time/enable': 1,
     \'hook/time/format': '[Finished in %gs]',
     \},
-\}
-" extra mappings to open the output in a predetermined split and to put the cursor there
-" 'outputter/buffer/split': ':8split',
-" 'ouputter/buffer/into': 1,
+\}                                                           " set options for quickrun
+" 'outputter/buffer/split': ':8split',                       " custom sized split
+" 'ouputter/buffer/into': 1,                                 " put cursor into new split
 
 " DelimitMate
-let g:delimitMate_nesting_quotes = ['"',"'"]
-let g:delimitMate_expand_cr = 2
-let g:delimitMate_expand_space = 1
+let g:delimitMate_nesting_quotes = ['"',"'"]                 " triplicate quotes for python
+let g:delimitMate_expand_cr = 2                              " turns on <CR> expansion
+let g:delimitMate_expand_space = 1                           " turns on <Space> expansion
 
 " Emmet
-let g:user_emmet_mode='nv'
-let g:user_emmet_leader_key='<leader>'
-let g:user_emmet_settings = {'html' : {'block_all_childless': 1,},}
+let g:user_emmet_mode='nv'                                   " enable emmet only in normal and visual mode
+let g:user_emmet_leader_key='<leader>'                       " changes emmet leader key
+let g:user_emmet_settings = {'html': 
+                                \{'block_all_childless': 1,}
+                                \ ,}                         " something with emmet
 
 " Netrw
-let g:netrw_banner=0
-let g:netrw_liststyle=3
-let g:netrw_browse_split=4
-let g:netrw_winsize=20
+let g:netrw_banner=0                                         " suppress the banner
+let g:netrw_liststyle=3                                      " tree style listing
+let g:netrw_browse_split=4                                   " the split is always vertical
+let g:netrw_winsize=20                                       " new win size is at 20%
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -308,7 +309,7 @@ colorscheme onedark                   " enable onedark coloscheme
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"  =>  AutoCommands
+"  =>  Auto Commands
 """"""""""""""""""""""""""""""""""""""""""""""""""
 au FileType * set fo-=c fo-=r fo-=o   " disable autoformat comments in newline
 au FileType css,py,c,html,xml,js au BufWritePre <buffer> :%s/\s\+$//e " remove trailing
@@ -319,13 +320,13 @@ au InsertLeave * set relativenumber   " when in normal mode show relative number
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Templates
 """"""""""""""""""""""""""""""""""""""""""""""""""
-au BufNewFile *.py 0r ~/.dotfiles/.vim/templates/python.template " use templates for vim
+au BufNewFile *.py 0r ~/.dotfiles/.vim/templates/python.template " use python templates for vim
   
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Misc
 """"""""""""""""""""""""""""""""""""""""""""""""""
-" different sources if not main laptop
+" source file differently if not main laptop
 if !has('macunix')
     source ~/.dotfiles/.vim/.workvimrc
     source ~/.fzf/plugin/fzf.vim
