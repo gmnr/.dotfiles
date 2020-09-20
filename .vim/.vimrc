@@ -299,6 +299,10 @@ let g:netrw_liststyle=3                                      " tree style listin
 let g:netrw_browse_split=4                                   " the split is always vertical
 let g:netrw_winsize=20                                       " new win size is at 20%
 
+" Gutentags
+let g:gutentags_add_ctrlp_root_markers=0                     " disable automatic markers for ctrlp
+let g:gutentags_generate_on_empty_buffer=1                   " generate tags when opening vim
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Colorscheme
