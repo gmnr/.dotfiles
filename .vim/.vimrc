@@ -41,7 +41,6 @@ set breakindent                       " wrapped lines will be visually indented
 set nrformats-=octal                  " remove the octal notation from the number formats
 set wildmenu                          " enable wildmenu
 set wildmode=list:longest,full        " set wildmenu options
-set ruler                             " in the statusline show line number and column number of cursor
 set rtp+=/usr/local/opt/fzf           " add fzf to runtimepath
 set noswapfile                        " disable swapfiles
 set hlsearch                          " enable search highlihgt
@@ -79,6 +78,13 @@ set laststatus=2                      " enable statusline
 "set clipboard^=unnamed                " clipboard options to enable cross comp with
 let mapleader=" "                     " set leader key
 let maplocalleader=" "                " set local leader key
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"  =>  Statusline
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" same as ruler (but with FugitiveStatus)
+set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
