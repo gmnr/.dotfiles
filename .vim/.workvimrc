@@ -30,3 +30,7 @@ function CleanJson()
     " call prettyfier
     exe '%! python3 -m json.tool'
 endfunction
+
+
+" shortcut to call the function
+nnoremap <F3>: call CleanJson()<CR>
