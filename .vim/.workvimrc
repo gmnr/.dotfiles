@@ -5,6 +5,10 @@ let g:vimwiki_list =[{'path': '/mnt/c/Users/guido.minieri/OneDrive - Accenture/n
 let scratch_dir = '/mnt/c/Users/guido.minieri/OneDrive - Accenture/notes/scratch'
 ":cd /mnt/c/Users/guido.minieri/OneDrive\ -\ Accenture/notes
 
+" set paste options
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+
 " vimwiki shortcuts
 nmap <leader>mm <Plug>VimwikiIndex
 nmap <leader>mi <Plug>VimwikiDiaryIndex
@@ -16,3 +20,13 @@ nmap <leader>mh <Plug>Vimwiki2HTMLBrowse
 nmap <leader>mx <Plug>VimwikiDeleteFile
 nmap <leader>mf :VWS* /
 nmap <leader>mg <Plug>VimwikiNextLink
+
+
+" func to format json
+function CleanJson()
+    " remove empty lines
+    exe 'g/^$/d'
+    set syntax=json
+    " call prettyfier
+    exe '%! python3 -m json.tool'
+endfunction
