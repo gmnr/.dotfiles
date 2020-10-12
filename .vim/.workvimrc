@@ -33,4 +33,7 @@ endfunction
 
 
 " shortcut to call the function
-nnoremap <F3>: call CleanJson()<CR>
+nnoremap <F3> :call CleanJson()<CR>
+
+" shortcut to move all items in the bottom
+nnoremap <F4> :g/X/m$<CR>
