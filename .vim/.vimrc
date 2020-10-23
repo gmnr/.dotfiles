@@ -270,6 +270,11 @@ function! s:FindGitRoot()
     return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
 endfunction
 
+" SearchantStp -> play nicely with incsearch
+function SearchantStop()
+  :execute "normal \<Plug>SearchantStop"
+endfunction
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Plug-in Configuration
@@ -321,10 +326,11 @@ colorscheme onedark                   " enable onedark coloscheme
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Auto Commands
 """"""""""""""""""""""""""""""""""""""""""""""""""
-au FileType * set fo-=c fo-=r fo-=o   " disable autoformat comments in newline
+au FileType * set fo-=c fo-=r fo-=o                                   " disable autoformat comments in newline
 au FileType css,py,c,html,xml,js au BufWritePre <buffer> :%s/\s\+$//e " remove trailing
-au InsertEnter * set norelativenumber " when in insert mode show absolute numbering
-au InsertLeave * set relativenumber   " when in normal mode show relative numbering
+au InsertEnter * set norelativenumber                                 " when in insert mode show absolute numbering
+au InsertLeave * set relativenumber                                   " when in normal mode show relative numbering
+au CursorMoved * call SearchantStop()                                 " stop custom highlight on matched pattern
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
