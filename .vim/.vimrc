@@ -323,8 +323,8 @@ colorscheme onedark                   " enable onedark coloscheme
 "  =>  Auto Commands
 """"""""""""""""""""""""""""""""""""""""""""""""""
 au FileType * set fo-=c fo-=r fo-=o                                   " disable autoformat comments in newline
-au FileType py,html,css,js au BufWritePre <buffer> :%s/\s\+$//e   " remove trailing
-au Filetype html,js,css setlocal ts=2 sw=2 sts=2                      " set custom indend levels for filetype
+au FileType py,html,css,js,json au BufWritePre <buffer> :%s/\s\+$//e  " remove trailing
+au Filetype html,js,css,json setlocal ts=2 sw=2 sts=2                 " set custom indend levels for filetype
 au FileType py let b:delimitMate_nesting_quotes = ['"',"'"]           " triplicate quotes for python
 au InsertEnter * set norelativenumber                                 " when in insert mode show absolute numbering
 au InsertLeave * set relativenumber                                   " when in normal mode show relative numbering
