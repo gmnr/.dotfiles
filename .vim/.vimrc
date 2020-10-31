@@ -58,11 +58,11 @@ set hidden                            " set hidden buffer
 set wrap                              " lines longer than windows width continue on the next line
 set linebreak                         " break lines not at character but at 'breakat'
 set nolist                            " dont' show character of list mode (i.e. $ at end of line)
+set expandtab                         " in insert mode use the correct number of spaces for tab
 set tabstop=4                         " number of spaces that a Tab counts for
 set softtabstop=4                     " number of spaces that a Tab counts for while editing
-set expandtab                         " in insert mode use the correct number of spaces for tab
-set shiftround                        " round indent to multiples of shiftwidth
 set shiftwidth=4                      " set the size of the indent
+set shiftround                        " round indent to multiples of shiftwidth
 set autoindent                        " copy indent from the current line when starting a new line
 set smartindent                       " smart autoindenting
 set splitbelow                        " when splitting put the new one below the current
@@ -293,16 +293,12 @@ let g:quickrun_config = {
 " 'ouputter/buffer/into': 1,                                 " put cursor into new split
 
 " DelimitMate
-let g:delimitMate_nesting_quotes = ['"',"'"]                 " triplicate quotes for python
 let g:delimitMate_expand_cr = 2                              " turns on <CR> expansion
 let g:delimitMate_expand_space = 1                           " turns on <Space> expansion
 
 " Emmet
 let g:user_emmet_mode='nv'                                   " enable emmet only in normal and visual mode
 let g:user_emmet_leader_key='<leader>'                       " changes emmet leader key
-let g:user_emmet_settings = {'html': 
-                                \{'block_all_childless': 1,}
-                                \ ,}                         " something with emmet
 
 " Netrw
 let g:netrw_banner=0                                         " suppress the banner
@@ -327,7 +323,9 @@ colorscheme onedark                   " enable onedark coloscheme
 "  =>  Auto Commands
 """"""""""""""""""""""""""""""""""""""""""""""""""
 au FileType * set fo-=c fo-=r fo-=o                                   " disable autoformat comments in newline
-au FileType css,py,c,html,xml,js au BufWritePre <buffer> :%s/\s\+$//e " remove trailing
+au FileType py,html,css,js au BufWritePre <buffer> :%s/\s\+$//e   " remove trailing
+au Filetype html,js,css setlocal ts=2 sw=2 sts=2                      " set custom indend levels for filetype
+au FileType py let b:delimitMate_nesting_quotes = ['"',"'"]           " triplicate quotes for python
 au InsertEnter * set norelativenumber                                 " when in insert mode show absolute numbering
 au InsertLeave * set relativenumber                                   " when in normal mode show relative numbering
 au CursorMoved * call SearchantStop()                                 " stop custom highlight on matched pattern
