@@ -47,7 +47,7 @@ set hlsearch                          " enable search highlihgt
 set ignorecase                        " ignore case for seasrch
 set smartcase                         " override ignorecase if the search pattern contains capital case
 set incsearch                         " while typing a search show where the pattern matches
-set shortmess-=S                      " enable count message while searching
+set shortmess=a                      " enable count message while searching
 set ttimeout                          " set timing for key combinations
 set timeoutlen=3000                   " time in milliseconds waited for a key sequence to complete
 set ttimeoutlen=100                   " time in milliseconds waited for a key sequence to complete
@@ -188,6 +188,7 @@ nnoremap <leader>pp :ProjectFiles<CR>
 nnoremap <leader>po :Tags<CR>
 nnoremap <leader>pb :Buffers<CR>
 nnoremap <leader>pl :Rg<CR>
+nnoremap <leader>pf :Rg <C-R><C-W><CR>
 nnoremap <leader>gi :GFiles<CR>
 nnoremap <leader>ss :GFiles?<CR>
 
