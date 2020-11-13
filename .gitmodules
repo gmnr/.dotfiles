@@ -66,3 +66,7 @@
 	path = .vim/bundle/vim-searchant
 	url = https://github.com/timakro/vim-searchant.git
 	ignore = dirty
+[submodule ".vim/bundle/vimwiki"]
+	path = .vim/bundle/vimwiki
+	url = https://github.com/vimwiki/vimwiki.git
+	ignore = dirty
