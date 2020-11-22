@@ -73,7 +73,7 @@ set noswapfile                        " don't create swapfiles
 set nowritebackup                     " dont' make backups before overwriting a file
 set viminfo="NONE"                    " don't show info after re-entering in the buffer
 set laststatus=2                      " enable statusline
-"set autochdir                         " set the working directory
+set autochdir                         " set the working directory
 "set noshowmode                        " show current mode in last line
 "set clipboard^=unnamed                " clipboard options to enable cross comp with
 let mapleader=" "                     " set leader key
