@@ -317,16 +317,17 @@ let g:gutentags_generate_on_empty_buffer=1                   " generate tags whe
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " colorscheme
 let g:onedark_termcolors=16           " use terminal colors for colorscheme (put before colorscheme)
-colorscheme onedark                   " enable onedark coloscheme
+colorscheme onedark                   " enable onedark colorscheme
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Auto Commands
 """"""""""""""""""""""""""""""""""""""""""""""""""
 au FileType * set fo-=c fo-=r fo-=o                                   " disable autoformat comments in newline
-au FileType py,html,css,js,json au BufWritePre <buffer> :%s/\s\+$//e  " remove trailing
-au Filetype html,js,css,json setlocal ts=2 sw=2 sts=2                 " set custom indend levels for filetype
-au FileType py let b:delimitMate_nesting_quotes = ['"',"'"]           " triplicate quotes for python
+au FileType python,html,css,javascript,json au BufWritePre <buffer> :%s/\s\+$//e  " remove trailing
+au Filetype html,javascript,css,json setlocal ts=2 sw=2 sts=2         " set custom indend levels for filetype
+au FileType python let b:delimitMate_nesting_quotes = ['"',"'"]       " triplicate quotes for python
+au FileType vimwiki set spell                                         " set spelling while editing markdown files
 au InsertEnter * set norelativenumber                                 " when in insert mode show absolute numbering
 au InsertLeave * set relativenumber                                   " when in normal mode show relative numbering
 au CursorMoved * call SearchantStop()                                 " stop custom highlight on matched pattern
@@ -335,7 +336,7 @@ au CursorMoved * call SearchantStop()                                 " stop cus
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Templates
 """"""""""""""""""""""""""""""""""""""""""""""""""
-au BufNewFile *.py 0r ~/.dotfiles/.vim/templates/python.template " use python templates for vim
+au BufNewFile python 0r ~/.dotfiles/.vim/templates/python.template " use python templates for vim
   
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
