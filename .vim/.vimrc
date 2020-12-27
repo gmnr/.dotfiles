@@ -151,7 +151,7 @@ xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
 
 " map Quickrun execution
-nmap <leader>tt :QuickRun<CR>
+nmap <leader>ee :QuickRun<CR>
 
 " buffer navigation
 nnoremap <leader>hh :bprevious<CR>
@@ -336,7 +336,7 @@ au CursorMoved * call SearchantStop()                                 " stop cus
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Templates
 """"""""""""""""""""""""""""""""""""""""""""""""""
-au BufNewFile python 0r ~/.dotfiles/.vim/templates/python.template " use python templates for vim
+au BufNewFile *.py 0r ~/.dotfiles/.vim/templates/python.template " use python templates for vim
   
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
