@@ -1,4 +1,4 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 "    __   _(_)_ __ ___  _ __ ___ 
 "   \ \ / / | '_ ` _ \| '__/ __|
 "    \ V /| | | | | | | | | (__ 
@@ -7,8 +7,6 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " @gmnr
 " Personal configuration for vim (the greatest editor there is)
-
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Source Plugins
@@ -44,7 +42,7 @@ set wildmode=list:longest,full        " set wildmenu options
 set rtp+=/usr/local/opt/fzf           " add fzf to runtimepath
 set noswapfile                        " disable swapfiles
 set hlsearch                          " enable search highlihgt
-set ignorecase                        " ignore case for seasrch
+set ignorecase                        " ignore case for search
 set smartcase                         " override ignorecase if the search pattern contains capital case
 set incsearch                         " while typing a search show where the pattern matches
 set shortmess=a                      " enable count message while searching
@@ -74,6 +72,7 @@ set nowritebackup                     " dont' make backups before overwriting a 
 set viminfo="NONE"                    " don't show info after re-entering in the buffer
 set laststatus=2                      " enable statusline
 set autochdir                         " set the working directory
+set spelllang=en_us,it                " set the language of spelling
 "set noshowmode                        " show current mode in last line
 "set clipboard^=unnamed                " clipboard options to enable cross comp with
 let mapleader=" "                     " set leader key
@@ -192,6 +191,10 @@ nnoremap <leader>pf :Rg <C-R><C-W><CR>
 nnoremap <leader>gi :GFiles<CR>
 nnoremap <leader>ss :GFiles?<CR>
 
+" vimviki
+nmap <Leader>wm <Plug>VimwikiIndex
+nnoremap <leader>wf :VWS /
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Commands 
@@ -288,10 +291,9 @@ let g:quickrun_config = {
     \'*': {
     \'hook/time/enable': 1,
     \'hook/time/format': '[Finished in %gs]',
-    \},
-\}                                                           " set options for quickrun
-" 'outputter/buffer/split': ':8split',                       " custom sized split
-" 'ouputter/buffer/into': 1,                                 " put cursor into new split
+    \'outputter/buffer/split': ':9split',
+    \'ouputter/buffer/into': 1,
+    \}}                                                      " set options for quickrun
 
 " DelimitMate
 let g:delimitMate_expand_cr = 2                              " turns on <CR> expansion
@@ -311,6 +313,12 @@ let g:netrw_winsize=20                                       " new win size is a
 let g:gutentags_add_ctrlp_root_markers=0                     " disable automatic markers for ctrlp
 let g:gutentags_generate_on_empty_buffer=1                   " generate tags when opening vim
 
+" vimwiki
+let g:vimwiki_list = [
+                        \{'path': '~/Documents/VimWiki/terme.wiki', 'syntax': 'markdown', 'ext': '.md'},
+                        \{'path': '~/Documents/VimWiki/personal.wiki', 'syntax': 'markdown', 'ext': '.md'},
+                \]
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Colorscheme
@@ -327,7 +335,7 @@ au FileType * set fo-=c fo-=r fo-=o                                   " disable 
 au FileType python,html,css,javascript,json au BufWritePre <buffer> :%s/\s\+$//e  " remove trailing
 au Filetype html,javascript,css,json setlocal ts=2 sw=2 sts=2         " set custom indend levels for filetype
 au FileType python let b:delimitMate_nesting_quotes = ['"',"'"]       " triplicate quotes for python
-au FileType vimwiki set spell                                         " set spelling while editing markdown files
+au FileType vimwiki,markdown set spell                                " set spelling while editing verbose files
 au InsertEnter * set norelativenumber                                 " when in insert mode show absolute numbering
 au InsertLeave * set relativenumber                                   " when in normal mode show relative numbering
 au CursorMoved * call SearchantStop()                                 " stop custom highlight on matched pattern
