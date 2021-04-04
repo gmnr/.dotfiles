@@ -152,10 +152,6 @@ xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
 " map Quickrun execution
 nmap <leader>ee :QuickRun<CR>
 
-" buffer navigation
-nnoremap <leader>hh :bprevious<CR>
-nnoremap <leader>ll :bnext<CR>
-
 " remap backspace to lats used buffer
 nnoremap <BS> <C-^>
 
