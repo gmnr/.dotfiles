@@ -2,6 +2,7 @@
 alias dev='cd ~/Coding'
 alias home='ssh home-server'
 alias python='python3'
+alias pip='pip3'
 alias less='less -R'
 alias mv='mv -v'
 alias rm='rm -i -v'
@@ -12,6 +13,7 @@ alias upd='sudo apt update'
 alias upg='sudo apt upgrade'
 alias ..='cd ..'
 alias ...='cd ../..'
+alias cat='bat'
 
 # check os version
 if [[ "$OSTYPE" == "darwin"* ]]; then
