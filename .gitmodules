@@ -74,4 +74,7 @@
 	path = .vim/bundle/vimtex
 	url = https://github.com/lervag/vimtex.git
 	ignore = dirty
-[submodule ".vim/bundle/vimtex"]
+[submodule ".vim/bundle/vim-gitgutter"]
+	path = .vim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+	ignore = dirty
