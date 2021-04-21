@@ -73,6 +73,7 @@ set viminfo="NONE"                    " don't show info after re-entering in the
 set laststatus=2                      " enable statusline
 set autochdir                         " set the working directory
 set spelllang=en_us,it                " set the language of spelling
+set updatetime=100                    " set the update time of git-gutter
 "set noshowmode                        " show current mode in last line
 "set clipboard^=unnamed                " clipboard options to enable cross comp with
 let mapleader=" "                     " set leader key
@@ -282,6 +283,9 @@ endfunction
 " InSearch
 let g:incsearch#auto_nohlsearch = 1                          " disable higlight when searching is done
 
+" GitGutter
+set signcolumn="yes"                                         " always show the gutter (even if empty)
+
 " Quickrun
 let g:quickrun_config = {
     \'*': {
@@ -329,9 +333,9 @@ colorscheme onedark                   " enable onedark colorscheme
 """"""""""""""""""""""""""""""""""""""""""""""""""
 au FileType * set fo-=c fo-=r fo-=o                                   " disable autoformat comments in newline
 au FileType python,html,css,javascript,json au BufWritePre <buffer> :%s/\s\+$//e  " remove trailing
-au Filetype html,javascript,css,json setlocal ts=2 sw=2 sts=2         " set custom indend levels for filetype
+au Filetype html,javascript,css,json setlocal ts=2 sw=2 sts=2         " set custom indent levels for filetype
 au FileType python let b:delimitMate_nesting_quotes = ['"',"'"]       " triplicate quotes for python
-au FileType vimwiki,markdown set spell                                " set spelling while editing verbose files
+au FileType vimwiki,markdown setlocal spell                                " set spelling while editing verbose files
 au InsertEnter * set norelativenumber                                 " when in insert mode show absolute numbering
 au InsertLeave * set relativenumber                                   " when in normal mode show relative numbering
 au CursorMoved * call SearchantStop()                                 " stop custom highlight on matched pattern
