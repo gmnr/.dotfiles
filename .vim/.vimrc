@@ -312,8 +312,7 @@ let g:gutentags_generate_on_empty_buffer=1                   " generate tags whe
 
 " vimwiki
 let g:vimwiki_list = [
-                        \{'path': '~/Documents/VimWiki/terme.wiki', 'syntax': 'markdown', 'ext': '.md'},
-                        \{'path': '~/Documents/VimWiki/personal.wiki', 'syntax': 'markdown', 'ext': '.md'},
+                        \{'path': '~/Documents/VimWiki/terme.wiki', 'syntax': 'markdown', 'ext': '.md'}
                 \]
 
 
