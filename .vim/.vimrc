@@ -63,7 +63,7 @@ set shiftwidth=4                      " set the size of the indent
 set shiftround                        " round indent to multiples of shiftwidth
 set autoindent                        " copy indent from the current line when starting a new line
 set smartindent                       " smart autoindenting
-set splitbelow                        " when splitting put the new one below the current
+"set splitbelow                        " when splitting put the new one below the current
 set splitright                        " when splitting put the new one right the current
 set gdefault                          " when substitutine the g flag is on by default
 set nobackup                          " don't make a backup before overwriting a file
@@ -288,7 +288,7 @@ let g:quickrun_config = {
     \'*': {
     \'hook/time/enable': 1,
     \'hook/time/format': '[Finished in %gs]',
-    \'outputter/buffer/split': ':9split',
+    \'outputter/buffer/split': ':below 9split',
     \'ouputter/buffer/into': 1,
     \}}                                                      " set options for quickrun
 
