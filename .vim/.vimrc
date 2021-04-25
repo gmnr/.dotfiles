@@ -57,13 +57,9 @@ set wrap                              " lines longer than windows width continue
 set linebreak                         " break lines not at character but at 'breakat'
 set nolist                            " dont' show character of list mode (i.e. $ at end of line)
 set expandtab                         " in insert mode use the correct number of spaces for tab
-set tabstop=4                         " number of spaces that a Tab counts for
-set softtabstop=4                     " number of spaces that a Tab counts for while editing
-set shiftwidth=4                      " set the size of the indent
 set shiftround                        " round indent to multiples of shiftwidth
 set autoindent                        " copy indent from the current line when starting a new line
 set smartindent                       " smart autoindenting
-"set splitbelow                        " when splitting put the new one below the current
 set splitright                        " when splitting put the new one right the current
 set gdefault                          " when substitutine the g flag is on by default
 set nobackup                          " don't make a backup before overwriting a file
@@ -311,9 +307,7 @@ let g:gutentags_add_ctrlp_root_markers=0                     " disable automatic
 let g:gutentags_generate_on_empty_buffer=1                   " generate tags when opening vim
 
 " vimwiki
-let g:vimwiki_list = [
-                        \{'path': '~/Documents/VimWiki/terme.wiki', 'syntax': 'markdown', 'ext': '.md'}
-                \]
+let g:vimwiki_list = [{'path': '~/Documents/VimWiki/terme.wiki'}]
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -327,28 +321,18 @@ colorscheme onedark                   " enable onedark colorscheme
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Auto Commands
 """"""""""""""""""""""""""""""""""""""""""""""""""
-au FileType * set fo-=c fo-=r fo-=o                                   " disable autoformat comments in newline
-au FileType python,html,css,javascript,json au BufWritePre <buffer> :%s/\s\+$//e  " remove trailing
-au FileType html,javascript,css,json setlocal ts=2 sw=2 sts=2         " set custom indent levels for filetype
-au FileType python let b:delimitMate_nesting_quotes = ['"',"'"]       " triplicate quotes for python
-au FileType vimwiki,markdown setlocal spell                           " set spelling while editing verbose files
-au BufRead,BufNewFile * setlocal signcolumn=yes                       " always show the space for git gutter
-au InsertEnter * set norelativenumber                                 " when in insert mode show absolute numbering
-au InsertLeave * set relativenumber                                   " when in normal mode show relative numbering
+au InsertEnter * set norelativenumber                                 " when in insert mode absolute numbering
+au InsertLeave * set relativenumber                                   " when in normal mode relative numbering
 au CursorMoved * call SearchantStop()                                 " stop custom highlight on matched pattern
+au FileType * set fo-=c fo-=r fo-=o                                   " disable autoformat comments in newline
+au FileType *.py let b:delimitMate_nesting_quotes = ['"',"'"]         " triplicate quotes for python
+au FileType *.wiki, *.md setlocal spell                               " set spelling while editing verbose files
+au BufRead,BufNewFile * setlocal signcolumn=yes                       " always show the space for git gutter
+au BufRead,BufNewFile *.js, *.html, *.css, *.json set ts=2 sw=2 sts=2 " 2 space indent for web dev
+au BufRead,BufNewFile *.py set ts=4 sw=4 sts=4                        " 4 space indent for python
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Templates
 """"""""""""""""""""""""""""""""""""""""""""""""""
-au BufNewFile *.py 0r ~/.dotfiles/.vim/templates/python.template " use python templates for vim
-  
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"  =>  Misc
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" source file differently if not main laptop
-if !has('macunix')
-    source ~/.dotfiles/.vim/.workvimrc
-    source ~/.fzf/plugin/fzf.vim
-endif
+au BufNewFile *.py 0r ~/.dotfiles/.vim/templates/python.template      " use python templates for vim
