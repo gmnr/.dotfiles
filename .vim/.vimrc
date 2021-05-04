@@ -75,6 +75,11 @@ set updatetime=100                    " set the update time of git-gutter
 let mapleader=" "                     " set leader key
 let maplocalleader=" "                " set local leader key
 
+if executable('rg')
+    set grepprg=rg\ --vimgrep
+    set grepformat=%f:%l:%c:%m
+endif
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Statusline
@@ -139,8 +144,8 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " map custom function Append and Insert
-nnoremap <silent> <Leader>a :set opfunc=Append<CR>g@
-nnoremap <silent> <Leader>i :set opfunc=Insert<CR>g@
+nnoremap <silent> <leader>a :set opfunc=Append<CR>g@
+nnoremap <silent> <leader>i :set opfunc=Insert<CR>g@
 
 " map custom function VSetSearch
 xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
@@ -180,12 +185,12 @@ nnoremap <leader>pp :ProjectFiles<CR>
 nnoremap <leader>po :Tags<CR>
 nnoremap <leader>pb :Buffers<CR>
 nnoremap <leader>pl :Rg<CR>
-nnoremap <leader>pf :Rg <C-R><C-W><CR>
+nnoremap <leader>pf :Rg<C-R><C-W><CR>
 nnoremap <leader>gi :GFiles<CR>
 nnoremap <leader>ss :GFiles?<CR>
 
 " vimviki
-nmap <Leader>wm <Plug>VimwikiIndex
+nmap <leader>wm <Plug>VimwikiIndex
 nnoremap <leader>wf :VWS /
 
 
