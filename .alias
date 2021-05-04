@@ -13,6 +13,7 @@ alias update='brew update && brew upgrade'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias cat='bat'
+alias grep='rg'
 
 # check os version
 if [[ "$OSTYPE" == "darwin"* ]]; then
