@@ -126,8 +126,8 @@ nnoremap <leader>ww :w<CR>
 nnoremap <leader>wq :Wd<CR>
 
 " quick exit
-nnoremap <leader>qq :bd<CR>
-nnoremap <leader>QQ :q<CR>
+nnoremap <leader>qq :bd!<CR>
+nnoremap <leader>QQ :q!<CR>
 nnoremap <leader>QA :qa!<CR>
 
 " quick search
