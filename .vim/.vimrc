@@ -99,10 +99,6 @@ map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
-" move across visual line
-nnoremap j gj
-nnoremap k gk
-
 " disable Q for ex-mode
 nnoremap Q <nop>
 
@@ -314,11 +310,11 @@ au InsertEnter * set norelativenumber                                 " when in 
 au InsertLeave * set relativenumber                                   " when in normal mode relative numbering
 au CursorMoved * call SearchantStop()                                 " stop custom highlight on matched pattern
 au FileType * set fo-=c fo-=r fo-=o                                   " disable autoformat comments in newline
-au FileType *.py let b:delimitMate_nesting_quotes = ['"',"'"]         " triplicate quotes for python
-au FileType *.wiki, *.md setlocal spell                               " set spelling while editing verbose files
-au BufRead,BufNewFile * setlocal signcolumn=yes                       " always show the space for git gutter
-au BufRead,BufNewFile *.js, *.html, *.css, *.json set ts=2 sw=2 sts=2 " 2 space indent for web dev
-au BufRead,BufNewFile *.py set ts=4 sw=4 sts=4                        " 4 space indent for python
+au FileType * setlocal signcolumn=yes                                 " always show the space for git gutter
+au FileType python let b:delimitMate_nesting_quotes = ['"',"'"]       " triplicate quotes for python
+au FileType vimwiki,markdown setlocal spell                           " set spelling while editing verbose files
+au FileType javascript,html,css,json setlocal ts=2 sw=2 sts=2         " 2 space indent for web dev
+au FileType python setlocal ts=4 sw=4 sts=4                           " 4 space indent for python
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
