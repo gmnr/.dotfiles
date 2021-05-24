@@ -155,7 +155,8 @@ nmap <leader>ee :QuickRun<CR>
 nnoremap <BS> <C-^>
 
 " map vim-fugive
-nnoremap <space>gs :G <CR>
+nnoremap <leader>gs :Git<CR>
+nnoremap <leader>gp :Git push<CR>
 
 " open scratch
 nnoremap <leader>oo :Scratch<CR>
