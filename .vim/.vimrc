@@ -1,7 +1,7 @@
 "
-"    __   _(_)_ __ ___  _ __ ___ 
+"    __   _(_)_ __ ___  _ __ ___
 "   \ \ / / | '_ ` _ \| '__/ __|
-"    \ V /| | | | | | | | | (__ 
+"    \ V /| | | | | | | | | (__
 "   (_)_/ |_|_| |_| |_|_|  \___|
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -44,7 +44,7 @@ set rtp+=/usr/local/opt/fzf           " add fzf to runtimepath
 set noswapfile                        " disable swapfiles
 set hlsearch                          " enable search highlihgt
 set ignorecase                        " ignore case for search
-set smartcase                         " override ignorecase if capital in search pattern 
+set smartcase                         " override ignorecase if capital in search pattern
 set incsearch                         " while typing a search show where the pattern matches
 set shortmess=a                      " enable count message while searching
 set ttimeout                          " set timing for key combinations
@@ -165,13 +165,13 @@ nnoremap <leader>wf :VWS /
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"  =>  Commands 
+"  =>  Commands
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " overwrite fzf Files to serach in project dir
 command! ProjectFiles execute 'Files' s:FindGitRoot()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"  =>  Functions 
+"  =>  Functions
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " VSetSearch -> in visual mode use '*' and '#' to search for highlighted word
 function! s:VSetSearch(cmdtype)
