@@ -14,6 +14,7 @@
 if exists('$DOTFILES')
     source $DOTFILES/.vim/autoload/pathogen.vim
 endif
+
 execute pathogen#infect('bundle/{}', '~/.dotfiles/.vim/bundle/{}')
 execute pathogen#helptags()
 
@@ -175,6 +176,7 @@ nnoremap <leader>ss :GFiles?<CR>
 
 " vimviki
 nmap <leader>wm <Plug>VimwikiIndex
+nmap <Leader>wo <Plug>Vimwiki2HTMLBrowse
 nnoremap <leader>wf :VWS /
 
 
