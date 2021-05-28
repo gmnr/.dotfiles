@@ -121,7 +121,7 @@ nnoremap <leader>sv :so $MYVIMRC<CR>
 
 " quick save
 nnoremap <leader>ww :w<CR>
-nnoremap <leader>wq :Wd<CR>
+nnoremap <leader>wq :wq<CR>
 
 " quick exit
 nnoremap <leader>qq :bd!<CR>
@@ -131,19 +131,9 @@ nnoremap <leader>QA :qa!<CR>
 " quick search
 nnoremap <leader>ff :%s/
 
-" enforcing purity (!!)
-noremap <Up>    <nop>
-noremap <Down>  <nop>
-noremap <Right> <nop>
-noremap <Left>  <nop>
-
 " start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
-
-" map custom function Append and Insert
-nnoremap <silent> <leader>a :set opfunc=Append<CR>g@
-nnoremap <silent> <leader>i :set opfunc=Insert<CR>g@
 
 " map custom function VSetSearch
 xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
@@ -158,9 +148,6 @@ nnoremap <BS> <C-^>
 " map vim-fugive
 nnoremap <leader>gs :Git<CR>
 nnoremap <leader>gp :Git push<CR>
-
-" open scratch
-nnoremap <leader>oo :Scratch<CR>
 
 " filter g output in a new buffer
 nnoremap <leader>fg :Filter 
@@ -189,68 +176,15 @@ command! -nargs=? Filter let @a='' | execute 'g/<args>/y A' | new | setlocal bt=
 " overwrite fzf Files to serach in project dir
 command! ProjectFiles execute 'Files' s:FindGitRoot()
 
-" open custom Scratch
-command! Scratch call s:DScratch()
-
-" define close behaviour for buffers
-command!  Wd write|bdelete
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Functions 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-" Append -> append at the end of object (es. bracket)
-function! Append(type, ...)
-    normal! `]
-    if a:type == 'char'
-        call feedkeys("a", 'n')
-    else
-        call feedkeys("o", 'n')
-    endif
-endfunction
-
-" Insert -> insert at the beginning of object (es. bracket)
-function! Insert(type, ...)
-    normal! `[
-    if a:type == 'char'
-        call feedkeys("i", 'n')
-    else
-        call feedkeys("O", 'n')
-    endif
-endfunction
-
 " VSetSearch -> in visual mode use '*' and '#' to search for highlighted word
 function! s:VSetSearch(cmdtype)
     let temp = @s
     norm! gv"sy
     let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
     let @s = temp
-endfunction
-
-" DScratch -> create a scratch buffer
-let scratch_dir = $HOME
-function! s:DScratch()
-    let dir = g:scratch_dir
-    let date = strftime('%Y-%m-%d')
-    let file = printf('%s/%s.md', dir, date)
-    if !filereadable(file)
-        let lines = [printf('# Quicknotes - %s', date), repeat('-', 28), '']
-        call writefile(lines, file)
-    endif
-    call s:ToggleWindow(file)
-endfunction
-
-" ToggleWindow -> open buffer in another window
-function! s:ToggleWindow(file) abort
-    let win_info = filter(getwininfo(), 'v:val.bufnr == bufnr(a:file)')
-    if empty(win_info)
-        execute 'split ' . a:file
-    else
-        let winnr = win_info[0].winnr
-        execute winnr . 'wincmd w'
-        silent write
-        execute winnr . 'wincmd c'
-    endif
 endfunction
 
 " FindGitRoot -> find the root of a project
@@ -287,17 +221,11 @@ let g:delimitMate_expand_space = 1                           " turns on <Space> 
 let g:user_emmet_mode='nv'                                   " enable emmet only in normal and visual mode
 let g:user_emmet_leader_key='<leader>'                       " changes emmet leader key
 
-" Netrw
-let g:netrw_banner=0                                         " suppress the banner
-let g:netrw_liststyle=3                                      " tree style listing
-let g:netrw_browse_split=4                                   " the split is always vertical
-let g:netrw_winsize=20                                       " new win size is at 20%
-
 " Gutentags
 let g:gutentags_add_ctrlp_root_markers=0                     " disable automatic markers for ctrlp
 let g:gutentags_generate_on_empty_buffer=1                   " generate tags when opening vim
 
-" vimwiki
+" Vimwiki
 let g:vimwiki_global_ext = 0                                 " vimwiki only overrides .wiki files
 let g:vimwiki_list = [{
     \ 'path': '~/Documents/VimWiki/gmnr',
