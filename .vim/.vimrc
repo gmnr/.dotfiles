@@ -149,9 +149,6 @@ nnoremap <BS> <C-^>
 nnoremap <leader>gs :Git<CR>
 nnoremap <leader>gp :Git push<CR>
 
-" filter g output in a new buffer
-nnoremap <leader>fg :Filter 
-
 " map fzf
 nnoremap <leader>pp :ProjectFiles<CR>
 nnoremap <leader>po :Tags<CR>
@@ -170,9 +167,6 @@ nnoremap <leader>wf :VWS /
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Commands 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-" filter in a new buffer results
-command! -nargs=? Filter let @a='' | execute 'g/<args>/y A' | new | setlocal bt=nofile | put! a | execute ":normal ggdd"
-
 " overwrite fzf Files to serach in project dir
 command! ProjectFiles execute 'Files' s:FindGitRoot()
 
