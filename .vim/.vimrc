@@ -296,7 +296,13 @@ let g:gutentags_add_ctrlp_root_markers=0                     " disable automatic
 let g:gutentags_generate_on_empty_buffer=1                   " generate tags when opening vim
 
 " vimwiki
-let g:vimwiki_list = [{'path': '~/Documents/VimWiki/terme.wiki'}]
+let g:vimwiki_global_ext = 0                                 " vimwiki only overrides .wiki files
+let g:vimwiki_list = [{
+    \ 'path': '~/Documents/VimWiki/gmnr',
+    \ 'ext': '.wiki',
+    \ 'template_path': '~/Documents/VimWiki/templates',
+    \ 'template_default': 'default',
+    \ 'template_ext': '.html'}]
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -317,6 +323,7 @@ au FileType * set fo-=c fo-=r fo-=o                                   " disable 
 au FileType * setlocal signcolumn=yes                                 " always show the space for git gutter
 au FileType python let b:delimitMate_nesting_quotes = ['"',"'"]       " triplicate quotes for python
 au FileType vimwiki,markdown setlocal spell                           " set spelling while editing verbose files
+au FileType vimwiki au BufWritePost <buffer> silent Vimwiki2HTML      " auto export while saving
 au FileType javascript,html,css,json setlocal ts=2 sw=2 sts=2         " 2 space indent for web dev
 au FileType python setlocal ts=4 sw=4 sts=4                           " 4 space indent for python
 
