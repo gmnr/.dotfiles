@@ -46,7 +46,7 @@ set hlsearch                          " enable search highlihgt
 set ignorecase                        " ignore case for search
 set smartcase                         " override ignorecase if capital in search pattern
 set incsearch                         " while typing a search show where the pattern matches
-set shortmess=a                      " enable count message while searching
+set shortmess=a                       " enable count message while searching
 set ttimeout                          " set timing for key combinations
 set timeoutlen=3000                   " time in milliseconds waited for a key sequence to complete
 set ttimeoutlen=100                   " time in milliseconds waited for a key sequence to complete
@@ -194,7 +194,7 @@ endfunction
 "  =>  Plug-in Configuration
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " InSearch
-let g:incsearch#auto_nohlsearch = 1                          " disable higlight when searching is done
+let g:incsearch#auto_nohlsearch = 1                   " disable higlight when searching is done
 
 " Quickrun
 let g:quickrun_config = {
@@ -203,22 +203,22 @@ let g:quickrun_config = {
     \'hook/time/format': '[Finished in %gs]',
     \'outputter/buffer/split': ':below 9split',
     \'ouputter/buffer/into': 1,
-    \}}                                                      " set options for quickrun
+    \}}                                               " set options for quickrun
 
 " DelimitMate
-let g:delimitMate_expand_cr = 2                              " turns on <CR> expansion
-let g:delimitMate_expand_space = 1                           " turns on <Space> expansion
+let g:delimitMate_expand_cr = 2                       " turns on <CR> expansion
+let g:delimitMate_expand_space = 1                    " turns on <Space> expansion
 
 " Emmet
-let g:user_emmet_mode='nv'                                   " enable emmet only in normal and visual mode
+let g:user_emmet_mode='nv'                            " enable emmet only in normal and visual mode
 let g:user_emmet_leader_key='<leader>'                       " changes emmet leader key
 
 " Gutentags
-let g:gutentags_add_ctrlp_root_markers=0                     " disable automatic markers for ctrlp
-let g:gutentags_generate_on_empty_buffer=1                   " generate tags when opening vim
+let g:gutentags_add_ctrlp_root_markers=0              " disable automatic markers for ctrlp
+let g:gutentags_generate_on_empty_buffer=1            " generate tags when opening vim
 
 " Vimwiki
-let g:vimwiki_global_ext = 0                                 " vimwiki only overrides .wiki files
+let g:vimwiki_global_ext = 0                          " vimwiki only overrides .wiki files
 let g:vimwiki_list = [{
     \ 'path': '~/Documents/VimWiki/gmnr',
     \ 'ext': '.wiki',
@@ -231,23 +231,29 @@ let g:vimwiki_list = [{
 "  =>  Colorscheme
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " colorscheme
-let g:onedark_termcolors=16           " use terminal colors for colorscheme (put before colorscheme)
-colorscheme onedark                   " enable onedark colorscheme
+let g:onedark_termcolors=16                          " use terminal colors for colorscheme (put before colorscheme)
+colorscheme onedark                                  " enable onedark colorscheme
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Auto Commands
 """"""""""""""""""""""""""""""""""""""""""""""""""
-au InsertEnter * set norelativenumber                                 " when in insert mode absolute numbering
-au InsertLeave * set relativenumber                                   " when in normal mode relative numbering
-au CursorMoved * call SearchantStop()                                 " stop custom highlight on matched pattern
-au FileType * set fo-=c fo-=r fo-=o                                   " disable autoformat comments in newline
-au FileType * setlocal signcolumn=yes                                 " always show the space for git gutter
-au FileType python let b:delimitMate_nesting_quotes = ['"',"'"]       " triplicate quotes for python
-au FileType vimwiki,markdown setlocal spell                           " set spelling while editing verbose files
-au FileType vimwiki au BufWritePost <buffer> silent Vimwiki2HTML      " auto export while saving
+au InsertEnter * set norelativenumber                " when in insert mode absolute numbering
+au InsertLeave * set relativenumber                  " when in normal mode relative numbering
+au CursorMoved * call SearchantStop()                " stop custom highlight on matched pattern
+au FileType * set fo-=c fo-=r fo-=o                  " disable autoformat comments in newline
+au FileType * setlocal signcolumn=yes                " always show the space for git gutter
+au FileType python let b:delimitMate_nesting_quotes = ['"',"'"]
+au FileType vimwiki,markdown setlocal spell          " set spelling while editing verbose files
+au FileType vimwiki au BufWritePost <buffer> silent Vimwiki2HTML      " auto export to html when saving
 au FileType javascript,html,css,json setlocal ts=2 sw=2 sts=2         " 2 space indent for web dev
 au FileType python setlocal ts=4 sw=4 sts=4                           " 4 space indent for python
+
+augroup init_quickfix
+    autocmd!
+    autocmd QuickFixCmdPost [^l]* cwindow
+    autocmd QuickFixCmdPost l* lwindow
+augroup END
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
