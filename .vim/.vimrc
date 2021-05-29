@@ -73,17 +73,10 @@ set spelllang=en_us,it                " set the language of spelling
 let mapleader=" "                     " set leader key
 let maplocalleader=" "                " set local leader key
 
-if executable('rg')
-    set grepprg=rg\ --vimgrep
-    set grepformat=%f:%l:%c:%m
+if executable("rg")
+    set grepprg=rg\ --vimgrep\ --no-heading
+    set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"  =>  Statusline
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" same as ruler (but with FugitiveStatus)
-"set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -169,6 +162,11 @@ nnoremap <leader>wf :VWS /
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " overwrite fzf Files to serach in project dir
 command! ProjectFiles execute 'Files' s:FindGitRoot()
+" grep
+
+cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'
+cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Functions
