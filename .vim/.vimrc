@@ -100,14 +100,6 @@ nnoremap k gk
 " disable Q for ex-mode
 nnoremap Q <nop>
 
-" move lines in all modes
-nnoremap <C-j> :m .+1<CR>==
-inoremap <C-j> <Esc>:m .+1<CR>==gi
-vnoremap <C-j> :m '>+1<CR>gv=gv
-nnoremap <C-k> :m .-2<CR>==
-inoremap <C-k> <Esc>:m .-2<CR>==gi
-vnoremap <C-k> :m '<-2<CR>gv=gv
-
 " open and load .vimrc
 nnoremap <leader>ev :e $MYVIMRC<CR>
 nnoremap <leader>sv :so $MYVIMRC<CR>
@@ -155,6 +147,12 @@ nnoremap <leader>ss :GFiles?<CR>
 nmap <leader>wm <Plug>VimwikiIndex
 nmap <Leader>wo <Plug>Vimwiki2HTMLBrowse
 nnoremap <leader>wf :VWS /
+
+" tmux integration
+nnoremap <silent> <C-left>  :TmuxNavigateLeft<CR>
+nnoremap <silent> <C-down>  :TmuxNavigateDown<CR>
+nnoremap <silent> <C-up>    :TmuxNavigateUp<CR>
+nnoremap <silent> <C-right> :TmuxNavigateRight<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -225,6 +223,9 @@ let g:vimwiki_list = [{
     \ 'template_path': '~/Documents/VimWiki/templates',
     \ 'template_default': 'default',
     \ 'template_ext': '.html'}]
+
+" tmux-integration
+let g:tmux_navigator_no_mappings = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
