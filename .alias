@@ -15,6 +15,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias cat='bat'
 alias grep='rg'
+alias vim='nvim'
 
 # check os version
 if [[ "$OSTYPE" == "darwin"* ]]; then

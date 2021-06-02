@@ -148,12 +148,6 @@ nmap <leader>wm <Plug>VimwikiIndex
 nmap <Leader>wo <Plug>Vimwiki2HTMLBrowse
 nnoremap <leader>wf :VWS /
 
-" tmux integration
-nnoremap <silent> <C-left>  :TmuxNavigateLeft<CR>
-nnoremap <silent> <C-down>  :TmuxNavigateDown<CR>
-nnoremap <silent> <C-up>    :TmuxNavigateUp<CR>
-nnoremap <silent> <C-right> :TmuxNavigateRight<CR>
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Commands
@@ -223,9 +217,6 @@ let g:vimwiki_list = [{
     \ 'template_path': '~/Documents/VimWiki/templates',
     \ 'template_default': 'default',
     \ 'template_ext': '.html'}]
-
-" tmux-integration
-let g:tmux_navigator_no_mappings = 1
 
 " git gutter
 let g:gitgutter_sign_added = '█|'
