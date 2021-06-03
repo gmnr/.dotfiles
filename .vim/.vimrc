@@ -93,6 +93,9 @@ map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
+" fix Y behaviour
+nmap Y y$
+
 " move across visual lines
 nnoremap j gj
 nnoremap k gk
@@ -237,6 +240,7 @@ colorscheme onedark                                  " enable onedark colorschem
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Auto Commands
 """"""""""""""""""""""""""""""""""""""""""""""""""
+au InsertEnter * norm zz                             " center document when entering insert mode
 au InsertEnter * set norelativenumber                " when in insert mode absolute numbering
 au InsertLeave * set relativenumber                  " when in normal mode relative numbering
 au CursorMoved * call SearchantStop()                " stop custom highlight on matched pattern
