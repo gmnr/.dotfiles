@@ -151,6 +151,9 @@ nmap <leader>wm <Plug>VimwikiIndex
 nmap <Leader>wo <Plug>Vimwiki2HTMLBrowse
 nnoremap <leader>wf :VWS /
 
+" change the current directory to edited file
+nmap <leader>cd :cd %:h<CR>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Commands
