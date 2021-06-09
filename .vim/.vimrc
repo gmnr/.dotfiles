@@ -127,9 +127,6 @@ nmap ga <Plug>(EasyAlign)
 xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
 
-" map Quickrun execution
-nmap <leader>ee :QuickRun<CR>
-
 " remap backspace to lats used buffer
 nnoremap <BS> <C-^>
 
