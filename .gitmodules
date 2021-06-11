@@ -78,3 +78,7 @@
 	path = .vim/bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
 	ignore = dirty
+[submodule ".vim/bundle/vim-repeat"]
+	path = .vim/bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+	ignore = dirty
