@@ -151,6 +151,9 @@ nnoremap <leader>wf :VWS /
 " change the current directory to edited file
 nmap <leader>cd :cd %:h<CR>
 
+" add autocorrect
+nmap <leader><Tab> 1z=
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Commands
