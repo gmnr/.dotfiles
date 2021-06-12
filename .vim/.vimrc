@@ -70,6 +70,8 @@ set viminfo="NONE"                    " don't show info after re-entering in the
 set laststatus=2                      " enable statusline
 set updatetime=100                    " set the update time of git-gutter
 set spelllang=en_us,it                " set the language of spelling
+set spf=~/.vim/spell/en_us.utf-8.add  " set the correct directory for english
+set spf=~/.vim/spell/it.utf-8.add     " set the correct directory for italian
 let mapleader=" "                     " set leader key
 let maplocalleader=" "                " set local leader key
 
