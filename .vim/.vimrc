@@ -162,8 +162,8 @@ nmap <leader><Tab> 1z=
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " overwrite fzf Files to serach in project dir
 command! ProjectFiles execute 'Files' s:FindGitRoot()
-" grep
 
+" grep abbreviation
 cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'
 cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
 
@@ -260,6 +260,12 @@ augroup init_quickfix
     autocmd!
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost l* lwindow
+augroup END
+
+augroup statusline
+    autocmd!
+    autocmd WinEnter,BufEnter * setlocal number | setlocal cul
+    autocmd WinLeave,BufLeave * setlocal nonumber | setlocal nocul
 augroup END
 
 
