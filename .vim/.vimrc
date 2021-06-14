@@ -109,14 +109,11 @@ nnoremap Q <nop>
 nnoremap <leader>ev :e $MYVIMRC<CR>
 nnoremap <leader>sv :so $MYVIMRC<CR>
 
-" quick save
+" quick save and exit
 nnoremap <leader>ww :w<CR>
-nnoremap <leader>wq :wq<CR>
-
-" quick exit
 nnoremap <leader>qq :bd!<CR>
+nnoremap <leader>wq :Wd<CR>
 nnoremap <leader>QQ :q!<CR>
-nnoremap <leader>QA :qa!<CR>
 
 " quick search
 nnoremap <leader>ff :%s/
@@ -162,6 +159,9 @@ nmap <leader><Tab> 1z=
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " overwrite fzf Files to serach in project dir
 command! ProjectFiles execute 'Files' s:FindGitRoot()
+
+" save and close buffer
+command! Wd write|bdelete
 
 " grep abbreviation
 cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'
