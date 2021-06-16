@@ -130,9 +130,11 @@ xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
 " remap backspace to lats used buffer
 nnoremap <BS> <C-^>
 
-" map vim-fugive
+" map vim-fugitive
 nnoremap <leader>gs :Git<CR>
 nnoremap <leader>gp :Git push<CR>
+nnoremap <leader>gh :diffget //2<CR>
+nnoremap <leader>gl :diffget //3<CR>
 
 " map fzf
 nnoremap <leader>pp :ProjectFiles<CR>
