@@ -153,6 +153,9 @@ nmap <leader>cd :cd %:h<CR>
 " add autocorrect
 nmap <leader><Tab> 1z=
 
+" quickrun
+nnoremap <leader>r :QuickRun<CR>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Commands
@@ -201,9 +204,7 @@ let g:quickrun_config = {
     \'*': {
     \'hook/time/enable': 1,
     \'hook/time/format': '[Finished in %gs]',
-    \'outputter/buffer/split': ':below 9split',
-    \'ouputter/buffer/into': 1,
-    \}}                                               " set options for quickrun
+    \'outputter/buffer/opener': '%{"bel 12new"}'}}    " set options for quickrun
 
 " DelimitMate
 let g:delimitMate_expand_cr = 2                       " turns on <CR> expansion
