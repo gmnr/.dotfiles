@@ -78,3 +78,7 @@
 	path = .vim/bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
 	ignore = dirty
+[submodule ".vim/bundle/fzf-checkout.vim"]
+	path = .vim/bundle/fzf-checkout.vim
+	url = https://github.com/stsewd/fzf-checkout.vim.git
+	ignore = dirty

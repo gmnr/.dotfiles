@@ -135,6 +135,7 @@ nnoremap <leader>gs :Git<CR>
 nnoremap <leader>gp :Git push<CR>
 nnoremap <leader>gh :diffget //2<CR>
 nnoremap <leader>gl :diffget //3<CR>
+nnoremap <leader>gc :GBranches<CR>
 
 " map fzf
 nnoremap <leader>pp :ProjectFiles<CR>
