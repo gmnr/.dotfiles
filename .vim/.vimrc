@@ -106,7 +106,7 @@ nnoremap k gk
 nnoremap Q <nop>
 
 " open and load .vimrc
-nnoremap <leader>ev :e $MYVIMRC<CR>
+nnoremap <leader>ev :e ~/.dotfiles/.vim/.vimrc<CR>
 nnoremap <leader>sv :so $MYVIMRC<CR>
 
 " quick save and exit
@@ -264,8 +264,8 @@ augroup END
 
 augroup statusline
     autocmd!
-    autocmd WinEnter,BufEnter * setlocal number | setlocal cul
-    autocmd WinLeave,BufLeave * setlocal nonumber | setlocal nocul
+    autocmd WinEnter,BufEnter * setlocal cul
+    autocmd WinLeave,BufLeave * setlocal nocul
 augroup END
 
 
