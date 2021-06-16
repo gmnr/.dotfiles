@@ -66,6 +66,7 @@ set gdefault                          " when substitutine the g flag is on by de
 set nobackup                          " don't make a backup before overwriting a file
 set noswapfile                        " don't create swapfiles
 set nowritebackup                     " dont' make backups before overwriting a file
+set diffopt+=context:99999            " disable folding for diff windows
 set viminfo="NONE"                    " don't show info after re-entering in the buffer
 set laststatus=2                      " enable statusline
 set updatetime=100                    " set the update time of git-gutter
