@@ -136,6 +136,7 @@ nnoremap <leader>gp :Git push<CR>
 nnoremap <leader>gh :diffget //2<CR>
 nnoremap <leader>gl :diffget //3<CR>
 nnoremap <leader>gc :GBranches<CR>
+nnoremap <leader>gi :GFiles<CR>
 
 " map fzf
 nnoremap <leader>pp :ProjectFiles<CR>
@@ -143,8 +144,7 @@ nnoremap <leader>po :Tags<CR>
 nnoremap <leader>pb :Buffers<CR>
 nnoremap <leader>pl :Rg<CR>
 nnoremap <leader>pf :Rg<C-R><C-W><CR>
-nnoremap <leader>gi :GFiles<CR>
-nnoremap <leader>ss :GFiles?<CR>
+nnoremap <leader>ps :GFiles?<CR>
 
 " vimviki
 nmap <leader>wm <Plug>VimwikiIndex
