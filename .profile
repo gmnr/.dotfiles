@@ -73,4 +73,4 @@ fi
 
 # add options for fzf
 export FZF_DEFAULT_OPTS='--height 30% --layout=reverse --no-bold'
-#export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
