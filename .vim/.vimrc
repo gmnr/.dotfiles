@@ -148,7 +148,6 @@ nnoremap <leader>pp :ProjectFiles<CR>
 nnoremap <leader>po :Tags<CR>
 nnoremap <leader>pb :Buffers<CR>
 nnoremap <leader>pl :Rg<CR>
-nnoremap <leader>pf :Rg<C-R><C-W><CR>
 nnoremap <leader>ps :GFiles?<CR>
 
 " vimviki
