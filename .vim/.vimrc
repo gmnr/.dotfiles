@@ -250,6 +250,8 @@ let g:gitgutter_sign_modified_removed = "█▟"
 let g:onedark_termcolors=16                          " use terminal colors for colorscheme (put before colorscheme)
 colorscheme onedark                                  " enable onedark colorscheme
 
+highlight Comment cterm=italic gui=italic
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Auto Commands
