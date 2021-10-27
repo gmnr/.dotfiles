@@ -1,6 +1,9 @@
 # for mac settings
 .DS_Store
 
+# custom directory for a module that is not in the tracked submodules (and that will be eventually removed)
+.vim/bundle/vim-hardtime/
+
 # tags
 tags
 tags.lock
