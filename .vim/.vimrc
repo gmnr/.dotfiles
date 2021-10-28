@@ -162,6 +162,9 @@ nmap <leader><Tab> 1z=
 " quickrun
 nnoremap <leader>r :QuickRun<CR>
 
+" toggle paste
+nnoremap <leader>yy :set invpaste paste?<CR>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Commands
