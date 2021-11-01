@@ -67,9 +67,9 @@ set nowritebackup                                                     " don't ma
 set diffopt+=iwhite                                                   " turn off whitespaces compare and folding
 set diffopt+=vertical
 set diffopt+=filler                                                   " show filler lines in vimdiff
-set diffopt+=internal,algorithm:patience
+set diffopt+=internal
 set diffopt+=indent-heuristic
-set diffopt+=algorithm:histogram
+set diffopt+=algorithm:patience
 set viminfo="NONE"                                                    " don't show info after re-entering in the buffer
 set laststatus=2                                                      " enable enough space in statusline
 set updatetime=100                                                    " set the update time of git-gutter
