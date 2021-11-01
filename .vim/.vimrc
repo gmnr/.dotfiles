@@ -165,6 +165,12 @@ nnoremap <leader>r :QuickRun<CR>
 " toggle paste
 nnoremap <leader>yy :set invpaste paste?<CR>
 
+" change mappings for location list navigation
+nnoremap [w :lprevious<CR>
+nnoremap ]w :lnext<CR>
+nnoremap [W :lfirst<CR>
+nnoremap ]W :llast<CR>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Commands
