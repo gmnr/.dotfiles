@@ -252,6 +252,11 @@ let g:gitgutter_sign_modified_removed = "█▟"
 " hardtime (only temporary)
 let g:hardtime_default_on = 1                                         " enable to master the 'true' way
 
+" indentline
+let g:indentLine_char_list = ['▏']                               " select chars to draw at indentation
+let g:indentLine_bufTypeExclude = ['help', 'terminal']                " exlude certain buffer type from indentline
+let g:indentLine_fileTypeExclude = ['txt', 'vimwiki', 'sh']           " don't use indentline on plain files
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Colorscheme
