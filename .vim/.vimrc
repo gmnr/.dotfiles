@@ -171,6 +171,9 @@ nnoremap ]w :lnext<CR>
 nnoremap [W :lfirst<CR>
 nnoremap ]W :llast<CR>
 
+" change prefix for window navigation
+nnoremap <leader>a <C-w>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Commands
