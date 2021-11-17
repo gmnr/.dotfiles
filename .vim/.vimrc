@@ -36,7 +36,7 @@ set encoding=utf-8                                                    " set enco
 set breakindent                                                       " wrapped lines will be visually indented
 set nrformats-=octal                                                  " remove the octal notation from the number formats
 set wildmenu                                                          " enable wildmenu
-set wildmode=list:longest,full                                        " set wildmenu options
+set wildmode=longest:full,full                                        " set wildmenu options
 set wildignorecase                                                    " ignore case while completing files and dirs
 set rtp+=/usr/local/opt/fzf                                           " add fzf to runtimepath
 set noswapfile                                                        " disable swapfiles
