@@ -280,7 +280,6 @@ au InsertLeave * set relativenumber                                   " when in 
 au CursorMoved * call SearchantStop()                                 " stop custom highlight on matched pattern
 au FileType * set fo-=c fo-=r fo-=o                                   " disable autoformat comments in newline
 au FileType * setlocal signcolumn=yes                                 " always show the space for git gutter
-au FileType python let b:delimitMate_nesting_quotes = ['"',"'"]       " for python comment
 au FileType vimwiki,markdown setlocal spell                           " set spelling while editing verbose files
 au FileType vimwiki au BufWritePost <buffer> silent Vimwiki2HTML      " auto export to html when saving
 au FileType javascript,html,css,json setlocal ts=2 sw=2 sts=2         " 2 space indent for web dev
