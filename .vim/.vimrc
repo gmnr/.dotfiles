@@ -30,7 +30,6 @@ set ttyfast                                                           " improve 
 set completeopt=menu                                                  " set insert mode completion mode
 set showmatch                                                         " show matching bracket when inserting one
 set showcmd                                                           " show commands in the last line
-set wildignorecase                                                    " ignore case while completing files and dirs
 set lazyredraw                                                        " do not redraw the screen while executing macros
 set redrawtime=10000                                                  " time in milliseconds to redraw the screen
 set encoding=utf-8                                                    " set encoding utf-8
@@ -38,6 +37,7 @@ set breakindent                                                       " wrapped 
 set nrformats-=octal                                                  " remove the octal notation from the number formats
 set wildmenu                                                          " enable wildmenu
 set wildmode=list:longest,full                                        " set wildmenu options
+set wildignorecase                                                    " ignore case while completing files and dirs
 set rtp+=/usr/local/opt/fzf                                           " add fzf to runtimepath
 set noswapfile                                                        " disable swapfiles
 set hlsearch                                                          " enable search highlihgt
