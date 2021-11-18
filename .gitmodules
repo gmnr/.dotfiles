@@ -82,3 +82,7 @@
 	path = .vim/bundle/indentLine
 	url = https://github.com/Yggdroot/indentLine.git
 	ignore = dirty
+[submodule ".vim/bundle/coc.nvim"]
+	path = .vim/bundle/coc.nvim
+	url = https://github.com/neoclide/coc.nvim.git
+	ignore = dirty
