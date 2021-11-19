@@ -1,13 +1,13 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""
 "    __   _(_)_ __ ___  _ __ ___
 "   \ \ / / | '_ ` _ \| '__/ __|
 "    \ V /| | | | | | | | | (__
 "   (_)_/ |_|_| |_| |_|_|  \___|
 "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" @gmnr
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"  =>  Source Plugins
+" @gmnr
+
+"  ---  Source Plugins ---{{{
 """"""""""""""""""""""""""""""""""""""""""""""""""
 if exists('$DOTFILES')
     source $DOTFILES/.vim/autoload/pathogen.vim
@@ -16,9 +16,8 @@ endif
 execute pathogen#infect('bundle/{}', '~/.dotfiles/.vim/bundle/{}')
 execute pathogen#helptags()
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"  =>  VIM options
+"}}}
+"  ---  VIM options ---{{{
 """"""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible                                                      " set no compatible
 syntax on                                                             " enable syntax
@@ -87,9 +86,8 @@ if executable("rg")
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"  =>  Mappings
+"}}}
+"  ---  Mappings ---{{{
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " search operators for incsearch plugin
 map /  <Plug>(incsearch-forward)
@@ -203,8 +201,8 @@ inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float
 vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"  =>  Commands
+"}}}
+"  ---  Commands ---{{{
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " overwrite fzf Files to serach in project dir
 command! ProjectFiles execute 'Files' s:FindGitRoot()
@@ -217,13 +215,12 @@ cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? '
 cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
 
 " coc commands
-command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 Format :call   CocAction('format')
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"  =>  Functions
+"}}}
+"  ---  Functions ---{{{
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " VSetSearch -> in visual mode use '*' and '#' to search for highlighted word
 function! s:VSetSearch(cmdtype)
@@ -254,9 +251,8 @@ function! s:show_documentation()
   endif
 endfunction
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"  =>  Plug-in Configuration
+"}}}
+"  ---  Plug-in Configuration ---{{{
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " InSearch
 let g:incsearch#auto_nohlsearch = 1                                   " disable higlight when searching is done
@@ -305,17 +301,15 @@ let g:indentLine_char_list = ['▏']                                    " select
 let g:indentLine_bufTypeExclude = ['help', 'terminal']                " exlude certain buffer type from indentline
 let g:indentLine_fileTypeExclude = ['txt', 'vimwiki', 'sh']           " don't use indentline on plain files
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"  =>  Colorscheme
+"}}}
+"  ---  Colorscheme ---{{{
 """"""""""""""""""""""""""""""""""""""""""""""""""
 let g:onedark_termcolors=16                                           " use terminal colors for colorscheme (put before colorscheme)
 colorscheme onedark                                                   " enable onedark colorscheme
-highlight Comment cterm=italic gui=italic
+highlight Comment cterm=italic gui=italic                             " show comments in italic
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"  =>  Auto Commands
+"}}}
+"  ---  Auto Commands ---{{{
 """"""""""""""""""""""""""""""""""""""""""""""""""
 au InsertEnter * set norelativenumber                                 " when in insert mode absolute numbering
 au InsertLeave * set relativenumber                                   " when in normal mode relative numbering
@@ -326,6 +320,7 @@ au FileType vimwiki,markdown setlocal spell                           " set spel
 au FileType vimwiki au BufWritePost <buffer> silent Vimwiki2HTML      " auto export to html when saving
 au FileType javascript,html,css,json setlocal ts=2 sw=2 sts=2         " 2 space indent for web dev
 au FileType python setlocal ts=4 sw=4 sts=4                           " 4 space indent for python
+au FileType vim setlocal foldmethod=marker                            " set manual folding for .vimrc
 
 augroup init_quickfix
     autocmd!
@@ -339,8 +334,7 @@ augroup statusline
     autocmd WinLeave,BufLeave * setlocal nocul
 augroup END
 
-
+"}}}
+"  ---  Templates ---{{{
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"  =>  Templates
-""""""""""""""""""""""""""""""""""""""""""""""""""
-au BufNewFile *.py 0r ~/.dotfiles/.vim/templates/python.template      " use python templates for vim
+au BufNewFile *.py 0r ~/.dotfiles/.vim/templates/python.template      " use python templates for vim}}}
