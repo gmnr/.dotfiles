@@ -292,10 +292,6 @@ let g:gitgutter_sign_removed = '█▁'
 let g:gitgutter_sign_removed_first_line = '█▔'
 let g:gitgutter_sign_modified_removed = "█▟"
 
-" hardtime (only temporary)
-let g:hardtime_default_on = 1                                         " enable to master the 'true' way
-let g:hardtime_maxcount = 10
-
 " indentline
 let g:indentLine_char_list = ['▏']                                    " select chars to draw at indentation
 let g:indentLine_bufTypeExclude = ['help', 'terminal']                " exlude certain buffer type from indentline
