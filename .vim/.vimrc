@@ -78,6 +78,9 @@ set spf=~/.vim/spell/en_us.utf-8.add                                  " set the 
 set spf=~/.vim/spell/it.utf-8.add                                     " set the correct directory for italian
 let mapleader=" "                                                     " set leader key
 let maplocalleader=" "                                                " set local leader key
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"    " set cursor for normal mode
+let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"    " set cursor for insert mode
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"    " set cursor for replace mode
 
 if executable("rg")
     set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
@@ -298,7 +301,7 @@ let g:hardtime_default_on = 1                                         " enable t
 let g:hardtime_maxcount = 10
 
 " indentline
-let g:indentLine_char_list = ['▏']                               " select chars to draw at indentation
+let g:indentLine_char_list = ['▏']                                    " select chars to draw at indentation
 let g:indentLine_bufTypeExclude = ['help', 'terminal']                " exlude certain buffer type from indentline
 let g:indentLine_fileTypeExclude = ['txt', 'vimwiki', 'sh']           " don't use indentline on plain files
 
@@ -306,10 +309,8 @@ let g:indentLine_fileTypeExclude = ['txt', 'vimwiki', 'sh']           " don't us
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  =>  Colorscheme
 """"""""""""""""""""""""""""""""""""""""""""""""""
-" colorscheme
 let g:onedark_termcolors=16                                           " use terminal colors for colorscheme (put before colorscheme)
 colorscheme onedark                                                   " enable onedark colorscheme
-
 highlight Comment cterm=italic gui=italic
 
 
