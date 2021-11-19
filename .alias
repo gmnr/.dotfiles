@@ -20,8 +20,8 @@ alias grep='rg'
 # check os version
 if [[ "$OSTYPE" == "darwin"* ]]; then
     alias ll='gls -alth --color=auto'
-    alias ls='gls -lt --color=auto'
+    alias ls='gls --color=auto'
 else
     alias ll='ls -alth --color=auto'
-    alias ls='ls -lt --color=auto'
+    alias ls='ls --color=auto'
 fi
