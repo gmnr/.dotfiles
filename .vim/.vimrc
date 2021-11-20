@@ -1,14 +1,13 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""
+"--------------------------------------------------------
 "    __   _(_)_ __ ___  _ __ ___
 "   \ \ / / | '_ ` _ \| '__/ __|
 "    \ V /| | | | | | | | | (__
 "   (_)_/ |_|_| |_| |_|_|  \___|
-"
-""""""""""""""""""""""""""""""""""""""""""""""""""
+"--------------------------------------------------------
 " @gmnr
 
-"  ---  Source Plugins ---{{{
-""""""""""""""""""""""""""""""""""""""""""""""""""
+" Source Plugins ---{{{
+"--------------------------------------------------------
 if exists('$DOTFILES')
     source $DOTFILES/.vim/autoload/pathogen.vim
 endif
@@ -17,8 +16,8 @@ execute pathogen#infect('bundle/{}', '~/.dotfiles/.vim/bundle/{}')
 execute pathogen#helptags()
 
 "}}}
-"  ---  VIM options ---{{{
-""""""""""""""""""""""""""""""""""""""""""""""""""
+" VIM options ---{{{
+"--------------------------------------------------------
 set nocompatible                                                      " set no compatible
 syntax on                                                             " enable syntax
 filetype plugin indent on                                             " recognize filetype/load plugin/indent
@@ -87,8 +86,8 @@ if executable("rg")
 endif
 
 "}}}
-"  ---  Mappings ---{{{
-""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mappings ---{{{
+"--------------------------------------------------------
 " search operators for incsearch plugin
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
@@ -206,8 +205,8 @@ nnoremap za zo
 nnoremap zo za
 
 "}}}
-"  ---  Commands ---{{{
-""""""""""""""""""""""""""""""""""""""""""""""""""
+" Commands ---{{{
+"--------------------------------------------------------
 " overwrite fzf Files to serach in project dir
 command! ProjectFiles execute 'Files' s:FindGitRoot()
 
@@ -224,8 +223,8 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 "}}}
-"  ---  Functions ---{{{
-""""""""""""""""""""""""""""""""""""""""""""""""""
+" Functions ---{{{
+"--------------------------------------------------------
 " VSetSearch -> in visual mode use '*' and '#' to search for highlighted word
 function! s:VSetSearch(cmdtype)
     let temp = @s
@@ -256,8 +255,8 @@ function! s:show_documentation()
 endfunction
 
 "}}}
-"  ---  Plug-in Configuration ---{{{
-""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug-in Configuration ---{{{
+"--------------------------------------------------------
 " InSearch
 let g:incsearch#auto_nohlsearch = 1                                   " disable higlight when searching is done
 
@@ -302,15 +301,15 @@ let g:indentLine_bufTypeExclude = ['help', 'terminal']                " exlude c
 let g:indentLine_fileTypeExclude = ['txt', 'vimwiki', 'sh']           " don't use indentline on plain files
 
 "}}}
-"  ---  Colorscheme ---{{{
-""""""""""""""""""""""""""""""""""""""""""""""""""
+" Colorscheme ---{{{
+"--------------------------------------------------------
 let g:onedark_termcolors=16                                           " use terminal colors for colorscheme (put before colorscheme)
 colorscheme onedark                                                   " enable onedark colorscheme
 highlight Comment cterm=italic gui=italic                             " show comments in italic
 
 "}}}
-"  ---  Auto Commands ---{{{
-""""""""""""""""""""""""""""""""""""""""""""""""""
+" Auto Commands ---{{{
+"--------------------------------------------------------
 au InsertEnter * set norelativenumber                                 " when in insert mode absolute numbering
 au InsertLeave * set relativenumber                                   " when in normal mode relative numbering
 au CursorMoved * call SearchantStop()                                 " stop custom highlight on matched pattern
@@ -335,6 +334,6 @@ augroup statusline
 augroup END
 
 "}}}
-"  ---  Templates ---{{{
-""""""""""""""""""""""""""""""""""""""""""""""""""
+" Templates ---{{{
+"--------------------------------------------------------
 au BufNewFile *.py 0r ~/.dotfiles/.vim/templates/python.template      " use python templates for vim}}}
