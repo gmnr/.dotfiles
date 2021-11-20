@@ -138,7 +138,7 @@ draw_bold_text_with_bright_colors: true
 #   primary:
 #     background: '0x282c34'
 #     foreground: '0xabb2bf'
-# 
+#
 #   # Normal colors
 #   normal:
 #     # black text on the background.
@@ -150,7 +150,7 @@ draw_bold_text_with_bright_colors: true
 #     magenta: '0xc678dd'
 #     cyan:    '0x56b6c2'
 #     white:   '0xabb2bf'
-# 
+#
 #   # Bright colors
 #   bright:
 #     black:   '0x5c6370'

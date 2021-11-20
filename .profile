@@ -1,5 +1,4 @@
 # customized PS1
-##
 # parse the git branch to show dirty status and the branch name
 function parse_git_dirty {
       [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working tree clean" ]] && echo "*"
@@ -32,8 +31,6 @@ reset_readline_prompt_mode_strings () {
 }
 PROMPT_COMMAND=reset_readline_prompt_mode_strings
 PS1=' '
-#PS2=' ... '
-
 
 # better colors
 export CLICOLOR=1;
@@ -70,7 +67,3 @@ fi
 if [ -f /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash ]; then
     . /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
 fi
-
-# add options for fzf
-export FZF_DEFAULT_OPTS='--height 30% --layout=reverse --no-bold'
-export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
