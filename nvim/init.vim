@@ -12,7 +12,6 @@ syntax on                                                             " enable s
 filetype plugin indent on                                             " recognize filetype/load plugin/indent
 set cmdheight=2                                                       " set command height to 2 lines
 set cursorline                                                        " enable cursorline
-set completeopt=menu                                                  " set insert mode completion mode
 set showmatch                                                         " show matching bracket when inserting one
 set noshowmode                                                        " hide mode message in last line
 set lazyredraw                                                        " do not redraw the screen while executing macros
@@ -90,7 +89,6 @@ command! Wd write|bdelete
 " grep abbreviation
 cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'
 cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
-cnoreabbrev man Man
 
 "}}}
 "  Plug-in Configuration{{{
