@@ -9,10 +9,10 @@
 " Source Plugins ---{{{
 "--------------------------------------------------------
 if exists('$DOTFILES')
-    source $DOTFILES/.vim/autoload/pathogen.vim
+    source $DOTFILES/vim/autoload/pathogen.vim
 endif
 
-execute pathogen#infect('bundle/{}', '~/.dotfiles/.vim/bundle/{}')
+execute pathogen#infect('bundle/{}', '~/.dotfiles/vim/bundle/{}')
 execute pathogen#helptags()
 
 "}}}
@@ -110,7 +110,7 @@ nnoremap k gk
 nnoremap Q <nop>
 
 " open and load .vimrc
-nnoremap <leader>ev :e ~/.dotfiles/.vim/.vimrc<CR>
+nnoremap <leader>ev :e ~/.dotfiles/vim/.vimrc<CR>
 nnoremap <leader>sv :so $MYVIMRC<CR>
 
 " quick save and exit
@@ -335,4 +335,4 @@ augroup END
 "}}}
 " Templates ---{{{
 "--------------------------------------------------------
-au BufNewFile *.py 0r ~/.dotfiles/.vim/templates/python.template      " use python templates for vim}}}
+au BufNewFile *.py 0r ~/.dotfiles/vim/templates/python.template      " use python templates for vim}}}
