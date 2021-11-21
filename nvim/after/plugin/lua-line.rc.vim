@@ -10,8 +10,8 @@ require('lualine').setup {
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff',
-                  {'diagnostics', sources={'nvim_lsp', 'coc'}}},
+    lualine_b = {'branch', {'diff', diff_color = {added = {fg = '#98c379'}, removed = {fg = '#e06c75'}}},
+                  {'diagnostics', sources={'nvim_lsp'}}},
     lualine_c = {'filename'},
     lualine_x = {'encoding', 'filetype'},
     lualine_y = {'progress'},
@@ -26,6 +26,6 @@ require('lualine').setup {
     lualine_z = {}
   },
   tabline = {},
-  extensions = {}
+  extensions = {'fugitive'}
 }
 EOF
