@@ -14,6 +14,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'mattn/emmet-vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'vimwiki/vimwiki'
 
 if has("nvim")
   Plug 'neovim/nvim-lspconfig'
@@ -28,16 +29,7 @@ if has("nvim")
   Plug 'hrsh7th/cmp-cmdline'
   Plug 'hrsh7th/nvim-cmp'
   Plug 'nvim-telescope/telescope.nvim'
-  " Plug 'hrsh7th/cmp-nvim-lsp'
-  "Plug 'kristijanhusak/defx-git'
-  "Plug 'kristijanhusak/defx-icons'
-  "Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-  "Plug 'folke/lsp-colors.nvim'
-  "Plug 'L3MON4D3/LuaSnip'
-  "Plug 'hrsh7th/cmp-buffer'
-  "Plug 'kyazdani42/nvim-web-devicons'
-  "Plug 'nvim-lua/popup.nvim'
-  "Plug 'nvim-telescope/telescope.nvim'
 endif
 
+" Finish installation
 call plug#end()

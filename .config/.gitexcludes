@@ -1,6 +1,9 @@
 # for mac settings
 .DS_Store
 
+# exclude bundle for vimconfig
+bundle/
+
 # tags
 tags
 tags.lock

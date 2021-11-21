@@ -8,7 +8,7 @@ dir=~/.dotfiles
 # change in the working directory of the files to be symlinked in the home 
 cd $dir
 echo "Fetching the list of files to be symlinked in the home directory"
-files=`find . -maxdepth 1 -type f -exec basename {} \; | grep -v .gitmodules`    # all except .gitmodules
+files=`find ./.config -maxdepth 1 -type f -exec basename {} \; | grep -v .gitmodules`    # all except .gitmodules
 echo
 
 # handle alacritty installation with special config
