@@ -39,12 +39,13 @@ nnoremap <leader>gl :diffget //3<CR>
 nnoremap <leader>gc :GBranches<CR>
 
 " telescope mappings
-nnoremap <leader>pp <cmd>Telescope find_files<cr>
-nnoremap <leader>pl <cmd>Telescope live_grep<cr>
-nnoremap <leader>po <cmd>Telescope buffers<cr>
-nnoremap <leader>pt <cmd>Telescope help_tags<cr>
-nnoremap <leader>ps <cmd>Telescope git_files<cr>
-nnoremap <leader>pg <cmd>Telescope git_branches<cr>
+nnoremap <leader>pp <cmd>Telescope find_files theme=dropdown<cr>
+nnoremap <leader>pl <cmd>Telescope live_grep theme=dropdown<cr>
+nnoremap <leader>po <cmd>Telescope buffers theme=dropdown<cr>
+nnoremap <leader>pt <cmd>Telescope tags theme=dropdown<cr>
+nnoremap <leader>ps <cmd>Telescope git_status theme=dropdown<cr>
+nnoremap <leader>pg <cmd>Telescope git_files theme=dropdown<cr>
+nnoremap <leader>pc <cmd>Telescope git_branches theme=dropdown<cr>
 
 " vimviki
 nmap <leader>wm <Plug>VimwikiIndex
