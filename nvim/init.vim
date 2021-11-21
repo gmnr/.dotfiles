@@ -56,8 +56,8 @@ let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"    " set curs
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"    " set cursor for replace mode
 
 if executable("rg")
-    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
-    set grepformat=%f:%l:%c:%m,%f:%l:%m
+        set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+        set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
 "}}}
@@ -70,11 +70,11 @@ runtime ./maps.vim
 "  Colorscheme{{{
 "-------------------------------------------------
 if (has("nvim"))
-		let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+        let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
 if (has("termguicolors"))
-		set termguicolors
+        set termguicolors
 endif
 
 colorscheme onedark
@@ -95,10 +95,10 @@ cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? '
 "-------------------------------------------------
 " Quickrun
 let g:quickrun_config = {
-    \'*': {
-    \'hook/time/enable': 1,
-    \'hook/time/format': '[Finished in %gs]',
-    \'outputter/buffer/opener': '%{"bel 12new"}'}}                    " set options for quickrun
+                        \'*': {
+                        \'hook/time/enable': 1,
+                        \'hook/time/format': '[Finished in %gs]',
+                        \'outputter/buffer/opener': '%{"bel 12new"}'}}                    " set options for quickrun
 
 " DelimitMate
 let g:delimitMate_expand_cr = 2                                       " turns on <CR> expansion
@@ -115,11 +115,11 @@ let g:gutentags_generate_on_empty_buffer=1                            " generate
 " Vimwiki
 let g:vimwiki_global_ext = 0                                          " vimwiki only overrides .wiki files
 let g:vimwiki_list = [{
-    \ 'path': '~/Documents/VimWiki/gmnr',
-    \ 'ext': '.wiki',
-    \ 'template_path': '~/Documents/VimWiki/templates',
-    \ 'template_default': 'default',
-    \ 'template_ext': '.html'}]
+                        \ 'path': '~/Documents/VimWiki/gmnr',
+                        \ 'ext': '.wiki',
+                        \ 'template_path': '~/Documents/VimWiki/templates',
+                        \ 'template_default': 'default',
+                        \ 'template_ext': '.html'}]
 
 " indentline
 let g:indentLine_char_list = ['▏']                                    " select chars to draw at indentation
@@ -138,18 +138,18 @@ au FileType python setlocal ts=4 sw=4 sts=4                           " 4 space 
 au FileType vim setlocal foldmethod=marker                            " set manual folding for .vimrc
 
 augroup init_quickfix
-    autocmd!
-    autocmd QuickFixCmdPost [^l]* cwindow
-    autocmd QuickFixCmdPost l* lwindow
+        autocmd!
+        autocmd QuickFixCmdPost [^l]* cwindow
+        autocmd QuickFixCmdPost l* lwindow
 augroup END
 
 augroup statusline
-    autocmd!
-    autocmd WinEnter,BufEnter * setlocal cul
-    autocmd WinLeave,BufLeave * setlocal nocul
+        autocmd!
+        autocmd WinEnter,BufEnter * setlocal cul
+        autocmd WinLeave,BufLeave * setlocal nocul
 augroup END
 
 "}}}
 "  Templates{{{
 "-------------------------------------------------
-au BufNewFile *.py 0r ~/.dotfiles/.vim/templates/python.template      " use python templates for vim}}}
+au BufNewFile *.py 0r ~/.dotfiles/vim/templates/python.template      " use python templates for vim}}}
