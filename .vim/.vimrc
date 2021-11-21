@@ -305,7 +305,6 @@ let g:indentLine_fileTypeExclude = ['txt', 'vimwiki', 'sh']           " don't us
 "--------------------------------------------------------
 let g:onedark_termcolors=16                                           " use terminal colors for colorscheme (put before colorscheme)
 colorscheme onedark                                                   " enable onedark colorscheme
-highlight Comment cterm=italic gui=italic                             " show comments in italic
 
 "}}}
 " Auto Commands ---{{{
