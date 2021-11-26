@@ -15,6 +15,8 @@ Plug 'mattn/emmet-vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'vimwiki/vimwiki'
+Plug 'wellle/targets.vim'
+
 
 if has("nvim")
   Plug 'neovim/nvim-lspconfig'
