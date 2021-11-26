@@ -78,7 +78,6 @@ if (has("termguicolors"))
 endif
 
 colorscheme onedark
-" highlight Comment cterm=italic gui=italic
 
 "}}}
 "  Commands{{{
