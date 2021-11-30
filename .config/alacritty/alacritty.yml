@@ -17,9 +17,7 @@ window:
   #
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
-  dimensions:
-    columns: 120
-    lines: 37
+  startup_mode: Maximized
 
   # Window position (changes require restart)
   #
