@@ -76,3 +76,6 @@ nnoremap <leader>a <C-w>
 " swap fold command
 nnoremap za zo
 nnoremap zo za
+
+" copy buffer to clipboard
+nnoremap <leader>cp :w !pbcopy<CR>
