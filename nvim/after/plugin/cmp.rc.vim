@@ -1,6 +1,6 @@
 set completeopt=menu,menuone,noselect
 
-lua <<EOF
+lua << EOF
   local cmp = require'cmp'
 
   cmp.setup({
