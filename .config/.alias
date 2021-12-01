@@ -1,5 +1,6 @@
 # aliases
 alias dev='cd ~/Coding'
+alias adv='cd ~/Coding/advent-of-code'
 alias blog='cd ~/Coding/blog'
 alias home='ssh home-server'
 alias python='python3'
