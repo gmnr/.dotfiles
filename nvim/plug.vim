@@ -17,7 +17,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'vimwiki/vimwiki'
 Plug 'wellle/targets.vim'
 
-
+" nvim specific plugins
 if has("nvim")
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lualine/lualine.nvim'
