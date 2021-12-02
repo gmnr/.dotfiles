@@ -59,7 +59,7 @@ nmap <leader>cd :cd %:h<CR>
 nmap <leader><Tab> 1z=
 
 " quickrun
-nnoremap <leader>r :QuickRun<CR>
+nnoremap <leader>r :w<CR>:QuickRun<CR>
 
 " toggle paste
 nnoremap <leader>yy :set invpaste paste?<CR>
