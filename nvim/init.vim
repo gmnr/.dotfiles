@@ -132,7 +132,8 @@ au FileType * set fo-=c fo-=r fo-=o                                   " disable 
 au FileType * setlocal signcolumn=yes                                 " always show the space for git gutter
 au FileType vimwiki,markdown setlocal spell                           " set spelling while editing verbose files
 au FileType vimwiki au BufWritePost <buffer> silent Vimwiki2HTML      " auto export to html when saving
-au FileType javascript,html,css,json,vim setlocal ts=2 sw=2 sts=2         " 2 space indent for web dev
+au FileType javascript,html,css,json,vim setlocal ts=2 sw=2 sts=2     " 2 space indent for web dev
+au FileType vimwiki,markdown setlocal ts=2 sw=2 sts=2                 " 2 space indent for text editing
 au FileType python setlocal ts=4 sw=4 sts=4                           " 4 space indent for python
 au FileType vim setlocal foldmethod=marker                            " set manual folding for .vimrc
 
