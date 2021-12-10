@@ -31,6 +31,7 @@ if has("nvim")
   Plug 'hrsh7th/cmp-cmdline'
   Plug 'hrsh7th/nvim-cmp'
   Plug 'nvim-telescope/telescope.nvim'
+  Plug 'tools-life/taskwiki'
 endif
 
 " Finish installation
