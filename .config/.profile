@@ -52,7 +52,7 @@ if [ -f ~/.alias ]; then
 fi
 
 # make vim default editor
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 # export the location of the dotfiles
