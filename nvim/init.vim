@@ -123,6 +123,9 @@ let g:vimwiki_list = [{
       \ 'template_default': 'default',
       \ 'template_ext': '.html'}]
 
+" taskwiki
+let g:taskwiki_dont_fold = 'yes'
+
 " indentline
 let g:indentLine_char_list = ['▏']                                    " select chars to draw at indentation
 let g:indentLine_bufTypeExclude = ['help', 'terminal']                " exlude certain buffer type from indentline
