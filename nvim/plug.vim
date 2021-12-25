@@ -16,6 +16,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'vimwiki/vimwiki'
 Plug 'wellle/targets.vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " nvim specific plugins
 if has("nvim")
