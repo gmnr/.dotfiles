@@ -49,7 +49,7 @@ lua << EOF
   local lspkind = require('lspkind')
   cmp.setup {
     formatting = {
-      format = lspkind.cmp_format({with_text = true, maxwidth = 50})
+      format = lspkind.cmp_format({with_text = true, maxwidth = 60})
     }
   }
 EOF
