@@ -82,6 +82,20 @@ endif
 
 colorscheme onedark
 
+" add colors to types in autocompletion
+highlight! CmpItemAbbrDeprecated guibg=NONE guifg=#808080	
+highlight! CmpItemAbbrMatch      guibg=NONE guifg=#98C379
+highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#98C379
+highlight! CmpItemKindInterface  guibg=NONE guifg=#98C379
+highlight! CmpItemKindUnit       guibg=NONE guifg=#98C379
+highlight! CmpItemKindFunction   guibg=NONE guifg=#C678DD
+highlight! CmpItemKindKeyword    guibg=NONE guifg=#C678DD
+highlight! CmpItemKindMethod     guibg=NONE guifg=#E06C75
+highlight! CmpItemKindProperty   guibg=NONE guifg=#E06C75
+highlight! CmpItemKindVariable   guibg=NONE guifg=#61AFEF
+highlight! CmpItemKindText       guibg=NONE guifg=#ABB2BF
+highlight! CmpItemKindClass      guibg=NONE guifg=#E5C07B
+
 "}}}
 "  Commands{{{
 "-------------------------------------------------
