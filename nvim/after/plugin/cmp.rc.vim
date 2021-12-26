@@ -30,6 +30,9 @@ lua << EOF
 
   -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
   cmp.setup.cmdline(':', {
+    completion = {
+    autocomplete = false,
+    },
     sources = cmp.config.sources({
       { name = 'path' }
     }, {
