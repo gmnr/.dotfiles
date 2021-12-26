@@ -98,6 +98,12 @@ highlight! CmpItemKindVariable   guibg=NONE guifg=#61AFEF
 highlight! CmpItemKindText       guibg=NONE guifg=#ABB2BF
 highlight! CmpItemKindClass      guibg=NONE guifg=#E5C07B
 
+" modify spell error highlighings
+highlight! SpellBad   guibg=NONE guifg=#E5C07B
+highlight! SpellCap   guibg=NONE guifg=#E5C07B
+highlight! SpellLocal guibg=NONE guifg=#E5C07B
+highlight! SpellRare  guibg=NONE guifg=#E5C07B
+
 "}}}
 "  Commands{{{
 "-------------------------------------------------
