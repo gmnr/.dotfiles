@@ -35,6 +35,8 @@ set shiftround                                                        " round in
 set ts=2                                                              " set tabstop equals to 2
 set sts=2                                                             " set soft tab stops equals to 2
 set sw=2                                                              " set shiftwidth equals to 2
+set formatoptions-=a                                                  " don't format paragraphs automatically
+set formatoptions+=t                                                  " autowrap if textwidth is exceeded
 set autoindent                                                        " copy indent from the current line when starting a new line
 set smartindent                                                       " smart autoindenting
 set splitright                                                        " when splitting put the new one right the current
@@ -143,19 +145,12 @@ let g:taskwiki_dont_fold = 'yes'
 " indentline
 let g:indentLine_char_list = ['▏']                                    " select chars to draw at indentation
 let g:indentLine_bufTypeExclude = ['help', 'terminal']                " exlude certain buffer type from indentline
-let g:indentLine_fileTypeExclude = ['txt', 'vimwiki', 'sh']           " don't use indentline on plain files
+let g:indentLine_fileTypeExclude = ['txt', 'vimwiki', 'sh', 'markdown']           " don't use indentline on plain files
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-
-" pencil
-let g:pencil#textwidth = 79                                           " default text-width at 80
-let g:pencil#cursorwrap = 0                                           " disable cursor wrap
-let g:pencil#conceallevel = 2     " 0=disable, 1=one char, 2=hide char, 3=hide all (def)
-let g:pencil#concealcursor = 'n'  " n=normal, v=visual, i=insert, c=command (def)
-
 
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
@@ -170,6 +165,8 @@ let g:vim_markdown_json_frontmatter = 1  " for JSON format
 au FileType * set fo-=c fo-=r fo-=o                                   " disable autoformat comments in newline
 au FileType * setlocal signcolumn=yes                                 " always show the space for git gutter
 au FileType vimwiki,markdown setlocal spell                           " set spelling while editing verbose files
+au FileType vimwiki,markdown setlocal tw=80                           " set default textwidth
+au FileType vimwiki,markdown setlocal cocu="c"                   " set conceal cursor for markdown and vimwiki files
 au FileType vimwiki au BufWritePost <buffer> silent Vimwiki2HTML      " auto export to html when saving
 au FileType vim setlocal foldmethod=marker                            " set manual folding for .vimrc
 au FileType python setlocal ts=4 sw=4 sts=4                           " 4 space indent for python
@@ -184,12 +181,6 @@ augroup statusline
   autocmd!
   autocmd WinEnter,BufEnter * setlocal cul
   autocmd WinLeave,BufLeave * setlocal nocul
-augroup END
-
-augroup pencil
-  autocmd!
-  autocmd FileType markdown call pencil#init({'wrap': 'hard', 'autoformat': 1})
-  autocmd FileType text call pencil#init()
 augroup END
 
 "}}}
