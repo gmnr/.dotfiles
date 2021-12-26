@@ -136,6 +136,20 @@ let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
+" pencil
+let g:pencil#textwidth = 79                                           " default text-width at 80
+let g:pencil#cursorwrap = 0                                           " disable cursor wrap
+let g:pencil#conceallevel = 2     " 0=disable, 1=one char, 2=hide char, 3=hide all (def)
+let g:pencil#concealcursor = 'n'  " n=normal, v=visual, i=insert, c=command (def)
+
+
+" vim-markdown
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 1
+let g:vim_markdown_frontmatter = 1  " for YAML format
+let g:vim_markdown_toml_frontmatter = 1  " for TOML format
+let g:vim_markdown_json_frontmatter = 1  " for JSON format
+
 "}}}
 "  Auto Commands{{{
 "-------------------------------------------------
@@ -156,6 +170,12 @@ augroup statusline
   autocmd!
   autocmd WinEnter,BufEnter * setlocal cul
   autocmd WinLeave,BufLeave * setlocal nocul
+augroup END
+
+augroup pencil
+  autocmd!
+  autocmd FileType markdown call pencil#init({'wrap': 'hard', 'autoformat': 1})
+  autocmd FileType text call pencil#init()
 augroup END
 
 "}}}
