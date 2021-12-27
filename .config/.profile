@@ -58,6 +58,9 @@ export EDITOR="$VISUAL"
 # export the location of the dotfiles
 export DOTFILES=~/.dotfiles
 
+# add theme for bat
+export BAT_THEME="TwoDark"
+
 # add bash-completion
 if [ -f /usr/local/share/bash-completion/bash_completion ]; then
     . /usr/local/share/bash-completion/bash_completion
