@@ -1,7 +1,7 @@
 lua << EOF
 require('telescope').setup{
   defaults = {
-    file_ignore_patterns = {'.git'}
+    file_ignore_patterns = {'.git', '/helper'}
   },
   pickers = {
     find_files = {
