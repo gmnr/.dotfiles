@@ -17,6 +17,7 @@ set noshowmode                                                        " hide mod
 set lazyredraw                                                        " do not redraw the screen while executing macros
 set breakindent                                                       " wrapped lines will be visually indented
 set nrformats-=octal                                                  " remove the octal notation from the number formats
+set signcolumn=yes
 set wildmode=longest:full,full                                        " set wildmenu options
 set wildignorecase                                                    " ignore case while completing files and dirs
 set noswapfile                                                        " disable swapfiles
@@ -169,7 +170,6 @@ let g:vim_markdown_json_frontmatter = 1  " for JSON format
 "  Auto Commands{{{
 "-------------------------------------------------
 au FileType * set fo-=c fo-=r fo-=o                                   " disable autoformat comments in newline
-au FileType * setlocal signcolumn=yes                                 " always show the space for git gutter
 au FileType vimwiki,markdown setlocal spell                           " set spelling while editing verbose files
 au FileType vimwiki,markdown setlocal tw=80                           " set default textwidth
 au FileType vimwiki,markdown setlocal cocu="c"                   " set conceal cursor for markdown and vimwiki files
