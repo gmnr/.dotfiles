@@ -48,16 +48,10 @@ lua << EOF
     })
   })
 
-  -- Setup lspconfig.
-  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  require('lspconfig')['pyright'].setup {
-    capabilities = capabilities
-  }
-
   local lspkind = require('lspkind')
   cmp.setup {
     formatting = {
-      format = lspkind.cmp_format({with_text = true, maxwidth = 60})
+      format = lspkind.cmp_format({with_text = true, maxwidth = 70})
     }
   }
 EOF
