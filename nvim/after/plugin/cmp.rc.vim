@@ -14,6 +14,16 @@ lua << EOF
       }),
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
     },
+
+    documentation = {
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+    },
+
+    experimental = {
+      ghost_text = false,
+      native_menu = false
+    },
+
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
     }, {
@@ -21,14 +31,12 @@ lua << EOF
     })
   })
 
-  -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
   cmp.setup.cmdline('/', {
     sources = {
       { name = 'buffer' }
     }
   })
 
-  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
   cmp.setup.cmdline(':', {
     completion = {
     autocomplete = false,

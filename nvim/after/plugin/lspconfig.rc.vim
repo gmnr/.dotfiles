@@ -35,16 +35,32 @@ local on_attach = function(client, bufnr)
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
 local servers = {'pyright', 'html', 'tsserver'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
-    }
+    },
+    root_dir = nvim_lsp.util.root_pattern('.git'),
   }
 end
+
+-- apply configuration to diagnostic
+local config = {
+    virtual_text = false,
+    underline = true,
+    severity_sort = true,
+    float = {
+       focusable = false,
+       style = 'minimal',
+       border = 'rounded',
+       source = 'always',
+       header = '',
+       prefix = ''
+    },
+}
+vim.diagnostic.config(config)
 
 local signs = { Error = '► ', Warn = '► ', Hint = '► ', Information = '► ' }
 for type, icon in pairs(signs) do
