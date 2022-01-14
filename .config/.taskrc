@@ -9,7 +9,7 @@ weekstart=monday
 search.case.sensitive=no
 
 # change date format
-dateformat=D/M/Y
+dateformat=D/M/y
 dateformat.annotation=D/M/Y H:N
 dateformat.edit=D/M/Y H:N
 dateformat.info=D/M/Y H:N
