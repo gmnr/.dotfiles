@@ -172,7 +172,7 @@ let g:vim_markdown_json_frontmatter = 1  " for JSON format
 au FileType * set fo-=c fo-=r fo-=o                                   " disable autoformat comments in newline
 au FileType vimwiki,markdown setlocal spell                           " set spelling while editing verbose files
 au FileType vimwiki,markdown setlocal tw=80                           " set default textwidth
-au FileType vimwiki,markdown setlocal cocu="c"                   " set conceal cursor for markdown and vimwiki files
+au FileType vimwiki,markdown setlocal cocu="c"                        " set conceal cursor for markdown and vimwiki files
 au FileType vimwiki au BufWritePost <buffer> silent Vimwiki2HTML      " auto export to html when saving
 au FileType vim setlocal foldmethod=marker                            " set manual folding for .vimrc
 au FileType python setlocal ts=4 sw=4 sts=4                           " 4 space indent for python
