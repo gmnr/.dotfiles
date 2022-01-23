@@ -2,7 +2,6 @@
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
 " Declare the list of plugins.
-Plug 'Yggdroot/indentLine'
 Plug 'Raimondi/delimitMate'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -35,6 +34,7 @@ if has("nvim")
   Plug 'nvim-treesitter/nvim-treesitter-textobjects'
   Plug 'onsails/lspkind-nvim'
   Plug 'tools-life/taskwiki'
+  Plug 'lukas-reineke/indent-blankline.nvim'
 endif
 
 " Finish installation

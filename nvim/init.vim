@@ -149,11 +149,6 @@ let g:vimwiki_list = [{
 " taskwiki
 let g:taskwiki_dont_fold = 'yes'
 
-" indentline
-let g:indentLine_char_list = ['▏']                                    " select chars to draw at indentation
-let g:indentLine_bufTypeExclude = ['help', 'terminal']                " exlude certain buffer type from indentline
-let g:indentLine_fileTypeExclude = ['txt', 'vimwiki', 'sh', 'markdown']           " don't use indentline on plain files
-
 " UltiSnips
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
@@ -172,7 +167,7 @@ let g:vim_markdown_json_frontmatter = 1  " for JSON format
 au FileType * set fo-=c fo-=r fo-=o                                   " disable autoformat comments in newline
 au FileType vimwiki,markdown setlocal spell                           " set spelling while editing verbose files
 au FileType vimwiki,markdown setlocal tw=80                           " set default textwidth
-au FileType vimwiki,markdown setlocal cocu="c"                        " set conceal cursor for markdown and vimwiki files
+au FileType vimwiki,markdown setlocal cole=2 cocu="c"                 " set conceal cursor for markdown and vimwiki files
 au FileType vimwiki au BufWritePost <buffer> silent Vimwiki2HTML      " auto export to html when saving
 au FileType vim setlocal foldmethod=marker                            " set manual folding for .vimrc
 au FileType python setlocal ts=4 sw=4 sts=4                           " 4 space indent for python
