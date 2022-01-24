@@ -8,18 +8,17 @@
 
 "  Basic Config{{{
 "-------------------------------------------------
-syntax on                                                             " enable syntax
 filetype plugin indent on                                             " recognize filetype/load plugin/indent
-set cmdheight=2                                                       " set command height to 2 lines
+set cmdheight=2                                                       " set command height
 set cursorline                                                        " enable cursorline
 set showmatch                                                         " show matching bracket when inserting one
 set noshowmode                                                        " hide mode message in last line
-set lazyredraw                                                        " do not redraw the screen while executing macros
+set lazyredraw                                                        " do not redraw the screen when executing macros
 set breakindent                                                       " wrapped lines will be visually indented
 set nrformats-=octal                                                  " remove the octal notation from the number formats
-set signcolumn=yes
+set signcolumn=yes                                                    " always draw the signcolumn
 set wildmode=longest:full,full                                        " set wildmenu options
-set wildignorecase                                                    " ignore case while completing files and dirs
+set wildignorecase                                                    " ignore case when completing files and dirs
 set noswapfile                                                        " disable swapfiles
 set ignorecase                                                        " ignore case for search
 set smartcase                                                         " override ignorecase if capital in search pattern
@@ -51,10 +50,10 @@ set diffopt+=filler                                                   " show fil
 set diffopt+=internal
 set diffopt+=indent-heuristic
 set diffopt+=algorithm:patience
-set viminfo="NONE"                                                    " don't show info after re-entering in the buffer
 set spelllang=en_us,it                                                " set the language of spelling
 set spf=~/.vim/spell/en_us.utf-8.add                                  " set the correct directory for english
 set spf=~/.vim/spell/it.utf-8.add                                     " set the correct directory for italian
+set viminfo="NONE"                                                    " don't show info after re-entering in the buffer
 let mapleader=" "                                                     " set leader key
 let maplocalleader=" "                                                " set local leader key
 let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"    " set cursor for normal mode
@@ -123,7 +122,7 @@ let g:quickrun_config = {
       \'*': {
       \'hook/time/enable': 1,
       \'hook/time/format': '[Finished in %gs]',
-      \'outputter/buffer/opener': '%{"bel 12new"}'}}                    " set options for quickrun
+      \'outputter/buffer/opener': '%{"bel 12new"}'}}                  " set options for quickrun
 
 " DelimitMate
 let g:delimitMate_expand_cr = 2                                       " turns on <CR> expansion
@@ -157,9 +156,6 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 1
-let g:vim_markdown_frontmatter = 1  " for YAML format
-let g:vim_markdown_toml_frontmatter = 1  " for TOML format
-let g:vim_markdown_json_frontmatter = 1  " for JSON format
 
 "}}}
 "  Auto Commands{{{
@@ -187,4 +183,5 @@ augroup END
 "}}}
 "  Templates{{{
 "-------------------------------------------------
-au BufNewFile *.py 0r ~/.dotfiles/vim/templates/python.template      " use python templates for vim}}}
+au BufNewFile *.py 0r ~/.dotfiles/vim/templates/python.template      " use python templates for vim
+"}}}

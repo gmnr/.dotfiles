@@ -20,7 +20,6 @@ require('nvim-treesitter.configs').setup {
     'json5',
     'lua',
     'python',
-    'vim'
   },
 }
 EOF
