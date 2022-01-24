@@ -26,7 +26,6 @@ set shortmess=a                                                       " enable c
 set ttimeout                                                          " set timing for key combinations
 set number                                                            " set line numbers
 set undolevels=1000                                                   " maximum number of changes that can be undone
-set hidden                                                            " set hidden buffer
 set wrap                                                              " lines longer than windows width continue on the next line
 set linebreak                                                         " break lines not at character but at 'breakat'
 set nolist                                                            " don't show character of list mode (i.e. $ at end of line)
@@ -56,9 +55,6 @@ set spf=~/.vim/spell/it.utf-8.add                                     " set the 
 set viminfo="NONE"                                                    " don't show info after re-entering in the buffer
 let mapleader=" "                                                     " set leader key
 let maplocalleader=" "                                                " set local leader key
-let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"    " set cursor for normal mode
-let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"    " set cursor for insert mode
-let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"    " set cursor for replace mode
 
 if executable("rg")
   set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
