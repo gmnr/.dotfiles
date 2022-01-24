@@ -1,4 +1,4 @@
-" Plugins will be downloaded under the specified directory.
+" lugins will be downloaded under the specified directory.
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
 " Declare the list of plugins.
@@ -26,6 +26,7 @@ if has("nvim")
   Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/nvim-cmp'
   Plug 'lewis6991/gitsigns.nvim'
+  Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-lualine/lualine.nvim'
@@ -33,7 +34,6 @@ if has("nvim")
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'onsails/lspkind-nvim'
   Plug 'tools-life/taskwiki'
-  Plug 'lukas-reineke/indent-blankline.nvim'
 endif
 
 " Finish installation
