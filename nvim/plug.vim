@@ -31,7 +31,6 @@ if has("nvim")
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-  Plug 'nvim-treesitter/nvim-treesitter-textobjects'
   Plug 'onsails/lspkind-nvim'
   Plug 'tools-life/taskwiki'
   Plug 'lukas-reineke/indent-blankline.nvim'

@@ -22,27 +22,5 @@ require('nvim-treesitter.configs').setup {
     'python',
     'vim'
   },
- textobjects = {
-    select = {
-      enable = true,
-
-      lookahead = true,
-
-      keymaps = {
-        ['af'] = '@function.outer',
-        ['if'] = '@function.inner',
-        ['ac'] = '@class.outer',
-        ['ic'] = '@class.inner',
-        ['aa'] = '@parameter.outer',
-        ['ia'] = '@parameter.inner',
-        ['al'] = '@loop.outer',
-        ['il'] = '@loop.inner',
-        ['an'] = '@conditional.outer',
-        ['in'] = '@conditional.inner',
-        ['ak'] = '@comment.outer',
-        ['ik'] = '@comment.inner',
-      }
-    }
-  }
 }
 EOF
