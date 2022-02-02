@@ -70,3 +70,6 @@ fi
 if [ -f /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash ]; then
     . /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
 fi
+
+# add ledger_file
+export LEDGER_FILE=$HOME/.finance/all.journal
