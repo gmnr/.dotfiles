@@ -16,13 +16,14 @@ alias tmux='TERM=xterm-256color tmux'
 alias update='brew update && brew upgrade'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias fin='cd ~/.finance'
 alias cat='bat'
 alias grep='rg'
 alias vim='nvim'
 alias copy='pbcopy'
-alias t='task'
-alias l='hledger'
+alias tsk='task'
+alias ledger='hledger'
+alias finance='cd ~/.finance'
+alias reconcile='python ~/.finance/source/reconcile.py'
 
 # check os version
 if [[ "$OSTYPE" == "darwin"* ]]; then
