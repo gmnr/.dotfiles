@@ -19,7 +19,8 @@ require('nvim-treesitter.configs').setup {
     'javascript',
     'json5',
     'lua',
-    'python',
+    'ledger',
+    'python'
   },
 }
 EOF

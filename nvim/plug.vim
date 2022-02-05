@@ -18,7 +18,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vimwiki/vimwiki'
 Plug 'wellle/targets.vim'
-Plug 'ledger/vim-ledger'
 
 " nvim specific plugins
 if has("nvim")
