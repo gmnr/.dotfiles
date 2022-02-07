@@ -22,7 +22,7 @@ alias vim='nvim'
 alias copy='pbcopy'
 alias tsk='task'
 alias ledger='hledger'
-alias finance='cd ~/.finance'
+alias fnc='cd ~/.finance'
 alias reconcile='python ~/.finance/source/reconcile.py'
 
 # check os version
