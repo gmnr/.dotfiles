@@ -13,6 +13,7 @@ set cmdheight=2                                       " set command height
 set cursorline                                        " enable cursorline
 set showmatch                                         " show matching bracket when inserting one
 set noshowmode                                        " hide mode message in last line
+set nomodeline                                        " disable modeline
 set lazyredraw                                        " do not redraw the screen when executing macros
 set breakindent                                       " wrapped lines will be visually indented
 set nrformats-=octal                                  " remove the octal notation from the number formats
