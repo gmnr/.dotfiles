@@ -15,6 +15,7 @@ set showmatch                                         " show matching bracket wh
 set noshowmode                                        " hide mode message in last line
 set nomodeline                                        " disable modeline
 set lazyredraw                                        " do not redraw the screen when executing macros
+set scrolloff=999                                     " keep working line always at the middle of the screen
 set breakindent                                       " wrapped lines will be visually indented
 set nrformats-=octal                                  " remove the octal notation from the number formats
 set signcolumn=yes                                    " always draw the signcolumn
