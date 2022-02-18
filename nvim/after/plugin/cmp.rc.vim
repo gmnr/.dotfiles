@@ -3,6 +3,12 @@ set completeopt=menu,menuone,noselect
 lua << EOF
   local cmp = require'cmp'
 
+  cmp.setup.filetype({'markdown', 'vimwiki', 'text'}, {
+      completion = {
+        autocomplete = false
+      }
+    })
+
   cmp.setup({
     mapping = {
       ['<C-k>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
@@ -55,3 +61,5 @@ lua << EOF
     }
   }
 EOF
+
+au FileType vimwiki,markdown lua tw=80           " set default textwidth
