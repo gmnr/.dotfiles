@@ -61,5 +61,3 @@ lua << EOF
     }
   }
 EOF
-
-au FileType vimwiki,markdown lua tw=80           " set default textwidth
