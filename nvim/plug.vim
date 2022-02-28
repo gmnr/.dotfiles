@@ -34,7 +34,6 @@ if has("nvim")
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'onsails/lspkind-nvim'
-  Plug 'tools-life/taskwiki'
 endif
 
 " Finish installation
