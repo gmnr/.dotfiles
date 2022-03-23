@@ -28,7 +28,7 @@ alias fetch_prices='python ~/.finance/source/fetch.py'
 alias bs='hledger bs --pretty -Vt --drop 1'
 alias is='hledger is --pretty -tS --drop 1'
 alias cf='hledger cf --pretty -tS --drop 2'
-alias roi='hledger roi --pretty --pnl "unrealized" -V --inv'
+alias roi='hledger roi --pretty --pnl "unrealized" --value=now --inv'
 alias reg='hledger reg -p'
 alias areg='hledger areg -p'
 
