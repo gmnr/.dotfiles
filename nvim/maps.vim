@@ -21,6 +21,7 @@ nnoremap <leader>ww :w<CR>
 nnoremap <leader>qq :bd!<CR>
 nnoremap <leader>wq :Wd<CR>
 nnoremap <leader>QQ :q!<CR>
+nnoremap <leader>QA :qa!<CR>
 
 " quick search
 nnoremap <leader>ff :%s/
