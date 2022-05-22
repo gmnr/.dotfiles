@@ -141,24 +141,7 @@
                 "left_shift"
               ]
             },
-            "key_code": "keypad_enter"
-          },
-          "to": [
-            {
-              "repeat": true,
-              "key_code": "spacebar"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "modifiers": {
-              "mandatory": [
-                "left_shift"
-              ]
-            },
-            "key_code": "keypad_0"
+            "key_code": "keypad_hyphen"
           },
           "to": [
             {
