@@ -18,7 +18,19 @@ dateformat.info=D/M/Y H:N
 list.all.projects=yes
 
 # set priority values
-urgency.uda.priority.L.coefficient = -1.8
+urgency.uda.priority.L.coefficient=-1.8
+
+# gtd config
+urgency.user.tag.inbox.coefficient=15.0
+report.in.columns=id,description
+report.in.description=Inbox for GDT
+report.in.filter=status:pending limit:page (+inbox)
+report.in.labels=ID,Description
+
+# gdt next report
+report.next.filter=+next
+report.next.columns=id,start.age,entry.age,depends,priority,project,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
+report.next.labels=ID,Active,Age,Deps,P,Project,Recur,S,Due,Until,Description,Urg
 
 # where to save info
 #data.location=~/.local/share/task
