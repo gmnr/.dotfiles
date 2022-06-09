@@ -22,15 +22,29 @@ urgency.uda.priority.L.coefficient=-1.8
 
 # gtd config
 urgency.user.tag.inbox.coefficient=15.0
-report.in.columns=id,description
-report.in.description=Inbox for GDT
-report.in.filter=status:pending limit:page (+inbox)
-report.in.labels=ID,Description
 
-# gdt next report
-report.next.filter=+next
-report.next.columns=id,start.age,entry.age,depends,priority,project,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
-report.next.labels=ID,Active,Age,Deps,P,Project,Recur,S,Due,Until,Description,Urg
+# define standard inbox report
+report.inbox.columns=id,description
+report.inbox.description=Inbox for GDT
+report.inbox.filter=status:pending limit:page folder:inbox
+report.inbox.labels=ID,Description
+
+# add owner to default report
+report.next.columns=id,start.age,entry.age,depends,priority,owner,project,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
+report.next.labels=ID,Active,Age,Deps,P,Owner,Project,Recur,S,Due,Until,Description,Urg
+
+# add next report
+report.nx.description=List next actions
+report.nx.filter=status:pending limit:page folder:next
+report.nx.columns=id,start.age,entry.age,depends,priority,owner,project,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
+report.nx.labels=ID,Active,Age,Deps,P,Owner,Project,Recur,S,Due,Until,Description,Urg
+
+# add later report
+report.later.description=List later/maybe actions
+report.later.filter=folder:later limit:page
+report.later.columns=id,start.age,entry.age,depends,priority,owner,project,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
+report.later.labels=ID,Active,Age,Deps,P,Owner,Project,Recur,S,Due,Until,Description,Urg
+
 
 # where to save info
 #data.location=~/.local/share/task
@@ -54,3 +68,11 @@ report.next.labels=ID,Active,Age,Deps,P,Project,Recur,S,Due,Until,Description,Ur
 
 # show what's new
 news.version=2.6.0
+
+# define owner attribute
+uda.owner.type=string
+uda.owner.label=Owner
+
+# define folder attribute
+uda.folder.type=string
+uda.folder.label=Folder
