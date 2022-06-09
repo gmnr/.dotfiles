@@ -9,9 +9,9 @@ if [[ $1 -eq 2 ]]
 fi
 if [[ $1 -eq 3 ]]
   # get all the tasks that are not in inbox and that are waiting
-  then echo $(/usr/local/bin/task +WAITING folder.not:inbox count)" "
+  then echo $(/usr/local/bin/task folder:inbox +WAITING count)" "
 fi
 if [[ $1 -eq 4 ]]
-  # get all the tasks that are scheduled for later
-  then echo $(/usr/local/bin/task +SCHEDULED folder.not:inbox count)" "
+  # get all the tasks that are scheduled for later (es. maybes) to be weekly reviewed
+  then echo $(/usr/local/bin/task folder:later count)" "
 fi
