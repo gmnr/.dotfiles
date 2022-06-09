@@ -32,7 +32,7 @@ CYAN="\033[1;96m"
 RESET="\033[00m"
 
 # prompt
-EMBEDDED_PS1="$(virtualenv_info)${RED}\u${RESET}@${BLUE}\h${RESET}:${GREEN}\w ${CYAN}$(parse_git_branch)"
+EMBEDDED_PS1='$(virtualenv_info)${RED}\u${RESET}@${BLUE}\h${RESET}:${GREEN}\w ${CYAN}$(parse_git_branch)'
 
 reset_readline_prompt_mode_strings () {
     bind "set vi-ins-mode-string \"${EMBEDDED_PS1@P}\1\e[0m\2$\""
@@ -40,7 +40,7 @@ reset_readline_prompt_mode_strings () {
 }
 
 PROMPT_COMMAND=reset_readline_prompt_mode_strings
-PS1=" "
+PS1=' '
 
 # better colors
 export CLICOLOR=1;
