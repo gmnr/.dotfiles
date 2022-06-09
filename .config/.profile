@@ -83,3 +83,42 @@ fi
 
 # add ledger_file
 export LEDGER_FILE=$HOME/.finance/all.journal
+
+# taskwarrior config
+# generic aliases
+alias t='task'
+alias in='task add folder:inbox'
+
+# reports
+alias ti='task inbox'  # show inbox report
+alias tn='task nx'  # show next report
+alias tt='task waiting'  # show waiting report
+alias tl='task later'  # show later report
+
+# custom commands
+alias tm='task mod'  # modify number task
+alias tn='task ann'  # annotate the task
+alias tp='process'  # choose the folder for the task (and add eventual metadata)
+alias ta='assign'  # assign owner for the task
+alias tw='task_wait'  # wait task for a later date
+
+# set task to wait
+task_wait () {
+    item=$1
+    shift
+    task mod $item wait:$*
+}
+
+# assign task to folder
+assign () {
+    item=$1
+    shift
+    task mod $item owner:$*
+}
+
+# move tasks to correct folder
+process () {
+    item=$1
+    shift
+    task mod $item folder:$*
+}
