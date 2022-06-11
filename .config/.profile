@@ -24,16 +24,8 @@ function virtualenv_info(){
 # disable the default virtualenv prompt change
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
-RED="\033[1;91m"
-GREEN="\033[1;92m"
-YELLOW="\033[1;93m"
-BLUE="\033[1;94m"
-MAGENTA="\033[1;95m"
-CYAN="\033[1;96m"
-RESET="\033[00m"
-
 # prompt
-EMBEDDED_PS1='$(virtualenv_info)${RED}\u${RESET}@${BLUE}\h${RESET}:${GREEN}\w ${CYAN}$(parse_git_branch)'
+EMBEDDED_PS1='$(virtualenv_info)\[\033[1;91m\]\u\[\033[00m\]@\[\033[1;94m\]\h\[\033[00m\]:\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)\[\033[00m\]'
 
 reset_readline_prompt_mode_strings () {
     bind "set vi-ins-mode-string \"${EMBEDDED_PS1@P}\1\e[0m\2$\""
