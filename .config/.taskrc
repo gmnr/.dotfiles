@@ -24,14 +24,15 @@ urgency.uda.priority.L.coefficient=-1.8
 urgency.user.tag.inbox.coefficient=15.0
 
 # define standard inbox report
-report.inbox.columns=id,description
+report.inbox.columns=id,owner,due.relative,description
 report.inbox.description=Inbox for GDT
-report.inbox.filter=status:pending limit:page folder:inbox
-report.inbox.labels=ID,Description
+report.inbox.filter=status:pending folder:inbox
+report.inbox.labels=ID,Owner,Due,Description
 
 # add owner to default report
 report.next.columns=id,start.age,entry.age,depends,priority,owner,folder,project,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
 report.next.labels=ID,Active,Age,Deps,P,Owner,Folder,Project,Recur,S,Due,Until,Description,Urg
+report.next.filter=status:pending -WAITING
 
 # add folder and owner to the waiting report
 report.waiting.columns=id,start.active,entry.age,folder,owner,depends.indicator,priority,project,tags,recur.indicator,wait,wait.remaining,scheduled,due,until,description
@@ -39,13 +40,13 @@ report.waiting.labels=ID,A,Age,Folder,Owner,D,P,Project,Tags,R,Wait,Remaining,Sc
 
 # add next report
 report.nx.description=List next actions
-report.nx.filter=status:pending limit:page folder:next
+report.nx.filter=status:pending folder:next
 report.nx.columns=id,start.age,entry.age,depends,priority,owner,project,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
 report.nx.labels=ID,Active,Age,Deps,P,Owner,Project,Recur,S,Due,Until,Description,Urg
 
 # add later report
 report.later.description=List later/maybe actions
-report.later.filter=folder:later limit:page
+report.later.filter=folder:later
 report.later.columns=id,start.age,entry.age,depends,priority,owner,project,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
 report.later.labels=ID,Active,Age,Deps,P,Owner,Project,Recur,S,Due,Until,Description,Urg
 

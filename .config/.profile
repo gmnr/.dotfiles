@@ -8,6 +8,7 @@ function parse_git_branch {
       git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/<\1$(parse_git_dirty)> /"
   }
 
+# show virtualenv in prompt if present
 function virtualenv_info(){
     # Get Virtual Env
     if [[ -n "$VIRTUAL_ENV"  ]]; then
@@ -86,21 +87,23 @@ export LEDGER_FILE=$HOME/.finance/all.journal
 
 # taskwarrior config
 # generic aliases
-alias t='task'
-alias in='task add folder:inbox'
+alias t='task'                      # generic shorthand for task
+alias in='task add folder:inbox'    # insert quicktask in inbox
 
 # reports
-alias ti='task inbox'  # show inbox report
-alias tn='task nx'  # show next report
-alias tt='task waiting'  # show waiting report
-alias tl='task later'  # show later report
+alias ti='task inbox'               # show inbox report
+alias tn='task nx'                  # show next report
+alias tt='task waiting'             # show waiting report
+alias tl='task later'               # show later report
 
 # custom commands
-alias tm='task mod'  # modify number task
-alias tn='task ann'  # annotate the task
-alias tp='process'  # choose the folder for the task (and add eventual metadata)
-alias ta='assign'  # assign owner for the task
-alias tw='task_wait'  # wait task for a later date
+alias tm='task mod'                 # modify number task
+alias te='task edit'                # open task in vim and edit metadata
+alias to='task ann'                 # annotate the task
+alias tp='process'                  # choose the folder for the task (and add eventual metadata)
+alias ta='assign'                   # assign owner for the task
+alias tw='task_wait'                # wait task for a later date
+alias t_check='task folder.not:next folder.not:later folder.not:inbox'
 
 # set task to wait
 task_wait () {
