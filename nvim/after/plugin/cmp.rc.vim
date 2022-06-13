@@ -23,12 +23,6 @@ lua << EOF
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
     },
 
-    window = {
-      documentation = {
-        border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-      }
-    },
-
     experimental = {
       ghost_text = false,
       native_menu = false
