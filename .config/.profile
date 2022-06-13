@@ -79,29 +79,29 @@ export LEDGER_FILE=$HOME/.finance/all.journal
 
 # taskwarrior config
 # generic aliases
-alias t='task'                      # generic shorthand for task
-alias in='task add folder:inbox'    # insert quicktask in inbox
+alias t='task'                             # generic shorthand for task
+alias in='task add folder:inbox'           # insert quicktask in inbox
 
 # reports
-alias ti='task inbox'               # show inbox report
-alias tn='task nx'                  # show next report
-alias tt='task waiting'             # show waiting report
-alias tl='task later'               # show later report
+alias ti='clear; task inbox'               # show inbox report
+alias tn='clear; task nx'                  # show next report
+alias tt='clear; task waiting'             # show waiting report
+alias tl='clear; task later'               # show later report
 
 # custom commands
-alias tm='task mod'                 # modify number task
-alias te='task edit'                # open task in vim and edit metadata
-alias to='task ann'                 # annotate the task
-alias tp='process'                  # choose the folder for the task (and add eventual metadata)
-alias ta='assign'                   # assign owner for the task
-alias tw='task_wait'                # wait task for a later date
+alias tm='task mod'                        # modify number task
+alias te='task edit'                       # open task in vim and edit metadata
+alias to='task ann'                        # annotate the task
+alias tp='process'                         # choose the folder for the task (and add eventual metadata)
+alias ta='assign'                          # assign owner for the task
+alias tw='task_wait'                       # wait task for a later date
 alias t_check='task folder.not:next folder.not:later folder.not:inbox'
 
 # set task to wait
 task_wait () {
     item=$1
     shift
-    task mod $item wait:$*
+    task mod $item folder:inbox wait:$*
 }
 
 # assign task to folder
