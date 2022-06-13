@@ -5,7 +5,7 @@ if [[ $1 -eq 1 ]]
 fi
 if [[ $1 -eq 2 ]]
   # get all the tasks that have not been delegated nor blocked/waiting
-  then echo $(/usr/local/bin/task folder:next -WAITING count)" "
+  then echo $(/usr/local/bin/task folder:next -WAITING -COMPLETED count)" "
 fi
 if [[ $1 -eq 3 ]]
   # get all the tasks that are not in inbox and that are waiting
@@ -18,7 +18,7 @@ fi
 if [[ $1 -eq 5 ]]
   # implement check
   then
-    if [[ $(/usr/local/bin/task folder:inbox +PENDING count)+$(/usr/local/bin/task folder:next -WAITING count)+$(/usr/local/bin/task folder:inbox +WAITING count)+$(/usr/local/bin/task folder:later count) -eq $(/usr/local/bin/task count) ]]
+    if [[ $(/usr/local/bin/task folder:inbox +PENDING count)+$(/usr/local/bin/task folder:next -WAITING -COMPLETED count)+$(/usr/local/bin/task folder:inbox +WAITING count)+$(/usr/local/bin/task folder:later count) -eq $(/usr/local/bin/task count -COMPLETED -DELETED) ]]
     then echo " ~ "
     else echo " ! "
     fi
