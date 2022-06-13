@@ -86,6 +86,7 @@ alias in='task add folder:inbox'           # insert quicktask in inbox
 alias ti='clear; task inbox'               # show inbox report
 alias tn='clear; task nx'                  # show next report
 alias tt='clear; task waiting'             # show waiting report
+alias ttt='clear; task waiting wait:tom'   # show waiting report
 alias tl='clear; task later'               # show later report
 
 # custom commands
