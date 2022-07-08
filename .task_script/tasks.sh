@@ -13,12 +13,12 @@ if [[ $1 -eq 3 ]]
 fi
 if [[ $1 -eq 4 ]]
   # get all the tasks that are scheduled for later (es. maybes) to be weekly reviewed
-  then echo $(/usr/local/bin/task folder:later count)" "
+  then echo $(/usr/local/bin/task folder:later -COMPLETED count)" "
 fi
 if [[ $1 -eq 5 ]]
   # implement check
   then
-    if [[ $(/usr/local/bin/task folder:inbox +PENDING count)+$(/usr/local/bin/task folder:next -WAITING -COMPLETED count)+$(/usr/local/bin/task folder:inbox +WAITING count)+$(/usr/local/bin/task folder:later count) -eq $(/usr/local/bin/task count -COMPLETED -DELETED) ]]
+    if [[ $(/usr/local/bin/task folder:inbox +PENDING count)+$(/usr/local/bin/task folder:next -WAITING -COMPLETED count)+$(/usr/local/bin/task folder:inbox +WAITING count)+$(/usr/local/bin/task folder:later -COMPLETED count) -eq $(/usr/local/bin/task count -COMPLETED -DELETED) ]]
     then echo " ~ "
     else echo " ! "
     fi
