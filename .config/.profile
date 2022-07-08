@@ -87,7 +87,9 @@ alias ti='clear; task inbox'               # show inbox report
 alias tn='clear; task nx'                  # show next report
 alias tt='clear; task waiting'             # show waiting report
 alias ttt='clear; task waiting wait:tom'   # show waiting report
+alias tts='clear; task waiting wait:'      # show waiting report
 alias tl='clear; task later'               # show later report
+alias tf='clear; t all -COMPLETED'         # find by keyword
 
 # custom commands
 alias tm='task mod'                        # modify number task
