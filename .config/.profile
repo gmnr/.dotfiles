@@ -77,29 +77,6 @@ fi
 # add ledger_file
 export LEDGER_FILE=$HOME/.finance/all.journal
 
-# taskwarrior config
-# generic aliases
-alias t='task'                             # generic shorthand for task
-alias in='task add folder:inbox'           # insert quicktask in inbox
-
-# reports
-alias ti='clear; task inbox'               # show inbox report
-alias tn='clear; task nx'                  # show next report
-alias tt='clear; task waiting'             # show waiting report
-alias ttt='clear; task waiting wait:tom'   # show waiting report
-alias tts='clear; task waiting wait:'      # show waiting report
-alias tl='clear; task later'               # show later report
-alias tf='clear; t all -COMPLETED'         # find by keyword
-
-# custom commands
-alias tm='task mod'                        # modify number task
-alias te='task edit'                       # open task in vim and edit metadata
-alias to='task ann'                        # annotate the task
-alias tp='process'                         # choose the folder for the task (and add eventual metadata)
-alias ta='assign'                          # assign owner for the task
-alias tw='task_wait'                       # wait task for a later date
-alias t_check='task folder.not:next folder.not:later folder.not:inbox'
-
 # set task to wait
 task_wait () {
     item=$1
