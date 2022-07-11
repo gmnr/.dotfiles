@@ -1,37 +1,15 @@
 # aliases
-alias dev='cd ~/Coding'
-alias adv='cd ~/Coding/advent-of-code && vim'
-alias adv-folder='cd ~/Coding/advent-of-code'
-alias adv-get-input='~/Coding/advent-of-code/utils/startup.sh'
-alias blog='cd ~/Coding/blog'
-alias home='ssh home-server'
-alias python='python3'
-alias pip='pip3'
-alias less='less -R'
-alias mv='mv -v'
-alias rm='rm -i -v'
-alias cp='cp -v'
+
+# folder
 alias dot='cd ~/.dotfiles'
-alias tmux='TERM=xterm-256color tmux'
-alias update='brew update && brew upgrade'
+alias dev='cd ~/Coding'
+alias blog='cd ~/Coding/blog'
+alias finance='cd ~/.finance'
+alias adv-folder='cd ~/Coding/advent-of-code'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias cat='bat'
-alias grep='rg'
-alias vim='nvim'
-alias copy='pbcopy'
-alias g='git'
-alias finance='cd ~/.finance'
-alias reconcile='python ~/.finance/src/reconcile.py'
-alias fetch_prices='python ~/.finance/src/fetch.py'
-alias bs='hledger bs --pretty -Vt --drop 1'
-alias is='hledger is --pretty -tS --drop 1'
-alias cf='hledger cf --pretty -tS --drop 2'
-alias roi='hledger roi --pretty --pnl "unrealized" --value=now --inv'
-alias reg='hledger reg -p'
-alias areg='hledger areg -p'
 
-# check os version
+# colors on ls
 if [[ "$OSTYPE" == "darwin"* ]]; then
     alias ll='gls -alth --color=auto'
     alias ls='gls --color=auto'
@@ -39,3 +17,52 @@ else
     alias ll='ls -alth --color=auto'
     alias ls='ls --color=auto'
 fi
+
+# advent of code utilities
+alias adv-get-input='~/Coding/advent-of-code/utils/startup.sh'
+alias adv='cd ~/Coding/advent-of-code && vim'
+
+# rename programs
+alias python='python3'
+alias pip='pip3'
+alias less='less -R'
+alias mv='mv -v'
+alias rm='rm -i -v'
+alias cp='cp -v'
+alias tmux='TERM=xterm-256color tmux'
+alias update='brew update && brew upgrade'
+alias cat='bat'
+alias grep='rg'
+alias vim='nvim'
+alias copy='pbcopy'
+alias g='git'
+
+# taskwarrior config
+alias t='task'                             # generic shorthand for task
+alias in='task add folder:inbox'           # insert quicktask in inbox
+alias ti='clear; task inbox'               # show inbox report
+alias tn='clear; task nx'                  # show next report
+alias tt='clear; task waiting'             # show waiting report
+alias ttt='clear; task waiting wait:tom'   # show waiting report
+alias tts='clear; task waiting wait:'      # show waiting report
+alias tl='clear; task later'               # show later report
+alias tf='clear; t all -COMPLETED'         # find by keyword
+alias tm='task mod'                        # modify number task
+alias te='task edit'                       # open task in vim and edit metadata
+alias to='task ann'                        # annotate the task
+alias tp='process'                         # choose the folder for the task (and add eventual metadata)
+alias ta='assign'                          # assign owner for the task
+alias tw='task_wait'                       # wait task for a later date
+alias t_check='task folder.not:next folder.not:later folder.not:inbox'
+
+# ledger aliases
+alias ldg='hledger'
+alias bs='hledger bs --pretty -Vt --drop 1'
+alias is='hledger is --pretty -tS --drop 1'
+alias cf='hledger cf --pretty -tS --drop 2'
+alias roi='hledger roi --pretty --pnl "unrealized" --value=now --inv'
+alias reg='hledger reg -p'
+alias areg='hledger areg -p'
+alias l_cash='hledger print as:liquidity:cash | hledger -f- bal in: ex: --pretty --drop 1 -t'
+alias reconcile='python ~/.finance/src/reconcile.py'
+alias fetch_prices='python ~/.finance/src/fetch.py'
