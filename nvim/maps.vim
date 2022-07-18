@@ -5,15 +5,11 @@ nmap Y y$
 nnoremap j gj
 nnoremap k gk
 
-" disable Q for ex-mode
-nnoremap Q <nop>
-
 " open and load .vimrc
 nnoremap <leader>ev :e ~/.dotfiles/nvim/init.vim<CR>
 nnoremap <leader>ep :e ~/.dotfiles/nvim/plug.vim<CR>
 nnoremap <leader>em :e ~/.dotfiles/nvim/maps.vim<CR>
 nnoremap <leader>eu :PlugUpdate<CR>
-nnoremap <leader>sv :so ~/.dotfiles/nvim/init.vim<CR>
 nnoremap <leader>el :Explore ~/.dotfiles/nvim/after/plugin/<CR>
 
 " quick save and exit
