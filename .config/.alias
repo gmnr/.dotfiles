@@ -56,7 +56,7 @@ alias tw='task_wait'                       # wait task for a later date
 alias t_check='task folder.not:next folder.not:later folder.not:inbox'
 
 # ledger aliases
-alias ldg='hledger'
+alias ldg='hledger --pretty'
 alias bs='hledger bs --pretty -Vt --drop 1'
 alias is='hledger is --pretty -tS --drop 1'
 alias cf='hledger cf --pretty -tS --drop 2'
@@ -67,3 +67,4 @@ alias l_cash='hledger print as:liquidity:cash | hledger -f- bal in: ex: --pretty
 alias reconcile='python ~/.finance/src/reconcile.py'
 alias fetch_prices='python ~/.finance/src/fetch.py'
 alias bal='hledger bal --pretty'
+alias l_print='hledger print'
