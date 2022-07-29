@@ -10,6 +10,17 @@ lua << EOF
     })
 
   cmp.setup({
+    snippet = {
+        expand = function(args)
+          vim.fn["UltiSnips#Anon"](args.body)
+        end,
+    },
+
+    window = {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
+    },
+
     mapping = {
       ['<C-k>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
       ['<C-j>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
@@ -30,6 +41,7 @@ lua << EOF
 
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
+      { name = 'ultisnips' },
     }, {
       { name = 'buffer' },
     })
@@ -55,7 +67,7 @@ lua << EOF
   local lspkind = require('lspkind')
   cmp.setup {
     formatting = {
-      format = lspkind.cmp_format({with_text = true, maxwidth = 70})
+      format = lspkind.cmp_format({with_text = true, maxwidth = 80})
     }
   }
 EOF
