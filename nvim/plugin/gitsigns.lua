@@ -1,4 +1,3 @@
-lua << EOF
 require('gitsigns').setup {
   on_attach = function(bufnr)
     local function map(mode, lhs, rhs, opts)
@@ -30,5 +29,3 @@ require('gitsigns').setup {
     map('x', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
   end
 }
-EOF
-

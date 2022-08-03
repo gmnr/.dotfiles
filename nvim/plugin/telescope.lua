@@ -1,4 +1,3 @@
-lua << EOF
 require('telescope').setup{
   defaults = {
     file_ignore_patterns = {'.git', '/helper'}
@@ -28,4 +27,3 @@ require('telescope').setup{
     }
   }
 }
-EOF

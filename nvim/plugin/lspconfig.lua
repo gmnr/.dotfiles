@@ -1,8 +1,3 @@
-if !exists('g:lspconfig')
-  finish
-endif
-
-lua << EOF
 local nvim_lsp = require('lspconfig')
 
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
@@ -78,4 +73,3 @@ for type, icon in pairs(signs) do
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 vim.o.signcolumn = 'yes'
-EOF

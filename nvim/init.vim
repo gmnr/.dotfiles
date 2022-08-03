@@ -44,6 +44,7 @@ set gdefault                                          " when substitutine the g 
 set nobackup                                          " don't make a backup before overwriting a file
 set noswapfile                                        " don't create swapfiles
 set nowritebackup                                     " don't make backups before overwriting a file
+set completeopt=menu,menuone,noselect                 " add completion settings
 set diffopt+=iwhite                                   " turn off whitespaces compare and folding
 set diffopt+=vertical                                 " show diff in vertival splits
 set diffopt+=filler                                   " show filler lines in vimdiff
