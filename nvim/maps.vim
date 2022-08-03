@@ -10,7 +10,7 @@ nnoremap <leader>ev :e ~/.dotfiles/nvim/init.vim<CR>
 nnoremap <leader>ep :e ~/.dotfiles/nvim/plug.vim<CR>
 nnoremap <leader>em :e ~/.dotfiles/nvim/maps.vim<CR>
 nnoremap <leader>eu :PlugUpdate<CR>
-nnoremap <leader>el :Explore ~/.dotfiles/nvim/after/plugin/<CR>
+nnoremap <leader>el :Explore ~/.dotfiles/nvim/plugin/<CR>
 
 " quick save and exit
 nnoremap <leader>ww :w<CR>

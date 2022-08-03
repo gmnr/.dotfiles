@@ -132,17 +132,11 @@ let g:vimwiki_list = [{
       \ 'auto_export': 1,
       \ 'template_ext': '.html'}]
 
-" taskwiki
-let g:taskwiki_dont_fold = 'yes'
-
 " UltiSnips
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-
-" vim-markdown
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_frontmatter = 1
+let g:UltiSnipsExpandTrigger = '<Tab>'
+let g:UltiSnipsJumpForwardTrigger = '<Tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
+let g:UltiSnipsSnippetDirectories=['snppts']
 
 "}}}
 "  Auto Commands{{{
