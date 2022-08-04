@@ -152,5 +152,5 @@ au FileType python setlocal ts=4 sw=4 sts=4           " 4 space indent for pytho
 "}}}
 "  Templates{{{
 "-------------------------------------------------
-au BufNewFile *.py 0r ~/.dotfiles/vim/templates/python.template
+au BufNewFile *.py 0r ~/.dotfiles/nvim/templates/python.template
 "}}}
