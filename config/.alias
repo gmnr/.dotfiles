@@ -37,6 +37,7 @@ alias grep='rg'
 alias vim='nvim'
 alias copy='pbcopy'
 alias g='git'
+alias gvi='vim +Git +only'
 
 # taskwarrior config
 alias t='task'                             # generic shorthand for task
