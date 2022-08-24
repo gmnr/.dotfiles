@@ -9,8 +9,6 @@ vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
 
 -- open and load .vimrc"
-vim.keymap.set('n', '<leader>ev', ':Explore ~/.dotfiles/nvim/lua/core<CR>')
-vim.keymap.set('n', '<leader>el', ':Explore ~/.dotfiles/nvim/lua/plugins<CR>')
 vim.keymap.set('n', '<leader>sv', ':source ~/.dotfiles/nvim/init.lua<CR>')
 vim.keymap.set('n', '<leader>eu', ':PlugUpdate<CR>')
 
@@ -39,16 +37,15 @@ vim.keymap.set('n', '<leader>gl', ':diffget //3<CR>')
 vim.keymap.set('n', '<leader>gc', ':GBranches<CR>')
 
 -- telescope mappings
-vim.keymap.set('n', '<leader>pp', '<cmd>Telescope git_files<CR>')
-vim.keymap.set('n', '<leader>pa', '<cmd>Telescope find_files<CR>')
-vim.keymap.set('n', '<leader>pl', '<cmd>Telescope live_grep<CR>')
-vim.keymap.set('n', '<leader>po', '<cmd>Telescope buffers<CR>')
-vim.keymap.set('n', '<leader>pt', '<cmd>Telescope tags<CR>')
-vim.keymap.set('n', '<leader>ps', '<cmd>Telescope git_status<CR>')
-vim.keymap.set('n', '<leader>pc', '<cmd>Telescope git_branches<CR>')
+vim.keymap.set('n', '<leader>pg', ':Telescope git_files<CR>')
+vim.keymap.set('n', '<leader>pp', ':Telescope find_files<CR>')
+vim.keymap.set('n', '<leader>pl', ':Telescope live_grep<CR>')
+vim.keymap.set('n', '<leader>po', ':Telescope buffers<CR>')
+vim.keymap.set('n', '<leader>ps', ':Telescope git_status<CR>')
+vim.keymap.set('n', '<leader>pc', ':Telescope git_branches<CR>')
 
 -- vimviki
-vim.keymap.set('n', '<leader>wm', '<cmd>VimwikiIndex<CR>')
+vim.keymap.set('n', '<leader>wm', ':VimwikiIndex<CR>')
 
 -- change the current directory to edited file
 vim.keymap.set('n', '<leader>cd', ':cd %:h<CR>')
@@ -86,8 +83,8 @@ vim.keymap.set('n', '<leader>hd', ':Gitsigns diffthis<CR>')
 vim.keymap.set('n', '<leader>hu', ':Gitsigns undo_stage_hunk<CR>')
 vim.keymap.set({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
 vim.keymap.set({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
-vim.keymap.set('n', ']c', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", {expr=true})
-vim.keymap.set('n', '[c', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", {expr=true})
+vim.keymap.set('n', ']c', "&diff ? ']c' : ':Gitsigns next_hunk<CR>'", {expr=true})
+vim.keymap.set('n', '[c', "&diff ? '[c' : ':Gitsigns prev_hunk<CR>'", {expr=true})
 
 -- lsp config
 vim.keymap.set('n', 'K', ':Lspsaga hover_doc<CR>')
