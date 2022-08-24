@@ -9,7 +9,6 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'joshdick/onedark.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'mattn/emmet-vim'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -34,5 +33,6 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'onsails/lspkind-nvim'
 Plug 'glepnir/lspsaga.nvim'
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = vim.fn['TSUpdate']})
+Plug('mattn/emmet-vim', {['for'] = {'html', 'css'}})
 
 vim.call('plug#end')

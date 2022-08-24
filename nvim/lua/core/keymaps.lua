@@ -10,17 +10,17 @@ vim.keymap.set('n', 'k', 'gk')
 
 -- open and load .vimrc"
 vim.keymap.set('n', '<leader>ev', ':Explore ~/.dotfiles/nvim/lua/core<CR>')
-vim.keymap.set('n', '<leader>el', ':Explore ~/.dotfiles/nvim/lua/configs<CR>')
+vim.keymap.set('n', '<leader>el', ':Explore ~/.dotfiles/nvim/lua/plugins<CR>')
+vim.keymap.set('n', '<leader>sv', ':source ~/.dotfiles/nvim/init.lua<CR>')
 vim.keymap.set('n', '<leader>eu', ':PlugUpdate<CR>')
-vim.keymap.set('n', '<leader>sv', ':source ~/.dotfiles/nvim/init.vim<CR>')
 
 -- quick save and exit
 vim.keymap.set('n', '<leader>ww', ':w<CR>')
-vim.keymap.set('n', '<leader>qq', ':bd!<CR>')
 vim.keymap.set('n', '<leader>ww', ':w<CR>')
+vim.keymap.set('n', '<leader>wq', ':Wd<CR>')
+vim.keymap.set('n', '<leader>qq', ':bd!<CR>')
 vim.keymap.set('n', '<leader>QQ', ':q!<CR>')
 vim.keymap.set('n', '<leader>QA', ':qa!<CR>')
--- nnoremap <leader>wq :Wd<CR> need to redefine function
 
 --  quick search
 vim.keymap.set('n', '<leader>ff', ':%s/')
