@@ -14,7 +14,7 @@ require('plugins.ultisnips')
 require('plugins.vimwiki')
 
 -- load dynamic plugins config
-require('plugins.autocomplete').config()
+require('plugins.autocomplete').config()  -- cmp / lspconfig / lspking / lspsaga
 require('plugins.gitsigns').config()
 require('plugins.lua-line').config()
 require('plugins.telescope').config()
