@@ -7,11 +7,7 @@ require('core.plugins')
 require('core.theme')
 
 -- load static plugins config
-require('plugins.delimitmate')
-require('plugins.emmet')
-require('plugins.quickrun')
-require('plugins.ultisnips')
-require('plugins.vimwiki')
+require('plugins.static')
 
 -- load dynamic plugins config
 require('plugins.autocomplete').config()  -- cmp / lspconfig / lspking / lspsaga
