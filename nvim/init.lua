@@ -16,7 +16,6 @@ require('plugins.vimwiki')
 -- load dynamic plugins config
 require('plugins.autocomplete').config()
 require('plugins.gitsigns').config()
-require('plugins.lspconfig').config()
 require('plugins.lua-line').config()
 require('plugins.telescope').config()
 require('plugins.treesitter').config()
