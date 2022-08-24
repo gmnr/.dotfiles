@@ -1,7 +1,5 @@
 -- ultisnips config
-vim.cmd [[
-let g:UltiSnipsExpandTrigger = '<Tab>'
-let g:UltiSnipsJumpForwardTrigger = '<Tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
-let g:UltiSnipsSnippetDirectories=['snppts']
-]]
+vim.g.UltiSnipsExpandTrigger = '<Tab>'
+vim.g.UltiSnipsJumpForwardTrigger = '<Tab>'
+vim.g.UltiSnipsJumpBackwardTrigger = '<S-Tab>'
+vim.g.UltiSnipsSnippetDirectories={'snppts'}
