@@ -9,6 +9,8 @@ vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
 
 -- open and load .vimrc"
+vim.keymap.set('n', '<leader>ev', ':lua require("telescope.builtin").find_files({cwd="~/.dotfiles/nvim/lua/core"})<CR>', {silent=true})
+vim.keymap.set('n', '<leader>el', ':lua require("telescope.builtin").find_files({cwd="~/.dotfiles/nvim/lua/plugins"})<CR>', {silent=true})
 vim.keymap.set('n', '<leader>sv', ':source ~/.dotfiles/nvim/init.lua<CR>')
 vim.keymap.set('n', '<leader>eu', ':PlugUpdate<CR>')
 
@@ -81,15 +83,15 @@ vim.keymap.set('n', '<leader>hS', ':Gitsigns stage_buffer<CR>')
 vim.keymap.set('n', '<leader>hR', ':Gitsigns reset_buffer<CR>')
 vim.keymap.set('n', '<leader>hd', ':Gitsigns diffthis<CR>')
 vim.keymap.set('n', '<leader>hu', ':Gitsigns undo_stage_hunk<CR>')
-vim.keymap.set({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
-vim.keymap.set({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
+vim.keymap.set({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>', {silent=true})
+vim.keymap.set({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>', {silent=true})
 vim.keymap.set('n', ']c', "&diff ? ']c' : ':Gitsigns next_hunk<CR>'", {expr=true})
 vim.keymap.set('n', '[c', "&diff ? '[c' : ':Gitsigns prev_hunk<CR>'", {expr=true})
 
 -- lsp config
 vim.keymap.set('n', 'K', ':Lspsaga hover_doc<CR>')
-vim.keymap.set('n', '[d', ':Lspsaga diagnostic_jump_prev<CR>')
-vim.keymap.set('n', ']d', ':Lspsaga diagnostic_jump_next<CR>')
+vim.keymap.set('n', '[d', ':Lspsaga diagnostic_jump_prev<CR>', {silent=true})
+vim.keymap.set('n', ']d', ':Lspsaga diagnostic_jump_next<CR>', {silent=true})
 vim.keymap.set('n', 'gI', vim.lsp.buf.implementation)
 vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help)
 vim.keymap.set('n', '<leader>ld', vim.diagnostic.setloclist)
