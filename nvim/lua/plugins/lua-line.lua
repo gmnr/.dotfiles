@@ -1,6 +1,6 @@
-local F = {}
+local M = {}
 
-function F.config()
+function M.config()
   require('lualine').setup {
     options = {
       icons_enabled = true,
@@ -31,4 +31,4 @@ function F.config()
   }
 end
 
-return F
+return M

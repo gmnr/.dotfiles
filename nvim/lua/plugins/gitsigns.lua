@@ -1,6 +1,6 @@
-local F = {}
+local M = {}
 
-function F.config()
+function M.config()
   require('gitsigns').setup {
     signs                        = {
       add          = { hl = 'GitSignsAdd', text = '│', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
@@ -44,4 +44,4 @@ function F.config()
   }
 end
 
-return F
+return M

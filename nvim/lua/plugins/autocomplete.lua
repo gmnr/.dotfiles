@@ -1,6 +1,6 @@
-local F = {}
+local M = {}
 
-function F.config()
+function M.config()
   local cmp = require('cmp')
 
   -- disable autocopletion for text heavy types
@@ -170,4 +170,4 @@ function F.config()
 	})
 end
 
-return F
+return M
