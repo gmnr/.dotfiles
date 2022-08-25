@@ -89,17 +89,17 @@ function M.config()
       virtual_text = false,
       underline = true,
       severity_sort = true,
-      float = {
-        focusable = false,
-        style = 'minimal',
-        border = 'rounded',
-        source = 'always',
-        header = '',
-        prefix = ''
-      },
+  --     float = {
+  --       focusable = false,
+  --       style = 'minimal',
+  --       border = 'rounded',
+  --       source = 'always',
+  --       header = '',
+  --       prefix = ''
+  --     },
   }
-
   vim.diagnostic.config(config)
+
   local signs = { Error = '► ', Warn = '► ', Hint = '► ', Information = '► ' }
   for type, icon in pairs(signs) do
       local hl = 'DiagnosticSign' .. type
