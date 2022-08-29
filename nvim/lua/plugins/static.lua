@@ -14,6 +14,10 @@ vim.g.UltiSnipsSnippetDirectories={'snppts'}
 vim.g.delimitMate_expand_cr = 2 -- turns on <CR> expansion
 vim.g.delimitMate_expand_space = 1 -- turns on <Space> expansion
 
+-- vim-ledger
+vim.g.ledger_bin = 'hledger'
+vim.g.ledger_decimal_sep = ','
+
 -- quickrun
 vim.cmd [[
 let g:quickrun_config = {

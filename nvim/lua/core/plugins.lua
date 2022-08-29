@@ -32,6 +32,7 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'onsails/lspkind-nvim'
 Plug 'glepnir/lspsaga.nvim'
+Plug 'ledger/vim-ledger'
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = vim.fn['TSUpdate']})
 Plug('mattn/emmet-vim', {['for'] = {'html', 'css'}})
 

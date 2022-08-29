@@ -1,27 +1,31 @@
--- Import templates for python files
-vim.api.nvim_create_autocmd('BufNewFile', {
+local api = vim.api
+
+api.nvim_create_autocmd('BufNewFile', {
+  desc = 'Import template for python files',
   pattern = {'*.py'},
-  desc = 'Use template for python files',
   command = '0r ~/.dotfiles/nvim/templates/python.template'
 })
 
--- Enable spellign for verbose text editing
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = {'markdown', 'vimwiki'},
+api.nvim_create_autocmd('FileType', {
   desc = 'Enable spelling while editing verbose files',
+  pattern = {'markdown', 'vimwiki'},
   command = 'setlocal spell'
 })
 
--- Set a fixed textwidth for verbose files
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = {'markdown', 'vimwiki'},
+api.nvim_create_autocmd('FileType', {
   desc = 'Verbose texts should have a default textwidth',
+  pattern = {'markdown', 'vimwiki'},
   command = 'setlocal tw=80'
 })
 
--- 4 spaces for indent for ledger files
-vim.api.nvim_create_autocmd('FileType', {
+api.nvim_create_autocmd('FileType', {
+  desc = 'Indent at 4 spaces on ledger files',
   pattern = {'ledger'},
-  desc = 'Indent at 4 spaces',
   command = 'setlocal ts=4 sw=4 sts=4'
+})
+
+api.nvim_create_autocmd('FileType', {
+  pattern = {'ledger'},
+  desc = 'Autoalign amounts on ledger files when pressing enter',
+  command = 'inoremap <silent> <CR> <C-r>=ledger#autocomplete_and_align()<CR><CR>'
 })
