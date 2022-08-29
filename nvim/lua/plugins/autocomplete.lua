@@ -3,8 +3,8 @@ local M = {}
 function M.config()
   local cmp = require('cmp')
 
-  -- disable autocopletion for text heavy types
-  cmp.setup.filetype({'markdown', 'vimwiki', 'text'}, {
+  -- disable auto completion for text heavy types
+  cmp.setup.filetype({'markdown', 'vimwiki', 'text', 'ledger'}, {
       completion = {
         autocomplete = false
       }
