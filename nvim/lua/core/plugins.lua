@@ -4,7 +4,7 @@ local Plug = vim.fn['plug#']
 -- start install
 vim.call('plug#begin')
 
-Plug 'Raimondi/delimitMate'
+Plug 'windwp/nvim-autopairs'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'joshdick/onedark.vim'
@@ -32,8 +32,8 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'onsails/lspkind-nvim'
 Plug 'glepnir/lspsaga.nvim'
-Plug 'ledger/vim-ledger'
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = vim.fn['TSUpdate']})
 Plug('mattn/emmet-vim', {['for'] = {'html', 'css'}})
+Plug('ledger/vim-ledger', {['for'] = {'ledger'}})
 
 vim.call('plug#end')
