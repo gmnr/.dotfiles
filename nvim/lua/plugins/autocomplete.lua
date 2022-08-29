@@ -13,7 +13,7 @@ function M.config()
   -- enable snippets
   cmp.setup({
 
-    completion = {completeopt = 'menu, menuone, noinsert'}
+    completion = {completeopt = 'menu, menuone, noinsert'},
 
     snippet = {
         expand = function(args)
@@ -94,7 +94,7 @@ function M.config()
   -- config lspgconfig
   local nvim_lsp = require('lspconfig')
   -- Use a loop to conveniently call 'setup' on multiple servers and
-  local servers = {'pyright', 'html', 'tsserver'}
+  local servers = {'pyright', 'tsserver', 'sumneko_lua'}
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
       on_attach = on_attach,
@@ -186,6 +186,10 @@ function M.config()
 		},
 		server_filetype_map = {},
 	})
+
+
+  local pairs = require('nvim-autopairs')
+  pairs.setup({})
 end
 
 return M
