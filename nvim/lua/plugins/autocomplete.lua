@@ -12,6 +12,9 @@ function M.config()
 
   -- enable snippets
   cmp.setup({
+
+    completion = {completeopt = 'menu, menuone, noinsert'}
+
     snippet = {
         expand = function(args)
           vim.fn["UltiSnips#Anon"](args.body)
