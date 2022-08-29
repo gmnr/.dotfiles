@@ -21,6 +21,7 @@ opt.shiftwidth                 = 2     -- number of spaces of each indentation l
 opt.softtabstop                = 2     -- insert spaces when tabbing
 opt.scrolloff                  = 999   -- keep cursor in the middle of the line
 opt.wildignorecase             = true  -- ignore case when writing commands
+opt.complete                   = ''    -- disable ordinary autocompletion
 
 -- diff options
 opt.diffopt                    = 'filler,iwhite,internal,algorithm:patience'
