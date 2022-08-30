@@ -2,6 +2,8 @@
 vim.api.nvim_create_user_command('Wd', 'write|bdelete', {})
 
 -- write lua functions in global space
+
+-- Align ledger amounts and add trailing zeros when needed
 function _G.BetterLedgerAlign()
 
   if string.find(vim.fn.getline('.'):sub(-1), '%d') then

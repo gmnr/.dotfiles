@@ -1,4 +1,6 @@
+-- load vim.opt into variable
 local opt = vim.opt
+
 -- basic options
 opt.number                     = true  -- enable numbering
 opt.termguicolors              = true  -- enable termguicolors
