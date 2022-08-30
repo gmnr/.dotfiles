@@ -97,10 +97,21 @@ function M.config()
   local servers = {'pyright', 'tsserver', 'sumneko_lua'}
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
-      on_attach = on_attach,
       root_dir = nvim_lsp.util.root_pattern('.git'),
     }
   end
+
+  -- fix global variable vim not found
+  nvim_lsp.sumneko_lua.setup{
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { 'vim' }
+        }
+      }
+    }
+  }
+
 
   -- apply configuration to diagnostic
   local config = {
