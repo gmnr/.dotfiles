@@ -33,7 +33,7 @@ function M.config()
       ['<C-j>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
 
       -- use C-n and C-p for triggering completion
-      ['<C-n>'] = cmp.mapping(function(fallback)
+      ['<C-n>'] = cmp.mapping(function()
         if cmp.visible() then
           cmp.select_next_item()
         else
@@ -41,7 +41,7 @@ function M.config()
         end
       end, { "i", "c" }),
 
-      ['<C-p>'] = cmp.mapping(function(fallback)
+      ['<C-p>'] = cmp.mapping(function()
         if cmp.visible() then
           cmp.select_prev_item()
         else
@@ -54,6 +54,7 @@ function M.config()
         c = cmp.mapping.close(),
       }),
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      ['<Tab>'] = cmp.mapping.confirm({ select = true }),
     },
 
     -- add ordinary sources
