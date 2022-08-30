@@ -76,7 +76,7 @@ vim.keymap.set('n', 'za', 'zo')
 vim.keymap.set('n', 'zo', 'za')
 
 -- hledger formatting
-vim.keymap.set('n', '<leader>bb', ':LedgerAlign<CR>')
+vim.keymap.set('n', '<leader>bb', ':lua BetterLedgerAlign()<CR>')
 vim.keymap.set('n', '<leader>ba', ':LedgerAlignBuffer<CR>')
 
 -- gitsigns

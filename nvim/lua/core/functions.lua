@@ -22,9 +22,8 @@ function _G.BetterLedgerAlign()
       end
     end
     vim.cmd(':LedgerAlign')
-    vim.cmd('normal o ')
     return ''
   else
-    return '\n'
+    return ''
   end
 end

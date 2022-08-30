@@ -27,5 +27,5 @@ api.nvim_create_autocmd('FileType', {
 api.nvim_create_autocmd('FileType', {
   pattern = {'ledger'},
   desc = 'Autoalign amounts on ledger files when pressing enter',
-  command = 'inoremap <silent> <CR> <C-r>=v:lua.BetterLedgerAlign()<CR>'
+  command = 'inoremap <silent> <CR> <C-r>=v:lua.BetterLedgerAlign()<CR><Right><CR>'
 })
