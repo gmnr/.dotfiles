@@ -95,7 +95,7 @@ function M.config()
   -- config lspgconfig
   local nvim_lsp = require('lspconfig')
   -- Use a loop to conveniently call 'setup' on multiple servers and
-  local servers = {'pyright', 'tsserver', 'sumneko_lua'}
+  local servers = {'pyright', 'tsserver', 'sumneko_lua', 'bashls'}
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
       root_dir = nvim_lsp.util.root_pattern('.git'),
