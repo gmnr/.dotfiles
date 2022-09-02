@@ -69,6 +69,9 @@ function M.config()
   cmp.setup.cmdline('/', {
     sources = {
       { name = 'buffer' }
+    },
+    completion = {
+      autocomplete = false,
     }
   })
 
