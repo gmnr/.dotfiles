@@ -60,7 +60,7 @@ alias t_check='task folder.not:next folder.not:later folder.not:inbox'
 # ledger aliases
 alias ldg='hledger --pretty'
 alias bs='hledger bs --pretty -Vt --drop 1 -3'
-alias is='hledger is --pretty -tS --drop 1'
+alias is='hledger is --pretty -tS --drop 1 -3'
 alias iss='hledger is --pretty -tS --drop 1 -p thismonth'
 alias cf='hledger cf --pretty -tS --drop 1'
 alias roi='hledger roi --pretty --pnl "unrealized" --value=now --inv'
