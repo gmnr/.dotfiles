@@ -1,4 +1,5 @@
 -- leader key
+ vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })  -- improve performance of leader key
 vim.g.mapleader = ' '
 
 -- fix Y behaviour
