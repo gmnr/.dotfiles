@@ -147,8 +147,8 @@ function M.config()
 		saga_winblend = 0,
 		move_in_saga = { prev = '<C-p>',next = '<C-n>'},
 		diagnostic_header = { " ", " ", " ", "ﴞ " },
-		show_diagnostic_source = true,
-		diagnostic_source_bracket = {},
+		-- show_diagnostic_source = true,
+		-- diagnostic_source_bracket = {},
 		max_preview_lines = 10,
 		code_action_icon = "",
 		code_action_num_shortcut = true,
@@ -180,7 +180,7 @@ function M.config()
 		},
 		rename_action_quit = "q",
 		rename_in_select = true,
-		definition_preview_icon = "  ",
+		-- definition_preview_icon = "  ",
 		-- show symbols in winbar must nightly
 		symbol_in_winbar = {
 			in_custom = false,
