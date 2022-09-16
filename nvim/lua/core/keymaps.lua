@@ -1,5 +1,5 @@
 -- leader key
- vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })  -- improve performance of leader key
+vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })  -- improve performance of leader key
 vim.g.mapleader = ' '
 
 -- fix Y behaviour
@@ -46,9 +46,6 @@ vim.keymap.set('n', '<leader>pl', ':Telescope live_grep<CR>', {silent=true})
 vim.keymap.set('n', '<leader>po', ':Telescope buffers<CR>', {silent=true})
 vim.keymap.set('n', '<leader>ps', ':Telescope git_status<CR>', {silent=true})
 vim.keymap.set('n', '<leader>pc', ':Telescope git_branches<CR>', {silent=true})
-
--- vimviki
-vim.keymap.set('n', '<leader>wm', ':VimwikiIndex<CR>')
 
 -- change the current directory to edited file
 vim.keymap.set('n', '<leader>cd', ':cd %:h<CR>')
