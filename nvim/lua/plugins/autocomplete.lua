@@ -4,11 +4,40 @@ function M.config()
   local cmp = require('cmp')
 
   -- disable auto completion for text heavy types
-  cmp.setup.filetype({'markdown', 'vimwiki', 'text', 'ledger'}, {
+  cmp.setup.filetype({'markdown', 'vimwiki', 'text'}, {
       completion = {
         autocomplete = false
       }
     })
+
+  -- create custom source for nvim-cmp
+  cmp.register_source('payee_handle', {
+    complete = function(self, params, callback)
+      local items = {}
+      os.execute('hledger payee > /tmp/payees')
+      for payee in io.lines('/tmp/payees') do
+        table.insert(items, {
+          label = payee,
+          insertText = payee,
+          filterText = payee,
+          label = 'Payee'
+        })
+      end
+      callback({ items = items })
+    end,
+  })
+
+  -- add source only for ledger file
+  cmp.setup.filetype('ledger', {
+    sources = cmp.config.sources({
+      { name = 'ultisnips' },
+      { name = 'payee_handle' }, -- my custom source
+    }),
+    completion = {
+      autocomplete = false
+    }
+  })
+
 
   -- enable snippets
   cmp.setup({
