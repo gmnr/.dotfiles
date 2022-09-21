@@ -14,3 +14,4 @@ require('plugins.autocomplete').config()  -- cmp / lspconfig / lspking / lspsaga
 require('plugins.gitsigns').config()
 require('plugins.lua-line').config()
 require('plugins.treesitter').config()
+require('plugins.orgmode').config()
