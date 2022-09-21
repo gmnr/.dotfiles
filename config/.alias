@@ -21,7 +21,7 @@ fi
 
 # advent of code utilities
 alias adv-get-input='~/Coding/advent-of-code/utils/startup.sh'
-alias adv='cd ~/Coding/advent-of-code && vim'
+alias adv='cd ~/Coding/advent-of-code && nvim'
 
 # rename programs
 alias python='python3'
@@ -34,10 +34,10 @@ alias tmux='TERM=xterm-256color tmux'
 alias update='brew update && brew upgrade'
 alias cat='bat'
 alias grep='rg'
-alias vim='nvim'
+alias v='nvim'
 alias copy='pbcopy'
 alias g='git'
-alias gvi='vim +Git +only'
+alias gv='nvim +Git +only'
 
 # taskwarrior config
 alias t='task'                             # generic shorthand for task
@@ -72,4 +72,4 @@ alias fetch_prices='python ~/.finance/.src/fetch.py'
 alias prices='cat ~/.finance/prices/current_prices.journal'
 alias bal='hledger bal --pretty'
 alias jrn='hledger print'
-alias exp='vim "+normal G" ~/.finance/periods/2022.journal'
+alias exp='nvim "+normal G" ~/.finance/periods/2022.journal'
