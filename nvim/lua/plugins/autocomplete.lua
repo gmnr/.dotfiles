@@ -37,13 +37,12 @@ function M.config()
     }
   })
 
-
   -- enable snippets
   cmp.setup({
     completion = {completeopt = 'menu, menuone, noinsert'},
     snippet = {
         expand = function(args)
-          vim.fn["UltiSnips#Anon"](args.body)
+          vim.fn['UltiSnips#Anon'](args.body)
         end,
     },
 
@@ -65,7 +64,7 @@ function M.config()
         else
           cmp.complete()
         end
-      end, { "i", "c" }),
+      end, { 'i', 'c' }),
 
       ['<C-p>'] = cmp.mapping(function()
         if cmp.visible() then
@@ -73,7 +72,7 @@ function M.config()
         else
           cmp.complete()
         end
-      end, { "i", "c" }),
+      end, { 'i', 'c' }),
 
       ['<C-e>'] = cmp.mapping({
         i = cmp.mapping.abort(),
@@ -148,14 +147,6 @@ function M.config()
       virtual_text = false,
       underline = true,
       severity_sort = true,
-  --     float = {
-  --       focusable = false,
-  --       style = 'minimal',
-  --       border = 'rounded',
-  --       source = 'always',
-  --       header = '',
-  --       prefix = ''
-  --     },
   }
   vim.diagnostic.config(config)
 
@@ -164,19 +155,18 @@ function M.config()
       local hl = 'DiagnosticSign' .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
   end
-  vim.o.signcolumn = 'yes'
 
   -- add config for lsp saga
  	local saga = require('lspsaga')
   saga.init_lsp_saga({
-		border_style = "single",
+		border_style = 'single',
 		saga_winblend = 0,
 		move_in_saga = { prev = '<C-p>',next = '<C-n>'},
-		diagnostic_header = { " ", " ", " ", "ﴞ " },
+		diagnostic_header = { ' ', ' ', ' ', 'ﴞ ' },
 		-- show_diagnostic_source = true,
 		-- diagnostic_source_bracket = {},
 		max_preview_lines = 10,
-		code_action_icon = "",
+		code_action_icon = '',
 		code_action_num_shortcut = true,
 		code_action_lightbulb = {
 			enable = true,
@@ -192,29 +182,20 @@ function M.config()
 		},
 		finder_request_timeout = 1500,
 		finder_action_keys = {
-			open = "o",
-			vsplit = "s",
-			split = "i",
-			tabe = "t",
-			quit = "q",
-			scroll_down = "<C-f>",
-			scroll_up = "<C-b>", -- quit can be a table
+			open = 'o',
+			vsplit = 's',
+			split = 'i',
+			tabe = 't',
+			quit = 'q',
+			scroll_down = '<C-f>',
+			scroll_up = '<C-b>', -- quit can be a table
 		},
 		code_action_keys = {
-			quit = "q",
-			exec = "<CR>",
+			quit = 'q',
+			exec = '<CR>',
 		},
-		rename_action_quit = "q",
+		rename_action_quit = 'q',
 		rename_in_select = true,
-		-- definition_preview_icon = "  ",
-		-- show symbols in winbar must nightly
-		symbol_in_winbar = {
-			in_custom = false,
-			enable = false,
-			separator = ' ',
-			show_file = true,
-			click_support = false,
-		},
 		show_outline = {
 			win_position = 'right',
 			win_with = '',
