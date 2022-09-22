@@ -4,7 +4,7 @@ function M.config()
   local cmp = require('cmp')
 
   -- disable auto completion for text heavy types
-  cmp.setup.filetype({'markdown', 'vimwiki', 'text'}, {
+  cmp.setup.filetype({'markdown', 'org', 'gitcommit', 'text'}, {
       completion = {
         autocomplete = false
       }
@@ -20,7 +20,6 @@ function M.config()
           label = payee,
           insertText = payee,
           filterText = payee,
-          label = 'Payee'
         })
       end
       callback({ items = items })
@@ -41,9 +40,7 @@ function M.config()
 
   -- enable snippets
   cmp.setup({
-
     completion = {completeopt = 'menu, menuone, noinsert'},
-
     snippet = {
         expand = function(args)
           vim.fn["UltiSnips#Anon"](args.body)
