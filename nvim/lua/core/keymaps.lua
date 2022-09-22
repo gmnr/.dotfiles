@@ -10,8 +10,7 @@ vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
 
 -- open and load .vimrc"
-vim.keymap.set('n', '<leader>ev', ':lua require("telescope.builtin").find_files({cwd="~/.dotfiles/nvim/lua/core"})<CR>', {silent=true})
-vim.keymap.set('n', '<leader>el', ':lua require("telescope.builtin").find_files({cwd="~/.dotfiles/nvim/lua/plugins"})<CR>', {silent=true})
+vim.keymap.set('n', '<leader>ev', ':lua require("telescope.builtin").find_files({cwd="~/.dotfiles/nvim/lua/", search_dirs={"~/.dotfiles/nvim/lua/plugins", "~/.dotfiles/nvim/lua/core"}})<CR>', {silent=true})
 vim.keymap.set('n', '<leader>sv', ':source ~/.dotfiles/nvim/init.lua<CR>')
 vim.keymap.set('n', '<leader>eu', ':PlugUpdate<CR>')
 
