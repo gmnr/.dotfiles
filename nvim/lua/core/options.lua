@@ -13,7 +13,6 @@ opt.lazyredraw                 = true  -- don't redraw screen while executing ma
 opt.gdefault                   = true  -- when substituting the g flag is always enabled
 opt.smartindent                = true  -- smart autoindenting
 opt.splitright                 = true  -- open next window to the right of current one
-opt.splitbelow                 = true  -- open next window below the current one
 opt.showmode                   = false -- hide mode on last row
 opt.hlsearch                   = false -- disable highlight of search results
 opt.swapfile                   = false -- disable swapfile
