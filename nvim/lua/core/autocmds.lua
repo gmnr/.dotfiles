@@ -7,15 +7,9 @@ api.nvim_create_autocmd('BufNewFile', {
 })
 
 api.nvim_create_autocmd('FileType', {
-  desc = 'Enable spelling while editing verbose files',
-  pattern = {'markdown', 'vimwiki'},
-  command = 'setlocal spell'
-})
-
-api.nvim_create_autocmd('FileType', {
-  desc = 'Verbose texts should have a default textwidth',
-  pattern = {'markdown', 'vimwiki'},
-  command = 'setlocal tw=80'
+  desc = 'Verbose texts should have a default textwidth and spelling enabled',
+  pattern = {'markdown', 'org', 'text'},
+  command = 'setlocal tw=80 spell'
 })
 
 api.nvim_create_autocmd('FileType', {
