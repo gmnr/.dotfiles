@@ -23,7 +23,7 @@ opt.softtabstop                = 2     -- insert spaces when tabbing
 opt.scrolloff                  = 999   -- keep cursor in the middle of the line
 opt.wildignorecase             = true  -- ignore case when writing commands
 opt.complete                   = ''    -- disable ordinary autocompletion
-opt.signcolumn                 = 'yes' -- always enable signcolumn
+opt.conceallevel               = 2     -- enable concealing
 
 -- diff options
 opt.diffopt                    = 'filler,iwhite,internal,algorithm:patience'
