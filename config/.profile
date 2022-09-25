@@ -24,11 +24,32 @@ function virtualenv_info(){
 # disable the default virtualenv prompt change
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
+# show hostname if is different from mbp
+function show_hostname() {
+  if [[ `hostname -s` == "mbp" ]]; then
+    host_value=""
+  else
+    host_value="@\h"
+  fi
+  [[ -n "$host_value"  ]] && echo "$host_value "
+}
+
+# show user if it's not guido
+function show_user() {
+  if [[ `whoami` == "guido" ]]; then
+    user_value=""
+  else
+    user_value="\u"
+  fi
+  echo "$user_value"
+  [[ -n "$user_value"  ]] && echo "$user_value"
+}
+
 # (old), dislays >> (virtual env) user@hostname:workingdir <git branch>
 # EMBEDDED_PS1='$(virtualenv_info)\[\033[1;91m\]\u\[\033[00m\]@\[\033[1;94m\]\h\[\033[00m\]:\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)\[\033[00m\]'
 
 # (new prompt), dislays >> (virtual env) workingdir <git branch>
-EMBEDDED_PS1='$(virtualenv_info)\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)'
+EMBEDDED_PS1='$(virtualenv_info)\[\033[1;91m\]$(show_user)\[\033[1;94m\]$(show_hostname)\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)'
 
 reset_readline_prompt_mode_strings () {
     # old config
