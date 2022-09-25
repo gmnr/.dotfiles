@@ -109,3 +109,6 @@ vim.keymap.set('n', '<leader>lL', ':Lspsaga show_cursor_diagnostics<CR>', {silen
 vim.keymap.set('n', '<leader>la', ':Lspsaga code_action<CR>', {silent=true})
 vim.keymap.set('n', '<leader>lf', ':Lspsaga lsp_finder<CR>', {silent=true})
 vim.keymap.set('n', '<leader>lr', ':Lspsaga rename<CR>', {silent=true})
+
+-- open links and files from vim
+vim.keymap.set('n', 'gx', ':!open <C-r><C-a><CR>')
