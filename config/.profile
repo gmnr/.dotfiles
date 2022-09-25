@@ -24,12 +24,20 @@ function virtualenv_info(){
 # disable the default virtualenv prompt change
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
-# prompt
-EMBEDDED_PS1='$(virtualenv_info)\[\033[1;91m\]\u\[\033[00m\]@\[\033[1;94m\]\h\[\033[00m\]:\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)\[\033[00m\]'
+# (old), dislays >> (virtual env) user@hostname:workingdir <git branch>
+# EMBEDDED_PS1='$(virtualenv_info)\[\033[1;91m\]\u\[\033[00m\]@\[\033[1;94m\]\h\[\033[00m\]:\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)\[\033[00m\]'
+
+# (new prompt), dislays >> (virtual env) workingdir <git branch>
+EMBEDDED_PS1='$(virtualenv_info)\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)'
 
 reset_readline_prompt_mode_strings () {
-    bind "set vi-ins-mode-string \"${EMBEDDED_PS1@P}\1\e[0m\2$\""
-    bind "set vi-cmd-mode-string \"${EMBEDDED_PS1@P}\1\e[0m\2:\""
+    # old config
+    # bind "set vi-ins-mode-string \"${EMBEDDED_PS1@P}\1\e[00m\2$\""
+    # bind "set vi-cmd-mode-string \"${EMBEDDED_PS1@P}\1\e[00m\2:\""
+
+    # new config
+    bind "set vi-ins-mode-string \"${EMBEDDED_PS1@P}\1\e[91m\2>\1\e[0m\2\""
+    bind "set vi-cmd-mode-string \"${EMBEDDED_PS1@P}\1\e[93m\2?\1\e[0m\2\""
 }
 
 PROMPT_COMMAND=reset_readline_prompt_mode_strings
