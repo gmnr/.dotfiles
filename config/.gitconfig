@@ -1,44 +1,45 @@
 [user]
-        name = gmnr
-        email = guido.minieri@gmail.com
+  name = gmnr
+  email = guido.minieri@gmail.com
 
 [alias]
-        ll = log --pretty=format:"\"%C(yellow)%h %Cgreen%ad %Cblue[%cn] %C(auto)%d %Creset%s\"" --decorate --date=short
-        all = log --pretty=format:"\"%C(yellow)%h %Cgreen%cd %Cblue[%cn] %C(auto)%d %Creset%s\"" --graph --date=relative --decorate --all
-        l = log --oneline
-        ss = status
-        au = add -u
-        pu = push origin master
-        cm = commit -m
-        co = checkout
-        br = branch -v
-        sb = submodule
-        df = diff
-        rb = rebase -i
+  ll = log --pretty=format:"\"%C(yellow)%h %Cgreen%ad %Cblue[%cn] %C(auto)%d %Creset%s\"" --decorate --date=short
+  all = log --pretty=format:"\"%C(yellow)%h %Cgreen%cd %Cblue[%cn] %C(auto)%d %Creset%s\"" --graph --date=relative --decorate --all
+  l = log --oneline
+  ss = status
+  au = add -u
+  pu = push origin master
+  cm = commit -m
+  co = checkout
+  br = branch -v
+  sb = submodule
+  df = diff
+  rb = rebase -i
 
 [color]
-        branch = auto
-        diff = auto
-        status = auto
+  branch = auto
+  diff = auto
+  status = auto
 
 [color "branch"]
-        current = yellow reverse
-        local = yellow
-        remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 
 [color "diff"]
-        meta = yellow bold
-        frag = magenta bold
-        old = red bold
-        new = green bold
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 
 [color "status"]
-        added = green
-        changed = yellow
-        untracked = red
+  added = green
+  changed = yellow
+  untracked = red
 
 [core]
-        excludesfile = /Users/guido/.gitexcludes
+  excludesfile = /Users/guido/.gitexcludes
+  editor = nvim
 
 [credential]
-        helper = osxkeychain
+  helper = osxkeychain
