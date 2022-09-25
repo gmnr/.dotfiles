@@ -10,9 +10,12 @@ vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
 
 -- open and load .vimrc"
-vim.keymap.set('n', '<leader>ev', ':lua require("telescope.builtin").find_files({cwd="~/.dotfiles/nvim/lua/", search_dirs={"~/.dotfiles/nvim/lua/plugins", "~/.dotfiles/nvim/lua/core"}})<CR>', {silent=true})
+vim.keymap.set('n', '<leader>ev', ':lua require("telescope.builtin").find_files({cwd="~/.dotfiles/nvim/lua/", search_dirs={"plugins", "core"}})<CR>', {silent=true})
 vim.keymap.set('n', '<leader>sv', ':source ~/.dotfiles/nvim/init.lua<CR>')
 vim.keymap.set('n', '<leader>eu', ':PlugUpdate<CR>')
+
+-- open notes
+vim.keymap.set('n', '<leader><leader>l', ':lua require("telescope.builtin").find_files({cwd="~/.notes"})<CR>', {silent=true})
 
 -- quick save and exit
 vim.keymap.set('n', '<leader>ww', ':w<CR>')
