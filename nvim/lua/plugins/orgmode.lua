@@ -7,7 +7,7 @@ function M.config()
     org_default_notes_file = '~/.notes/refile.org',
     org_hide_leading_stars = true,
     mappings = {
-      prefix = '\\'
+      prefix = '<leader><leader>'
     }
   })
 end
