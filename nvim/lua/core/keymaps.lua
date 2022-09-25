@@ -15,7 +15,7 @@ vim.keymap.set('n', '<leader>sv', ':source ~/.dotfiles/nvim/init.lua<CR>')
 vim.keymap.set('n', '<leader>eu', ':PlugUpdate<CR>')
 
 -- open notes
-vim.keymap.set('n', '<leader><leader>l', ':lua require("telescope.builtin").find_files({cwd="~/.notes"})<CR>', {silent=true})
+vim.keymap.set('n', '<C-r>l', ':lua require("telescope.builtin").find_files({cwd="~/.notes"})<CR>', {silent=true})
 
 -- quick save and exit
 vim.keymap.set('n', '<leader>ww', ':w<CR>')
