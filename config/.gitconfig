@@ -12,7 +12,6 @@
   cm = commit -m
   co = checkout
   br = branch -v
-  sb = submodule
   df = diff
   rb = rebase -i
 
