@@ -49,7 +49,16 @@ function show_user() {
 # EMBEDDED_PS1='$(virtualenv_info)\[\033[1;91m\]\u\[\033[00m\]@\[\033[1;94m\]\h\[\033[00m\]:\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)\[\033[00m\]'
 
 # (new prompt), dislays >> (virtual env) workingdir <git branch>
-EMBEDDED_PS1='$(virtualenv_info)\[\033[1;91m\]$(show_user)\[\033[1;94m\]$(show_hostname)\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)'
+EMBEDDED_PS1=' $(virtualenv_info)\[\033[1;91m\]$(show_user)\[\033[1;94m\]$(show_hostname)\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)'
+
+# guide to colors
+# 91 red
+# 92 green
+# 93 yellow
+# 94 blue
+# 95 magenta
+# 96 cyan
+# 97 grey
 
 reset_readline_prompt_mode_strings () {
     # old config
@@ -57,8 +66,8 @@ reset_readline_prompt_mode_strings () {
     # bind "set vi-cmd-mode-string \"${EMBEDDED_PS1@P}\1\e[00m\2:\""
 
     # new config
-    bind "set vi-ins-mode-string \"${EMBEDDED_PS1@P}\1\e[91m\2>\1\e[0m\2\""
-    bind "set vi-cmd-mode-string \"${EMBEDDED_PS1@P}\1\e[93m\2?\1\e[0m\2\""
+    bind "set vi-ins-mode-string \"${EMBEDDED_PS1@P}\1\e[95m\2>\1\e[0m\2\""
+    bind "set vi-cmd-mode-string \"${EMBEDDED_PS1@P}\1\e[93m\2:\1\e[0m\2\""
 }
 
 PROMPT_COMMAND=reset_readline_prompt_mode_strings
