@@ -9,7 +9,7 @@ api.nvim_create_autocmd('BufNewFile', {
 api.nvim_create_autocmd('FileType', {
   desc = 'Verbose texts should have a default textwidth and spelling enabled',
   pattern = {'markdown', 'org', 'text'},
-  command = 'setlocal tw=80 spell'
+  command = 'setlocal spell'
 })
 
 api.nvim_create_autocmd('FileType', {
