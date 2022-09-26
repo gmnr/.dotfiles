@@ -38,6 +38,7 @@ alias v='nvim'
 alias copy='pbcopy'
 alias g='git'
 alias gv='nvim +Git +only'
+alias n='nvim +"lua require(\"orgmode\").action(\"capture.prompt\")"'
 
 # ledger aliases
 alias ldg='hledger --pretty'
