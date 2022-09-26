@@ -15,7 +15,7 @@ vim.keymap.set('n', '<leader>sv', ':source ~/.dotfiles/nvim/init.lua<CR>')
 vim.keymap.set('n', '<leader>eu', ':PlugUpdate<CR>')
 
 -- open notes
-vim.keymap.set('n', '<C-r>l', ':lua require("telescope.builtin").find_files({cwd="~/.notes"})<CR>', {silent=true})
+vim.keymap.set('n', '<leader>pl', ':lua require("telescope.builtin").find_files({cwd="~/.notes"})<CR>', {silent=true})
 
 -- quick save and exit
 vim.keymap.set('n', '<leader>ww', ':w<CR>')
@@ -43,7 +43,7 @@ vim.keymap.set('n', '<leader>gc', ':GBranches<CR>')
 
 -- telescope mappings
 vim.keymap.set('n', '<leader>pp', ':lua Project_files()<CR>', {silent=true})  -- link custom function to use find_git when .git exists and find_files when it doesn't
-vim.keymap.set('n', '<leader>pl', ':Telescope live_grep<CR>', {silent=true})
+vim.keymap.set('n', '<leader>pi', ':Telescope live_grep<CR>', {silent=true})
 vim.keymap.set('n', '<leader>po', ':Telescope buffers<CR>', {silent=true})
 vim.keymap.set('n', '<leader>ps', ':Telescope git_status<CR>', {silent=true})
 vim.keymap.set('n', '<leader>pc', ':Telescope git_branches<CR>', {silent=true})
