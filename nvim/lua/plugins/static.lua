@@ -10,6 +10,9 @@ vim.g.UltiSnipsJumpForwardTrigger = '<Tab>'
 vim.g.UltiSnipsJumpBackwardTrigger = '<S-Tab>'
 vim.g.UltiSnipsSnippetDirectories={'snppts'}
 
+-- indent line
+vim.g.indent_blankline_buftype_exclude={'org', 'markdown', 'text'}
+
 -- vim-ledger
 vim.g.ledger_bin = 'hledger'
 vim.g.ledger_decimal_sep = ','
