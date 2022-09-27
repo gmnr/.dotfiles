@@ -12,7 +12,7 @@
   cm = commit -m
   co = checkout
   br = branch -v
-  df = diff
+  dd = diff
   rb = rebase -i
 
 [color]
