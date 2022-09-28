@@ -17,7 +17,7 @@ vim.cmd('highlight! CmpItemKindText       guibg=NONE guifg=#ABB2BF')
 vim.cmd('highlight! CmpItemKindClass      guibg=NONE guifg=#E5C07B')
 
 -- modify spell error highlighings
-vim.cmd('highlight! SpellBad   guibg=NONE guifg=#E5C07B')
-vim.cmd('highlight! SpellCap   guibg=NONE guifg=#E5C07B')
-vim.cmd('highlight! SpellLocal guibg=NONE guifg=#E5C07B')
-vim.cmd('highlight! SpellRare  guibg=NONE guifg=#E5C07B')
+vim.cmd('highlight! SpellBad              guibg=NONE guifg=#E5C07B')
+vim.cmd('highlight! SpellCap              guibg=NONE guifg=#E5C07B')
+vim.cmd('highlight! SpellLocal            guibg=NONE guifg=#E5C07B')
+vim.cmd('highlight! SpellRare             guibg=NONE guifg=#E5C07B')
