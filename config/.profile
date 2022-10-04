@@ -45,7 +45,7 @@ function show_user() {
 }
 
 function inbox_count() {
-  inbox=$(task count +inbox)
+  inbox=$(task count +inbox -COMPLETED -DELETED)
   if [[ $inbox -gt 0 ]]; then
     task_display=" Inbox: $inbox "
   else
@@ -116,31 +116,19 @@ if [ -f /usr/local/share/bash-completion/bash_completion ]; then
     . /usr/local/share/bash-completion/bash_completion
 fi
 
+# add completion for taskwarrior and others
+if [ -f /usr/local/etc/bash-completion.d ]; then
+    . /usr/local/etc/bash-completion.d
+fi
+
 # add git-completion
 if [ -f /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash ]; then
     . /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
 fi
 
+# make completion work for aliases
+complete -o bashdefault -o default -o nospace -F __git_wrap__git_main g
+complete -o nospace -F _task t
+
 # add ledger_file
 export LEDGER_FILE=$HOME/.finance/all.journal
-
-# set task to wait
-task_wait () {
-    item=$1
-    shift
-    task mod $item folder:inbox wait:$*
-}
-
-# assign task to folder
-assign () {
-    item=$1
-    shift
-    task mod $item owner:$*
-}
-
-# move tasks to correct folder
-process () {
-    item=$1
-    shift
-    task mod $item folder:$*
-}
