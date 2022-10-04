@@ -41,15 +41,24 @@ function show_user() {
   else
     user_value="\u"
   fi
-  echo "$user_value"
   [[ -n "$user_value"  ]] && echo "$user_value"
+}
+
+function inbox_count() {
+  inbox=$(task count +inbox)
+  if [[ $inbox -gt 0 ]]; then
+    task_display=" Inbox: $inbox "
+  else
+    task_display=" "
+  fi
+  [[ -n "$task_display"  ]] && echo "$task_display"
 }
 
 # (old), dislays >> (virtual env) user@hostname:workingdir <git branch>
 # EMBEDDED_PS1='$(virtualenv_info)\[\033[1;91m\]\u\[\033[00m\]@\[\033[1;94m\]\h\[\033[00m\]:\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)\[\033[00m\]'
 
 # (new prompt), dislays >> (virtual env) workingdir <git branch>
-EMBEDDED_PS1=' $(virtualenv_info)\[\033[1;91m\]$(show_user)\[\033[1;94m\]$(show_hostname)\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)'
+EMBEDDED_PS1='\[\033[1;95m\]$(inbox_count)$(virtualenv_info)\[\033[1;91m\]$(show_user)\[\033[1;94m\]$(show_hostname)\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)'
 
 # guide to colors
 # 91 red
@@ -67,7 +76,7 @@ reset_readline_prompt_mode_strings () {
 
     # new config
     bind "set vi-ins-mode-string \"${EMBEDDED_PS1@P}\1\e[91m\2>\1\e[0m\2\""
-    bind "set vi-cmd-mode-string \"${EMBEDDED_PS1@P}\1\e[95m\2:\1\e[0m\2\""
+    bind "set vi-cmd-mode-string \"${EMBEDDED_PS1@P}\1\e[93m\2:\1\e[0m\2\""
 }
 
 PROMPT_COMMAND=reset_readline_prompt_mode_strings

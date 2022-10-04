@@ -55,3 +55,6 @@ alias prices='cat ~/.finance/prices/current_prices.journal'
 alias bal='clear; hledger bal --pretty'
 alias jrn='hledger print'
 alias e='nvim "+normal G" ~/.finance/periods/2022.journal'
+
+# source taskwarrior aliases
+source  ~/.dotfiles/tasks/helpers.sh
