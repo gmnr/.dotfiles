@@ -5,28 +5,17 @@ function M.config()
   require('orgmode').setup({
     org_agenda_files = {'~/.notes/*'},
     org_default_notes_file = '~/.notes/inbox.org',
-    org_todo_keywords = {'TODO', 'WAITING', '|', 'DONE', 'CANCELED'},
+    org_todo_keywords = {'TODO', 'NEXT', 'HOLD', '|', 'DONE', 'CANCELED'},
     org_todo_keyword_faces = {
+      NEXT = ':foreground cyan',
       CANCELED = ':foreground magenta',
-      WAITING = ':foreground orange  :underline on',
+      HOLD = ':foreground orange'
     },
-    org_hide_leading_stars = true,
-    mappings = {
-      prefix = '<C-r>',
-      global = {
-        org_agenda = '<C-r>h',
-        org_capture = '<C-r>l'
-      }
-    },
+    org_archive_location = '~/.notes/archive/archive.org',
     org_capture_templates = {
-      T = {
-        description = 'Tickler',
-        template = '* %? \n %u',
-        target = '~/.notes/tickler.org'
-      },
       t = {
         description = 'Task',
-        template = '* TODO %?',
+        template = '* TODO %?\nEntered on %U',
         target = '~/.notes/inbox.org'
       }
     }
