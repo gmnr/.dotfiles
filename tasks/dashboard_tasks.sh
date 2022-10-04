@@ -6,17 +6,17 @@ if [[ $1 -eq 1 ]]; then
   if [[ $cmd -gt 0 ]]; then
     echo "$cmd "
   else
-    echo "- "
+    echo "0 "
   fi
 fi
 
 # display count for `ticker` tasks
 if [[ $1 -eq 2 ]]; then
-  cmd=$(/usr/local/bin/task count)
+  cmd=$(/usr/local/bin/task count +SCHEDULED)
   if [[ $cmd -gt 0 ]]; then
     echo "$cmd "
   else
-    echo "- "
+    echo "0 "
   fi
 fi
 
@@ -26,18 +26,14 @@ if [[ $1 -eq 3 ]]; then
   if [[ $cmd -gt 0 ]]; then
     echo "$cmd "
   else
-    echo "- "
+    echo "0 "
   fi
 fi
 
 # display number of projects
 if [[ $1 -eq 4 ]]; then
-  cmd=$(/usr/local/bin/task count)
-  if [[ $cmd != "0" ]]; then
-    echo "$cmd "
-  else
-    echo "- "
-  fi
+  cmd=$(/usr/local/bin/task projects | /usr/bin/cut -d ' ' -f1)
+  echo "$cmd "
 fi
 
 # old check for reference
