@@ -40,6 +40,7 @@ alias vi='nvim'
 alias copy='pbcopy'
 alias g='git'
 alias gv='nvim +Git +only'
+alias n='nvim +exe ~/.notes/scratch/$(date "+%Y-%m-%d").md'
 
 # ledger aliases
 alias ldg='hledger --pretty'
