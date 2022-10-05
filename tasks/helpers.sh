@@ -8,7 +8,8 @@ function read_and_review() {
   task "$id" annotate $1
 }
 
-function next_actions() {
+# check if projects don't have any next action
+function stale_project() {
   cmd=$(python - <<EOF
 import tasklib
 tw = tasklib.TaskWarrior()
@@ -18,23 +19,34 @@ for i in result:
 EOF
 )
 if [ "$cmd" != "" ]; then
-  echo "Attention: The following projects don't currently have a next action:\n"
+  echo "Attention: The following projects don't currently have a next action:"
   echo $cmd
 else
   echo "No projects inactive"
 fi
 }
 
-# TODO write a function that processes id by moving them from one tag to the other
+# processes id by moving them from one tag to the other
+function task_refile() {
+  task_n=$1
+  shift
+  task mod $task_n -inbox $*
+}
 
-# aliases
+# generic aliases
 alias t='task'
 alias ta='task add'
+alias tn='~/.dotfiles/tasks/task-note.py'
 
-# Reports Aliases
+# reports
 alias tt='clear; task +next list'
-alias inbox='clear; task +inbox list'
+alias ti='clear; task +SCHEDULED list'
+alias inbox='clear; task inbox'
 
-# Collection
+# collection
 alias in='task add +inbox'
 alias rd='read_and_review'
+
+# do
+alias tp='stale_project'
+alias ta='task_refile'
