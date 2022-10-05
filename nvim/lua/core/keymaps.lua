@@ -12,6 +12,8 @@ vim.keymap.set('n', 'k', 'gk')
 -- open and load .vimrc"
 vim.keymap.set('n', '<leader>ev', ':lua require("telescope.builtin").find_files({cwd="~/.dotfiles/nvim/lua/", search_dirs={"plugins", "core"}})<CR>', {silent=true})
 vim.keymap.set('n', '<leader>eu', ':PlugUpdate<CR>')
+vim.keymap.set('n', '<leader>ew', ':exe "e ~/.notes/scratch/".strftime("%F").".md" <CR>', { silent = true })
+
 
 -- open notes
 vim.keymap.set('n', '<leader>pl', ':lua require("telescope.builtin").find_files({cwd="~/.notes"})<CR>', {silent=true})
