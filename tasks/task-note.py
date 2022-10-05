@@ -22,15 +22,14 @@ def write_note(task_id: int):
 
     notes_dir = os.path.expanduser(NOTES_DIR)
     os.makedirs(notes_dir, exist_ok=True)
-    notes_basename = f"{task_uuid}.org"
+    notes_basename = f"{task_uuid}.md"
     notes_file = os.path.join(notes_dir, notes_basename)
 
     if not os.path.exists(notes_file):
         task_description = os.popen(f"task _get {task_id}.description").read()
 
         with open(notes_file, "w") as f:
-            f.write(f"* {task_description}\n  ")
-            f.flush()
+            f.write(f"# {task_description}\n")
 
     os.execlp(EDITOR, EDITOR, notes_file)
 
