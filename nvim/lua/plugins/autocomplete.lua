@@ -4,7 +4,7 @@ function M.config()
   local cmp = require('cmp')
 
   -- disable auto completion for text heavy types
-  cmp.setup.filetype({'markdown', 'org', 'gitcommit', 'text'}, {
+  cmp.setup.filetype({'markdown', 'gitcommit', 'text'}, {
       completion = {
         autocomplete = false
       }

@@ -13,6 +13,5 @@ require('plugins.static')
 require('plugins.autocomplete').config()  -- cmp / lspconfig / lspking / lspsaga
 require('plugins.gitsigns').config()
 require('plugins.lua-line').config()
-require('plugins.orgmode').config()
 require('plugins.telescope').config()
 require('plugins.treesitter').config()
