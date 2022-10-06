@@ -39,8 +39,10 @@ alias ta='task add'
 alias tn='~/.dotfiles/tasks/task-note.py'
 
 # reports
-alias tt='clear; task +next list'
-alias ti='clear; task +SCHEDULED list'
+alias tt='clear; task next'
+alias ti='clear; task ticker'
+alias tl='clear; task later'
+alias tp='clear; task prj'
 alias inbox='clear; task inbox'
 
 # collection
@@ -48,5 +50,5 @@ alias in='task add +inbox'
 alias rd='read_and_review'
 
 # do
-alias tp='stale_project'
+alias ts='stale_project'
 alias ta='task_refile'
