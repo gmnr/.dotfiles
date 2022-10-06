@@ -7,40 +7,37 @@ data.location=~/.task
 # sanity
 weekstart=monday
 search.case.sensitive=no
+dateformat=Y/M/D
 
-#GTD
+# Reports
 # inbox report
 report.inbox.columns           = id,description,scheduled.remaining,due.remaining,tags
 report.inbox.description       = Inbox
-report.inbox.filter            = status:pending +inbox
+report.inbox.filter            = status:pending +inbox pro:""
 report.inbox.labels            = ID,Description,Sch,Due,Tags
 report.inbox.sort              = id+
 
-#Reports
-#Next
-report.next.description        = Most urgent tasks
-report.next.columns            = id,urgency,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description
+# Next
+report.next.description        = What to work on next
+report.next.columns            = id,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description
 report.next.filter             = status:pending +next
-report.next.labels             = ID,Urgency,Depends,Priority,Project,Tag,Recur,Scheduled,Due,Until,Description
-report.next.sort               = project-,priority-,urgency-
+report.next.labels             = ID,Depends,Priority,Project,Tag,Recur,Scheduled,Due,Until,Description
+report.next.sort               = project-,priority-
 
-#Someday/Maybe
-report.sdm.description        = Someday/Maybe
-report.sdm.columns            = id,urgency,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description
-report.sdm.filter             = status:pending +sdm
-report.sdm.labels             = ID,Urgency,Depends,Priority,Project,Tag,Recur,Scheduled,Due,Until,Description
+# Ticker
+report.ticker.description      = Things that are scheduled for later
+report.ticker.columns          = id,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description
+report.ticker.filter           = status:pending +SCHEDULED
+report.ticker.labels           = ID,Depends,Priority,Project,Tag,Recur,Scheduled,Due,Until,Description
 
-#No Next action
-report.nna.description        = No Next Action
-report.nna.columns            = project
-report.nna.filter             = +PENDING +READY -next -waiting -sdm
-report.nna.labels             = Project
+# Later
+report.later.description       = Review this one a week
+report.later.columns           = id,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description
+report.later.filter            = status:pending +later
+report.later.labels            = ID,Depends,Priority,Project,Tag,Recur,Scheduled,Due,Until,Description
 
-tasksh.autoclear=1
-uda.reviewed.type=date
-uda.reviewed.label=Reviewed
-report._reviewed.description=Tasksh review report.  Adjust the filter to your needs.
-report._reviewed.columns=uuid
-report._reviewed.sort=reviewed+,modified+
-report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
-news.version=2.6.0
+# Project
+report.prj.description         = Inactive tasks linked to projects
+report.prj.columns             = id,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description
+report.prj.filter              = status:pending -next pro.not:"" -SCHEDULED
+report.prj.labels              = ID,Depends,Priority,Project,Tag,Recur,Scheduled,Due,Until,Description
