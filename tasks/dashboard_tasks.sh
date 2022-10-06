@@ -2,38 +2,42 @@
 
 # display count for `next` tasks
 if [[ $1 -eq 1 ]]; then
-  cmd=$(/usr/local/bin/task count +next)
+  cmd=$(/usr/local/bin/task count +next +PENDING)
   if [[ $cmd -gt 0 ]]; then
     echo "$cmd "
   else
-    echo "0 "
+    echo "- "
   fi
 fi
 
 # display count for `ticker` tasks
 if [[ $1 -eq 2 ]]; then
-  cmd=$(/usr/local/bin/task count +SCHEDULED)
+  cmd=$(/usr/local/bin/task count +SCHEDULED +PENDING)
   if [[ $cmd -gt 0 ]]; then
     echo "$cmd "
   else
-    echo "0 "
+    echo "- "
   fi
 fi
 
 # display count for `someday` tasks
 if [[ $1 -eq 3 ]]; then
-  cmd=$(/usr/local/bin/task count +later)
+  cmd=$(/usr/local/bin/task count +later +PENDING)
   if [[ $cmd -gt 0 ]]; then
     echo "$cmd "
   else
-    echo "0 "
+    echo "- "
   fi
 fi
 
 # display number of projects
 if [[ $1 -eq 4 ]]; then
-  cmd=$(/usr/local/bin/task projects | /usr/bin/cut -d ' ' -f1)
-  echo "$cmd "
+  cmd=$(/usr/local/bin/task count -next pro.not:"" +PENDING -SCHEDULED)
+  if [[ $cmd -gt 0 ]]; then
+    echo "$cmd "
+  else
+    echo "- "
+  fi
 fi
 
 # old check for reference
