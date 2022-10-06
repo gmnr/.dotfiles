@@ -39,11 +39,3 @@ if [[ $1 -eq 4 ]]; then
     echo "- "
   fi
 fi
-
-# old check for reference
-# if [[ $1 -eq 5 ]]; then
-#   if [[ $(/usr/local/bin/task folder:inbox +PENDING count)+$(/usr/local/bin/task folder:next -WAITING -COMPLETED count)+$(/usr/local/bin/task folder:inbox +WAITING count)+$(/usr/local/bin/task folder:later -COMPLETED count) -eq $(/usr/local/bin/task count -COMPLETED -DELETED) ]]
-#   then echo " ~ "
-#   else echo " ! "
-#   fi
-# fi
