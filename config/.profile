@@ -45,7 +45,7 @@ function show_user() {
 }
 
 function inbox_count() {
-  inbox=$(task count +inbox -COMPLETED -DELETED)
+  inbox=$(task count +inbox pro:"" -COMPLETED -DELETED)
   if [[ $inbox -gt 0 ]]; then
     task_display=" Inbox: $inbox "
   else
@@ -129,6 +129,7 @@ fi
 # make completion work for aliases
 complete -o bashdefault -o default -o nospace -F __git_wrap__git_main g
 complete -o nospace -F _task t
+complete -o nospace -F _task ta
 
 # add ledger_file
 export LEDGER_FILE=$HOME/.finance/all.journal
