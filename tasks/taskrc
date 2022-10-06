@@ -20,27 +20,29 @@ report.inbox.sort              = id+
 
 # Next
 report.next.description        = What to work on next
-report.next.columns            = id,depends,priority,project,tags,recur,scheduled,due.remaining,until.remaining,description
-report.next.filter             = status:pending +next
-report.next.labels             = ID,Depends,Priority,Project,Tag,Recur,Scheduled,Due,Until,Description
-report.next.sort               = project-,priority-
+report.next.columns            = id,depends.indicator,priority,project,tags,recur.indicator,scheduled.remaining,due,until.remaining,description.count
+report.next.filter             = status:pending (+next or sched.before:tom)
+report.next.labels             = ID,D,P,Project,Tags,R,Sched,Due,Until,Description
+report.next.sort               = id
 
 # Ticker
 report.ticker.description      = Things that are scheduled for later
 report.ticker.columns          = id,depends.indicator,priority,project,tags,recur.indicator,scheduled.remaining,due,until.remaining,description.count
-report.ticker.filter           = status:pending +SCHEDULED
-report.ticker.labels           = ID,D,P,Project,Tags,R,Sch,Due,Until,Description
+report.ticker.filter           = status:pending sched.after:tod
+report.ticker.labels           = ID,D,P,Project,Tags,R,Sched,Due,Until,Description
 report.ticker.sort             = scheduled+
 
 # Later
 report.later.description       = Review this one a week
-report.later.columns           = id,depends.indicator,priority,project,tags,recur.indicator,scheduled.countdown,due,until.remaining,description
+report.later.columns           = id,depends.indicator,priority,project,tags,recur.indicator,scheduled.remaining,due,until.remaining,description.count
 report.later.filter            = status:pending +later
-report.later.labels            = ID,D,P,Project,Tags,R,Sch,Due,Until,Description
+report.later.labels            = ID,Depends,Priority,Project,Tag,Recur,Scheduled,Due,Until,Description
 
 # Project
 report.prj.description         = Inactive tasks linked to projects
-report.prj.columns             = id,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description
+report.prj.columns             = id,depends.indicator,priority,project,tags,recur.indicator,scheduled.remaining,due,until.remaining,description.count
 report.prj.filter              = status:pending -next pro.not:"" -SCHEDULED
 report.prj.labels              = ID,Depends,Priority,Project,Tag,Recur,Scheduled,Due,Until,Description
+report.next.sort               = project,id
+
 news.version=2.6.0
