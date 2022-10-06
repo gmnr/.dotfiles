@@ -12,7 +12,7 @@ fi
 
 # display count for `ticker` tasks
 if [[ $1 -eq 2 ]]; then
-  cmd=$(/usr/local/bin/task count "sched.after:tod +PENDING")
+  cmd=$(/usr/local/bin/task count "(sched.after:tod) +PENDING")
   if [[ $cmd -gt 0 ]]; then
     echo "$cmd "
   else
