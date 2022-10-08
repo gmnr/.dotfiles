@@ -13,7 +13,7 @@ function stale_project() {
   cmd=$(python - <<EOF
 import tasklib
 tw = tasklib.TaskWarrior()
-result = set(tw.execute_command(['+PROJECT', '+PENDING', '+READY', '-waiting', '_projects'])) - set(tw.execute_command(['+PENDING', '+next', '_projects']))
+result = set(tw.execute_command(['+PROJECT', '+PENDING', '+READY', '-waiting', '_projects'])) - set(tw.execute_command(['+PROJECT', '+PENDING', '+next', '_projects'])) - set(tw.execute_command(['+PROJECT', '+PENDING', '+SCHEDULED', '_projects']))
 for i in result:
   print(i)
 EOF
