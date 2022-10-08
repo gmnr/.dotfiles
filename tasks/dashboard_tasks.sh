@@ -39,3 +39,22 @@ if [[ $1 -eq 4 ]]; then
     echo "- "
   fi
 fi
+
+# display alert if not all projects have next actions or are not scheduled
+if [[ $1 -eq 5 ]]; then
+  cmd=$(/usr/bin/python3 - <<EOF
+import tasklib
+tw = tasklib.TaskWarrior()
+result = set(tw.execute_command(['+PROJECT', '+PENDING', '+READY', '-waiting', '_projects'])) - set(tw.execute_command(['+PROJECT', '+PENDING', '+next', '_projects'])) - set(tw.execute_command(['+PROJECT', '+PENDING', '+SCHEDULED', '_projects']))
+if len(result) == 0:
+  print('1')
+else:
+  print('0')
+EOF
+)
+  if [[ "$cmd" -eq "1" ]]; then
+    echo " ~ "
+  else
+    echo " !!! "
+  fi
+fi
