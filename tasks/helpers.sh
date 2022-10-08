@@ -33,10 +33,16 @@ function task_refile() {
   task mod $task_n -inbox $*
 }
 
+# read notes linked to fi
+function read_task() {
+  cat ~/.notes/task-notes/$(task _get $1.uuid).md
+}
+
 # generic aliases
 alias t='task'
 alias ta='task add'
 alias tn='~/.dotfiles/tasks/task-note.py'
+alias tq='read_task'
 
 # reports
 alias tt='clear; task next'
