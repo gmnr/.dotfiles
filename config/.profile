@@ -130,6 +130,7 @@ fi
 complete -o bashdefault -o default -o nospace -F __git_wrap__git_main g
 complete -o nospace -F _task t
 complete -o nospace -F _task ta
+complete -o nospace -F _task in
 
 # add ledger_file
 export LEDGER_FILE=$HOME/.finance/all.journal
