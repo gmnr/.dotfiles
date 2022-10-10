@@ -35,11 +35,21 @@ function task_refile() {
 
 # read notes linked to fi
 function read_task() {
-  note=~/.notes/task-notes/$(task _get $1.uuid).md
-  if [ -f "$note" ]; then
-    cat $note
+  dir=~/.notes/task-notes
+  if [ $# -eq 0 ]; then
+    NOTES=""
+    for file in $dir/*.md; do
+      file=$(basename ${file%.*})
+      NOTES=$NOTES","$(task _get "$file".id)
+    done
+    task ${NOTES:1}
   else
-    echo 'There is no note associated with that ID.'
+    note=$dir/$(task _get $1.uuid).md
+    if [ -f "$note" ]; then
+      cat $note
+    else
+      echo 'There is no note associated with that ID.'
+    fi
   fi
 }
 
