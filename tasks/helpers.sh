@@ -35,7 +35,12 @@ function task_refile() {
 
 # read notes linked to fi
 function read_task() {
-  cat ~/.notes/task-notes/$(task _get $1.uuid).md
+  note=~/.notes/task-notes/$(task _get $1.uuid).md
+  if [ -f "$note" ]; then
+    cat $note
+  else
+    echo 'There is no note associated with that ID.'
+  fi
 }
 
 # generic aliases
