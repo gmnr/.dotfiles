@@ -23,7 +23,7 @@ report.next.description        = What to work on next
 report.next.columns            = id,depends.indicator,priority,project,tags,recur.indicator,scheduled.remaining,due,until.remaining,description.count
 report.next.filter             = status:pending (+next or sched.before:tom)
 report.next.labels             = ID,D,P,Project,Tags,R,Sched,Due,Until,Description
-report.next.sort               = id
+report.next.sort               = id+
 
 # Ticker
 report.ticker.description      = Things that are scheduled for later
@@ -43,6 +43,6 @@ report.prj.description         = Inactive tasks linked to projects
 report.prj.columns             = id,depends.indicator,priority,project,tags,recur.indicator,scheduled.remaining,due,until.remaining,description.count
 report.prj.filter              = status:pending -next pro.not:"" -SCHEDULED
 report.prj.labels              = ID,Depends,Priority,Project,Tag,Recur,Scheduled,Due,Until,Description
-report.next.sort               = project,id
+report.prj.sort               = project+,id+
 
 news.version=2.6.0
