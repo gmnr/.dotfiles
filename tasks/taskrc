@@ -21,14 +21,21 @@ report.inbox.sort              = id+
 # Next
 report.next.description        = What to work on next
 report.next.columns            = id,depends.indicator,priority,project,tags,recur.indicator,scheduled.remaining,due,until.remaining,description.count
-report.next.filter             = status:pending (+next or sched.before:tom)
+report.next.filter             = status:pending (+next or sched.before:tom) -wait
 report.next.labels             = ID,D,P,Project,Tags,R,Sched,Due,Until,Description
 report.next.sort               = id+
+
+# Wait
+report.wait.description      = Waiting for further input
+report.wait.columns          = id,depends.indicator,priority,project,start.age,tags,recur.indicator,scheduled.remaining,due,until.remaining,description.count
+report.wait.filter           = status:pending +wait
+report.wait.labels           = ID,D,P,Project,Age,Tags,R,Sched,Due,Until,Description
+report.wait.sort             = start+
 
 # Ticker
 report.ticker.description      = Things that are scheduled for later
 report.ticker.columns          = id,depends.indicator,priority,project,tags,recur.indicator,scheduled.remaining,due,until.remaining,description.count
-report.ticker.filter           = status:pending sched.after:tod
+report.ticker.filter           = status:pending sched.after:tod -wait
 report.ticker.labels           = ID,D,P,Project,Tags,R,Sched,Due,Until,Description
 report.ticker.sort             = scheduled+
 
@@ -41,7 +48,7 @@ report.later.labels            = ID,Depends,Priority,Project,Tag,Recur,Scheduled
 # Project
 report.prj.description         = Inactive tasks linked to projects
 report.prj.columns             = id,depends.indicator,priority,project,tags,recur.indicator,scheduled.remaining,due,until.remaining,description.count
-report.prj.filter              = status:pending -next pro.not:"" -SCHEDULED
+report.prj.filter              = status:pending -next pro.not:"" -SCHEDULED -wait
 report.prj.labels              = ID,Depends,Priority,Project,Tag,Recur,Scheduled,Due,Until,Description
 report.prj.sort               = project+,id+
 
