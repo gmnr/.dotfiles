@@ -25,3 +25,8 @@ let g:quickrun_config = {
       \'hook/time/format': '[Finished in %gs]',
       \'outputter/buffer/opener': '%{"bel 12new"}'}}  " set options for quickrun
 ]])
+
+-- markdown
+vim.g.vim_markdown_folding_disabled = 1
+vim.g.vim_markdown_conceal = 1
+vim.g.vim_markdown_frontmatter = 1

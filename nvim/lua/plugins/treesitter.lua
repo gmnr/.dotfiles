@@ -10,7 +10,7 @@ function M.config()
       enabled = false,
       disable = {},
     },
-    ensure_installed = {'bash', 'css', 'html', 'javascript', 'json5', 'ledger', 'lua', 'markdown', 'python'},
+    ensure_installed = {'bash', 'css', 'html', 'javascript', 'json5', 'ledger', 'lua',  'python'},
     sync_install = true, -- install synchronously
 		ignore_install = {}, -- parsers to not install
   }
