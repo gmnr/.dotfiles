@@ -13,14 +13,16 @@ function stale_project() {
   cmd=$(python - <<EOF
 import tasklib
 tw = tasklib.TaskWarrior()
-result = set(tw.execute_command(['+PROJECT', '+PENDING', '+READY', '-waiting', '_projects'])) - set(tw.execute_command(['+PROJECT', '+PENDING', '+next', '_projects'])) - set(tw.execute_command(['+PROJECT', '+PENDING', '+SCHEDULED', '_projects']))
+result = set(tw.execute_command(['+PROJECT', '+PENDING', '+READY', '-waiting', '_projects'])) - set(tw.execute_command(['+PROJECT', '+PENDING', '+next', '_projects'])) - set(tw.execute_command(['+PROJECT', '+PENDING', '+SCHEDULED', '_projects'])) - set(tw.execute_command(['+PROJECT', '+PENDING', '+wait', '_projects']))
 for i in result:
   print(i)
 EOF
 )
 if [ "$cmd" != "" ]; then
   echo "Attention: The following projects don't currently have a next action:"
-  echo $cmd
+  for elem in $cmd; do
+    echo "- $elem"
+  done
 else
   echo "No projects inactive"
 fi
