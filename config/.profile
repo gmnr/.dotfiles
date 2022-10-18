@@ -82,6 +82,15 @@ reset_readline_prompt_mode_strings () {
 PROMPT_COMMAND=reset_readline_prompt_mode_strings
 PS1=' '
 
+# custom vim function
+function run_git() {
+  if [[ $# -gt 0 ]] then
+    git $@
+  else
+    nvim +Git +only
+  fi
+}
+
 # better colors
 export CLICOLOR=1;
 export CLICOLOR_FORCE=1;
