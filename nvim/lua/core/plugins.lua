@@ -32,9 +32,9 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'onsails/lspkind-nvim'
 Plug 'haya14busa/is.vim'
 Plug 'glepnir/lspsaga.nvim'
+Plug 'ledger/vim-ledger'
+Plug 'preservim/vim-markdown'
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = vim.fn['TSUpdate']})
 Plug('mattn/emmet-vim', {['for'] = {'html', 'css'}})
-Plug('ledger/vim-ledger', {['for'] = {'ledger'}})
-Plug('preservim/vim-markdown', {['for'] = 'markdown'})
 
 vim.call('plug#end')
