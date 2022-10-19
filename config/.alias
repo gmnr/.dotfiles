@@ -53,11 +53,12 @@ alias reg='clear; hledger reg'
 alias areg='clear; hledger areg'
 alias cash='clear; hledger print assets:cash | hledger -f- bal income: expenses: --pretty --drop 1 -t --invert'
 alias reconcile='python ~/.finance/.src/reconcile.py'
-alias fetch_prices='python ~/.finance/.src/fetch.py'
+alias fetch='python ~/.finance/.src/fetch.py'
 alias prices='cat ~/.finance/prices/current_prices.journal'
 alias bal='clear; hledger bal --pretty'
 alias jrn='hledger print'
 alias e='nvim "+normal G" ~/.finance/periods/2022.journal'
+alias dad='clear; hledger -f ~/.finance/freddy.journal bse --pretty -V --drop 1'
 
 # source taskwarrior aliases
 source  ~/.dotfiles/tasks/helpers.sh
