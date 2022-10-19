@@ -27,9 +27,9 @@ report.next.sort               = id+
 
 # Wait
 report.wait.description      = Waiting for further input
-report.wait.columns          = id,depends.indicator,priority,project,start.age,tags,recur.indicator,scheduled.remaining,due,until.remaining,description.count
+report.wait.columns          = id,depends.indicator,priority,project,start.age,modified.age,tags,recur.indicator,scheduled.remaining,due,until.remaining,description.count
 report.wait.filter           = status:pending +wait
-report.wait.labels           = ID,D,P,Project,Age,Tags,R,Sched,Due,Until,Description
+report.wait.labels           = ID,D,P,Project,Age,Change,Tags,R,Sched,Due,Until,Description
 report.wait.sort             = start+
 
 # Ticker
