@@ -27,6 +27,33 @@
           ]
         }
       ]
+    },
+    {
+      "description": "Post quote if quote is tapped, Control if held.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "quote"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
