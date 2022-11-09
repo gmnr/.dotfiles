@@ -29,3 +29,12 @@ api.nvim_create_autocmd('FileType', {
   desc = 'Autoalign amounts on ledger files when pressing enter',
   command = 'inoremap <silent> <CR> <C-r>=v:lua.BetterLedgerAlign()<CR><Right><CR>'
 })
+
+api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight yanked text',
+  group = api.nvim_create_augroup('yank_highlight', {}),
+  pattern = '*',
+  callback = function()
+    vim.highlight.on_yank{hlgroup='IncSearch', timeout=300}
+  end,
+})
