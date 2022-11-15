@@ -70,7 +70,7 @@ alias tp='clear; task prj'
 alias inbox='clear; task inbox'
 
 # collection
-alias in='task add +inbox'
+alias c='task add +inbox'
 alias rd='read_and_review'
 
 # do
