@@ -57,7 +57,6 @@ function read_task() {
 
 # generic aliases
 alias t='task'
-alias ta='task add'
 alias tn='~/.dotfiles/tasks/task-note.py'
 alias tq='read_task'
 
@@ -76,3 +75,4 @@ alias rd='read_and_review'
 # do
 alias ts='stale_project'
 alias ta='task_refile'
+alias tm='task mod'
