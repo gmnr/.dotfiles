@@ -30,7 +30,7 @@
           "from": {
             "modifiers": {
               "mandatory": [
-                "left_shift"
+                "fn"
               ]
             },
             "key_code": "keypad_slash"
@@ -50,7 +50,7 @@
           "from": {
             "modifiers": {
               "mandatory": [
-                "left_shift"
+                "fn"
               ]
             },
             "key_code": "keypad_asterisk"
@@ -70,7 +70,7 @@
           "from": {
             "modifiers": {
               "mandatory": [
-                "left_shift"
+                "fn"
               ]
             },
             "key_code": "keypad_6"
@@ -87,7 +87,7 @@
           "from": {
             "modifiers": {
               "mandatory": [
-                "left_shift"
+                "fn"
               ]
             },
             "key_code": "keypad_4"
@@ -104,7 +104,7 @@
           "from": {
             "modifiers": {
               "mandatory": [
-                "left_shift"
+                "fn"
               ]
             },
             "key_code": "keypad_8"
@@ -121,7 +121,7 @@
           "from": {
             "modifiers": {
               "mandatory": [
-                "left_shift"
+                "fn"
               ]
             },
             "key_code": "keypad_5"
@@ -138,7 +138,7 @@
           "from": {
             "modifiers": {
               "mandatory": [
-                "left_shift"
+                "fn"
               ]
             },
             "key_code": "keypad_hyphen"
@@ -146,7 +146,24 @@
           "to": [
             {
               "repeat": true,
-              "key_code": "tab"
+              "key_code": "f4"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            },
+            "key_code": "keypad_0"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "f2"
             }
           ]
         }
