@@ -30,6 +30,12 @@ api.nvim_create_autocmd('FileType', {
   command = 'inoremap <silent> <CR> <C-r>=v:lua.BetterLedgerAlign()<CR><Right><CR>'
 })
 
+api.nvim_create_autocmd('FileType', {
+  pattern = {'ledger'},
+  desc = 'Remove trailing spaces',
+  command = '%s/\\s\\+$//e'
+})
+
 api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight yanked text',
   group = api.nvim_create_augroup('yank_highlight', {}),
