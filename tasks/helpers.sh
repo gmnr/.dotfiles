@@ -66,7 +66,7 @@ alias ti='clear; task ticker'
 alias tl='clear; task later'
 alias tw='clear; task wait'
 alias tp='clear; task prj'
-alias inbox='clear; task inbox'
+alias box='clear; task inbox'
 
 # collection
 alias c='task add +inbox'
