@@ -5,6 +5,10 @@ vim.g.mapleader = ' '
 -- fix Y behaviour
 vim.keymap.set('n', 'Y', 'y$')
 
+-- saner line navigation
+vim.keymap.set('n', 'H', '^')
+vim.keymap.set('n', 'L', '$')
+
 -- move across visual lines
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
