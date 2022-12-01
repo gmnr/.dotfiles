@@ -6,7 +6,6 @@ alias dev='cd ~/Coding'
 alias blog='cd ~/Coding/blog'
 alias finance='cd ~/.finance'
 alias notes='cd ~/.notes'
-alias adv-folder='cd ~/Coding/advent-of-code'
 alias tmp='cd /tmp'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -21,7 +20,8 @@ else
 fi
 
 # advent of code utilities
-alias adv-get-input='~/Coding/advent-of-code/utils/startup.sh'
+alias advfetch='~/Coding/advent-of-code/utils/startup.sh'
+alias advcd='cd ~/Coding/advent-of-code'
 alias adv='cd ~/Coding/advent-of-code && nvim'
 
 # rename programs
