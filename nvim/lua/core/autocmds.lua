@@ -30,8 +30,8 @@ api.nvim_create_autocmd('FileType', {
   command = 'inoremap <silent> <CR> <C-r>=v:lua.BetterLedgerAlign()<CR><Right><CR>'
 })
 
-api.nvim_create_autocmd('FileType', {
-  pattern = {'ledger'},
+api.nvim_create_autocmd('BufWritePre', {
+  pattern = {'*.journal'},
   desc = 'Remove trailing spaces',
   command = '%s/\\s\\+$//e'
 })
