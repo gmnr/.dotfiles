@@ -18,7 +18,7 @@ function M.config()
       for payee in io.lines('/tmp/payees') do
         table.insert(items, {
           label = payee,
-          insertText = payee,
+          insertText = payee .. " | ",
           filterText = payee,
         })
       end
