@@ -23,9 +23,9 @@ function _G.BetterLedgerAlign()
     end
     vim.cmd(':LedgerAlign')
     return ''
-  elseif string.find(vim.fn.getline('.'):sub(-1), '%a') then
-    vim.call('UltiSnips#ExpandSnippet')
-    return ''
+  -- elseif string.find(vim.fn.getline('.'):sub(-1), '%a') then
+  --   vim.call('UltiSnips#ExpandSnippet')
+  --   return ''
   else
     return ''
   end
