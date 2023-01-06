@@ -60,7 +60,7 @@ alias prices='python ~/.finance/.src/fetch.py'
 alias current='cat ~/.finance/prices/current_prices.journal'
 alias bal='clear; hledger bal --pretty'
 alias jrn='hledger print'
-alias e='nvim "+normal G" ~/.finance/periods/2022.journal'
+alias e='nvim "+normal G" ~/.finance/periods/2023.journal'
 alias dad='clear; hledger -f ~/.finance/others/alfredo.journal bse --pretty -V --drop 1'
 alias fede='clear; hledger -f ~/.finance/others/fede.journal bse --pretty -V --drop 1'
 
