@@ -1,7 +1,7 @@
 -- save and close buffer
 vim.api.nvim_create_user_command('Wd', 'write|bdelete', {})
 
--- write lua functions in global space
+-- WRITE LUA FUNCTIONS IN GLOBAL SPACE
 
 -- Align ledger amounts and add trailing zeros when needed
 function _G.BetterLedgerAlign()
@@ -23,9 +23,6 @@ function _G.BetterLedgerAlign()
     end
     vim.cmd(':LedgerAlign')
     return ''
-  -- elseif string.find(vim.fn.getline('.'):sub(-1), '%a') then
-  --   vim.call('UltiSnips#ExpandSnippet')
-  --   return ''
   else
     return ''
   end
