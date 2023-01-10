@@ -41,7 +41,7 @@ if [[ $1 -eq 4 ]]; then
 fi
 
 if [[ $1 -eq 5 ]]; then
-  cmd=$(/usr/local/bin/task count "+wait")
+  cmd=$(/usr/local/bin/task count "+wait +PENDING")
   if [[ $cmd -gt 0 ]]; then
     echo "$cmd "
   else
