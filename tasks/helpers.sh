@@ -1,19 +1,11 @@
 # Define helper functions
 
-# link readings in the 
-function read_and_review() {
-  title=$(curl -s $1 | rg -o '<title>.+</title>' | sed -e 's/<[^>]*>//g')
-  descr="\"Read and review: $title\""
-  id=$(task add +inbox +read "$descr" | sed -n 's/Created task \(.*\)./\1/p')
-  task "$id" annotate $1
-}
-
 # check if projects don't have any next action
 function stale_project() {
   cmd=$(python - <<EOF
 import tasklib
 tw = tasklib.TaskWarrior()
-result = set(tw.execute_command(['+PROJECT', '+PENDING', '+READY', '-waiting', '_projects'])) - set(tw.execute_command(['+PROJECT', '+PENDING', '+next', '_projects'])) - set(tw.execute_command(['+PROJECT', '+PENDING', '+SCHEDULED', '_projects'])) - set(tw.execute_command(['+PROJECT', '+PENDING', '+wait', '_projects']))
+result = set(tw.execute_command(['+PROJECT', '+PENDING', '+READY', '_projects'])) - set(tw.execute_command(['+PROJECT', '+PENDING', '+next', '_projects'])) - set(tw.execute_command(['+PROJECT', '+PENDING', '+SCHEDULED', '_projects'])) - set(tw.execute_command(['+PROJECT', '+PENDING', '+wait', '_projects']))
 for i in result:
   print(i)
 EOF
@@ -65,14 +57,15 @@ alias tt='clear; task next'
 alias ti='clear; task ticker'
 alias tl='clear; task later'
 alias tw='clear; task wait'
-alias tp='clear; task prj'
+alias tp='clear; task projects +PROJECT'
+alias tpp='clear; task prj'
 alias box='clear; task inbox'
 
 # collection
 alias c='task add +inbox'
-alias rd='read_and_review'
 
 # do
 alias ts='stale_project'
 alias ta='task_refile'
 alias tm='task mod'
+alias te='task edit'
