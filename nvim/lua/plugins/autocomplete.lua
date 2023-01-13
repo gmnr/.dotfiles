@@ -141,7 +141,6 @@ function M.config()
     }
   }
 
-
   -- apply configuration to diagnostic
   local config = {
       virtual_text = false,
@@ -157,8 +156,7 @@ function M.config()
   end
 
   -- add config for lsp saga
- 	local saga = require('lspsaga')
-  saga.init_lsp_saga({
+ 	local saga = require('lspsaga').setup ({
 		border_style = 'single',
 		saga_winblend = 0,
 		move_in_saga = { prev = '<C-p>',next = '<C-n>'},
@@ -208,7 +206,6 @@ function M.config()
 		},
 		server_filetype_map = {},
 	})
-
 
   local npairs = require('nvim-autopairs')
   npairs.setup({})
