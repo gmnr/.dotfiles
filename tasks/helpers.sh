@@ -16,7 +16,7 @@ if [ "$cmd" != "" ]; then
     echo "- $elem"
   done
 else
-  echo "No projects inactive"
+  echo "No projects have unassigned tasks."
 fi
 }
 
