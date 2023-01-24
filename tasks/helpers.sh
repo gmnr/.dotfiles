@@ -59,7 +59,7 @@ alias tl='clear; task later'
 alias tw='clear; task wait'
 alias tp='clear; task projects +PROJECT'
 alias tpp='clear; task prj'
-alias box='clear; task inbox'
+alias tb='clear; task inbox'
 
 # collection
 alias c='task add +inbox'
