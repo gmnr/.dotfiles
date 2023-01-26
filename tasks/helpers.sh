@@ -57,8 +57,8 @@ alias tt='clear; task next'
 alias ti='clear; task ticker'
 alias tl='clear; task later'
 alias tw='clear; task wait'
-alias tp='clear; task projects +PROJECT'
-alias tpp='clear; task prj'
+alias tp='clear; task prj'
+alias tpp='clear; task projects +PROJECT'
 alias tb='clear; task inbox'
 
 # collection
