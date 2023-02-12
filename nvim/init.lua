@@ -10,7 +10,7 @@ require('core.theme')
 require('plugins.static')
 
 -- load dynamic plugins config
-require('plugins.autocomplete').config()  -- cmp / lspconfig / lspking / lspsaga
+require('plugins.completion').config()  -- cmp / lspconfig / lspking / lspsaga
 require('plugins.gitsigns').config()
 require('plugins.lua-line').config()
 require('plugins.telescope').config()
