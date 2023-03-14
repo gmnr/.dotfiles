@@ -54,6 +54,22 @@
           ]
         }
       ]
+    },
+    {
+      "description": "Launch Alfred with special key on Kinesis Advantage 2",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f24"
+          },
+          "to": 
+          {
+            "key_code": "spacebar",
+            "modifiers": "left_command"
+          }
+        }
+      ]
     }
   ]
 }
