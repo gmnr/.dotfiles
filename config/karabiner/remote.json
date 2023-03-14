@@ -593,6 +593,26 @@
               ]
             }
           ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {"mandatory": "left_option"}
+          },
+          "to": [
+            {
+              "shell_command": "open -a '/Applications/Alfred 5.app/'"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc\\.macos$"
+              ]
+            }
+          ]
         }
       ]
     }
