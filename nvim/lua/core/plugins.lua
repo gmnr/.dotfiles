@@ -32,6 +32,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'onsails/lspkind-nvim'
 Plug 'haya14busa/is.vim'
 Plug 'glepnir/lspsaga.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
 Plug 'ledger/vim-ledger'
 Plug 'preservim/vim-markdown'
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = vim.fn['TSUpdate']})
