@@ -52,6 +52,7 @@ vim.keymap.set('n', '<leader>pi', ':Telescope live_grep<CR>', { silent = true })
 vim.keymap.set('n', '<leader>po', ':Telescope buffers<CR>', { silent = true })
 vim.keymap.set('n', '<leader>ps', ':Telescope git_status<CR>', { silent = true })
 vim.keymap.set('n', '<leader>pc', ':Telescope git_branches<CR>', { silent = true })
+vim.keymap.set('n', '<leader>pa', ':Telescope find_files<CR>', { silent = true })
 
 -- change the current directory to edited file
 vim.keymap.set('n', '<leader>cd', ':cd %:h<CR>')
