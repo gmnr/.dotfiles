@@ -1,7 +1,7 @@
 -- load core config
 require('core.autocmds')
 require('core.functions')
-require('core.keymaps')
+require('core.mappings')
 require('core.options')
 require('core.plugins')
 require('core.theme')
