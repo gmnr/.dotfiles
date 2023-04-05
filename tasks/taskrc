@@ -7,7 +7,7 @@ data.location=~/.task
 # sanity
 weekstart=monday
 search.case.sensitive=no
-dateformat=Y/M/D
+dateformat=d/m/y
 default.command=list
 
 # Reports
