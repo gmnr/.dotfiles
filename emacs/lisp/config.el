@@ -5,19 +5,24 @@
 
 
 ;; disable init message
-(setq inhibit-startup-message t
-      visible-bell nil)
+(setq inhibit-startup-message t)
+(setq visible-bell nil)
 
 
 ;; disable tabs
 (setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+
+
+;; don't show sign on fring for empty lines
+(setq-default indicate-empty-lines nil)
 
 
 ;; always edit the symlink
 (setq find-file-visit-truename 1)
 
 
-;; enable line num & cursorline
+;; enable line num & cursorlin
 (global-display-line-numbers-mode 1)
 (global-hl-line-mode 1)
 
@@ -39,4 +44,17 @@
 
 
 ;; automatically reload files if they have been changed outside emacs
-(global-auto-revert-mode 1)
+(global-auto-revert-mode t)
+
+
+;; enable cmd as meta for mac
+(setq mac-option-key-is-meta nil)
+(setq mac-command-key-is-meta t)
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier 'none)
+
+
+;; Use y/n instead of yes/no
+(fset 'yes-or-no-p 'y-or-n-p)
+
+

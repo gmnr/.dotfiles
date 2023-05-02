@@ -4,8 +4,8 @@
   (interactive)
   (with-output-to-temp-buffer (concat"*" report-name "*")
     (shell-command cmd
-		   (concat"*" report-name "*")
-		   "*Messages*")
+                   (concat"*" report-name "*")
+                   "*Messages*")
     (pop-to-buffer (concat"*" report-name "*")))
   (special-mode)
   (delete-other-windows))
@@ -17,3 +17,8 @@
   (mapcar 'kill-buffer (buffer-list))
   (delete-other-windows))
 
+
+(require 'ansi-color)
+(defun display-ansi-colors ()
+  (interactive)
+  (ansi-color-apply-on-region (point-min) (point-max)))

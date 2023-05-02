@@ -20,11 +20,11 @@
 
 
 ;; load custom config
-(load-file "~/.emacs.d/user-config/config.el")
-(load-file "~/.emacs.d/user-config/keybindings.el")
-(load-file "~/.emacs.d/user-config/functions.el")
-(load-file "~/.emacs.d/user-config/packages.el")
-(load-file "~/.emacs.d/user-config/theme.el")
+(load-file "~/.emacs.d/lisp/config.el")
+(load-file "~/.emacs.d/lisp/packages.el")
+(load-file "~/.emacs.d/lisp/keybindings.el")
+(load-file "~/.emacs.d/lisp/functions.el")
+(load-file "~/.emacs.d/lisp/theme.el")
 
 
 (custom-set-variables
@@ -116,24 +116,9 @@
      (tramp-connection-local-default-system-profile
       (path-separator . ":")
       (null-device . "/dev/null"))))
- '(helm-minibuffer-history-key "M-p")
- '(hledger-comments-column 150)
- '(hledger-currency-string "")
- '(hledger-extra-args "-V.--pretty.")
- '(hledger-jfile "~/.finance/all.journal")
- '(hledger-ratios-essential-expense-accounts "expenses:housing expenses:food-bev")
- '(hledger-ratios-income-accounts "revenues")
- '(hledger-ratios-liquid-asset-accounts "assets:bank assets:cash")
- '(hledger-top-income-account "revenues")
- '(ledger-post-amount-alignment-at :decimal)
- '(ledger-post-amount-alignment-column 60)
- '(ledger-reports
-   '(("bs" "%(binary) -f %(ledger-file) bs --pretty -V -t")
-     ("is" "%(binary) -f %(ledger-file) is --pretty -l -S")
-     ("payee" "%(binary) -f %(ledger-file) reg @%(payee)")
-     ("account" "%(binary) -f %(ledger-file) reg %(account)")))
+ '(git-gutter:update-interval 0.1)
  '(package-selected-packages
-   '(powerline highlight-indent-guides ledger-mode flx quickrun hledger-mode company rainbow-delimiters magit evil-collection which-key try atom-one-dark-theme evil-commentary projectile helm git-commit magit-section)))
+   '(git-gutter-fringe company-box doom-modeline highlight-indent-guides flx quickrun company rainbow-delimiters magit evil-collection evil-commentary projectile git-commit magit-section)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
