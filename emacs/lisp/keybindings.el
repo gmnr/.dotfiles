@@ -72,11 +72,15 @@
     "DEL" 'evil-switch-to-windows-last-buffer
     "]c" 'git-gutter:next-hunk
     "[c" 'git-gutter:previous-hunk
-    "C-n" 'company-complete
-    ;; "C-p"
     "C-l" (lambda () (interactive) (redraw-frame nil)))
   
+  ;; enable manual completion with ctrl-n and ctrl-p
+  (general-define-key
+    :states '(insert)
+    "C-n" 'company-complete
+    "C-p" 'company-complete)
 
+  ;; minibuffer settings
   (general-define-key
    :keymaps '(ivy-minibuffer-map minibuffer-local-map)
    "C-w" 'backward-kill-word))
