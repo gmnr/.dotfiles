@@ -19,9 +19,9 @@ api.nvim_create_autocmd('FileType', {
 })
 
 api.nvim_create_autocmd('FileType', {
-  desc = 'Indent at 4 spaces on ledger files',
+  desc = 'Indent at 2 spaces on ledger files',
   pattern = {'ledger'},
-  command = 'setlocal ts=4 sw=4 sts=4'
+  command = 'setlocal ts=2 sw=2 sts=2'
 })
 
 api.nvim_create_autocmd('FileType', {
