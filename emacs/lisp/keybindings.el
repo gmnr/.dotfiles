@@ -24,7 +24,8 @@
     ;; hledger
     "lo" (lambda () (interactive) (temp-wrapper "hledger Report" "hledger -f ~/.finance/all.journal bs --pretty -V --drop 1 -t"))
     "li" (lambda () (interactive) (temp-wrapper "hledger Report" "hledger -f ~/.finance/all.journal is --pretty -l --drop 1 -p thismonth"))
-    "ll" (lambda () (interactive) (temp-wrapper "hledger Custom Report" (concat "hledger -f ~/.finance/all.journal " (read-string "hledger expr. >> ") " --pretty")))
+    "lp" (lambda () (interactive) (temp-wrapper "hledger Custom Report" (concat "hledger -f ~/.finance/all.journal " (read-string "hledger expr. >> ") " --pretty")))
+    "ll" (lambda () (interactive) (find-file "~/.finance/periods/2023.journal") (end-of-buffer))
     ;; "lp" (lambda () (interactive) (temp-wrapper "Latest Quotes" "python3 ~/.finance/.src/fetch.py solo"))
     ;; "ld" (lambda () (interactive) (temp-wrapper "Latest Quotes" "python3 ~/.finance/.src/fetch.py full"))
 
@@ -33,7 +34,6 @@
     "es" (lambda () (interactive) (load user-init-file))
     "ev" (lambda () (interactive (counsel-find-file "~/.emacs.d/lisp/")))
     "ep" (lambda () (interactive (find-file "~/.emacs.d/lisp/packages.el")))
-    "ee" (lambda () (interactive) (find-file "~/.finance/periods/2023.journal") (end-of-buffer))
     "eb" 'eval-buffer
     "et" 'shell-command
 
@@ -53,13 +53,13 @@
     "oc" 'org-capture
     "ol" 'org-store-link
     "or" 'org-refile
+    "oo" 'org-switchb
 
     ;; navigation
-    "pb" 'ivy-switch-buffer
+    "po" 'ivy-switch-buffer
     "pi" 'projectile-switch-project
     "pl" 'counsel-rg
     "pp" 'counsel-git
-    "po" 'org-switchb
     "pf" 'find-file
 
     ;; M-X

@@ -76,6 +76,7 @@
   :hook
   (prog-mode . company-mode)
   (text-mode . company-mode)
+  (hledger-mode . company-mode)
   :config
   (setq company-show-quick-access nil))
   (setq company-selection-wrap-around t)
@@ -123,9 +124,9 @@
 ;; enable snippets
 (use-package yasnippet
   :ensure t
-  :hook
-  (prog-mode . yas-minor-mode)
-  (text-mode . yas-minor-mode)
+  :hook ((text-mode prog-mode conf-mode snippet-mode) . yas-minor-mode-on)
+  :init
+  (setq yas-snippet-dir "~/.emacs.d/snippets")
   :config
   (setq yas-indent-line 'fixed))
 
@@ -138,6 +139,7 @@
   :config
   (setq org-directory (expand-file-name "~/.org"))
   (setq org-hide-leading-stars t)
+  (setq org-hide-emphasis-markers t)
   (setq org-ellipsis " ▼ ")
   (setq-default org-display-custom-times t)
   (setq org-time-stamp-custom-formats '("<%a %d %b %Y>" . "<%a %d %b %Y %H:%M>"))
