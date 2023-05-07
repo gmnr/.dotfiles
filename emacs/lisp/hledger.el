@@ -6,9 +6,6 @@
 (defvar hledger-date-regex "[0-9]\\{4\\}[-/][0-9]\\{2\\}[-/][0-9]\\{2\\}"
   "Regular expression for dates for font lock.")
 
-(defvar hledger-amount-regex "-?[0-9]*\.?[0-9]+\\(,[0-9][0-9]\\)?\\( [A-Z]+\\)?"
-  "Regular expression for amounts for font lock.")
-
 (defvar hledger-neg-amount-regex "-[0-9]*\.?[0-9]+\\(,[0-9][0-9]\\)?\\( [A-Z]+\\)?"
   "Regular expression for negative amounts for font lock.")
 
@@ -19,6 +16,8 @@
   (concat "\\(\\([Rr]evenues?\\|[aA]ssets?\\|[lL]iabilit\\(?:ies\\|y\\)\\|[Dd]ebts?"
 	  "\\|[Ee]quity\\|[Ee]xpenses?\\|[iI]ncome\\|[Zz]adjustments?\\)"
 	  "\\(:[A-Za-z0-9\-\.]+\\( [A-Za-z0-9\-\.]+\\)*\\)*\\)"))
+
+(defvar hledger-amount-regex (concat "\\(" hledger-account-regex "\s+" "\\)" "\\(-?[0-9]*\.?[0-9]+\\(,[0-9][0-9]\\)?\\( [A-Z]+\\)?\\)"))
 
 (defvar hledger-sep-regex "\\(|\\|@@\\)"
   "Regular expression for payee/description separator in font lock.")
@@ -197,7 +196,7 @@
    `(,hledger-payee-regex 1 hledger-payee-face)
    `(,hledger-sep-regex . hledger-sep-face)
    `(,hledger-date-regex . hledger-date-face)
-   `(,hledger-amount-regex . hledger-amount-face)))
+   `(,hledger-amount-regex 6 hledger-amount-face)))
 
 (defun hledger-font-lock-defaults ()
   "Default highlighting expressions for hledger mode."
