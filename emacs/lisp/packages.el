@@ -3,8 +3,8 @@
   :ensure t
   :init
   (setq evil-want-keybinding nil)
+  (setq evil-respect-visual-line-mode 1)
   (evil-mode 1)
-  (setq evil-want-C-u-scroll t)
   :config
   (evil-set-undo-system 'undo-redo)
   (setq evil-insert-state-message nil) ;; disable showing current state on echo area
@@ -131,7 +131,11 @@
   (setq yas-indent-line 'fixed))
 
 
-;; glorious org-mode
+(use-package speeddating
+  :ensure t)
+
+
+;; ORG CONFIG
 (use-package org
   :ensure t
   :hook
@@ -154,4 +158,5 @@
            (file "~/.org/calendar.org") "* %^{Is it a todo?||TODO |NEXT }%^{Title}\n%^t\n%?")
           ("w" "Work TODO" entry
            (file "~/.org/work.org") "* TODO %^{Title}"))))
+
 
