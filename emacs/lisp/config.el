@@ -10,6 +10,7 @@
 
 
 ;; disable tabs
+(setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
 
@@ -55,5 +56,9 @@
 
 ;; Use y/n instead of yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
+
+
+;; enable scrolling over long lines
+(global-visual-line-mode 1)
 
 
