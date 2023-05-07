@@ -62,6 +62,14 @@
     "pp" 'counsel-git
     "pf" 'find-file
 
+    ;; help
+    "hx" 'eval-defun
+    "hf" 'describe-function
+    "hv" 'describe-variable
+    "hk" 'describe-key
+    "ho" 'describe-symbol
+    "hb" 'describe-command
+
     ;; M-X
     "SPC" 'counsel-M-x)
 
@@ -69,9 +77,12 @@
   (general-define-key
     :states '(normal visual)
     "C-e" 'evil-scroll-up
+    "C-u" 'evil-scroll-up
     "DEL" 'evil-switch-to-windows-last-buffer
     "]c" 'git-gutter:next-hunk
     "[c" 'git-gutter:previous-hunk
+    "C-=" 'speeddating-increase
+    "C--" 'speeddating-decrease
     "C-l" (lambda () (interactive) (redraw-frame nil)))
   
   ;; enable manual completion with ctrl-n and ctrl-p
