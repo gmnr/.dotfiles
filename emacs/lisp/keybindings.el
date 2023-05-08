@@ -69,6 +69,24 @@
     "hk" 'describe-key
     "ho" 'describe-symbol
     "hb" 'describe-command
+    "hd" 'devdocs-lookup
+
+    ;; smartparens
+    "s<" 'sp-backward-barf-sexp
+    "s>" 'sp-forward-barf-sexp
+    "s(" 'sp-backward-slurp-sexp
+    "s)" 'sp-forward-slurp-sexp
+    "sd" 'sp-unwrap-sexp
+    "s+" 'sp-join-sexp
+    "s-" 'sp-split-sexp
+    "sa" 'sp-absorb-sexp
+    "sc" 'sp-clone-sexp
+    "sC" 'sp-convolute-sexp
+    "sm" 'sp-mark-sexp
+    "sr" 'sp-raise-sexp
+    "ss" 'sp-splice-sexp-killing-around
+    "st" 'sp-transpose-sexp
+    "sT" 'sp-transpose-hybrid-sexp
 
     ;; M-X
     "SPC" 'counsel-M-x)
