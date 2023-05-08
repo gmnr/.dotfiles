@@ -35,7 +35,7 @@
 (defvar hledger-view-titles-regex "\\(Revenues\\|Expenses\\|Net:\\|Assets\\|Liabilities\\)"
   "Regular expression for negative amounts for font lock.")
 
-(defvar hledger-view-months-regex "\\(Jan\\|Feb\\|Mar\\|Apr\\|May\\|Jun\\|Jul\\|Aug\\|Sep\\|Oct\\|Nov\\|Dec\\)"
+(defvar hledger-view-months-regex "\\(Total\\|Average\\|Jan\\|Feb\\|Mar\\|Apr\\|May\\|Jun\\|Jul\\|Aug\\|Sep\\|Oct\\|Nov\\|Dec\\)"
   "Regular expression for negative amounts for font lock.")
 
 (defvar hledger-view-account-regex "\\(\s+[a-z\:A-Z\-\.]+\s+\\)║"
@@ -182,7 +182,7 @@
 (defun hledger-execute-report (cmd)
   "Execute report with specific rules for formatting"
   (setq base "hledger -f ~/.finance/all.journal ")
-  (setq w (- (window-total-width) 10))
+  (setq w (- (window-total-width) 6))
   (setq else "")
 
   (cond
@@ -194,7 +194,7 @@
                              (setq cmd (car user-input))
                              (setq else (string-join (cdr user-input) " "))
                              (if (or (string-equal cmd "reg") (string-equal cmd "areg"))
-                               (setq postfix (concat " --pretty -w" (number-to-string w)))
+                               (setq postfix (concat " --pretty -p thismonth -w" (number-to-string w)))
                                (setq postfix " --pretty --drop 1"))))
 
   (hledger-wrapper "hledger report" (concat base cmd postfix " " else)))
