@@ -166,9 +166,9 @@
 
 
 ;; REPORT
-;; hledger mode wrapper
+
 (defun hledger-wrapper (report-name cmd)
-  "Send shell commands to tmp-buffer"
+  "Wrap command execution in hledger mode"
   (with-output-to-temp-buffer (concat"*" report-name "*")
     (shell-command cmd
                    (concat"*" report-name "*")
@@ -180,6 +180,7 @@
   (local-set-key "q" 'quit-window))
 
 (defun hledger-execute-report (cmd)
+  "Execute report with specific rules for formatting"
   (setq base "hledger -f ~/.finance/all.journal ")
   (setq w (- (window-total-width) 10))
   (setq else "")
