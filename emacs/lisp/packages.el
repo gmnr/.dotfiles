@@ -144,22 +144,19 @@
   :hook
   (org-capture-mode . evil-insert-state)  ;; start capture in insert mode
   :config
+  (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
   (setq org-directory (expand-file-name "~/.org"))
+  (setq org-agenda-files (list org-directory))
   (setq org-hide-leading-stars t)
   (setq org-hide-emphasis-markers t)
+  (setq org-adapt-indentation t)
   (setq org-ellipsis " ▼ ")
-  (setq-default org-display-custom-times t)
-  (setq org-time-stamp-custom-formats '("<%a %d %b %Y>" . "<%a %d %b %Y %H:%M>"))
+  ;; (setq-default org-display-custom-times t)
+  ;; (setq org-time-stamp-custom-formats '("<%a %d %b %Y>" . "<%a %d %b %Y %H:%M>"))
+  ;; (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("laptop" . ?l)))
+  ;; (setq org-todo-keywords
+  ;;       '((sequence "TODO(t)" "|" "DONE(d)")
+  ;;         (sequence "|" "CANCELED(c)")))
   (setq org-capture-templates
-        '(("n" "Notes" entry
-           (file "~/.org/inbox.org") "* %^{Description} %^g\n Added: %U\n%?")
-          ("m" "Meeting notes" entry
-           (file "~/.org/meetings.org") "* TODO %^{Title} %t\n- %?")
-          ("t" "TODO" entry
-           (file "~/.org/inbox.org") "* TODO %^{Title}")
-          ("e" "Event" entry
-           (file "~/.org/calendar.org") "* %^{Is it a todo?||TODO |NEXT }%^{Title}\n%^t\n%?")
-          ("w" "Work TODO" entry
-           (file "~/.org/work.org") "* TODO %^{Title}"))))
-
-
+        '(("c" "inbox" entry (file "~/.org/inbox.org") "* TODO %?")
+          ("m" "Meeting notes" entry (file "~/.org/meetings.org") "* TODO %^{Title} %t\n- %?"))))
