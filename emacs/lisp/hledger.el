@@ -3,32 +3,43 @@
 (defvar hledger-empty-regex "^[[:space:]]*$"
   "Regular expression for an empty line.")
 
-(defvar hledger-date-regex "[0-9]\\{4\\}[-/][0-9]\\{2\\}[-/][0-9]\\{2\\}"
+(defvar hledger-date-regex "[0-9]\\{4\\}[-/][0-9]\\{2\\}\\([-/][0-9]\\{2\\}\\)?"
   "Regular expression for dates for font lock.")
-
-(defvar hledger-neg-amount-regex "-[0-9]*\.?[0-9]+\\(,[0-9][0-9]\\)?\\( [A-Z]+\\)?"
-  "Regular expression for negative amounts for font lock.")
 
 (defvar hledger-payee-regex "-[0-9][0-9]\\s-\\(.*\\)\\s-|"
   "Regular expression for payees in font lock.")
 
 (defvar hledger-account-regex
-  (concat "\\(\\([Rr]evenues?\\|[aA]ssets?\\|[lL]iabilit\\(?:ies\\|y\\)\\|[Dd]ebts?"
-	  "\\|[Ee]quity\\|[Ee]xpenses?\\|[iI]ncome\\|[Zz]adjustments?\\)"
+  (concat "^  \\(\\(revenues?\\|assets?\\|liabilit\\(?:ies\\|y\\)\\|debts?"
+	  "\\|equity\\|expenses?\\|income\\|adjustments?\\)"
 	  "\\(:[A-Za-z0-9\-\.]+\\( [A-Za-z0-9\-\.]+\\)*\\)*\\)"))
 
-(defvar hledger-amount-regex (concat "\\(" hledger-account-regex "\s+" "\\)" "\\(-?[0-9]*\.?[0-9]+\\(,[0-9][0-9]\\)?\\( [A-Z]+\\)?\\)"))
+(defvar hledger-highlight-amount-regex (concat "\\(" hledger-account-regex "\s+"
+                                           "\\)" "\\(-?[0-9]+,[0-9][0-9]\\)"))
 
 (defvar hledger-sep-regex "\\(|\\|@@\\)"
   "Regular expression for payee/description separator in font lock.")
 
 
-;; CONFIG DECLARATIONS
+;; VIEW MODE REGEX
 
-(defcustom hledger-reporting-buffer-name "*Personal Finance*"
-  "Name of the buffer for showing or working with reports."
-  :group 'hledger
-  :type 'string)
+(defvar hledger-view-null-regex "\s0\s"
+  "Regular expression for ignore in font lock.")
+
+(defvar hledger-view-neg-regex "-[0-9]*\.?[0-9]+,[0-9][0-9] [A-Z]+"
+  "Regular expression for negative amounts for font lock.")
+
+(defvar hledger-view-amount-regex " [0-9]*\.?[0-9]+,[0-9][0-9] [A-Z]+"
+  "Regular expression for negative amounts for font lock.")
+
+(defvar hledger-view-titles-regex "\\(Revenues\\|Expenses\\|Net:\\|Assets\\|Liabilities\\)"
+  "Regular expression for negative amounts for font lock.")
+
+(defvar hledger-view-months-regex "\\(Jan\\|Feb\\|Mar\\|Apr\\|May\\|Jun\\|Jul\\|Aug\\|Sep\\|Oct\\|Nov\\|Dec\\)"
+  "Regular expression for negative amounts for font lock.")
+
+(defvar hledger-view-account-regex "\\(\s+[a-z\:A-Z\-\.]+\s+\\)║"
+  "Regular expression for negative amounts for font lock.")
 
 
 ;; INDENTATION RULES
@@ -63,8 +74,7 @@
 
 (defun hledger-prev-line-has-amtp ()
   "Return true if the current line has an amount."
-  (hledger-prev-line-matchesp (concat ".*" hledger-amount-regex ".*")))
-
+  (hledger-prev-line-matchesp (concat ".*" hledger-highlight-amount-regex ".*")))
 
 (defun hledger-indent-empty-line ()
   "Called when the line to be indented is an empty one."
@@ -73,7 +83,6 @@
    ((hledger-prev-line-has-payeep) (indent-line-to tab-width) (hledger-select-account) (hledger-get-amount))
    ((hledger-prev-line-has-amtp) (indent-line-to tab-width) (hledger-select-account) (newline-and-indent))
    (t (indent-line-to tab-width))))
-
 
 (defun hledger-indent-line ()
   "Indent the current line."
@@ -97,15 +106,15 @@
   "Fetch from cache the list of payees for fuzzy insertion"
   (interactive)
   (ivy-read "Select Payee: "
-			hledger-payee-cache
-			:action (lambda (x) (insert x " | "))))
+            hledger-payee-cache
+            :action (lambda (x) (insert x " | "))))
 
 (defun hledger-select-account ()
   "Fetch from cache the list of accounts for fuzzy insertion"
   (interactive)
   (ivy-read "Select Payee: "
-			hledger-accounts-cache
-			:action (lambda (x) (insert x "  "))))
+            hledger-accounts-cache
+            :action (lambda (x) (insert x "  "))))
 
 (defun hledger-get-amount ()
   "Get user input and perform simple calculations"
@@ -152,51 +161,103 @@
                  (match-string 2 num))))
     num))
 
-;; MODE SETUP
+
+;; REPORT
+;; hledger mode wrapper
+(defun hledger-wrapper (report-name cmd)
+  "Send shell commands to tmp-buffer"
+  (with-output-to-temp-buffer (concat"*" report-name "*")
+    (shell-command cmd
+                   (concat"*" report-name "*")
+                   "*Messages*")
+    (pop-to-buffer (concat"*" report-name "*")))
+  (delete-other-windows)
+  (hledger-mode)
+  (use-local-map (copy-keymap special-mode-map))
+  (local-set-key "q" 'quit-window))
+
+(defun hledger-execute-report (cmd)
+  (setq base "hledger -f ~/.finance/all.journal ")
+  (setq w (- (window-total-width) 10))
+  (setq else "")
+
+  (cond
+   ((string-equal cmd "is") (setq postfix " --drop 1 -p thismonth --pretty -S"))
+   ((string-equal cmd "bs") (setq postfix " --drop 1 -V -t --pretty"))
+
+
+   ((string-equal cmd "cust") (setq user-input (split-string (read-string "hledger expression>> ") "\s"))
+                             (setq cmd (car user-input))
+                             (setq else (string-join (cdr user-input) " "))
+                             (if (or (string-equal cmd "reg") (string-equal cmd "areg"))
+                               (setq postfix (concat " --pretty -w" (number-to-string w)))
+                               (setq postfix " --pretty --drop 1"))))
+
+  (hledger-wrapper "hledger report" (concat base cmd postfix " " else)))
+
+
+;; HLEDGER MODE
 
 (defcustom hledger-mode-hook nil
   "Normal hook for entering 'hledger-mode'."
   :type 'hook
   :group 'hledger)
 
-(defcustom hledger-date-face font-lock-string-face
-  "Face for date."
+(defcustom hledger-green-face font-lock-string-face
+  "Green"
   :type 'face
   :group 'hledger)
 
-(defcustom hledger-amount-face font-lock-variable-name-face
-  "Face for amount."
+(defcustom hledger-orange-face font-lock-variable-name-face
+  "Orange"
   :type 'face
   :group 'hledger)
 
-(defcustom hledger-payee-face font-lock-builtin-face
-  "Face for payee."
+(defcustom hledger-blue-face font-lock-builtin-face
+  "Blue"
   :type 'face
   :group 'hledger)
 
-(defcustom hledger-account-face font-lock-doc-markup-face
-  "Face for accounts."
+(defcustom hledger-red-face font-lock-doc-markup-face
+  "Red"
   :type 'face
   :group 'hledger)
 
-(defcustom hledger-sep-face font-lock-keyword-face
-  "Face for separator."
+(defcustom hledger-cyan-face font-lock-keyword-face
+  "Cyan"
   :type 'face
   :group 'hledger)
 
-(defcustom hledger-description-face nil
-  "Face for description text."
+(defcustom hledger-purple-face font-lock-type-face
+  "Purple"
+  :type 'face
+  :group 'hledger)
+
+(defcustom hledger-white-face nil
+  "White"
+  :type 'face
+  :group 'hledger)
+
+(defcustom hledger-grey-face font-lock-comment-face
+  "Grey"
   :type 'face
   :group 'hledger)
 
 (defun hledger-font-lock-keywords-1 ()
   "Minimal highlighting expressions for hledger mode."
   (list
-   `(,hledger-account-regex . hledger-account-face)
-   `(,hledger-payee-regex 1 hledger-payee-face)
-   `(,hledger-sep-regex . hledger-sep-face)
-   `(,hledger-date-regex . hledger-date-face)
-   `(,hledger-amount-regex 6 hledger-amount-face)))
+   `(,hledger-account-regex . hledger-red-face)
+   `(,hledger-payee-regex 1 hledger-blue-face)
+   `(,hledger-sep-regex . hledger-cyan-face)
+   `(,hledger-date-regex . hledger-green-face)
+   `(,hledger-highlight-amount-regex 6 hledger-orange-face)
+
+   `(,hledger-view-null-regex . hledger-grey-face)
+   `(,hledger-view-neg-regex . hledger-red-face)
+   `(,hledger-view-months-regex . hledger-green-face)
+   `(,hledger-view-titles-regex . hledger-purple-face)
+   `(,hledger-view-amount-regex . hledger-blue-face)
+   `(,hledger-view-account-regex 1 hledger-orange-face)))
 
 (defun hledger-font-lock-defaults ()
   "Default highlighting expressions for hledger mode."

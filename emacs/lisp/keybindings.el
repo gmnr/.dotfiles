@@ -22,10 +22,10 @@
     "rr" 'quickrun
 
     ;; hledger
-    "lo" (lambda () (interactive) (temp-wrapper "hledger Report" "hledger -f ~/.finance/all.journal bs --pretty -V --drop 1 -t"))
-    "li" (lambda () (interactive) (temp-wrapper "hledger Report" "hledger -f ~/.finance/all.journal is --pretty -l --drop 1 -p thismonth"))
-    "lp" (lambda () (interactive) (temp-wrapper "hledger Custom Report" (concat "hledger -f ~/.finance/all.journal " (read-string "hledger expr. >> ") " --pretty")))
-    "ll" (lambda () (interactive) (find-file "~/.finance/periods/2023.journal") (end-of-buffer))
+    "li" (lambda () (interactive) (hledger-execute-report "is"))
+    "lo" (lambda () (interactive) (hledger-execute-report "bs"))
+    "ll" (lambda () (interactive) (hledger-execute-report "cust"))
+    "el" (lambda () (interactive) (find-file "~/.finance/periods/2023.journal") (end-of-buffer))
     ;; "lp" (lambda () (interactive) (temp-wrapper "Latest Quotes" "python3 ~/.finance/.src/fetch.py solo"))
     ;; "ld" (lambda () (interactive) (temp-wrapper "Latest Quotes" "python3 ~/.finance/.src/fetch.py full"))
 
