@@ -121,7 +121,7 @@
    '("5f128efd37c6a87cd4ad8e8b7f2afaba425425524a68133ac0efd87291d05874" default))
  '(git-gutter:update-interval 0.1)
  '(package-selected-packages
-   '(speeddating git-gutter-fringe company-box doom-modeline highlight-indent-guides flx quickrun company rainbow-delimiters magit evil-collection evil-commentary projectile git-commit magit-section)))
+   '(devdocs speeddating git-gutter-fringe company-box doom-modeline highlight-indent-guides flx quickrun company rainbow-delimiters magit evil-collection evil-commentary projectile git-commit magit-section)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
