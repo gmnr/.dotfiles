@@ -101,6 +101,9 @@
   (sp-local-pair '(emacs-lisp-mode) "'" "'" :actions nil))
 
 
+(use-package devdocs
+  :ensure t)
+
 ;; rainbow delimiters
 (use-package rainbow-delimiters
   :ensure t
