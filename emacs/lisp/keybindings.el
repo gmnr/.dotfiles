@@ -53,7 +53,12 @@
     "oc" 'org-capture
     "ol" 'org-store-link
     "or" 'org-refile
-    "oo" 'org-switchb
+    "Oo" 'org-switchb
+    "oo" (lambda () (interactive (counsel-find-file "~/.org")))
+    ;; org commands
+    "ot" 'org-set-tags-command
+    "ow" 'org-todo
+    "os" 'org-schedule
 
     ;; navigation
     "po" 'ivy-switch-buffer
