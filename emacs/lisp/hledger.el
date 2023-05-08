@@ -29,7 +29,7 @@
 (defvar hledger-view-neg-regex "-[0-9]*\.?[0-9]+,[0-9][0-9] [A-Z]+"
   "Regular expression for negative amounts for font lock.")
 
-(defvar hledger-view-amount-regex " [0-9]*\.?[0-9]+,[0-9][0-9] [A-Z]+"
+(defvar hledger-view-amount-regex " [0-9]*\.?[0-9]+\\(,[0-9][0-9]\\)? [A-Z]+"
   "Regular expression for negative amounts for font lock.")
 
 (defvar hledger-view-titles-regex "\\(Revenues\\|Expenses\\|Net:\\|Assets\\|Liabilities\\)"
@@ -39,6 +39,9 @@
   "Regular expression for negative amounts for font lock.")
 
 (defvar hledger-view-account-regex "\\(\s+[a-z\:A-Z\-\.]+\s+\\)║"
+  "Regular expression for negative amounts for font lock.")
+
+(defvar hledger-view-account-bal-regex "[A-Z]+  \\([a-z\:A-Z\-\.]+\\)"
   "Regular expression for negative amounts for font lock.")
 
 
@@ -257,6 +260,7 @@
    `(,hledger-view-months-regex . hledger-green-face)
    `(,hledger-view-titles-regex . hledger-purple-face)
    `(,hledger-view-amount-regex . hledger-blue-face)
+   `(,hledger-view-account-bal-regex 1 hledger-orange-face)
    `(,hledger-view-account-regex 1 hledger-orange-face)))
 
 (defun hledger-font-lock-defaults ()
