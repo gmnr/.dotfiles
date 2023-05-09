@@ -139,24 +139,39 @@
 
 
 ;; ORG CONFIG
-(use-package org
+(use-package org-bullets
   :ensure t
   :hook
+  (org-mode . org-bullets-mode))
+
+
+(use-package org
+  :ensure t
+  :mode
+  ("\\.org\\'" . org-mode)
+  :hook
   (org-capture-mode . evil-insert-state)  ;; start capture in insert mode
+  (org-mode . set-accent-mode)  ;; start capture in insert mode
   :config
-  (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+  ;; (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
   (setq org-directory (expand-file-name "~/.org"))
   (setq org-agenda-files (list org-directory))
   (setq org-hide-leading-stars t)
   (setq org-hide-emphasis-markers t)
   (setq org-adapt-indentation t)
-  (setq org-ellipsis " ▼ ")
-  ;; (setq-default org-display-custom-times t)
-  ;; (setq org-time-stamp-custom-formats '("<%a %d %b %Y>" . "<%a %d %b %Y %H:%M>"))
+  (setq org-ellipsis " …")
+  (setq org-cycle-separator-lines 2)
+  (setq org-todo-keywords
+        (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+                (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING"))))
+  (setq org-use-fast-todo-selection t)
+  (setq org-treat-S-cursor-todo-selection-as-state-change nil)
   ;; (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("laptop" . ?l)))
-  ;; (setq org-todo-keywords
-  ;;       '((sequence "TODO(t)" "|" "DONE(d)")
-  ;;         (sequence "|" "CANCELED(c)")))
   (setq org-capture-templates
         '(("c" "inbox" entry (file "~/.org/inbox.org") "* TODO %?")
-          ("m" "Meeting notes" entry (file "~/.org/meetings.org") "* TODO %^{Title} %t\n- %?"))))
+          ("n" "notes" entry (file "~/.org/inbox.org") "* %? :NOTE:\n%U\n%a\n")
+          ("m" "meetings" entry (file "~/.org/inbox.org") "* TODO %^{Title} %t\n- %?"))))
+
+
+;; use org-capture in fullscreen
+(add-hook 'org-capture-mode-hook 'delete-other-windows)
