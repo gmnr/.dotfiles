@@ -25,17 +25,21 @@
     "li" (lambda () (interactive) (hledger-execute-report "is"))
     "lo" (lambda () (interactive) (hledger-execute-report "bs"))
     "ll" (lambda () (interactive) (hledger-execute-report "cust"))
-    "el" (lambda () (interactive) (find-file "~/.finance/periods/2023.journal") (end-of-buffer))
     ;; "lp" (lambda () (interactive) (temp-wrapper "Latest Quotes" "python3 ~/.finance/.src/fetch.py solo"))
     ;; "ld" (lambda () (interactive) (temp-wrapper "Latest Quotes" "python3 ~/.finance/.src/fetch.py full"))
 
 
-    ;; manage files
-    "es" (lambda () (interactive) (load user-init-file))
+    ;; navigate files
     "ev" (lambda () (interactive (counsel-find-file "~/.emacs.d/lisp/")))
-    "ep" (lambda () (interactive (find-file "~/.emacs.d/lisp/packages.el")))
-    "eb" 'eval-buffer
-    "et" 'shell-command
+    "el" (lambda () (interactive) (find-file "~/.finance/periods/2023.journal") (end-of-buffer))
+    "ei" (lambda () (interactive (find-file "~/.org/inbox.org")))
+    "oo" (lambda () (interactive (counsel-find-file "~/.org")))
+
+
+    ;; load files and eval
+    "ts" (lambda () (interactive) (load user-init-file))
+    "tb" 'eval-buffer
+    "tt" 'shell-command
 
     ;; defaults
     "qq" 'evil-delete-buffer
@@ -100,7 +104,7 @@
     ;; M-X
     "SPC" 'counsel-M-x)
 
-  ;; global effective keybindings
+  ;; global effective keybindings in normal & visual mode
   (general-define-key
     :states '(normal visual)
     "C-e" 'evil-scroll-up
