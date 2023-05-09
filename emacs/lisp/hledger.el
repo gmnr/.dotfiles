@@ -147,11 +147,12 @@
   (if (> (length int) 3)
       (setq int (hledger-thousands int))
     int)
-  (if (eq dec nil)
-      (setq dec "00")
-    (if (eq (length dec) 1)
-        (setq dec (concat dec "0"))
-      dec))
+
+   (cond
+    ((eq dec nil) (setq dec "00"))
+    ((eq (length dec) 1) (setq dec (concat dec "0")))
+    ((eq (length dec) 0) (setq dec (concat dec "00"))))
+
   (concat int "," dec))
 
 (defun hledger-thousands (s &optional separator)
