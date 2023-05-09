@@ -54,11 +54,15 @@
     "ol" 'org-store-link
     "or" 'org-refile
     "Oo" 'org-switchb
-    "oo" (lambda () (interactive (counsel-find-file "~/.org")))
+
     ;; org commands
-    "ot" 'org-set-tags-command
-    "ow" 'org-todo
+    "og" 'org-set-tags-command
+    "ot" 'org-todo
     "os" 'org-schedule
+    "oS" 'org-deadline
+    "ow" 'org-toggle-heading
+    "od" 'org-cut-subtree
+    "oy" 'org-paste-subtree
 
     ;; navigation
     "po" 'ivy-switch-buffer
@@ -107,12 +111,28 @@
     "C-=" 'speeddating-increase
     "C--" 'speeddating-decrease
     "C-l" (lambda () (interactive) (redraw-frame nil)))
-  
-  ;; enable manual completion with ctrl-n and ctrl-p
+
+  ;; global effective keybindings in insert mode
   (general-define-key
     :states '(insert)
     "C-n" 'company-complete
-    "C-p" 'company-complete)
+    "C-p" 'company-complete
+    "C-e" (lambda () (interactive) (insert "€")))
+
+  ;; org bindings
+  (general-define-key
+   :keymaps 'org-capture-mode-map
+   [remap evil-save-and-close]          'org-capture-finalize
+   [remap evil-save-modified-and-close] 'org-capture-finalize
+   [remap evil-quit]                    'org-capture-kill)
+
+  (general-define-key
+   :keymaps 'org-agenda-mode-map
+   "j" 'org-agenda-next-line
+   "k" 'org-agenda-previous-line
+   "f" 'org-agenda-goto-date
+   "n" 'org-agenda-later
+   "p" 'org-agenda-earlier)
 
   ;; minibuffer settings
   (general-define-key
