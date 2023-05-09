@@ -5,8 +5,13 @@
 
 
 ;; disable init message
-(setq inhibit-startup-message t)
-(setq visible-bell nil)
+(setq-default
+ inhibit-startup-screen t
+ inhibit-startup-message t
+ inhibit-startup-echo-area-message t
+ initial-scratch-message ""
+ initial-buffer-choice t
+ visible-bell nil)
 
 
 ;; disable tabs
