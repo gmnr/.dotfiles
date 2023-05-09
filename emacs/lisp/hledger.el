@@ -169,12 +169,14 @@
 
 (defun hledger-wrapper (report-name cmd)
   "Wrap command execution in hledger mode"
+  (setq resize-mini-windows nil)
   (with-output-to-temp-buffer (concat"*" report-name "*")
     (shell-command cmd
                    (concat"*" report-name "*")
                    "*Messages*")
     (pop-to-buffer (concat"*" report-name "*")))
   (delete-other-windows)
+  (setq resize-mini-windows "grow-only")
   (hledger-mode)
   (use-local-map (copy-keymap special-mode-map))
   (local-set-key "q" 'quit-window))
