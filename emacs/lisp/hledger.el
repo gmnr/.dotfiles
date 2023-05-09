@@ -15,7 +15,7 @@
 	  "\\(:[A-Za-z0-9\-\.]+\\( [A-Za-z0-9\-\.]+\\)*\\)*\\)"))
 
 (defvar hledger-highlight-amount-regex (concat "\\(" hledger-account-regex "\s+"
-                                           "\\)" "\\(-?[0-9]+,[0-9][0-9]\\)"))
+                                           "\\)" "\\(-?[0-9\.]+,[0-9][0-9]\\)"))
 
 (defvar hledger-sep-regex "\\(|\\|@@\\)"
   "Regular expression for payee/description separator in font lock.")
