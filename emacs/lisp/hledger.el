@@ -281,8 +281,8 @@
   (setq-local indent-line-function 'hledger-indent-line)
   (setq-local comment-start "; ")
   (setq-local comment-end "")
-  (setq-local require-final-newline t)
   (setq-local tab-width 2)
+  (set-accent-mode)
   (setq hledger-accounts-cache (hledger-get-accounts))
   (setq hledger-payee-cache (hledger-get-payees)))
 

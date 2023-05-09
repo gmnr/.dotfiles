@@ -5,3 +5,8 @@
   (delete-other-windows))
 
 
+(defun set-accent-mode ()
+  "Create hook to enable accented input mode"
+  (activate-input-method "accent-postfix"))
+
+
