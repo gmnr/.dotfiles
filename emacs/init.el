@@ -26,6 +26,10 @@
 (load-file "~/.emacs.d/lisp/functions.el")
 (load-file "~/.emacs.d/lisp/theme.el")
 (load-file "~/.emacs.d/lisp/hledger.el")
+(load-file "~/.emacs.d/lisp/manage-accents.el")
+
+;; load accent expansion
+(require 'manage-accents)
 
 
 (custom-set-variables
@@ -121,7 +125,7 @@
    '("5f128efd37c6a87cd4ad8e8b7f2afaba425425524a68133ac0efd87291d05874" default))
  '(git-gutter:update-interval 0.1)
  '(package-selected-packages
-   '(devdocs speeddating git-gutter-fringe company-box doom-modeline highlight-indent-guides flx quickrun company rainbow-delimiters magit evil-collection evil-commentary projectile git-commit magit-section)))
+   '(org-bullets devdocs speeddating git-gutter-fringe company-box doom-modeline highlight-indent-guides flx quickrun company rainbow-delimiters magit evil-collection evil-commentary projectile git-commit magit-section)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
