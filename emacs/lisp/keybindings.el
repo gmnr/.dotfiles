@@ -25,15 +25,16 @@
     "li" (lambda () (interactive) (hledger-execute-report "is"))
     "lo" (lambda () (interactive) (hledger-execute-report "bs"))
     "ll" (lambda () (interactive) (hledger-execute-report "cust"))
+    "lf" 'hledger-format-transaction
     ;; "lp" (lambda () (interactive) (temp-wrapper "Latest Quotes" "python3 ~/.finance/.src/fetch.py solo"))
     ;; "ld" (lambda () (interactive) (temp-wrapper "Latest Quotes" "python3 ~/.finance/.src/fetch.py full"))
 
 
     ;; navigate files
-    "ev" (lambda () (interactive (counsel-find-file "~/.emacs.d/lisp/")))
-    "el" (lambda () (interactive) (find-file "~/.finance/periods/2023.journal") (end-of-buffer))
-    "ei" (lambda () (interactive (find-file "~/.org/inbox.org")))
-    "oo" (lambda () (interactive (counsel-find-file "~/.org")))
+    "ev" (lambda () (interactive) (counsel-find-file nil "~/.emacs.d/lisp/"))
+    "el" (lambda () (interactive) (find-file "~/.finance/periods/2023.journal") (end-of-buffer) (previous-line))
+    "ei" (lambda () (interactive) (find-file "~/.org/inbox.org"))
+    "oo" (lambda () (interactive) (counsel-find-file nil "~/.org"))
 
 
     ;; load files and eval
@@ -44,8 +45,8 @@
     ;; defaults
     "qq" 'evil-delete-buffer
     "ww" 'save-buffer
-    "wq" 'evil-save-and-close
-    "Qa" 'kill-all-buffers
+    "wq" 'gmnr/save-and-quit
+    "Qa" 'gmnr/kill-all-buffers
 
     ;; magit
     "gs" 'magit-status
@@ -57,15 +58,16 @@
     "oc" 'org-capture
     "ol" 'org-store-link
     "or" 'org-refile
+    "oR" 'org-archive-subtree
     "Oo" 'org-switchb
 
     ;; org commands
-    "og" 'org-set-tags-command
-    "ot" 'org-todo
+    "ot" 'org-set-tags-command
+    "ow" 'org-todo
     "os" 'org-schedule
-    "oS" 'org-deadline
-    "ow" 'org-toggle-heading
-    "od" 'org-cut-subtree
+    "od" 'org-deadline
+    "og" 'org-toggle-heading
+    "ox" 'org-cut-subtree
     "oy" 'org-paste-subtree
 
     ;; navigation
