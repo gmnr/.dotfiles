@@ -30,7 +30,9 @@
   :ensure t
   :init
   (with-eval-after-load 'transient
-    (transient-bind-q-to-quit)))
+    (transient-bind-q-to-quit))
+  :hook
+  (with-editor-mode . evil-insert-state))
 
 
 ;; git-gutter
