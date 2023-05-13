@@ -34,7 +34,7 @@
     "ev" (lambda () (interactive) (counsel-find-file nil "~/.emacs.d/lisp/"))
     "el" (lambda () (interactive) (find-file "~/.finance/periods/2023.journal") (end-of-buffer) (previous-line))
     "ei" (lambda () (interactive) (find-file "~/.org/inbox.org"))
-    "oo" (lambda () (interactive) (counsel-find-file nil "~/.org"))
+    "oo" (lambda () (interactive) (counsel-find-file nil "~/.org/"))
 
 
     ;; load files and eval
