@@ -151,27 +151,71 @@
   ("\\.org\\'" . org-mode)
   :hook
   (org-capture-mode . evil-insert-state)  ;; start capture in insert mode
-  (org-mode . set-accent-mode)  ;; start capture in insert mode
+  (org-mode . gmnr/set-accent-mode)  ;; start capture in insert mode
   :config
-  ;; (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+  ;; files and dirs
   (setq org-directory (expand-file-name "~/.org"))
-  (setq org-agenda-files (list org-directory))
+  (setq org-agenda-files '("~/.org/inbox.org"
+                           "~/.org/tasks.org"
+                           "~/.org/projects.org"
+                           "~/.org/tickler.org"))
+  (setq org-archive-location "~/.org/.archive.org::* FROM %s")
+
+  ;; sugar
   (setq org-hide-leading-stars t)
   (setq org-hide-emphasis-markers t)
   (setq org-adapt-indentation t)
   (setq org-ellipsis " …")
-  (setq org-cycle-separator-lines 2)
+
+
+  ;; (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("laptop" . ?l)))
+
+  ;; agenda settings
+  (setq org-agenda-skip-deadline-if-done t)
+  (setq org-agenda-skip-scheduled-if-done t)
+
+
+  ;; todo keywords options
   (setq org-todo-keywords
-        (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
-                (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING"))))
+        (quote ((sequence "TODO(t)" "NEXT(n)" "WAITING(w@/!)" "LATER(l)" "|" "DONE(d)")
+                (sequence "HOLD(h@/!)" "|" "CANCELLED(c@/!)"))))
+  (setq org-todo-keyword-faces
+        (quote (("TODO" :foreground "tomato" :weight bold)
+                ("NEXT" :foreground "turquoise" :weight bold)
+                ("WAITING" :foreground "lime green" :weight bold)
+                ("LATER" :foreground "violet" :weight bold)
+                ("HOLD" :foreground "sienna1" :weight bold))))
   (setq org-use-fast-todo-selection t)
   (setq org-treat-S-cursor-todo-selection-as-state-change nil)
-  ;; (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("laptop" . ?l)))
+
+
+  ;; refiling options
+  (setq org-refile-targets '(("~/.org/tasks.org" :maxlevel . 3)
+                             ("~/.org/projects.org" :maxlevel . 3)
+                             ("~/.org/later.org" :maxlevel . 3)
+                             ("~/.org/tickler.org" :maxlevel . 3)))
+  (setq org-refile-use-outline-path 'file)
+  (setq org-outline-path-complete-in-steps nil)
+  (setq org-refile-allow-creating-parent-nodes 'confirm)
+
+  ;; exlcude done from refile targets
+  (defun gmnr/verify-refile-target ()
+    (not (member (nth 2 (org-heading-components)) org-done-keywords)))
+  (setq org-refile-target-verify-function 'gmnr/verify-refile-target)
+
+
+  ;; capture options
   (setq org-capture-templates
-        '(("c" "inbox" entry (file "~/.org/inbox.org") "* TODO %?")
+        '(("c" "inbox" entry (file "~/.org/inbox.org") "* TODO %?\n%U\n")
           ("n" "notes" entry (file "~/.org/inbox.org") "* %? :NOTE:\n%U\n%a\n")
-          ("m" "meetings" entry (file "~/.org/inbox.org") "* TODO %^{Title} %t\n- %?"))))
+          ("t" "tick" entry (file "~/.org/tickler.org") "* %i%? \n %U")
+          )))
 
 
 ;; use org-capture in fullscreen
 (add-hook 'org-capture-mode-hook 'delete-other-windows)
+
+;; autosave buffers after 30s
+(add-hook 'auto-save-hook 'org-save-all-org-buffers)
+
+
