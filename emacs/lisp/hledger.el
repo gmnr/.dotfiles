@@ -285,7 +285,7 @@
   (setq-local comment-start "; ")
   (setq-local comment-end "")
   (setq-local tab-width 2)
-  (set-accent-mode)
+  (gmnr/set-accent-mode)
   (setq hledger-accounts-cache (hledger-get-accounts))
   (setq hledger-payee-cache (hledger-get-payees)))
 
