@@ -218,6 +218,6 @@
 (add-hook 'org-capture-mode-hook 'delete-other-windows)
 
 ;; autosave buffers after 30s
-(add-hook 'auto-save-hook 'org-save-all-org-buffers)
+; (add-hook 'auto-save-hook 'org-save-all-org-buffers)
 
 
