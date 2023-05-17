@@ -9,6 +9,7 @@
   (evil-set-undo-system 'undo-redo)
   (setq evil-insert-state-message nil) ;; disable showing current state on echo area
   (setq evil-visual-state-message nil) ;; disable showing current state on echo area
+  (setq evil-move-beyond-eol nil)
   (setq evil-want-Y-yank-to-eol t)) ;; Y behaves like y$
 
 
@@ -160,6 +161,7 @@
   (setq org-agenda-files '("~/.org/inbox.org"
                            "~/.org/tasks.org"
                            "~/.org/projects.org"
+                           "~/.org/later.org"
                            "~/.org/tickler.org"))
   (setq org-archive-location "~/.org/.archive.org::* FROM %s")
 
@@ -168,6 +170,7 @@
   (setq org-hide-emphasis-markers t)
   (setq org-adapt-indentation t)
   (setq org-ellipsis " …")
+  (setq org-reverse-note-order t)
 
 
   ;; (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("laptop" . ?l)))
@@ -175,14 +178,30 @@
   ;; agenda settings
   (setq org-agenda-skip-deadline-if-done t)
   (setq org-agenda-skip-scheduled-if-done t)
+  (setq org-agenda-window-setup 'only-window)
+
+  (setq org-agenda-custom-commands
+        '(("d" "Day View"
+           ((agenda ""
+                    ((org-agenda-skip-function
+                      '(org-agenda-skip-entry-if 'deadline))
+                     (org-deadline-warning-days 0)))
+            (todo "NEXT"
+                  ((org-agenda-skip-function
+                    '(org-agenda-skip-entry-if 'deadline))
+                   (org-agenda-prefix-format "  %i %-12:c ")
+                   (org-agenda-overriding-header "\nNext Actions:\n")))
+            (tags-todo "inbox"
+                       ((org-agenda-prefix-format "  %?-12t% s")
+                        (org-agenda-overriding-header "\nInbox\n")))))))
 
 
   ;; todo keywords options
   (setq org-todo-keywords
-        (quote ((sequence "TODO(t)" "NEXT(n)" "WAITING(w@/!)" "LATER(l)" "|" "DONE(d)")
+        (quote ((sequence "TODO(t)" "NEXT(n)" "WAITING(w@/!)" "|" "DONE(d)")
                 (sequence "HOLD(h@/!)" "|" "CANCELLED(c@/!)"))))
   (setq org-todo-keyword-faces
-        (quote (("TODO" :foreground "tomato" :weight bold)
+        (quote (("TODO" :foreground "violet" :weight bold)
                 ("NEXT" :foreground "turquoise" :weight bold)
                 ("WAITING" :foreground "lime green" :weight bold)
                 ("LATER" :foreground "violet" :weight bold)
@@ -216,8 +235,5 @@
 
 ;; use org-capture in fullscreen
 (add-hook 'org-capture-mode-hook 'delete-other-windows)
-
-;; autosave buffers after 30s
-; (add-hook 'auto-save-hook 'org-save-all-org-buffers)
 
 
