@@ -35,6 +35,7 @@ Plug 'glepnir/lspsaga.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'ledger/vim-ledger'
 Plug 'preservim/vim-markdown'
+Plug 'nvim-neorg/neorg'
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = vim.fn['TSUpdate']})
 Plug('mattn/emmet-vim', {['for'] = {'html', 'css'}})
 
