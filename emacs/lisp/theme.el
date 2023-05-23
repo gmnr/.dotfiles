@@ -8,7 +8,7 @@
 
 
 ;; load custom font
-(set-frame-font "DroidSansMono Nerd Font 16" nil t)
+(set-frame-font "MesloLGS Nerd Font Mono 15" nil t)
 
 
 ;; open emacs maximized
