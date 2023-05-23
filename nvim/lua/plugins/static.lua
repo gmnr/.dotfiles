@@ -30,5 +30,5 @@ let g:quickrun_config = {
 
 -- markdown
 vim.g.vim_markdown_folding_disabled = 1
-vim.g.vim_markdown_conceal = 1
+vim.g.vim_markdown_conceal = 2
 vim.g.vim_markdown_frontmatter = 1
