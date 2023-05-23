@@ -13,6 +13,8 @@ vim.g.UltiSnipsSnippetDirectories={'snppts'}
 -- indent line
 vim.g.indent_blankline_buftype_exclude={'markdown', 'text'}
 
+vim.g.onedark_config={'style:cool'}
+
 -- vim-ledger
 vim.g.ledger_bin = 'hledger'
 vim.g.ledger_decimal_sep = ','

@@ -7,7 +7,7 @@ vim.call('plug#begin')
 Plug 'windwp/nvim-autopairs'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'joshdick/onedark.vim'
+Plug 'navarasu/onedark.nvim'
 Plug 'junegunn/vim-easy-align'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-commentary'

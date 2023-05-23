@@ -82,11 +82,11 @@ scrolling:
 # Font configuration (changes require restart)
 font:
     normal:
-        family: DroidSansMono Nerd Font
+        family: MesloLGS Nerd Font Mono
     bold:
-        family: DroidSansMono Nerd Font
+        family: MesloLGS Nerd Font Mono
     italic:
-        family: DroidSansMono Nerd Font
+        family: MesloLGS Nerd Font Mono
 
   # Point size
     size: 15.5
