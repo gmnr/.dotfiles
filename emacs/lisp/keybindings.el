@@ -128,9 +128,8 @@
   ;; org bindings
   (general-define-key
    :keymaps 'org-capture-mode-map
-   [remap evil-save-and-close]          'org-capture-finalize
-   [remap evil-save-modified-and-close] 'org-capture-finalize
-   [remap evil-quit]                    'org-capture-kill)
+   [remap gmnr/save-and-quit] 'org-capture-finalize
+   [remap evil-delete-buffer] 'org-capture-kill)
 
   (general-define-key
    :keymaps 'org-agenda-mode-map
