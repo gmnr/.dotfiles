@@ -13,7 +13,7 @@ api.nvim_create_autocmd('FileType', {
 })
 
 api.nvim_create_autocmd('FileType', {
-  desc = 'Verbose texts should have a default textwidth and spelling enabled',
+  desc = 'Disable spell in help files',
   pattern = {'help'},
   command = 'setlocal nospell'
 })
