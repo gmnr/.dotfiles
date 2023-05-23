@@ -141,5 +141,70 @@ complete -o nospace -F _task t
 complete -o nospace -F _task ta
 complete -o nospace -F _task c
 
+## HLEDGER CONFIG ##
 # add ledger_file
 export LEDGER_FILE=$HOME/.finance/all.journal
+
+# helper functions !! with colors !!
+function is() {
+  clear;
+  hledger is --pretty -tS --drop 1 -p thismonth "$@" | ~/.finance/.src/colorize.py report
+}
+
+function iss() {
+  clear;
+  hledger is --pretty -tS --drop 1 -3 "$@" | ~/.finance/.src/colorize.py report
+}
+
+
+function bs() {
+  clear;
+  hledger bs --pretty -Vt --drop 1 -3 "$@" | ~/.finance/.src/colorize.py report
+}
+
+function cf() {
+  clear;
+  hledger cf --pretty -tS --drop 1 "$@" | ~/.finance/.src/colorize.py report
+}
+
+function reg() {
+  clear;
+  hledger reg -p thismonth "$@" | ~/.finance/.src/colorize.py register
+}
+
+function regg() {
+  clear;
+  hledger reg "$@" | ~/.finance/.src/colorize.py register
+}
+
+
+function areg() {
+  clear;
+  hledger areg -p thismonth "$@" | ~/.finance/.src/colorize.py register
+}
+
+function aregg() {
+  clear;
+  hledger areg "$@" | ~/.finance/.src/colorize.py register
+}
+
+function bal() {
+  clear;
+  hledger bal --pretty "$@" | ~/.finance/.src/colorize.py report
+}
+
+function cash() {
+  clear;
+  hledger print assets:cash | hledger -f- bal income: expenses: --pretty --drop 1 -t --invert | ~/.finance/.src/colorize.py report
+}
+
+function dad() {
+  clear;
+  hledger -f ~/.finance/others/alfredo.journal bse --pretty -V --drop 1 | ~/.finance/.src/colorize.py report
+}
+
+function fede() {
+  clear;
+  hledger -f ~/.finance/others/fede.journal bse --pretty -V --drop 1 | ~/.finance/.src/colorize.py report
+}
+
