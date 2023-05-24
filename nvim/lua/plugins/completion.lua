@@ -208,7 +208,9 @@ function M.config()
 	})
 
   local npairs = require('nvim-autopairs')
-  npairs.setup({})
+  npairs.setup({
+    disable_filetype = { 'ledger', 'markdown', 'text' }
+  })
 
   local Rule = require('nvim-autopairs.rule')
 
