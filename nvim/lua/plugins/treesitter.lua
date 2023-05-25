@@ -4,7 +4,6 @@ function M.config()
   require('nvim-treesitter.configs').setup {
     highlight = {
       enable = true,
-      disable = { 'ledger' },
     },
     indent = {
       enabled = false,
