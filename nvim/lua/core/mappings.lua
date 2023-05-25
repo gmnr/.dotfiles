@@ -85,7 +85,8 @@ vim.keymap.set('n', 'zo', 'za')
 
 -- hledger formatting
 vim.keymap.set('n', '<leader>bb', ':lua BetterLedgerAlign()<CR>')
-vim.keymap.set('n', '<leader>ba', ':LedgerAlignBuffer<CR>')
+vim.keymap.set('n', '<leader>bt', ':LedgerAlignBuffer<CR>')
+vim.keymap.set('n', '<leader>ba', ':lua Telescope_hledger_account()<CR>', { silent = true })
 
 -- gitsigns
 vim.keymap.set('n', '<leader>hp', ':Gitsigns preview_hunk<CR>')
