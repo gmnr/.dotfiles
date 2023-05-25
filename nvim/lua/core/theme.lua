@@ -1,5 +1,5 @@
 -- one dark and color compatibility
-vim.cmd('colorscheme onedark')
+vim.cmd('colorscheme tokyonight-storm')
 vim.cmd('let $NVIM_TUI_ENABLE_TRUE_COLOR=1')
 
 -- add colors to types in autocompletion
