@@ -14,8 +14,7 @@ function M.config()
   cmp.register_source('payee_handle', {
     complete = function(self, params, callback)
       local items = {}
-      os.execute('hledger payee > /tmp/payees')
-      for payee in io.lines('/tmp/payees') do
+      for payee in io.lines('/Users/guido/.finance/.src/payees') do
         table.insert(items, {
           label = payee,
           insertText = payee .. " | ",
