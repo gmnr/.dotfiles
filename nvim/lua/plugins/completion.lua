@@ -4,7 +4,7 @@ function M.config()
   local cmp = require('cmp')
 
   -- disable auto completion for text heavy types
-  cmp.setup.filetype({'markdown', 'gitcommit', 'text'}, {
+  cmp.setup.filetype({'markdown', 'gitcommit', 'text', 'norg'}, {
       completion = {
         autocomplete = false
       }
@@ -228,7 +228,7 @@ function M.config()
 
   local npairs = require('nvim-autopairs')
   npairs.setup({
-    disable_filetype = { 'ledger', 'markdown', 'text' }
+    disable_filetype = { 'ledger', 'markdown', 'text', 'norg' }
   })
 
   local Rule = require('nvim-autopairs.rule')
