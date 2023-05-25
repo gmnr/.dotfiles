@@ -11,7 +11,7 @@ function M.config()
     })
 
   -- create custom source for nvim-cmp
-  cmp.register_source('payee_handle', {
+  cmp.register_source('hledger_payee_handle', {
     complete = function(self, params, callback)
       local items = {}
       for payee in io.lines('/Users/guido/.finance/.src/payees') do
@@ -25,14 +25,34 @@ function M.config()
     end,
   })
 
+  -- create custom source for nvim-cmp
+  cmp.register_source('hledger_account_handle', {
+    complete = function(self, params, callback)
+      local items = {}
+      for account in io.lines('/Users/guido/.finance/.src/accounts') do
+        table.insert(items, {
+          label = account,
+          insertText = account .. "   ",
+          filterText = account,
+        })
+      end
+      callback({ items = items })
+    end,
+  })
+
   -- add source only for ledger file
   cmp.setup.filetype('ledger', {
     sources = cmp.config.sources({
-      { name = 'ultisnips' },
-      { name = 'payee_handle' }, -- my custom source
+      -- { name = 'ultisnips' },
+      { name = 'hledger_account_handle' },
+      { name = 'hledger_payee_handle' }
     }),
     completion = {
       autocomplete = false
+    },
+    matching = {
+      disallow_fuzzy_matching = false,
+      disallow_partial_fuzzy_matching = false
     }
   })
 
