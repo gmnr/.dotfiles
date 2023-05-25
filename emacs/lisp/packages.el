@@ -191,6 +191,11 @@
                     '(org-agenda-skip-entry-if 'deadline))
                    (org-agenda-prefix-format "  %i %-12:c ")
                    (org-agenda-overriding-header "\nNext Actions:\n")))
+            (todo "WAITING"
+                  ((org-agenda-skip-function
+                    '(org-agenda-skip-entry-if 'deadline))
+                   (org-agenda-prefix-format "  %i %-12:c ")
+                   (org-agenda-overriding-header "\nDelegated:\n")))
             (tags-todo "inbox"
                        ((org-agenda-prefix-format "  %?-12t% s")
                         (org-agenda-overriding-header "\nInbox\n")))))))
