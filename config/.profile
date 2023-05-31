@@ -113,12 +113,13 @@ fi
 # make vim default editor
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+export PAGER=bat
 
 # export the location of the dotfiles
 export DOTFILES=~/.dotfiles
 
 # add theme for bat
-export BAT_THEME="TwoDark"
+export BAT_THEME="base16-256"
 
 # add bash-completion
 if [ -f /usr/local/share/bash-completion/bash_completion ]; then
