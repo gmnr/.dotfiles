@@ -201,11 +201,11 @@ function cash() {
 
 function dad() {
   clear;
-  hledger -f ~/.finance/others/alfredo.journal bse --pretty -V --drop 1 | ~/.finance/.src/colorize.py report
+  hledger -f ~/.finance/others/alfredo.journal bs --pretty -V --drop 1 "$@" | ~/.finance/.src/colorize.py report
 }
 
 function fede() {
   clear;
-  hledger -f ~/.finance/others/fede.journal bse --pretty -V --drop 1 | ~/.finance/.src/colorize.py report
+  hledger -f ~/.finance/others/fede.journal bs --pretty -V --drop 1 "$@" | ~/.finance/.src/colorize.py report
 }
 
