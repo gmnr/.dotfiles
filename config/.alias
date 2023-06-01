@@ -45,9 +45,9 @@ alias n='nvim +exe ~/.notes/scratchpad/$(date "+%Y-%m-%d").md'
 
 # ledger aliases
 alias ldg='hledger --pretty'
-alias roi='clear; hledger roi --pretty --pnl "unrealized" --value=now --inv'
-alias dadv='clear; hledger -f ~/.finance/others/alfredo.journal roi --pretty --pnl "unrealized" --value=now --inv VNGA'
-alias fedev='clear; hledger -f ~/.finance/others/fede.journal roi --pretty --pnl "unrealized" --value=now --inv VWCE'
+alias roi='clear; hledger roi --pretty --pnl "unrealized" -V --inv'
+alias dadv='clear; hledger -f ~/.finance/others/alfredo.journal roi --pretty --pnl "unrealized" -V --inv VNGA'
+alias fedev='clear; hledger -f ~/.finance/others/fede.journal roi --pretty --pnl "unrealized" -V --inv VWCE'
 alias p='clear; python ~/.finance/.src/fetch.py solo'
 alias pa='clear; python ~/.finance/.src/fetch.py full'
 alias current='cat ~/.finance/prices/current_prices.journal'
