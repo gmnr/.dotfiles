@@ -36,9 +36,16 @@
   changed = yellow
   untracked = red
 
+[pager]
+  diff = diff-so-fancy | less --tabs=4 -RFX
+  show = diff-so-fancy | less --tabs=4 -RFX
+
 [core]
   excludesfile = /Users/guido/.gitexcludes
   editor = nvim
 
 [credential]
   helper = osxkeychain
+
+[diff-so-fancy]
+	markEmptyLines = false
