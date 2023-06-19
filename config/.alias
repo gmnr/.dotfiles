@@ -53,6 +53,7 @@ alias pa='clear; python ~/.finance/.src/fetch.py full'
 alias current='cat ~/.finance/prices/current_prices.journal'
 alias jrn='hledger print'
 alias e='nvim "+normal G" ~/.finance/periods/2023.journal'
+alias out='bal cash bank -p thismonth -D --transpose -T amt:"<0" --drop 1'   # cash outflow
 
 # source taskwarrior aliases
 source  ~/.dotfiles/tasks/helpers.sh
