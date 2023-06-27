@@ -23,7 +23,7 @@ report.next.description        = What to work on next
 report.next.columns            = id,depends.indicator,priority,project,tags,recur.indicator,scheduled.remaining,due,until.remaining,description.count
 report.next.filter             = status:pending (+next or sched.before:tom) -wait
 report.next.labels             = ID,D,P,Project,Tags,R,Sched,Due,Until,Description
-report.next.sort               = id+
+report.next.sort               = start+
 
 # Wait
 report.wait.description        = Waiting for further input
