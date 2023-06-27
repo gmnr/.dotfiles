@@ -29,7 +29,7 @@ function task_refile() {
 
 # read notes linked to fi
 function read_task() {
-  dir=~/.notes/task-notes
+  dir=~/.notes/task
   if [ $# -eq 0 ]; then
     NOTES=""
     for file in $dir/*.md; do
@@ -56,10 +56,10 @@ alias tq='read_task'
 alias tt='clear; echo " -- NEXT TASKS --"; task next'
 alias tw='clear; echo " -- SCHEDULED TASKS --"; task ticker'
 alias tl='clear; echo " -- LATER TASKS --"; task later'
-alias ti='clear; echo " -- DELEGATED TASKS --"; task wait'
+alias to='clear; echo " -- DELEGATED TASKS --"; task wait'
 alias tp='clear; echo " -- PROJECT-LESS TASKS --"; task prj'
 alias tpp='clear; echo " -- LIST PROJECTS --"; task projects +PROJECT'
-alias tb='clear; echo " -- INBOX --"; task inbox'
+alias ti='clear; echo " -- INBOX --"; task inbox'
 
 # collection
 alias c='task add +inbox'
