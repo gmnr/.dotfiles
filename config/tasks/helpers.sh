@@ -53,13 +53,13 @@ alias tn='~/.dotfiles/config/tasks/task-note.py'
 alias tq='read_task'
 
 # reports
-alias tt='clear; task next'
-alias ti='clear; task ticker'
-alias tl='clear; task later'
-alias tw='clear; task wait'
-alias tp='clear; task prj'
-alias tpp='clear; task projects +PROJECT'
-alias tb='clear; task inbox'
+alias tt='clear; echo " -- NEXT TASKS --"; task next'
+alias tw='clear; echo " -- SCHEDULED TASKS --"; task ticker'
+alias tl='clear; echo " -- LATER TASKS --"; task later'
+alias ti='clear; echo " -- DELEGATED TASKS --"; task wait'
+alias tp='clear; echo " -- PROJECT-LESS TASKS --"; task prj'
+alias tpp='clear; echo " -- LIST PROJECTS --"; task projects +PROJECT'
+alias tb='clear; echo " -- INBOX --"; task inbox'
 
 # collection
 alias c='task add +inbox'
