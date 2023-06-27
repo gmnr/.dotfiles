@@ -10,7 +10,7 @@ import argparse
 import os
 import sys
 
-NOTES_DIR = "~/.notes/task-notes"
+NOTES_DIR = "~/.notes/task"
 EDITOR = os.environ["EDITOR"]
 
 def write_note(task_id: int):
@@ -29,9 +29,9 @@ def write_note(task_id: int):
         task_description = os.popen(f"task _get {task_id}.description").read()
 
         with open(notes_file, "w") as f:
-            f.write(f"# {task_description}\n")
+            f.write(f"# {task_description}")
 
-    os.execlp(EDITOR, EDITOR, notes_file)
+    os.execlp(EDITOR, EDITOR, notes_file, "+normal G")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Write Taskwarrior notes")
