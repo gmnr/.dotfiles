@@ -49,7 +49,7 @@ function read_task() {
 
 # generic aliases
 alias t='task'
-alias tn='~/.dotfiles/tasks/task-note.py'
+alias tn='~/.dotfiles/config/tasks/task-note.py'
 alias tq='read_task'
 
 # reports

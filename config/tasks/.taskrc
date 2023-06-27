@@ -2,13 +2,13 @@
 # Use the command 'task show' to see all defaults and overrides
 
 # Files
-data.location=~/.task
+data.location                  = ~/.task
 
 # sanity
-weekstart=monday
-search.case.sensitive=no
-dateformat=d/m/y
-default.command=list
+weekstart                      = monday
+search.case.sensitive          = no
+dateformat                     = d/m/y
+default.command                = list
 
 # Reports
 # inbox report
@@ -26,11 +26,11 @@ report.next.labels             = ID,D,P,Project,Tags,R,Sched,Due,Until,Descripti
 report.next.sort               = id+
 
 # Wait
-report.wait.description      = Waiting for further input
-report.wait.columns          = id,depends.indicator,priority,project,start.age,modified.age,tags,recur.indicator,scheduled.remaining,due,until.remaining,description.count
-report.wait.filter           = status:pending +wait
-report.wait.labels           = ID,D,P,Project,Age,Change,Tags,R,Sched,Due,Until,Description
-report.wait.sort             = start+
+report.wait.description        = Waiting for further input
+report.wait.columns            = id,depends.indicator,priority,project,start.age,modified.age,tags,recur.indicator,scheduled.remaining,due,until.remaining,description.count
+report.wait.filter             = status:pending +wait
+report.wait.labels             = ID,D,P,Project,Age,Change,Tags,R,Sched,Due,Until,Description
+report.wait.sort               = start+
 
 # Ticker
 report.ticker.description      = Things that are scheduled for later
@@ -50,6 +50,6 @@ report.prj.description         = Inactive tasks linked to projects
 report.prj.columns             = id,depends.indicator,priority,project,tags,recur.indicator,scheduled.remaining,due,until.remaining,description.count
 report.prj.filter              = status:pending -next pro.not:"" -SCHEDULED -wait
 report.prj.labels              = ID,Depends,Priority,Project,Tag,Recur,Scheduled,Due,Until,Description
-report.prj.sort               = project+,id+
+report.prj.sort                = project+,id+
 
 news.version=2.6.0

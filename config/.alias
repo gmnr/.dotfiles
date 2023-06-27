@@ -35,6 +35,7 @@ alias tmux='TERM=xterm-256color tmux'
 alias u='brew update && brew upgrade && nvim +PlugUpdate'
 alias cat='bat'
 alias grep='rg -S'
+alias rg='rg -S'
 alias v='nvim'
 alias vp='nvim "+lua Project_files()"'
 alias vim='nvim'
@@ -56,4 +57,4 @@ alias e='nvim "+normal G" ~/.finance/periods/2023.journal'
 alias out='bal cash bank -p thismonth -D --transpose -T amt:"<0" --drop 1'   # cash outflow
 
 # source taskwarrior aliases
-source  ~/.dotfiles/tasks/helpers.sh
+source  ~/.dotfiles/config/tasks/helpers.sh
