@@ -46,15 +46,15 @@ alias n='nvim +exe ~/.notes/scratchpad/$(date "+%Y-%m-%d").md'
 
 # ledger aliases
 alias ldg='hledger --pretty'
+alias jrn='hledger print'
+alias e='nvim "+normal G" ~/.finance/periods/2023.journal'
+alias out='bal cash bank -p thismonth -D --transpose -T amt:"<0" --drop 1'   # cash outflow
 alias roi='clear; hledger roi --pretty --pnl "unrealized" -V --inv'
 alias dadv='clear; hledger -f ~/.finance/others/alfredo.journal roi --pretty --pnl "unrealized" -V --inv VNGA'
 alias fedev='clear; hledger -f ~/.finance/others/fede.journal roi --pretty --pnl "unrealized" -V --inv VWCE'
 alias p='clear; python ~/.finance/.src/fetch.py solo'
 alias pa='clear; python ~/.finance/.src/fetch.py full'
-alias current='cat ~/.finance/prices/current_prices.journal'
-alias jrn='hledger print'
-alias e='nvim "+normal G" ~/.finance/periods/2023.journal'
-alias out='bal cash bank -p thismonth -D --transpose -T amt:"<0" --drop 1'   # cash outflow
+alias prices='cat ~/.finance/prices/current_prices.journal'
 
 # source taskwarrior aliases
 source  ~/.dotfiles/config/tasks/helpers.sh
