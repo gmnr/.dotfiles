@@ -23,14 +23,14 @@ report.next.description        = What to work on next
 report.next.columns            = id,depends.indicator,priority,project,tags,recur.indicator,scheduled.remaining,due,until.remaining,description.count
 report.next.filter             = status:pending (+next or sched.before:tom) -wait
 report.next.labels             = ID,D,P,Project,Tags,R,Sched,Due,Until,Description
-report.next.sort               = start+
+report.next.sort               = id-
 
 # Wait
 report.wait.description        = Waiting for further input
 report.wait.columns            = id,depends.indicator,priority,project,start.age,modified.age,tags,recur.indicator,scheduled.remaining,due,until.remaining,description.count
 report.wait.filter             = status:pending +wait
 report.wait.labels             = ID,D,P,Project,Age,Change,Tags,R,Sched,Due,Until,Description
-report.wait.sort               = start+
+report.wait.sort               = id-
 
 # Ticker
 report.ticker.description      = Things that are scheduled for later
