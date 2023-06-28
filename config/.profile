@@ -149,12 +149,12 @@ export LEDGER_FILE=$HOME/.finance/all.journal
 # helper functions !! with colors !!
 function is() {
   clear;
-  hledger is --pretty -tS --drop 1 -p thismonth "$@" | ~/.finance/.src/colorize.py report
+  hledger is --pretty -lS --drop 1 -p thismonth "$@" | ~/.finance/.src/colorize.py report
 }
 
 function iss() {
   clear;
-  hledger is --pretty -tS --drop 1 -3 "$@" | ~/.finance/.src/colorize.py report
+  hledger is --pretty -lS --drop 1 -3 "$@" | ~/.finance/.src/colorize.py report
 }
 
 
