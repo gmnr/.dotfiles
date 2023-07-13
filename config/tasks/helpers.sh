@@ -47,6 +47,21 @@ function read_task() {
   fi
 }
 
+function next_inbox() {
+  inbox_id=$(python - <<EOF
+import tasklib
+tw = tasklib.TaskWarrior()
+try: print(tw.execute_command(['+inbox', '-PROJECT'])[3].split()[0])
+except: print('')
+EOF
+)
+if [ "$inbox_id" == "" ]; then
+  echo "No more items in Inbox"
+else
+  task $inbox_id
+fi
+}
+
 # generic aliases
 alias t='task'
 alias tn='~/.dotfiles/config/tasks/task-note.py'
@@ -59,7 +74,8 @@ alias tl='clear; echo " -- LATER TASKS --"; task later'
 alias to='clear; echo " -- DELEGATED TASKS --"; task wait'
 alias tp='clear; echo " -- PROJECT-LESS TASKS --"; task prj'
 alias tpp='clear; echo " -- LIST PROJECTS --"; task projects +PROJECT'
-alias ti='clear; echo " -- INBOX --"; task inbox'
+alias ti='clear; next_inbox'
+alias tii='clear; echo " -- INBOX --"; task inbox'
 
 # collection
 alias c='task add +inbox'
