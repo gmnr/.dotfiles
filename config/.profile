@@ -181,17 +181,17 @@ function regg() {
 
 function areg() {
   clear;
-  hledger areg -p thismonth "$@" | ~/.finance/.src/colorize.py register
+  hledger areg -p thismonth "$@" | ~/.finance/.src/colorize.py areg
 }
 
 function aregg() {
   clear;
-  hledger areg "$@" | ~/.finance/.src/colorize.py register
+  hledger areg "$@" | ~/.finance/.src/colorize.py areg
 }
 
 function bal() {
   clear;
-  hledger bal --pretty "$@" | ~/.finance/.src/colorize.py report
+  hledger bal --pretty "$@" | ~/.finance/.src/colorize.py register
 }
 
 function cash() {
