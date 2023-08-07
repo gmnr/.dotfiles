@@ -6,8 +6,8 @@
   ll = log --pretty=format:"\"%C(yellow)%h %Cgreen%ad %Cblue[%cn] %C(auto)%d %Creset%s\"" --decorate --date=short
   all = log --pretty=format:"\"%C(yellow)%h %Cgreen%cd %Cblue[%cn] %C(auto)%d %Creset%s\"" --graph --date=relative --decorate --all
   l = log --oneline
-  d = diff
-  s = status
+  dd = diff
+  ss = status
   au = add -u
   pu = push origin master
   cm = commit -m
