@@ -11,7 +11,7 @@ function M.config()
   })
 
   -- create custom source for nvim-cmp
-  cmp.register_source('hledger_payee_handle', {
+  cmp.register_source('hledger_completion', {
     complete = function(self, params, callback)
       local items = {}
       for payee in io.lines('/Users/guido/.finance/.src/payees') do
@@ -19,21 +19,15 @@ function M.config()
           label = payee,
           insertText = payee .. " | ",
           filterText = payee,
+          kind = cmp.lsp.CompletionItemKind.Class
         })
       end
-      callback({ items = items })
-    end,
-  })
-
-  -- create custom source for nvim-cmp
-  cmp.register_source('hledger_account_handle', {
-    complete = function(self, params, callback)
-      local items = {}
       for account in io.lines('/Users/guido/.finance/.src/accounts') do
         table.insert(items, {
           label = account,
           insertText = account .. "   ",
           filterText = account,
+          kind = cmp.lsp.CompletionItemKind.Method
         })
       end
       callback({ items = items })
@@ -43,7 +37,14 @@ function M.config()
   -- add source only for ledger file
   cmp.setup.filetype('ledger', {
     sources = cmp.config.sources({
-      { name = 'hledger_completion' },
+      { name = 'hledger_completion',
+      entry_filter = function(entry, ctx)
+        if vim.api.nvim_get_current_line():sub(1,2) == '  ' then
+          return require('cmp').lsp.CompletionItemKind.Class ~= entry:get_kind()
+        else
+          return require('cmp').lsp.CompletionItemKind.Method ~= entry:get_kind()
+        end 
+      end },
     }),
     completion = {
       autocomplete = false
