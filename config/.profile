@@ -8,22 +8,6 @@ function parse_git_branch {
       git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/<\1$(parse_git_dirty)> /"
   }
 
-# show virtualenv in prompt if present
-function virtualenv_info(){
-    # Get Virtual Env
-    if [[ -n "$VIRTUAL_ENV"  ]]; then
-        # Strip out the path and just leave the env name
-        venv="${VIRTUAL_ENV##*/}"
-    else
-        # In case you don't have one activated
-        venv=""
-    fi
-    [[ -n "$venv"  ]] && echo "<$venv> "
-  }
-
-# disable the default virtualenv prompt change
-export VIRTUAL_ENV_DISABLE_PROMPT=1
-
 # show hostname if is different from mbp
 function show_hostname() {
   if [[ `hostname -s` == "mbp" ]]; then
@@ -57,8 +41,8 @@ function inbox_count() {
 # (old), dislays >> (virtual env) user@hostname:workingdir <git branch>
 # EMBEDDED_PS1='$(virtualenv_info)\[\033[1;91m\]\u\[\033[00m\]@\[\033[1;94m\]\h\[\033[00m\]:\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)\[\033[00m\]'
 
-# (new prompt), dislays >> (virtual env) workingdir <git branch>
-EMBEDDED_PS1='\[\033[1;95m\]$(inbox_count)$(virtualenv_info)\[\033[1;91m\]$(show_user)\[\033[1;94m\]$(show_hostname)\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)'
+# (new prompt), dislays >> inbox GTD user (if different) hostname (if different) workingdir <git branch>
+EMBEDDED_PS1='\[\033[1;95m\]$(inbox_count)\[\033[1;91m\]$(show_user)\[\033[1;94m\]$(show_hostname)\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)'
 
 # guide to colors
 # 91 red
@@ -75,8 +59,8 @@ reset_readline_prompt_mode_strings () {
     # bind "set vi-cmd-mode-string \"${EMBEDDED_PS1@P}\1\e[00m\2:\""
 
     # new config
-    bind "set vi-ins-mode-string \"${EMBEDDED_PS1@P}\1\e[91m\2>\1\e[0m\2\""
-    bind "set vi-cmd-mode-string \"${EMBEDDED_PS1@P}\1\e[93m\2:\1\e[0m\2\""
+    bind "set vi-ins-mode-string \"${EMBEDDED_PS1@P}\1\e[92m\2I \1\e[91m\2>\1\e[0m\2\""
+    bind "set vi-cmd-mode-string \"${EMBEDDED_PS1@P}\1\e[94m\2N \1\e[91m\2>\1\e[0m\2\""
 }
 
 PROMPT_COMMAND=reset_readline_prompt_mode_strings
