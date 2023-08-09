@@ -45,8 +45,8 @@ alias g='run_git'
 alias n='nvim +exe ~/.notes/scratchpad/$(date "+%Y-%m-%d").md'
 
 # ledger aliases
-alias ldg='hledger --pretty'
-alias jrn='hledger print'
+alias hl='hledger --pretty'
+alias hlj='hledger print'
 alias e='nvim "+normal G" ~/.finance/periods/2023.journal'
 alias out='bal cash bank -p thismonth -D --transpose -T amt:"<0" --drop 1'   # cash outflow
 alias roi='clear; hledger roi --pretty --pnl "unrealized" -V --inv'
