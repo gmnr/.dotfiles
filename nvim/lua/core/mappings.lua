@@ -19,7 +19,7 @@ vim.keymap.set('n', '<C-e>', '<C-u>')
 -- open and load .vimrc"
 vim.keymap.set('n', '<leader>ev', ':lua require("telescope.builtin").find_files({cwd="~/.dotfiles/nvim/lua/", search_dirs={"plugins", "core"}})<CR>', { silent = true })
 vim.keymap.set('n', '<leader>eu', ':PlugUpdate<CR>')
-vim.keymap.set('n', '<leader>ew', ':lua Annotate()<CR>:exe "e +$ ~/.notes/notepad/".strftime("%F").".md"<CR>', { silent = true })
+vim.keymap.set('n', '<leader>ew', ':lua Annotate()<CR>:exe "e +$ ~/.notes/notepad/".strftime("%Y%m%d").".md"<CR>', { silent = true })
 
 
 -- open notes

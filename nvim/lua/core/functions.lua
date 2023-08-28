@@ -32,7 +32,7 @@ end
 -- write a note in the editor
 function _G.Annotate()
 
-  local date = os.date("%Y-%m-%d")
+  local date = os.date("%Y%m%d")
   local time = os.date("%H:%M")
 
   local filename = date .. ".md"
@@ -41,11 +41,11 @@ function _G.Annotate()
   local f = io.open(fullpath, "r")
   if f ~= nil and io.close(f) then
     local file = io.open(fullpath, 'a')
-    file:write('\n\n> UPDATED ' .. date .. ' @ ' .. time)
+    file:write('\n> UPDATED @ ' .. time)
     file:close()
   else
     local file = io.open(fullpath, 'w')
-    file:write('# ' .. date)
+    file:write('# ' .. os.date("%Y-%m-%d"))
     file:close()
   end
 end

@@ -42,7 +42,7 @@ alias vim='nvim'
 alias vi='nvim'
 alias copy='pbcopy'
 alias g='run_git'
-alias n='nvim --headless +"lua Annotate()" +"q!" && nvim +$ ~/.notes/notepad/$(date +%Y-%m-%d).md'
+alias n='nvim --headless +"lua Annotate()" +"q!" && nvim +$ ~/.notes/notepad/$(date +%Y%m%d).md'
 
 # ledger aliases
 alias hl='hledger --pretty'
