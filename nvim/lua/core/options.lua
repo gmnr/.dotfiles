@@ -32,6 +32,8 @@ opt.completeopt                = 'menu,menuone,noselect'
 
 -- spelling
 opt.spelllang                  = 'en_us,it'  -- set language of spell
+opt.spellcapcheck              = ''          -- don't check cap error at beginning of line
+
 
 -- grep settings (use ripgrep)
 opt.grepprg                    = 'rg --vimgrep --no-heading --smart-case'
