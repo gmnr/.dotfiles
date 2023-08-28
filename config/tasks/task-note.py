@@ -9,6 +9,7 @@ Manage Taskwarrior notes
 import argparse
 import os
 import sys
+from datetime import datetime
 
 NOTES_DIR = "~/.notes/task"
 EDITOR = os.environ["EDITOR"]
@@ -30,6 +31,10 @@ def write_note(task_id: int):
 
         with open(notes_file, "w") as f:
             f.write(f"# {task_description}")
+
+    else:
+        with open(notes_file, "a") as f:
+            f.write(f"\n> UPDATE {datetime.now().strftime('%d/%m/%Y @ %H:%M')}")
 
     os.execlp(EDITOR, EDITOR, notes_file, "+normal G")
 
