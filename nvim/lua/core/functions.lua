@@ -27,3 +27,25 @@ function _G.BetterLedgerAlign()
     return ''
   end
 end
+
+
+-- write a note in the editor
+function _G.Annotate()
+
+  local date = os.date("%Y-%m-%d")
+  local time = os.date("%H:%M")
+
+  local filename = date .. ".md"
+  local fullpath = '/Users/guido/.notes/notepad/' .. filename
+
+  local f = io.open(fullpath, "r")
+  if f ~= nil and io.close(f) then
+    local file = io.open(fullpath, 'a')
+    file:write('\n\n> UPDATED ' .. date .. ' @ ' .. time)
+    file:close()
+  else
+    local file = io.open(fullpath, 'w')
+    file:write('# ' .. date)
+    file:close()
+  end
+end
