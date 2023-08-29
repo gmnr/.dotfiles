@@ -28,7 +28,6 @@ function _G.BetterLedgerAlign()
   end
 end
 
-
 -- write a note in the editor
 function _G.Annotate()
 
@@ -49,3 +48,4 @@ function _G.Annotate()
     file:close()
   end
 end
+
