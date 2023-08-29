@@ -31,3 +31,8 @@ let g:quickrun_config = {
 vim.g.vim_markdown_folding_disabled = 1
 vim.g.vim_markdown_conceal = 2
 vim.g.vim_markdown_frontmatter = 1
+
+-- silence external grep engine
+vim.cmd("cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'")
+vim.cmd("cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'")
+

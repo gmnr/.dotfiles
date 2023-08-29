@@ -22,17 +22,21 @@ vim.keymap.set('n', '<leader>ev', ':lua require("telescope.builtin").find_files(
 vim.keymap.set('n', '<leader>eu', ':PlugUpdate<CR>')
 vim.keymap.set('n', '<leader>ew', ':lua Annotate()<CR>:exe "e +$ ~/.notes/notepad/".strftime("%Y%m%d").".md"<CR>', { silent = true })
 
-
 -- open notes
 vim.keymap.set('n', '<leader>pl', ':lua require("telescope.builtin").find_files({cwd="~/.notes"})<CR>', { silent = true })
 
 -- quick save and exit
 vim.keymap.set('n', '<leader>ww', ':w<CR>')
-vim.keymap.set('n', '<leader>ww', ':w<CR>')
 vim.keymap.set('n', '<leader>wq', ':Wd<CR>')
 vim.keymap.set('n', '<leader>qq', ':bd!<CR>')
 vim.keymap.set('n', '<leader>QQ', ':q!<CR>')
 vim.keymap.set('n', '<leader>QA', ':qa!<CR>')
+
+-- open and close quickfix and location list
+vim.keymap.set('n', '<leader>qo', ':cope<CR>')
+vim.keymap.set('n', '<leader>qc', ':ccl<CR>')
+vim.keymap.set('n', '<leader>lo', ':lopen<CR>')
+vim.keymap.set('n', '<leader>lc', ':lclose<CR>')
 
 --  quick search
 vim.keymap.set('n', '<leader>ff', ':%s/')
@@ -48,7 +52,6 @@ vim.keymap.set('n', '<leader>gs', ':Git<CR>')
 vim.keymap.set('n', '<leader>gp', ':Git push<CR>')
 vim.keymap.set('n', '<leader>gh', ':diffget //2<CR>')
 vim.keymap.set('n', '<leader>gl', ':diffget //3<CR>')
-vim.keymap.set('n', '<leader>gc', ':GBranches<CR>')
 
 -- telescope mappings
 vim.keymap.set('n', '<leader>pp', ':lua Project_files()<CR>', { silent = true })  -- link custom function to use find_git when .git exists and find_files when it doesn't
@@ -57,6 +60,7 @@ vim.keymap.set('n', '<leader>po', ':Telescope buffers<CR>', { silent = true })
 vim.keymap.set('n', '<leader>ps', ':Telescope git_status<CR>', { silent = true })
 vim.keymap.set('n', '<leader>pc', ':Telescope git_branches<CR>', { silent = true })
 vim.keymap.set('n', '<leader>pa', ':Telescope find_files<CR>', { silent = true })
+vim.keymap.set('n', '<leader>pg', ':silent grep ')
 
 -- change the current directory to edited file
 vim.keymap.set('n', '<leader>cd', ':cd %:h<CR>')
@@ -87,7 +91,6 @@ vim.keymap.set('n', 'zo', 'za')
 -- hledger formatting
 vim.keymap.set('n', '<leader>bb', ':lua BetterLedgerAlign()<CR>')
 vim.keymap.set('n', '<leader>bt', ':LedgerAlignBuffer<CR>')
-vim.keymap.set('n', '<leader>ba', ':lua Telescope_hledger_account()<CR>', { silent = true })
 
 -- gitsigns
 vim.keymap.set('n', '<leader>hp', ':Gitsigns preview_hunk<CR>')
