@@ -1,6 +1,6 @@
 -- Mappings config
 -- leader key
-vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })  -- improve performance of leader key
+vim.keymap.set('n', '<Space>', '<Nop>', { silent = true, remap = false })  -- improve performance of leader key
 vim.g.mapleader = ' '
 
 -- fix Y behaviour
@@ -17,7 +17,7 @@ vim.keymap.set('n', 'k', 'gk')
 -- override ctrl-e to scroll up
 vim.keymap.set('n', '<C-e>', '<C-u>')
 
--- open and load .vimrc"
+-- open and load .vimrc
 vim.keymap.set('n', '<leader>ev', ':lua require("telescope.builtin").find_files({cwd="~/.dotfiles/nvim/lua/", search_dirs={"plugins", "core"}})<CR>', { silent = true })
 vim.keymap.set('n', '<leader>eu', ':PlugUpdate<CR>')
 vim.keymap.set('n', '<leader>ew', ':lua Annotate()<CR>:exe "e +$ ~/.notes/notepad/".strftime("%Y%m%d").".md"<CR>', { silent = true })
@@ -102,8 +102,8 @@ vim.keymap.set('n', '<leader>hd', ':Gitsigns diffthis<CR>')
 vim.keymap.set('n', '<leader>hu', ':Gitsigns undo_stage_hunk<CR>')
 vim.keymap.set({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>', { silent = true })
 vim.keymap.set({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>', { silent = true })
-vim.keymap.set('n', ']c', "&diff ? ']c' : ':Gitsigns next_hunk<CR>'", {expr=true})
-vim.keymap.set('n', '[c', "&diff ? '[c' : ':Gitsigns prev_hunk<CR>'", {expr=true})
+vim.keymap.set('n', ']c', '&diff ? "]c" : ":Gitsigns next_hunk<CR>"', { expr = true })
+vim.keymap.set('n', '[c', '&diff ? "[c" : ":Gitsigns prev_hunk<CR>"', { expr = true })
 
 -- lsp config
 vim.keymap.set('n', 'K', ':Lspsaga hover_doc<CR>', { silent = true })

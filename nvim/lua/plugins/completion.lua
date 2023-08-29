@@ -18,7 +18,7 @@ function M.config()
       for payee in io.lines('/Users/guido/.finance/.src/hledger-cmp/payees') do
         table.insert(items, {
           label = payee,
-          insertText = payee .. " | ",
+          insertText = payee .. ' | ',
           filterText = payee,
           kind = cmp.lsp.CompletionItemKind.Class
         })
@@ -26,7 +26,7 @@ function M.config()
       for account in io.lines('/Users/guido/.finance/.src/hledger-cmp/accounts') do
         table.insert(items, {
           label = account,
-          insertText = account .. "   ",
+          insertText = account .. '   ',
           filterText = account,
           kind = cmp.lsp.CompletionItemKind.Method
         })
