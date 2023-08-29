@@ -1,3 +1,4 @@
+-- Init config
 -- load core config
 require('core.autocmds')
 require('core.functions')

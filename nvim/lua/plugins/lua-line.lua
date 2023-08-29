@@ -1,3 +1,4 @@
+-- Lualine plugin config
 local M = {}
 
 function M.config()

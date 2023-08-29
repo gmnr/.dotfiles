@@ -1,3 +1,4 @@
+-- Theme config
 -- one dark and color compatibility
 vim.cmd('colorscheme tokyonight-storm')
 vim.cmd('let $NVIM_TUI_ENABLE_TRUE_COLOR=1')

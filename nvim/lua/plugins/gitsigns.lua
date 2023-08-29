@@ -1,3 +1,4 @@
+-- Gitsigns plugin config
 local M = {}
 
 function M.config()

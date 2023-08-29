@@ -1,3 +1,4 @@
+-- Completion config
 local M = {}
 
 function M.config()

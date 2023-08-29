@@ -1,3 +1,4 @@
+-- Options config
 -- load vim.opt into variable
 local opt = vim.opt
 

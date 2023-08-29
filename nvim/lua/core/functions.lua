@@ -1,8 +1,8 @@
+-- Custom functions config
 -- save and close buffer
 vim.api.nvim_create_user_command('Wd', 'write|bdelete', {})
 
--- WRITE LUA FUNCTIONS IN GLOBAL SPACE
-
+-- WRITE LUA FUNCTIONS IN GLOBAL SPACE (_G)
 -- Align ledger amounts and add trailing zeros when needed
 function _G.BetterLedgerAlign()
 

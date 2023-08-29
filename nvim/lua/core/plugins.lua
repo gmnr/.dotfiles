@@ -1,3 +1,4 @@
+-- Plugins loader config
 -- define a local Plug variable
 local Plug = vim.fn['plug#']
 
