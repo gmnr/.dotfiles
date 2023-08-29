@@ -37,6 +37,12 @@ api.nvim_create_autocmd('FileType', {
   command = 'nmap <buffer> q :ccl<CR>'
 })
 
+api.nvim_create_autocmd('FileType', {
+  desc = 'Start git messages in insert mode',
+  pattern  = { 'gitcommit', 'gitrebase', },
+  command  = 'startinsert | 1'
+})
+
 api.nvim_create_autocmd('BufWritePre', {
   desc = 'Remove trailing spaces',
   pattern = {'*.journal'},
@@ -66,4 +72,3 @@ api.nvim_create_autocmd('QuickFixCmdPost', {
   pattern = 'l*',
   command = 'lwindow'
 })
-
