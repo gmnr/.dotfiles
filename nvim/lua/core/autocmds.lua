@@ -26,14 +26,20 @@ api.nvim_create_autocmd('FileType', {
 })
 
 api.nvim_create_autocmd('FileType', {
-  pattern = {'ledger'},
   desc = 'Autoalign amounts on ledger files when pressing enter',
+  pattern = {'ledger'},
   command = 'inoremap <silent> <CR> <C-r>=v:lua.BetterLedgerAlign()<CR><Right><CR>'
 })
 
+api.nvim_create_autocmd('FileType', {
+  desc = 'automatically close the quickfixlist with q',
+  pattern = {'qf'},
+  command = 'nmap <buffer> q :ccl<CR>'
+})
+
 api.nvim_create_autocmd('BufWritePre', {
-  pattern = {'*.journal'},
   desc = 'Remove trailing spaces',
+  pattern = {'*.journal'},
   command = '%s/\\s\\+$//e'
 })
 
@@ -45,3 +51,19 @@ api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank{hlgroup='IncSearch', timeout=300}
   end,
 })
+
+local OpenQuickfix = api.nvim_create_augroup('OpenQuickfix', { clear = true })
+api.nvim_create_autocmd('QuickFixCmdPost', {
+  desc = 'Open quickfix list when running a quickfix command',
+  group = OpenQuickfix,
+  pattern = '[^l]*',
+  command = 'cwindow'
+})
+
+api.nvim_create_autocmd('QuickFixCmdPost', {
+  desc = 'Open location list when running a location command',
+  group = OpenQuickfix,
+  pattern = 'l*',
+  command = 'lwindow'
+})
+
