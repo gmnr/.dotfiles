@@ -1,5 +1,4 @@
 # Define helper functions
-
 # check if projects don't have any next action
 function stale_project() {
   cmd=$(python - <<EOF
@@ -74,8 +73,8 @@ alias tl='clear; echo " -- LATER TASKS --"; task later'
 alias to='clear; echo " -- DELEGATED TASKS --"; task wait'
 alias tp='clear; echo " -- PROJECT-LESS TASKS --"; task prj'
 alias tpp='clear; echo " -- LIST PROJECTS --"; task projects +PROJECT'
-alias ti='clear; next_inbox'
-alias tii='clear; echo " -- INBOX --"; task inbox'
+alias ti='clear; echo " -- INBOX --"; task inbox'
+alias tii='clear; next_inbox'
 
 # collection
 alias c='task add +inbox'
