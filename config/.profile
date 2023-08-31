@@ -60,7 +60,7 @@ reset_readline_prompt_mode_strings () {
 
     # new config
     bind "set vi-ins-mode-string \"${EMBEDDED_PS1@P}\1\e[91m\2>\1\e[0m\2\""
-    bind "set vi-cmd-mode-string \"${EMBEDDED_PS1@P}\1\e[94m\2N \1\e[91m\2>\1\e[0m\2\""
+    bind "set vi-cmd-mode-string \"${EMBEDDED_PS1@P}\1\e[91m\2>\1\e[93m\2\""
 }
 
 PROMPT_COMMAND=reset_readline_prompt_mode_strings
