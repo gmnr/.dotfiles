@@ -7,7 +7,7 @@ opt.number                     = true  -- enable numbering
 opt.termguicolors              = true  -- enable termguicolors
 opt.shiftround                 = true  -- round indent to multiples of shiftwidth
 opt.cursorline                 = true  -- enable cursorline
-opt.ignorecase                 = true  -- ignore 
+opt.ignorecase                 = true  -- ignore case
 opt.smartcase                  = true  -- override ignorecase if capital in search pattern
 opt.expandtab                  = true  -- use spaces while tabbing
 opt.lazyredraw                 = true  -- don't redraw screen while executing macros
@@ -34,7 +34,6 @@ opt.completeopt                = 'menu,menuone,noselect'
 -- spelling
 opt.spelllang                  = 'en_us,it'  -- set language of spell
 opt.spellcapcheck              = ''          -- don't check cap error at beginning of line
-
 
 -- grep settings (use ripgrep)
 opt.grepprg                    = 'rg --vimgrep --no-heading --smart-case'
