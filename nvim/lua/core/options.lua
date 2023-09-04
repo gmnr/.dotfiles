@@ -28,9 +28,6 @@ opt.conceallevel               = 2     -- enable concealing
 -- diff options
 opt.diffopt                    = 'filler,iwhite,internal,algorithm:patience'
 
--- preview opt
-opt.completeopt                = 'menu,menuone,noselect'
-
 -- spelling
 opt.spelllang                  = 'en_us,it'  -- set language of spell
 opt.spellcapcheck              = ''          -- don't check cap error at beginning of line
