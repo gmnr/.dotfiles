@@ -133,63 +133,63 @@ export LEDGER_FILE=$HOME/.finance/all.journal
 # helper functions !! with colors !!
 function is() {
   clear;
-  hledger is --pretty -lS --drop 1 -p thismonth "$@" | ~/.finance/.src/colorize.py report
+  hledger is --pretty -lS --drop 1 -p thismonth "$@" | ~/.finance/.src/scripts/colorize-report.py report
 }
 
 function iss() {
   clear;
-  hledger is --pretty -lS --drop 1 -3 "$@" | ~/.finance/.src/colorize.py report
+  hledger is --pretty -lS --drop 1 -3 "$@" | ~/.finance/.src/scripts/colorize-report.py report
 }
 
 
 function bs() {
   clear;
-  hledger bs --pretty -Vl --drop 1 -3 "$@" | ~/.finance/.src/colorize.py report
+  hledger bs --pretty -Vl --drop 1 -3 "$@" | ~/.finance/.src/scripts/colorize-report.py report
 }
 
 function cf() {
   clear;
-  hledger cf --pretty -tS --drop 1 "$@" | ~/.finance/.src/colorize.py report
+  hledger cf --pretty -tS --drop 1 "$@" | ~/.finance/.src/scripts/colorize-report.py report
 }
 
 function reg() {
   clear;
-  hledger reg -p thismonth "$@" | ~/.finance/.src/colorize.py register
+  hledger reg -p thismonth "$@" | ~/.finance/.src/scripts/colorize-report.py register
 }
 
 function regg() {
   clear;
-  hledger reg "$@" | ~/.finance/.src/colorize.py register
+  hledger reg "$@" | ~/.finance/.src/scripts/colorize-report.py register
 }
 
 
 function areg() {
   clear;
-  hledger areg -p thismonth "$@" | ~/.finance/.src/colorize.py areg
+  hledger areg -p thismonth "$@" | ~/.finance/.src/scripts/colorize-report.py areg
 }
 
 function aregg() {
   clear;
-  hledger areg "$@" | ~/.finance/.src/colorize.py areg
+  hledger areg "$@" | ~/.finance/.src/scripts/colorize-report.py areg
 }
 
 function bal() {
   clear;
-  hledger bal --pretty "$@" | ~/.finance/.src/colorize.py register
+  hledger bal --pretty "$@" | ~/.finance/.src/scripts/colorize-report.py register
 }
 
 function cash() {
   clear;
-  hledger print assets:cash | hledger -f- bal income: expenses: --pretty --drop 1 -t --invert | ~/.finance/.src/colorize.py report
+  hledger print assets:cash | hledger -f- bal income: expenses: --pretty --drop 1 -t --invert | ~/.finance/.src/scripts/colorize-report.py report
 }
 
 function dad() {
   clear;
-  hledger -f ~/.finance/others/alfredo.journal bs --pretty -V --drop 1 "$@" | ~/.finance/.src/colorize.py report
+  hledger -f ~/.finance/others/alfredo.journal bs --pretty -V --drop 1 "$@" | ~/.finance/.src/scripts/colorize-report.py report
 }
 
 function fede() {
   clear;
-  hledger -f ~/.finance/others/fede.journal bs --pretty -V --drop 1 "$@" | ~/.finance/.src/colorize.py report
+  hledger -f ~/.finance/others/fede.journal bs --pretty -V --drop 1 "$@" | ~/.finance/.src/scripts/colorize-report.py report
 }
 

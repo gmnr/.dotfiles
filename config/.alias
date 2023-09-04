@@ -52,8 +52,8 @@ alias out='bal cash bank -p thismonth -D --transpose -T amt:"<0" --drop 1'   # c
 alias roi='clear; hledger roi --pretty --pnl "unrealized" -V --inv'
 alias dadv='clear; hledger -f ~/.finance/others/alfredo.journal roi --pretty --pnl "unrealized" -V --inv VNGA'
 alias fedev='clear; hledger -f ~/.finance/others/fede.journal roi --pretty --pnl "unrealized" -V --inv VWCE'
-alias p='clear; python ~/.finance/.src/fetch.py solo'
-alias pa='clear; python ~/.finance/.src/fetch.py full'
+alias p='clear; python ~/.finance/.src/scripts/fetch-mkt-prices.py solo'
+alias pa='clear; python ~/.finance/.src/scripts/fetch-mkt-prices.py full'
 alias prices='cat ~/.finance/prices/current_prices.journal'
 
 # source taskwarrior aliases

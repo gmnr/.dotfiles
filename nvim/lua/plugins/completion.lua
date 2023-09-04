@@ -15,7 +15,7 @@ function M.config()
   cmp.register_source('hledger_completion', {
     complete = function(self, params, callback)
       local items = {}
-      for payee in io.lines('/Users/guido/.finance/.src/hledger-cmp/payees') do
+      for payee in io.lines('/Users/guido/.finance/.src/scripts/hledger-cmp/payees') do
         table.insert(items, {
           label = payee,
           insertText = payee .. ' | ',
@@ -23,7 +23,7 @@ function M.config()
           kind = cmp.lsp.CompletionItemKind.Class
         })
       end
-      for account in io.lines('/Users/guido/.finance/.src/hledger-cmp/accounts') do
+      for account in io.lines('/Users/guido/.finance/.src/scripts/hledger-cmp/accounts') do
         table.insert(items, {
           label = account,
           insertText = account .. '   ',
