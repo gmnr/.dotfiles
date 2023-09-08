@@ -141,15 +141,9 @@ function iss() {
   hledger is --pretty -lS --drop 1 -3 "$@" | ~/.finance/.src/scripts/colorize-report.py report
 }
 
-
 function bs() {
   clear;
   hledger bs --pretty -Vl --drop 1 -3 "$@" | ~/.finance/.src/scripts/colorize-report.py report
-}
-
-function cf() {
-  clear;
-  hledger cf --pretty -tS --drop 1 "$@" | ~/.finance/.src/scripts/colorize-report.py report
 }
 
 function reg() {
@@ -161,7 +155,6 @@ function regg() {
   clear;
   hledger reg "$@" | ~/.finance/.src/scripts/colorize-report.py register
 }
-
 
 function areg() {
   clear;
@@ -176,11 +169,6 @@ function aregg() {
 function bal() {
   clear;
   hledger bal --pretty "$@" | ~/.finance/.src/scripts/colorize-report.py register
-}
-
-function cash() {
-  clear;
-  hledger print assets:cash | hledger -f- bal income: expenses: --pretty --drop 1 -t --invert | ~/.finance/.src/scripts/colorize-report.py report
 }
 
 function dad() {
