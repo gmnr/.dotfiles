@@ -143,7 +143,7 @@ function iss() {
 
 function bs() {
   clear;
-  hledger bs --pretty -Vl --drop 1 -3 "$@" | ~/.finance/.src/scripts/colorize-report.py report
+  hledger bs --pretty -Vl --drop 1 "$@" | ~/.finance/.src/scripts/colorize-report.py report
 }
 
 function reg() {
