@@ -59,3 +59,8 @@ alias prices='cat ~/.finance/prices/current_prices.journal'
 
 # source taskwarrior aliases
 source  ~/.dotfiles/config/tasks/helpers.sh
+
+# kmonad
+alias qq='sudo killall kmonad'
+alias aa='sudo kmonad ~/.dotfiles/config/kmonad/apple.kbd &'
+alias ww='sudo kmonad ~/.dotfiles/config/kmonad/kinesis.kbd &'

@@ -1,0 +1,73 @@
+(defcfg
+  input  (iokit-name "Apple Internal Keyboard / Trackpad")
+  output (kext)
+  allow-cmd false
+  )
+
+
+(defalias
+    met_a (tap-hold-next-release 250 a lmet)
+    alt_r (tap-hold-next-release 250 r lalt)
+    ctl_s (tap-hold-next-release 250 s lctl)
+    sft_t (tap-hold-next-release 250 t lsft)
+    sft_n (tap-hold-next-release 250 n rsft)
+    ctl_e (tap-hold-next-release 250 e rctl)
+    ;; alt_i (tap-hold-next-release 250 i lalt)
+    met_o (tap-hold-next-release 250 o rmet)
+
+    s_spc (tap-hold-next-release 250 spc (layer-toggle nav))
+    fun (layer-toggle fun)
+    num (layer-toggle num)
+)
+
+
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft up
+  fn   lctl lalt lmet           spc            rmet ralt left down rght
+)
+
+
+(deflayer colemak-dh
+  caps  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  `  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    f    p    b    j    l    u    y    ;    [    ]    \
+  esc  @met_a    @alt_r    @ctl_s    @sft_t    g    m    @sft_n    @ctl_e    i    @met_o    '    ret
+  lsft z    x    c    d    v    k    h    ,    .    /    rsft up
+  @num   lctl lalt lmet           @s_spc            rmet ralt left down rght
+)
+
+
+(deflayer nav
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv  _    _    _    _    _    _    _    _    _    _    _    =    bspc
+  tab  lmet    lalt    lctl    lsft    _    home    pgdn    pgup    end    _    [    ]    \
+  caps lmet    _    _    _    _    left    down    up    right    _    '    ret
+  lsft _    _    _    _    _    _    _    ,    .    /    rsft up
+  fn   lctl lalt lmet           @s_spc            rmet ralt left down rght
+)
+
+
+(deflayer num
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv  _    _    _    _    _    _    7    8    9    _    _    =    bspc
+  tab  _    _    _    _    _    _    7    8    9    _    [    ]    \
+  caps _    _    _    _    _    _    4    5    6    _    '    ret
+  lsft _    _    _    _    _    _    1    2    3    /    rsft up
+  fn   lctl lalt lmet           @s_spc            rmet ralt left down rght
+)
+
+(deflayer fun
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv  _    _    _    _    _    _    7    8    9    _    _    =    bspc
+  tab  _    _    _    _    _    _    7    8    9    _    [    ]    \
+  caps _    _    _    _    _    _    4    5    6    _    '    ret
+  lsft _    _    _    _    _    _    1    2    3    /    rsft up
+  fn   lctl lalt lmet           @s_spc            rmet ralt left down rght
+)
+
+
+
