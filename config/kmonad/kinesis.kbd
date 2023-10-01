@@ -8,15 +8,12 @@
 (defalias
     met_a (tap-hold-next-release 250 a lmet)
     alt_t (tap-hold-next-release 250 t lalt)
-    ctl_s (tap-hold-next-release 250 s lctl)
-;;  sft_t (tap-hold-next-release 250 t lsft)
-;;  sft_n (tap-hold-next-release 250 n rsft)
-    ctl_e (tap-hold-next-release 250 e rctl)
     alt_n (tap-hold-next-release 250 n lalt)
     met_o (tap-hold-next-release 250 o rmet)
 
+    c_esc (tap-hold-next-release 160 esc lctl)
+
     s_spc (tap-hold-next-release 250 spc (layer-toggle nav))
-    ;; sym (layer-toggle sym)
     fun (layer-toggle fun)
     num (layer-toggle num)
     med (layer-toggle med)
@@ -46,7 +43,7 @@
 
   `    1    2    3    4    5                   6    7    8    9    0    -
   tab  q    w    f    p    b                   j    l    u    y    ;    =
-  esc  @met_a    r    @ctl_s    @alt_t    g                   m    @alt_n    @ctl_e    i    @met_o    '
+  @c_esc  @met_a    r    s    @alt_t    g                   m    @alt_n    e    i    @met_o    '
   lsft z    x    c    d    v                   k    h    ,    .    / rsft
        \  F13 XX XX                          XX   XX [    ]
 
@@ -60,9 +57,9 @@
   esc  F1   F2   F3   F4   F5   F6   F7   F8   F9   F10  F11  F12  prnt slck pause
 
   _    _    _    _    _    _                   _    _    _    _    _    _
-  tab  _    @copy    @paste    _    _                   _   _    _    _    _    _
-  esc lmet    lalt    lctl    lsft    _     left    down    up    right    _    _
-  lsft _    _    _    _    _                   home    pgdn    pgup    end    _ rsft
+  _  _    @copy    @paste    _    _                   _   _    _    _    _    _
+  _ lmet    lalt    lctl    lsft    _     left    down    up    right    _    _
+  _ _    _    _    _    _                   home    pgdn    pgup    end    _ rsft
        _  _  _ _                          _   _ _    _
 
                            lctl del   ralt rctl
@@ -74,10 +71,10 @@
 (deflayer num
   esc  F1   F2   F3   F4   F5   F6   F7   F8   F9   F10  F11  F12  prnt slck pause
 
-  =    _    _    _    _    _                   _    _    /    *    _    _
-  tab  _    _    _    _    _                   _    7    8    9    -    _
-  caps _    _    _    _    _                   _    4    5    6    +    _
-  lsft _    _    _    _    _                   _    1    2    3    _ rsft
+  _    _    _    _    _    _                   _    _    /    *    _    _
+  _  _    _    _    _    _                   _    7    8    9    -    _
+  _ _    _    _    _    _                   _    4    5    6    +    _
+  _ _    _    _    _    _                   _    1    2    3    _ rsft
        grv  `  left rght                          XX   0 ,    ]
 
                            lctl del   rmet rctl
@@ -89,10 +86,10 @@
 (deflayer fun
   esc  F1   F2   F3   F4   F5   F6   F7   F8   F9   F10  F11  F12  prnt slck pause
 
-  =    _    _    _    _    _                   _    _    /    *    -    _
-  tab  _    _    _    _    _                   _    F7    F8    F9    F10    _
-  caps _    _    _    _    _                   _    F4    F5    F6    F11    _
-  lsft _    _    _    _    _                   _    F1    F2    F3    F12 rsft
+  _    _    _    _    _    _                   _    _    /    *    -    _
+  _  _    _    _    _    _                   _    F7    F8    F9    F10    _
+  _ _    _    _    _    _                   _    F4    F5    F6    F11    _
+  _ _    _    _    _    _                   _    F1    F2    F3    F12 rsft
        grv  `  left rght                          0   down [    ]
 
                            lctl lalt   rmet rctl
@@ -104,10 +101,10 @@
 (deflayer med
   esc  F1   F2   F3   F4   F5   F6   F7   F8   F9   F10  F11  F12  prnt slck pause
 
-  =    _    _    _    _    _                   _    _    _    _    _    _
-  tab  _    prev    pp    next    _                   _    _    _    _    _    _
-  caps _    vold    mute    volu    _                   _    _    _    _    _    _
-  lsft _    _    _    _    _                   _    _    _    _    _ rsft
+  _    _    _    _    _    _                   _    _    _    _    _    _
+  _  _    prev    pp    next    _                   _    _    _    _    _    _
+  _ _    vold    mute    volu    _                   _    _    _    _    _    _
+  _ _    _    _    _    _                   _    _    _    _    _ rsft
        grv  `  left rght                          _   down [    ]
 
                            lctl lalt   rmet rctl

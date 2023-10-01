@@ -8,12 +8,10 @@
 (defalias
     met_a (tap-hold-next-release 250 a lmet)
     alt_t (tap-hold-next-release 250 t lalt)
-    ctl_s (tap-hold-next-release 250 s lctl)
-;;  sft_t (tap-hold-next-release 250 t lsft)
-;;  sft_n (tap-hold-next-release 250 n rsft)
-    ctl_e (tap-hold-next-release 250 e rctl)
     alt_n (tap-hold-next-release 250 n lalt)
     met_o (tap-hold-next-release 250 o rmet)
+
+    c_esc (tap-hold-next-release 160 esc lctl)
 
     s_spc (tap-hold-next-release 250 spc (layer-toggle nav))
     fun (layer-toggle fun)
@@ -38,38 +36,38 @@
   caps  brdn   brup   f3   f4   f5   f6   prev   pp   next   mute  vold  volu
   `  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    f    p    b    j    l    u    y    ;    [    ]    \
-  esc  @met_a    r    @ctl_s    @alt_t    g    m    @alt_n    @ctl_e   i    @met_o    '    ret
+  @c_esc  @met_a    r    s    @alt_t    g    m    @alt_n    e   i    @met_o    '    ret
   lsft z    x    c    d    v    k    h    ,    .    /    rsft up
   @num   lctl lalt XX           @s_spc            rmet ralt left down rght
 )
 
 
 (deflayer nav
-  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
-  grv  _    _    _    _    _    _    _    _    _    _    _    =    bspc
-  tab  _    @copy    @paste    _    _    _    _    _    _    _    [    ]    \
-  caps lmet lalt  lctl  lsft   _    left    down    up    right    _    '    ret
-  lsft _    _    _    _    _    home    pgdn    pgup    end    /    rsft up
+  _  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  _  _    _    _    _    _    _    _    _    _    _    _    =    bspc
+  _  _    @copy    @paste    _    _    _    _    _    _    _    [    ]    \
+  _ lmet lalt  lctl  lsft   _    left    down    up    right    _    '    ret
+  _ _    _    _    _    _    home    pgdn    pgup    end    /    rsft up
   fn   lctl lalt lmet           @s_spc            rmet ralt left down rght
 )
 
 
 (deflayer num
-  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
-  grv  _    _    _    _    _    _    _    /    *    -    _    =    bspc
-  tab  _    _    _    _    _    _    7    8    9    +    [    ]    \
-  caps _    _    _    _    _    _    4    5    6    _    '    ret
-  lsft _    _    _    _    _    _    1    2    3    /    rsft up
+  _  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  _  _    _    _    _    _    _    _    /    *    -    _    =    bspc
+  _  _    _    _    _    _    _    7    8    9    +    [    ]    \
+  _ _    _    _    _    _    _    4    5    6    _    '    ret
+  _ _    _    _    _    _    _    1    2    3    /    rsft up
   fn   lctl lalt lmet           @s_spc            0 , left down rght
 )
 
 
 (deflayer fun
-  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
-  grv  _    _    _    _    _    _    7    8    9    _    _    =    bspc
-  tab  _    _    _    _    _    _    7    8    9    _    [    ]    \
-  caps _    _    _    _    _    _    4    5    6    _    '    ret
-  lsft _    _    _    _    _    _    1    2    3    /    rsft up
+  _  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  _  _    _    _    _    _    _    7    8    9    _    _    =    bspc
+  _  _    _    _    _    _    _    7    8    9    _    [    ]    \
+  _ _    _    _    _    _    _    4    5    6    _    '    ret
+  _ _    _    _    _    _    _    1    2    3    /    rsft up
   fn   lctl lalt lmet           @s_spc            rmet ralt left down rght
 )
 
