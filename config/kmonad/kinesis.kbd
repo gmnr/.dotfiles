@@ -20,6 +20,9 @@
     fun (layer-toggle fun)
     num (layer-toggle num)
     med (layer-toggle med)
+
+    copy  M-c
+    paste M-v
 )
 
 
@@ -57,7 +60,7 @@
   esc  F1   F2   F3   F4   F5   F6   F7   F8   F9   F10  F11  F12  prnt slck pause
 
   _    _    _    _    _    _                   _    _    _    _    _    _
-  tab  _    _    _    _    _                   _   _    _    _    _    _
+  tab  _    @copy    @paste    _    _                   _   _    _    _    _    _
   esc lmet    lalt    lctl    lsft    _     left    down    up    right    _    _
   lsft _    _    _    _    _                   home    pgdn    pgup    end    _ rsft
        _  _  _ _                          _   _ _    _
