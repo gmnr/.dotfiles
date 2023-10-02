@@ -8,7 +8,6 @@
 (defalias
     met_a (tap-hold-next-release 250 a lmet)
     alt_t (tap-hold-next-release 250 t lalt)
-    alt_n (tap-hold-next-release 250 n lalt)
     met_o (tap-hold-next-release 250 o rmet)
 
     c_esc (tap-hold-next-release 160 esc lctl)
@@ -43,7 +42,7 @@
 
   `    1    2    3    4    5                   6    7    8    9    0    -
   tab  q    w    f    p    b                   j    l    u    y    ;    =
-  @c_esc  @met_a    r    s    @alt_t    g                   m    @alt_n    e    i    @met_o    '
+  @c_esc  @met_a    r    s    @alt_t    g                   m    n    e    i    @met_o    '
   lsft z    x    c    d    v                   k    h    ,    .    / rsft
        \  F13 XX XX                          XX   XX [    ]
 
