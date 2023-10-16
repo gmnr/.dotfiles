@@ -61,6 +61,5 @@ alias prices='cat ~/.finance/prices/current_prices.journal'
 source  ~/.dotfiles/config/tasks/helpers.sh
 
 # kmonad
-alias qq='sudo killall kmonad'
-alias aa='sudo kmonad ~/.dotfiles/config/kmonad/apple.kbd &'
-alias ww='sudo kmonad ~/.dotfiles/config/kmonad/kinesis.kbd &'
+alias QQ='sudo killall kmonad'
+alias qq='~/.dotfiles/config/kmonad/startup.sh'

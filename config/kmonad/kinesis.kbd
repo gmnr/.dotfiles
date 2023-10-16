@@ -19,6 +19,8 @@
 
     copy  M-c
     paste M-v
+    alfred M-spc
+
 )
 
 
@@ -29,7 +31,7 @@
   tab  q    w    e    r    t                   y    u    i    o    p    \
   caps a    s    d    f    g                   h    j    k    l    ;    '
   lsft z    x    c    v    b                   n    m    ,    .    / rsft
-       grv  `  left rght                          up   down [    ]
+       grv  F13  left rght                          up   down [    ]
 
                            lctl lalt   rmet  rctl
                        spc del  home   pgup  ret bspc
@@ -44,7 +46,7 @@
   tab  q    w    f    p    b                   j    l    u    y    ;    =
   @c_esc  @met_a    r    s    @alt_t    g                   m    n    e    i    @met_o    '
   lsft z    x    c    d    v                   k    h    ,    .    / rsft
-       \  F13 XX XX                          XX   XX [    ]
+       \  @alfred XX XX                          XX   XX [    ]
 
                            lalt  del    ralt  rctl
                     @s_spc @num  home   pgup  ret bspc
