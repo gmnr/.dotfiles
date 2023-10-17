@@ -73,11 +73,11 @@ function M.config()
 
     -- mappings for navigation
     mapping = {
-      ['<C-k>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-      ['<C-j>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+      ['<C-e>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+      ['<C-n>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
 
       -- use C-n and C-p for triggering completion
-      ['<C-n>'] = cmp.mapping(function()
+      ['<C-k>'] = cmp.mapping(function()
         if cmp.visible() then
           cmp.select_next_item()
         else
@@ -85,7 +85,7 @@ function M.config()
         end
       end, { 'i', 'c' }),
 
-      ['<C-p>'] = cmp.mapping(function()
+      ['<C-y>'] = cmp.mapping(function()
         if cmp.visible() then
           cmp.select_prev_item()
         else
@@ -93,7 +93,7 @@ function M.config()
         end
       end, { 'i', 'c' }),
 
-      ['<C-e>'] = cmp.mapping({
+      ['<C-f>'] = cmp.mapping({
         i = cmp.mapping.abort(),
         c = cmp.mapping.close(),
       }),
