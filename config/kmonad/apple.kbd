@@ -1,13 +1,18 @@
 (defcfg
   input  (iokit-name "Apple Internal Keyboard / Trackpad")
   output (kext)
-  allow-cmd false
+  allow-cmd true
   )
 
 
 (defalias
     a_tab (tap-hold-next-release 160 tab lalt)
     c_esc (tap-hold-next-release 160 esc lctl)
+
+    chrome (cmd-button "open /Applications/Google\\ Chrome.app")
+    msg (cmd-button "open /Applications/WhatsApp.app")
+    work (cmd-button "open /Applications/Microsoft\\ Remote\\ Desktop.app")
+    term (cmd-button "open /Applications/Alacritty.app")
 
     s_spc (tap-hold-next-release 250 spc (layer-toggle nav))
     num (layer-toggle num)
@@ -22,9 +27,6 @@
     fun_8 (tap-hold-next-release 250 8 f8)
     fun_9 (tap-hold-next-release 250 9 f9)
     fun_0 (tap-hold-next-release 250 0 f10)
-
-    copy  M-c
-    paste M-v
 )
 
 
@@ -51,8 +53,8 @@
 (deflayer nav
   _  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
   _  _    _    _    _    _    _    _    _    _    _    _    =    bspc
-  _  _    @copy    @paste    _    _    _    _    _    _    _    [    ]    \
-  _ lmet lalt  lctl  lsft   _    left    down    up    right    _    '    ret
+  _  @work   @chrome   @msg   _   _   _   _   _   _   _   [    ]    \
+  _ @term  _   _   _   _    left    down    up    right    _    '    ret
   _ _    _    _    _    _    home    pgdn    pgup    end    /    rsft up
   fn   lctl lalt lmet           @s_spc            rmet ralt left down rght
 )
