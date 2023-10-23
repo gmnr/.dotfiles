@@ -49,9 +49,9 @@ vim.keymap.set('n', '<BS>', '<C-^>')
 
 -- map vim-fugitive
 vim.keymap.set('n', '<leader>gs', ':Git<CR>')
-vim.keymap.set('n', '<leader>gp', ':Git push<CR>')
-vim.keymap.set('n', '<leader>gh', ':diffget //2<CR>')
-vim.keymap.set('n', '<leader>gl', ':diffget //3<CR>')
+vim.keymap.set('n', '<leader>gy', ':Git push<CR>')
+vim.keymap.set('n', '<leader>gm', ':diffget //2<CR>')
+vim.keymap.set('n', '<leader>gi', ':diffget //3<CR>')
 
 -- telescope mappings
 vim.keymap.set('n', '<leader>yy', ':lua Project_files()<CR>', { silent = true })  -- link custom function to use find_git when .git exists and find_files when it doesn't
