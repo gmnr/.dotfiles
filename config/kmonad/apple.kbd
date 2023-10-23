@@ -6,10 +6,7 @@
 
 
 (defalias
-    met_a (tap-hold-next-release 250 a lmet)
-    alt_t (tap-hold-next-release 250 t lalt)
-    met_o (tap-hold-next-release 250 o rmet)
-
+    a_tab (tap-hold-next-release 160 tab lalt)
     c_esc (tap-hold-next-release 160 esc lctl)
 
     s_spc (tap-hold-next-release 250 spc (layer-toggle nav))
@@ -44,8 +41,8 @@
 (deflayer colemak-dh
   caps  brdn   brup   f11  f12   f5   f6   prev   pp   next   mute  vold  volu
   `  @fun_1    @fun_2    @fun_3    @fun_4    @fun_5    @fun_6    @fun_7    @fun_8    @fun_9    @fun_0    -    =    bspc
-  tab   q    w    f    p    b    j    l    u    y    ;    [    ]    \
-  @c_esc  @met_a    r    s    @alt_t    g    m    n    e   i    @met_o    '    ret
+  @a_tab  q    w    f    p    b    j    l    u    y    ;    [    ]    \
+  @c_esc  a    r    s    t    g    m    n    e   i    o    '    ret
   lsft  z    x    c    d    v    k    h    ,    .    /    rsft  up 
   @num   lctl  lalt  lmet           @s_spc            rmet  ralt  left  down  rght 
 )
