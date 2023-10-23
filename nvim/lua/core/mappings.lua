@@ -90,7 +90,8 @@ vim.keymap.set('n', 'zo', 'za')
 
 -- hledger formatting
 vim.keymap.set('n', '<leader>bb', ':lua BetterLedgerAlign()<CR>')
-vim.keymap.set('n', '<leader>bt', ':LedgerAlignBuffer<CR>')
+vim.keymap.set('n', '<leader>ba', ':!/usr/local/bin/hledger -f /Users/guido/.finance/all.journal payees > /Users/guido/.finance/.src/completion-source/payees<CR>', { silent = true })
+vim.keymap.set('n', '<leader>bq', ':!/usr/local/bin/hledger -f /Users/guido/.finance/all.journal accounts | /usr/bin/python3 /Users/guido/.finance/.src/scripts/filter-account.py > /Users/guido/.finance/.src/completion-source/accounts<CR>', { silent = true })
 
 -- gitsigns
 vim.keymap.set('n', '<leader>hp', ':Gitsigns preview_hunk<CR>')
