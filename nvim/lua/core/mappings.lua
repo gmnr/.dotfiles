@@ -55,7 +55,7 @@ vim.keymap.set('n', '<leader>gi', ':diffget //3<CR>')
 
 -- telescope mappings
 vim.keymap.set('n', '<leader>yy', ':lua Project_files()<CR>', { silent = true })  -- link custom function to use find_git when .git exists and find_files when it doesn't
-vim.keymap.set('n', '<leader>yl', ':Telescope live_grep<CR>', { silent = true })
+vim.keymap.set('n', '<leader>yi', ':Telescope live_grep<CR>', { silent = true })
 vim.keymap.set('n', '<leader>yu', ':Telescope buffers<CR>', { silent = true })
 vim.keymap.set('n', '<leader>ys', ':Telescope git_status<CR>', { silent = true })
 vim.keymap.set('n', '<leader>yc', ':Telescope git_branches<CR>', { silent = true })
