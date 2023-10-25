@@ -15,7 +15,7 @@
     med (layer-toggle med)
 
     chrome (cmd-button "open /Applications/Google\\ Chrome.app")
-    cal (cmd-button "open -na /Applications/Google\\ Chrome.app --args --new-window 'https://calendar.google.com/calendar/u/0/r'")
+    cal (cmd-button "open -a /Applications/Google\\ Chrome.app 'https://calendar.google.com/calendar/u/0/r'")
     msg (cmd-button "open /Applications/WhatsApp.app")
     work (cmd-button "open /Applications/Microsoft\\ Remote\\ Desktop.app")
     term (cmd-button "open /Applications/Alacritty.app")
