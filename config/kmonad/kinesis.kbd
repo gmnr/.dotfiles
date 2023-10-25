@@ -6,11 +6,10 @@
 
 
 (defalias
+    c_esc (tap-hold-next-release 200 esc lctl)
+    a_tab (tap-hold-next-release 200 tab lalt)
 
-    c_esc (tap-hold-next-release 160 esc lctl)
-    a_tab (tap-hold-next-release 160 tab lalt)
-
-    s_spc (tap-hold-next-release 250 spc (layer-toggle nav))
+    s_spc (tap-hold-next-release 200 spc (layer-toggle nav))
     num (layer-toggle num)
     med (layer-toggle med)
 
@@ -21,16 +20,16 @@
     term (cmd-button "open /Applications/Alacritty.app")
     alfred (cmd-button "open /Applications/Alfred\\ 5.app")
 
-    fun_1 (tap-hold-next-release 250 1 f1)
-    fun_2 (tap-hold-next-release 250 2 f2)
-    fun_3 (tap-hold-next-release 250 3 f3)
-    fun_4 (tap-hold-next-release 250 4 f4)
-    fun_5 (tap-hold-next-release 250 5 f5)
-    fun_6 (tap-hold-next-release 250 6 f6)
-    fun_7 (tap-hold-next-release 250 7 f7)
-    fun_8 (tap-hold-next-release 250 8 f8)
-    fun_9 (tap-hold-next-release 250 9 f9)
-    fun_0 (tap-hold-next-release 250 0 f10)
+    fun_1 (tap-hold-next-release 350 1 f1)
+    fun_2 (tap-hold-next-release 350 2 f2)
+    fun_3 (tap-hold-next-release 350 3 f3)
+    fun_4 (tap-hold-next-release 350 4 f4)
+    fun_5 (tap-hold-next-release 350 5 f5)
+    fun_6 (tap-hold-next-release 350 6 f6)
+    fun_7 (tap-hold-next-release 350 7 f7)
+    fun_8 (tap-hold-next-release 350 8 f8)
+    fun_9 (tap-hold-next-release 350 9 f9)
+    fun_0 (tap-hold-next-release 350 0 f10)
 )
 
 
