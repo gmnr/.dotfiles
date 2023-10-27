@@ -7,15 +7,30 @@ vim.g.mapleader = ' '
 vim.keymap.set('n', 'Y', 'y$')
 
 -- saner line navigation
-vim.keymap.set('n', 'H', '^')
-vim.keymap.set('n', 'L', '$')
+vim.keymap.set('n', 'M', '^')
+vim.keymap.set('n', 'I', '$')
 
--- move across visual lines
-vim.keymap.set('n', 'j', 'gj')
-vim.keymap.set('n', 'k', 'gk')
+-- remap movement for colemak
+vim.keymap.set('n', 'm', 'h')
+vim.keymap.set('n', 'n', 'gj')  -- with movement across visual line
+vim.keymap.set('n', 'e', 'gk')  -- with movement across visual line
+vim.keymap.set('n', 'i', 'l')
+
+-- remap old hjkl & capital
+vim.keymap.set('n', 'h', 'e')
+vim.keymap.set('n', 'j', 'm')
+vim.keymap.set('n', 'k', 'n')
+vim.keymap.set('n', 'l', 'i')
+vim.keymap.set('n', 'H', 'E')
+vim.keymap.set('n', 'K', 'N')
+vim.keymap.set('n', 'L', 'I')
+vim.keymap.set('n', 'N', 'J')
+
+-- remap redo command
+vim.keymap.set('n', '<C-p>', '<C-r>')
 
 -- override ctrl-e to scroll up
-vim.keymap.set('n', '<C-f>', '<C-u>')
+vim.keymap.set('n', '<C-s>', '<C-u>')
 
 -- open and load .vimrc
 vim.keymap.set('n', '<leader>fd', ':lua require("telescope.builtin").find_files({cwd="~/.dotfiles/nvim/lua/", search_dirs={"plugins", "core"}})<CR>', { silent = true })
@@ -69,7 +84,7 @@ vim.keymap.set('n', '<leader>cd', ':cd %:h<CR>')
 vim.keymap.set('n', '<leader><Tab>', '1z=')
 
 -- quickrun
-vim.keymap.set('n', '<leader>p', ':w<CR>:QuickRun<CR>')
+vim.keymap.set('n', '<leader>pp', ':w<CR>:QuickRun<CR>')
 
 -- toggle paste and manage copy
 vim.keymap.set('n', '<leader>jj', ':set invpaste paste?<CR>')
@@ -111,7 +126,7 @@ vim.keymap.set('n', 'E', ':Lspsaga hover_doc<CR>', { silent = true })
 vim.keymap.set('n', '[d', ':Lspsaga diagnostic_jump_prev<CR>', { silent = true })
 vim.keymap.set('n', ']d', ':Lspsaga diagnostic_jump_next<CR>', { silent = true })
 vim.keymap.set('n', 'gI', vim.lsp.buf.implementation)
-vim.keymap.set('n', '<C-p>', vim.lsp.buf.signature_help)
+vim.keymap.set('n', '<C-r>', vim.lsp.buf.signature_help)
 vim.keymap.set('n', '<leader>ls', vim.diagnostic.setloclist)
 vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition)
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
