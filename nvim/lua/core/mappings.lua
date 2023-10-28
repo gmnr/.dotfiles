@@ -29,8 +29,9 @@ vim.keymap.set('n', 'N', 'J')
 -- remap redo command
 vim.keymap.set('n', '<C-p>', '<C-r>')
 
--- override ctrl-e to scroll up
-vim.keymap.set('n', '<C-s>', '<C-u>')
+-- override scrolling
+vim.keymap.set('n', '<C-f>', '<C-u>')
+vim.keymap.set('n', '<C-s>', '<C-d>')
 
 -- open and load .vimrc
 vim.keymap.set('n', '<leader>fd', ':lua require("telescope.builtin").find_files({cwd="~/.dotfiles/nvim/lua/", search_dirs={"plugins", "core"}})<CR>', { silent = true })
