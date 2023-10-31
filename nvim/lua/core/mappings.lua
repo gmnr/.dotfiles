@@ -11,20 +11,20 @@ vim.keymap.set('n', 'M', '^')
 vim.keymap.set('n', 'I', '$')
 
 -- remap movement for colemak
-vim.keymap.set('n', 'm', 'h')
-vim.keymap.set('n', 'n', 'gj')  -- with movement across visual line
-vim.keymap.set('n', 'e', 'gk')  -- with movement across visual line
-vim.keymap.set('n', 'i', 'l')
+vim.keymap.set({'n', 'v'}, 'm', 'h')
+vim.keymap.set({'n', 'v'}, 'n', 'gj')  -- with movement across visual line
+vim.keymap.set({'n', 'v'}, 'e', 'gk')  -- with movement across visual line
+vim.keymap.set({'n', 'v'}, 'i', 'l')
 
 -- remap old hjkl & capital
-vim.keymap.set('n', 'h', 'e')
-vim.keymap.set('n', 'j', 'm')
-vim.keymap.set('n', 'k', 'n')
-vim.keymap.set('n', 'l', 'i')
-vim.keymap.set('n', 'H', 'E')
-vim.keymap.set('n', 'K', 'N')
-vim.keymap.set('n', 'L', 'I')
-vim.keymap.set('n', 'N', 'J')
+vim.keymap.set({'n', 'v'}, 'h', 'e')
+vim.keymap.set({'n', 'v'}, 'j', 'm')
+vim.keymap.set({'n', 'v'}, 'k', 'n')
+vim.keymap.set({'n', 'v'}, 'l', 'i')
+vim.keymap.set({'n', 'v'}, 'H', 'E')
+vim.keymap.set({'n', 'v'}, 'K', 'N')
+vim.keymap.set({'n', 'v'}, 'L', 'I')
+vim.keymap.set({'n', 'v'}, 'N', 'J')
 
 -- remap redo command
 vim.keymap.set('n', '<C-p>', '<C-r>')
