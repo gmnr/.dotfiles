@@ -55,7 +55,7 @@
   @a_tab  q    w    f    p    b                   j    l    u    y    ;    =
   @c_esc  a    r    s    t    g                   m    n    e    i    o    '
   lsft    z    x    c    d    v                   k    h    ,    .    / rsft
-          \  @alfred XX XX                          XX   XX [    ]
+          \  @alfred left right                          down  up [    ]
 
                            lmet  del    ralt  rctl
                     @s_spc lalt  f11    f12   ret bspc
