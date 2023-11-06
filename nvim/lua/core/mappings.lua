@@ -102,6 +102,10 @@ vim.keymap.set('n', ']W', ':llast<CR>')
 
 -- change prefix for window navigation
 vim.keymap.set('n', '<leader>a', '<C-w>')
+vim.keymap.set('n', '<leader>am', '<C-w>h')
+vim.keymap.set('n', '<leader>an', '<C-w>j')
+vim.keymap.set('n', '<leader>ae', '<C-w>k')
+vim.keymap.set('n', '<leader>ai', '<C-w>l')
 
 -- swap fold command
 vim.keymap.set('n', 'za', 'zo')
