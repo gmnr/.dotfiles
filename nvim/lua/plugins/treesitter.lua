@@ -1,20 +1,58 @@
 -- Treesitter plugin config
-local M = {}
-
-function M.config()
-  require('nvim-treesitter.configs').setup {
-    highlight = {
+require('nvim-treesitter.configs').setup {
+  highlight = {
+    enable = true,
+    disable = {'markdown'}
+  },
+  indent = {
+    enabled = false,
+    disable = {},
+  },
+  textobjects = {
+    select = {
       enable = true,
-      disable = {'markdown'}
+      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ['aa'] = '@parameter.outer',
+        ['ia'] = '@parameter.inner',
+        ['af'] = '@function.outer',
+        ['if'] = '@function.inner',
+        ['ac'] = '@class.outer',
+        ['ic'] = '@class.inner',
+      },
     },
-    indent = {
-      enabled = false,
-      disable = {},
+  },
+  move = {
+    enable = true,
+    set_jumps = true, -- whether to set jumps in the jumplist
+    goto_next_start = {
+      [']m'] = '@function.outer',
+      [']]'] = '@class.outer',
     },
-    ensure_installed = {'bash', 'css', 'html', 'javascript', 'json5', 'ledger', 'lua', 'markdown', 'markdown_inline', 'norg', 'python'},
-    sync_install = true, -- install synchronously
-		ignore_install = {}, -- parsers to not install
-  }
-end
-
-return M
+    goto_next_end = {
+      [']M'] = '@function.outer',
+      [']['] = '@class.outer',
+    },
+    goto_previous_start = {
+      ['[m'] = '@function.outer',
+      ['[['] = '@class.outer',
+    },
+    goto_previous_end = {
+      ['[M'] = '@function.outer',
+      ['[]'] = '@class.outer',
+    },
+  },
+  swap = {
+    enable = true,
+    swap_next = {
+      ['<leader>a'] = '@parameter.inner',
+    },
+    swap_previous = {
+      ['<leader>A'] = '@parameter.inner',
+    },
+  },
+  ensure_installed = {'bash', 'css', 'html', 'help', 'javascript', 'json5', 'ledger', 'lua', 'markdown', 'markdown_inline', 'norg', 'python'},
+  sync_install = true, -- install synchronously
+  ignore_install = {}, -- parsers to not install
+}

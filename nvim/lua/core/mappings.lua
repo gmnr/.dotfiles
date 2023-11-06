@@ -55,7 +55,7 @@ vim.keymap.set('n', '<leader>lo', ':lopen<CR>')
 vim.keymap.set('n', '<leader>lc', ':lclose<CR>')
 
 --  quick search
-vim.keymap.set('n', '<leader>ff', ':%s/')
+vim.keymap.set('n', '<leader>tt', ':%s/')
 
 -- start interactive EasyAlign in visual mode (e.g. vipga)
 vim.keymap.set({'n', 'x'}, 'ga', '<Plug>(EasyAlign)')
@@ -70,13 +70,16 @@ vim.keymap.set('n', '<leader>gm', ':diffget //2<CR>')
 vim.keymap.set('n', '<leader>gi', ':diffget //3<CR>')
 
 -- telescope mappings
-vim.keymap.set('n', '<leader>yy', ':lua Project_files()<CR>', { silent = true })  -- link custom function to use find_git when .git exists and find_files when it doesn't
+vim.keymap.set('n', '<leader>yy', ':lua Project_files()<CR>', { silent = true })
 vim.keymap.set('n', '<leader>yi', ':Telescope live_grep<CR>', { silent = true })
-vim.keymap.set('n', '<leader>yu', ':Telescope buffers<CR>', { silent = true })
+vim.keymap.set('n', '<leader><space>', ':Telescope buffers<CR>', { silent = true })
 vim.keymap.set('n', '<leader>ys', ':Telescope git_status<CR>', { silent = true })
 vim.keymap.set('n', '<leader>yc', ':Telescope git_branches<CR>', { silent = true })
 vim.keymap.set('n', '<leader>ya', ':Telescope find_files<CR>', { silent = true })
+vim.keymap.set('n', '<leader>yh', ':Telescope help_tags<CR>', { silent = true })
+vim.keymap.set('n', '<leader>yd', ':Telescope diagnostics<CR>', { silent = true })
 vim.keymap.set('n', '<leader>yg', ':silent grep ')
+vim.keymap.set('n', '<leader>yu', ':Telescope ')
 
 -- change the current directory to edited file
 vim.keymap.set('n', '<leader>cd', ':cd %:h<CR>')
@@ -123,7 +126,7 @@ vim.keymap.set('n', ']c', '&diff ? "]c" : ":Gitsigns next_hunk<CR>"', { expr = t
 vim.keymap.set('n', '[c', '&diff ? "[c" : ":Gitsigns prev_hunk<CR>"', { expr = true })
 
 -- lsp config
-vim.keymap.set('n', 'E', ':Lspsaga hover_doc<CR>', { silent = true })
+vim.keymap.set('n', '<leader>F', ':Lspsaga hover_doc<CR>', { silent = true })
 vim.keymap.set('n', '[d', ':Lspsaga diagnostic_jump_prev<CR>', { silent = true })
 vim.keymap.set('n', ']d', ':Lspsaga diagnostic_jump_next<CR>', { silent = true })
 vim.keymap.set('n', 'gI', vim.lsp.buf.implementation)
@@ -131,8 +134,8 @@ vim.keymap.set('n', '<C-r>', vim.lsp.buf.signature_help)
 vim.keymap.set('n', '<leader>ls', vim.diagnostic.setloclist)
 vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition)
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
-vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
-vim.keymap.set('n', 'gr', vim.lsp.buf.references)
+vim.keymap.set('n', 'gd', ':Telescope lsp_definitions<CR>', {silent = true})
+vim.keymap.set('n', 'gr', ':Telescope lsp_references<CR>', {silent = true})
 vim.keymap.set('n', '<leader>ll', ':Lspsaga show_line_diagnostics<CR>', { silent = true })
 vim.keymap.set('n', '<leader>lL', ':Lspsaga show_cursor_diagnostics<CR>', { silent = true })
 vim.keymap.set('n', '<leader>la', ':Lspsaga code_action<CR>', { silent = true })

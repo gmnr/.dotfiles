@@ -11,9 +11,10 @@ require('core.theme')
 require('plugins.static')
 
 -- load dynamic plugins config
-require('plugins.completion').config()  -- cmp / lspconfig / lspking / lspsaga
-require('plugins.gitsigns').config()
-require('plugins.lua-line').config()
-require('plugins.telescope').config()
-require('plugins.treesitter').config()
-require('plugins.organization').config()
+require('plugins.completion')
+require('plugins.gitsigns')
+require('plugins.lua-line')
+require('plugins.telescope')
+require('plugins.treesitter')
+require('plugins.organization')
+
