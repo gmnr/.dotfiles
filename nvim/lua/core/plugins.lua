@@ -21,7 +21,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-neorg/neorg'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvimdev/lspsaga.nvim'
 Plug 'onsails/lspkind-nvim'
@@ -39,6 +38,7 @@ Plug 'windwp/nvim-autopairs'
 Plug('ledger/vim-ledger', {['for'] = { 'ledger' }})
 Plug('mattn/emmet-vim', {['for'] = { 'html', 'css' }})
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = vim.fn['TSUpdate']})
+Plug('nvim-telescope/telescope-fzf-native.nvim', {['do'] = function() vim.call('make') end})
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug('preservim/vim-markdown', {['for'] = { 'markdown' }})
 

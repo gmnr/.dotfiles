@@ -14,13 +14,21 @@ require('telescope').setup{
   },
   pickers = {
     find_files = {
-      find_command = { 'rg', '--files', '--hidden', '--glob', '!.git/*' },  -- find_files should look into hidden dirs, but not into .git
+      find_command = { 'rg', '--files', '--hidden', '--glob', '!.git/*' },  -- find_files should look into hidden dirs, but not .git
     },
+  },
+  extensions = {
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = true,
+      override_file_sorter = true,
+      case_mode = "smart_case",
+    }
   }
 }
 
 -- enable optimization
-pcall(require('telescope').load_extension, 'fzf')
+require('telescope').load_extension('fzf')
 
 -- define global function that uses git if dir is available otherwise find_files
 Project_files = function()
