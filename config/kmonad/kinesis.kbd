@@ -7,7 +7,6 @@
 
 (defalias
     c_esc (tap-hold-next-release 200 esc lctl)
-    a_tab (tap-hold-next-release 200 tab lalt)
 
     s_spc (tap-hold-next-release 200 spc (layer-toggle nav))
     num (layer-toggle num)
@@ -52,7 +51,7 @@
   caps F1   F2   F3   F4   F5   F6   F7   F8   F9   F10  F11  F12  prnt slck pause
 
   `  @fun_1  @fun_2  @fun_3  @fun_4  @fun_5       @fun_6  @fun_7  @fun_8  @fun_9  @fun_0    -
-  @a_tab  q    w    f    p    b                   j    l    u    y    ;    =
+  tab     q    w    f    p    b                   j    l    u    y    ;    =
   @c_esc  a    r    s    t    g                   m    n    e    i    o    '
   lsft    z    x    c    d    v                   k    h    ,    .    / rsft
           \  @alfred left right                          down  up [    ]

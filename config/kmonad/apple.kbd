@@ -6,7 +6,6 @@
 
 
 (defalias
-    a_tab (tap-hold-next-release 200 tab lalt)
     c_esc (tap-hold-next-release 200 esc lctl)
 
     chrome (cmd-button "open /Applications/Google\\ Chrome.app")
@@ -44,7 +43,7 @@
 (deflayer colemak-dh
   caps  brdn   brup   f11  f12   f5   f6   prev   pp   next   mute  vold  volu
   `  @fun_1    @fun_2    @fun_3    @fun_4    @fun_5    @fun_6    @fun_7    @fun_8    @fun_9    @fun_0    -    =    bspc
-  @a_tab  q    w    f    p    b    j    l    u    y    ;    [    ]    \
+  tab  q    w    f    p    b    j    l    u    y    ;    [    ]    \
   @c_esc  a    r    s    t    g    m    n    e   i    o    '    ret
   lsft  z    x    c    d    v    k    h    ,    .    /    rsft  up 
   @num   lctl  lalt  lmet           @s_spc            rmet  ralt  left  down  rght 
