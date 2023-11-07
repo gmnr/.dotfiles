@@ -83,7 +83,7 @@ font:
     family: MesloLGS Nerd Font Mono
 
   # Point size
-  size: 15.5
+  size: 14.5
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -434,8 +434,8 @@ key_bindings:
   - { key: Return, mods: Command, action: ToggleFullscreen }
   - { key: Paste, action: Paste }
   - { key: Copy, action: Copy }
-  - { key: L, mods: Control, action: ClearLogNotice }
-  - { key: L, mods: Control, chars: "\f" }
+  - { key: I, mods: Control, action: ClearLogNotice }
+  - { key: I, mods: Control, chars: "\f" }
   - { key: Home, mods: Alt, chars: "\e[1;3H" }
   - { key: Home, chars: "\eOH", mode: AppCursor }
   - { key: Home, chars: "\e[H", mode: ~AppCursor }
