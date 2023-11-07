@@ -119,7 +119,7 @@ vim.keymap.set('n', '<leader>bq', ':!/usr/local/bin/hledger -f /Users/guido/.fin
 -- gitsigns
 vim.keymap.set('n', '<leader>hp', ':Gitsigns preview_hunk<CR>')
 vim.keymap.set('n', '<leader>hb', ':Gitsigns blame_line<CR>')
-vim.keymap.set('n', '<leader>hB', ':Gitsigns toggle_current_line_blame<CR>')  -- not working
+vim.keymap.set('n', '<leader>hB', ':Gitsigns toggle_current_line_blame<CR>')
 vim.keymap.set('n', '<leader>hS', ':Gitsigns stage_buffer<CR>')
 vim.keymap.set('n', '<leader>hR', ':Gitsigns reset_buffer<CR>')
 vim.keymap.set('n', '<leader>hd', ':Gitsigns diffthis<CR>')
