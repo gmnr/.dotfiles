@@ -39,7 +39,7 @@ alias n='nvim'
 alias ny='nvim "+lua Project_files()"'
 alias copy='pbcopy'
 alias g='run_git'
-alias v='nvim --headless +"lua Annotate()" +"q!" && nvim +$ ~/.notes/notepad/$(date +%Y%m%d).md'
+alias a='nvim --headless +"lua Annotate()" +"q!" && nvim +$ ~/.notes/notepad/$(date +%Y%m%d).md'
 alias tree='tree -I .git'
 
 # ledger aliases
@@ -50,7 +50,7 @@ alias out='bal cash bank -p thismonth -D --transpose -T amt:"<0" --drop 1'   # c
 alias roi='clear; hledger roi --pretty --pnl "unrealized" -V --inv'
 alias dadv='clear; hledger -f ~/.finance/others/alfredo.journal roi --pretty --pnl "unrealized" -V --inv VNGA'
 alias fedev='clear; hledger -f ~/.finance/others/fede.journal roi --pretty --pnl "unrealized" -V --inv VWCE'
-alias prices='python ~/.finance/.src/scripts/fetch-mkt-prices.py'
+alias pp='python ~/.finance/.src/scripts/fetch-mkt-prices.py'
 alias p='cat ~/.finance/prices/current_prices.journal'
 
 # source taskwarrior aliases
