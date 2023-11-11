@@ -34,8 +34,8 @@ vim.keymap.set('n', '<C-f>', '<C-u>')
 vim.keymap.set('n', '<C-s>', '<C-d>')
 
 -- open and load .vimrc
-vim.keymap.set('n', '<leader>fd', ':lua require("telescope.builtin").find_files({cwd="~/.dotfiles/nvim/lua/", search_dirs={"plugins", "core"}})<CR>', { silent = true })
-vim.keymap.set('n', '<leader>fu', ':PlugUpdate<CR>')
+vim.keymap.set('n', '<leader>fd', ':lua require("telescope.builtin").find_files({cwd="~/.dotfiles/nvim/lua/"})<CR>', { silent = true })
+vim.keymap.set('n', '<leader>fu', ':Lazy<CR>')
 vim.keymap.set('n', '<leader>fw', ':lua Annotate()<CR>:exe "e +$ ~/.notes/notepad/".strftime("%Y%m%d").".md"<CR>', { silent = true })
 
 -- open notes
