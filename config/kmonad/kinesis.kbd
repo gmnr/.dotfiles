@@ -7,7 +7,7 @@
 
 (defalias
     c_esc (around ctl (tap-hold-next 200 (around (release-only ctl) esc) XX))
-    s_spc (tap-hold-next-release 180 spc (layer-toggle nav))
+    s_alt (tap-hold-next-release 180 lalt (layer-toggle nav))
 
     num (layer-toggle num)
     med (layer-toggle med)
@@ -57,7 +57,7 @@
           \  @alfred left right                          down  up [    ]
 
                            lmet  del    ralt  rctl
-                    @s_spc lalt  f11    f12   ret bspc
+                    spc @s_alt f11    f12   ret bspc
                                  @num   @med
 )
 
