@@ -1,4 +1,4 @@
--- Options config
+-- OPTIONS
 -- basic options
 vim.opt.number                     = true  -- enable numbering
 vim.opt.termguicolors              = true  -- enable termguicolors
@@ -33,27 +33,8 @@ vim.opt.spellcapcheck              = ''          -- don't check cap error at beg
 vim.opt.grepprg                    = 'rg --vimgrep --no-heading --smart-case'
 vim.opt.grepformat                 = '%f:%l:%c:%m,%f:%l:%m'
 
--- disable some useless standard plugins to save startup time these features are better covered by plugins
-vim.g.loaded_gzip              = 1
-vim.g.loaded_tar               = 1
-vim.g.loaded_tarPlugin         = 1
-vim.g.loaded_zip               = 1
-vim.g.loaded_zipPlugin         = 1
-vim.g.loaded_getscript         = 1
-vim.g.loaded_getscriptPlugin   = 1
-vim.g.loaded_vimball           = 1
-vim.g.loaded_vimballPlugin     = 1
-vim.g.loaded_matchit           = 1
-vim.g.loaded_matchparen        = 1
-vim.g.loaded_2html_plugin      = 1
-vim.g.loaded_logiPat           = 1
-vim.g.loaded_rrhelper          = 1
-vim.g.loaded_netrw             = 1
-vim.g.loaded_netrwPlugin       = 1
-vim.g.loaded_netrwSettings     = 1
-vim.g.loaded_netrwFileHandlers = 1
 
--- color options
+-- COLORS
 -- add colors to types in autocompletion
 vim.cmd('highlight! CmpItemAbbrDeprecated guibg=NONE guifg=#808080')
 vim.cmd('highlight! CmpItemAbbrMatch      guibg=NONE guifg=#98C379')
@@ -82,11 +63,8 @@ vim.cmd('highlight! GitSignsChangeNr      guibg=NONE guifg=#7AA2F7')
 vim.cmd('highlight! GitSignsDelete        guibg=NONE guifg=#D74B4B')
 vim.cmd('highlight! GitSignsDeleteNr      guibg=NONE guifg=#D74B4B')
 
---  silence grep
-vim.cmd("cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'")
-vim.cmd("cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'")
 
--- Autocommands config
+-- AUTOCOMMANDS
 local api = vim.api
 
 api.nvim_create_autocmd('BufNewFile', {
@@ -161,7 +139,8 @@ api.nvim_create_autocmd('QuickFixCmdPost', {
   command = 'lwindow'
 })
 
--- Custom Functions
+
+-- FUNCTIONS
 -- save and close buffer
 vim.api.nvim_create_user_command('Wd', 'write|bdelete', {})
 
