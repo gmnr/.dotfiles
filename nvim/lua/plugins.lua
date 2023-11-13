@@ -26,13 +26,15 @@ require('lazy').setup({
   'wellle/targets.vim',
   'windwp/nvim-autopairs',
   'junegunn/vim-easy-align',
+  "folke/which-key.nvim",
 
   -- colorscheme
   {
     'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
     config = function()
       vim.cmd('colorscheme tokyonight-storm')
-      -- vim.cmd('let $NVIM_TUI_ENABLE_TRUE_COLOR=1')
     end
   },
 
@@ -86,6 +88,7 @@ require('lazy').setup({
   -- completion & snippets
   {
     'hrsh7th/nvim-cmp',
+    event = "InsertEnter",
     dependencies = {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-cmdline',
@@ -116,6 +119,22 @@ require('lazy').setup({
         cond = function()
           return vim.fn.executable 'make' == 1
         end,
+      },
+    },
+    opts = {
+      defaults = {
+        layout_strategy = "horizontal",
+        layout_config = {
+          horizontal = {
+            prompt_position = "top",
+            preview_width = 0.5,
+          },
+          width = 0.8,
+          height = 0.8,
+          preview_cutoff = 120,
+        },
+        sorting_strategy = "ascending",
+        winblend = 0,
       },
     },
   },
@@ -210,7 +229,6 @@ require('lazy').setup({
     dependencies = {
       'nvimdev/lspsaga.nvim',
       'onsails/lspkind-nvim',
-      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
     },
   }
 }, {})
