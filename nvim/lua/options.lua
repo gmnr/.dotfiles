@@ -22,6 +22,10 @@ vim.opt.wildignorecase             = true  -- ignore case when writing commands
 vim.opt.complete                   = ''    -- disable ordinary autocompletion
 vim.opt.conceallevel               = 2     -- enable concealing
 
+-- set leader
+vim.keymap.set('n', '<Space>', '<Nop>', { silent = true, remap = false })  -- improve performance of leader key
+vim.g.mapleader = ' '
+
 -- diff options
 vim.opt.diffopt                    = 'filler,iwhite,internal,algorithm:patience'
 

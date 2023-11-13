@@ -1,8 +1,4 @@
--- Mappings config
--- leader key
-vim.keymap.set('n', '<Space>', '<Nop>', { silent = true, remap = false })  -- improve performance of leader key
-vim.g.mapleader = ' '
-
+-- MAPPINGS
 -- fix Y behaviour
 vim.keymap.set('n', 'Y', 'y$')
 
@@ -35,8 +31,8 @@ vim.keymap.set('n', '<C-s>', '<C-d>')
 
 -- open and load .vimrc
 vim.keymap.set('n', '<leader>fd', ':lua require("telescope.builtin").find_files({cwd="~/.dotfiles/nvim/lua/"})<CR>', { silent = true })
-vim.keymap.set('n', '<leader>fu', ':Lazy<CR>')
 vim.keymap.set('n', '<leader>fw', ':lua Annotate()<CR>:exe "e +$ ~/.notes/notepad/".strftime("%Y%m%d").".md"<CR>', { silent = true })
+vim.keymap.set('n', '<leader>fu', ':Lazy<CR>')
 
 -- open notes
 vim.keymap.set('n', '<leader>pl', ':lua require("telescope.builtin").find_files({cwd="~/.notes"})<CR>', { silent = true })

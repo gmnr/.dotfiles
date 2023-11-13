@@ -1,4 +1,4 @@
 -- Init config
-require('mappings')
-require('plugins')
 require('options')
+require('plugins')
+require('mappings')
