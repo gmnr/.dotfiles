@@ -145,7 +145,7 @@ api.nvim_create_autocmd('QuickFixCmdPost', {
 vim.api.nvim_create_user_command('Wd', 'write|bdelete', {})
 
 -- Align ledger amounts and add trailing zeros when needed
-function BetterLedgerAlign()
+function _G.BetterLedgerAlign()
   if string.find(vim.fn.getline('.'):sub(-1), '%d') then
     local str = vim.fn.getline('.')
     local elements = {}
@@ -190,7 +190,7 @@ function _G.Annotate()
 end
 
 -- go to root dir when using telescope
-function Project_files()
+function _G.Project_files()
   local ok = pcall(require('telescope.builtin').git_files)
   if not ok then
     require('telescope.builtin').find_files()
