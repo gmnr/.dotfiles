@@ -79,6 +79,7 @@ vim.keymap.set('n', '<leader>ya', ':Telescope find_files<CR>', { silent = true }
 vim.keymap.set('n', '<leader>yh', ':Telescope help_tags<CR>', { silent = true })
 vim.keymap.set('n', '<leader>yd', ':Telescope diagnostics<CR>', { silent = true })
 vim.keymap.set('n', '<leader>yg', ':silent grep ')
+vim.keymap.set('n', '<leader>;;', ':Telescope commands<CR>', { silent = true })
 vim.keymap.set('n', '<leader>yu', ':Telescope ')
 
 -- change the current directory to edited file
@@ -145,4 +146,8 @@ vim.keymap.set('n', '<leader>lL', ':Lspsaga show_cursor_diagnostics<CR>', { sile
 vim.keymap.set('n', '<leader>la', ':Lspsaga code_action<CR>', { silent = true })
 vim.keymap.set('n', '<leader>lf', ':Lspsaga lsp_finder<CR>', { silent = true })
 vim.keymap.set('n', '<leader>lr', ':Lspsaga rename<CR>', { silent = true })
+
+--  silence grep when grepping
+vim.cmd("cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'")
+vim.cmd("cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'")
 
