@@ -246,7 +246,17 @@ require('telescope').setup {
 pcall(require('telescope').load_extension, 'fzf')
 
 require('nvim-treesitter.configs').setup {
-  ensure_installed = {'bash', 'css', 'html', 'javascript', 'json5', 'ledger', 'lua', 'markdown', 'python'},
+  ensure_installed = {
+    'bash',
+    'css',
+    'html',
+    'javascript',
+    'json5',
+    'ledger',
+    'lua',
+    'markdown',
+    'python'
+  },
   highlight = {
     enable = true,
     disable = {'markdown'}
@@ -308,7 +318,13 @@ require('nvim-treesitter.configs').setup {
 local cmp = require('cmp')
 
 -- disable auto completion for text heavy types
-cmp.setup.filetype({'markdown', 'gitcommit', 'text', 'norg'}, {
+cmp.setup.filetype({
+  'markdown',
+  'gitcommit',
+  'text',
+  'norg' 
+},
+{
   completion = {
     autocomplete = false
   }
@@ -444,7 +460,12 @@ cmp.setup {
 
 -- config lspgconfig
 local nvim_lsp = require('lspconfig')
-local servers = {'pyright', 'tsserver', 'lua_ls', 'bashls'}
+local servers = {
+  'pyright',
+  'tsserver',
+  'lua_ls',
+  'bashls'
+}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     root_dir = nvim_lsp.util.root_pattern('.git'),
@@ -530,7 +551,12 @@ local saga = require('lspsaga').setup ({
 
 local npairs = require('nvim-autopairs')
 npairs.setup({
-  disable_filetype = { 'ledger', 'markdown', 'text', 'norg' }
+  disable_filetype = {
+    'ledger',
+    'markdown',
+    'text',
+    'norg'
+  }
 })
 
 local Rule = require('nvim-autopairs.rule')
