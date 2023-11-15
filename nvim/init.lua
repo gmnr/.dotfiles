@@ -1,5 +1,5 @@
 -- Init config
 require('options')
 require('plugins')
-require('mappings')
+require('keymaps')
 require('colors')
