@@ -69,6 +69,10 @@ require('lazy').setup({
   -- quickrun
   {
     'thinca/vim-quickrun',
+    ft = {
+      'python',
+      'javascript'
+    },
     config = function()
       vim.cmd([[let g:quickrun_config = {'*': {'hook/time/enable': 1, 'hook/time/format': '[Finished in %gs]', 'outputter/buffer/opener': '%{"bel 12new"}'}}]])
     end
