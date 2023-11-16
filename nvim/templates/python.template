@@ -5,6 +5,5 @@
 Docstring
 """
 
-__author__ = 'Guido Minieri'
-__license__ = 'GPL'
-
+__author__ = "Guido Minieri"
+__license__ = "GPL"
