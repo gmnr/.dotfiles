@@ -53,6 +53,7 @@ return {
         filetypes = {
           "help",
           "Trouble",
+          "ledger",
           "lazy",
           "mason",
         },
@@ -73,6 +74,7 @@ return {
         pattern = {
           "help",
           "Trouble",
+          "ledger",
           "lazy",
           "mason",
         },
