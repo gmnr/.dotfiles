@@ -1,5 +1,6 @@
 -- Init config
-require('options')
-require('plugins')
-require('keymaps')
-require('colors')
+require("config.keymaps")
+require("config.options")
+require("config.functions")
+require("config.autocommands")
+require("config.lazy")

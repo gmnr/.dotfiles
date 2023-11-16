@@ -1,4 +1,8 @@
 -- MAPPINGS
+-- set leader
+vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false }) -- improve performance of leader key
+vim.g.mapleader = " "
+
 -- fix Y behaviour
 vim.keymap.set("n", "Y", "y$")
 
@@ -34,25 +38,25 @@ vim.keymap.set("n", "<C-s>", "<C-d>")
 
 -- open and load .vimrc
 vim.keymap.set(
-	"n",
-	"<leader>fc",
-	':lua require("telescope.builtin").find_files({cwd="~/.dotfiles/nvim/lua/"})<CR>',
-	{ silent = true }
+  "n",
+  "<leader>fd",
+  ':lua require("telescope.builtin").find_files({cwd="~/.dotfiles/nvim/lua/"})<CR>',
+  { silent = true }
 )
 vim.keymap.set(
-	"n",
-	"<leader>fn",
-	':lua Annotate()<CR>:exe "e +$ ~/.notes/notepad/".strftime("%Y%m%d").".md"<CR>',
-	{ silent = true }
+  "n",
+  "<leader>fn",
+  ':lua Annotate()<CR>:exe "e +$ ~/.notes/notepad/".strftime("%Y%m%d").".md"<CR>',
+  { silent = true }
 )
 vim.keymap.set("n", "<leader>fu", ":Lazy<CR>")
 
 -- open notes
 vim.keymap.set(
-	"n",
-	"<leader>pl",
-	':lua require("telescope.builtin").find_files({cwd="~/.notes"})<CR>',
-	{ silent = true }
+  "n",
+  "<leader>pl",
+  ':lua require("telescope.builtin").find_files({cwd="~/.notes"})<CR>',
+  { silent = true }
 )
 
 -- quick save and exit
@@ -130,16 +134,16 @@ vim.keymap.set("n", "zo", "za")
 -- hledger formatting
 vim.keymap.set("n", "<leader>bb", ":lua BetterLedgerAlign()<CR>")
 vim.keymap.set(
-	"n",
-	"<leader>ba",
-	":!/usr/local/bin/hledger -f /Users/guido/.finance/all.journal payees > /Users/guido/.finance/.src/completion-source/payees<CR>",
-	{ silent = true }
+  "n",
+  "<leader>ba",
+  ":!/usr/local/bin/hledger -f /Users/guido/.finance/all.journal payees > /Users/guido/.finance/.src/completion-source/payees<CR>",
+  { silent = true }
 )
 vim.keymap.set(
-	"n",
-	"<leader>bq",
-	":!/usr/local/bin/hledger -f /Users/guido/.finance/all.journal accounts | /usr/bin/python3 /Users/guido/.finance/.src/scripts/filter-account.py > /Users/guido/.finance/.src/completion-source/accounts<CR>",
-	{ silent = true }
+  "n",
+  "<leader>bq",
+  ":!/usr/local/bin/hledger -f /Users/guido/.finance/all.journal accounts | /usr/bin/python3 /Users/guido/.finance/.src/scripts/filter-account.py > /Users/guido/.finance/.src/completion-source/accounts<CR>",
+  { silent = true }
 )
 
 -- gitsigns
@@ -157,11 +161,11 @@ vim.keymap.set("n", "[c", '&diff ? "[c" : ":Gitsigns prev_hunk<CR>"', { expr = t
 
 -- diagnostic
 local diagnostic_goto = function(next, severity)
-	local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
-	severity = severity and vim.diagnostic.severity[severity] or nil
-	return function()
-		go({ severity = severity })
-	end
+  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+  severity = severity and vim.diagnostic.severity[severity] or nil
+  return function()
+    go({ severity = severity })
+  end
 end
 vim.keymap.set("n", "<leader>ll", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 vim.keymap.set("n", "]d", diagnostic_goto(true))
