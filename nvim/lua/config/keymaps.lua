@@ -147,7 +147,7 @@ vim.keymap.set(
 )
 
 -- gitsigns
-vim.keymap.set("n", "<leader>hp", ":Gitsigns preview_hunk<CR>")
+vim.keymap.set("n", "<leader>hh", ":Gitsigns preview_hunk<CR>")
 vim.keymap.set("n", "<leader>hb", ":Gitsigns blame_line<CR>")
 vim.keymap.set("n", "<leader>hB", ":Gitsigns toggle_current_line_blame<CR>")
 vim.keymap.set("n", "<leader>hS", ":Gitsigns stage_buffer<CR>")
