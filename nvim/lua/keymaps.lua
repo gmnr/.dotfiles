@@ -8,9 +8,12 @@ vim.keymap.set("n", "I", "$")
 
 -- remap movement for colemak
 vim.keymap.set({ "n", "v" }, "m", "h")
-vim.keymap.set({ "n", "v" }, "n", "gj") -- with movement across visual line
-vim.keymap.set({ "n", "v" }, "e", "gk") -- with movement across visual line
 vim.keymap.set({ "n", "v" }, "i", "l")
+vim.keymap.set({ "n", "x" }, "n", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set({ "n", "x" }, "e", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+
+-- clear search with esc
+vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>")
 
 -- remap old hjkl & capital
 vim.keymap.set({ "n", "v" }, "h", "e")
@@ -151,6 +154,18 @@ vim.keymap.set({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>", { silent 
 vim.keymap.set({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>", { silent = true })
 vim.keymap.set("n", "]c", '&diff ? "]c" : ":Gitsigns next_hunk<CR>"', { expr = true })
 vim.keymap.set("n", "[c", '&diff ? "[c" : ":Gitsigns prev_hunk<CR>"', { expr = true })
+
+-- diagnostic
+local diagnostic_goto = function(next, severity)
+	local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+	severity = severity and vim.diagnostic.severity[severity] or nil
+	return function()
+		go({ severity = severity })
+	end
+end
+vim.keymap.set("n", "<leader>ll", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+vim.keymap.set("n", "]d", diagnostic_goto(true))
+vim.keymap.set("n", "[d", diagnostic_goto(false))
 
 --  silence grep when grepping
 vim.cmd("cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'")
