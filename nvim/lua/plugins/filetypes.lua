@@ -1,6 +1,6 @@
 return {
 
-  -- emmet
+  -- html/css development
   {
     "mattn/emmet-vim",
     config = function()
@@ -30,6 +30,4 @@ return {
     end,
     ft = { "markdown" },
   },
-
 }
-
