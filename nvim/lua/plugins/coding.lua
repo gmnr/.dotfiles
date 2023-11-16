@@ -18,47 +18,48 @@ return {
     "windwp/nvim-autopairs",
     config = function()
       local npairs = require("nvim-autopairs")
-      npairs.setup({
-        disable_filetype = {
-          "ledger",
-          "markdown",
-          "text",
-          "norg",
-        },
-      })
-
       local Rule = require("nvim-autopairs.rule")
 
-      npairs.add_rules({
-        Rule(" ", " "):with_pair(function(opts)
-          local pair = opts.line:sub(opts.col - 1, opts.col)
-          return vim.tbl_contains({ "()", "[]", "{}" }, pair)
-        end),
-        Rule("( ", " )")
-          :with_pair(function()
-            return false
-          end)
-          :with_move(function(opts)
-            return opts.prev_char:match(".%)") ~= nil
-          end)
-          :use_key(")"),
-        Rule("{ ", " }")
-          :with_pair(function()
-            return false
-          end)
-          :with_move(function(opts)
-            return opts.prev_char:match(".%}") ~= nil
-          end)
-          :use_key("}"),
-        Rule("[ ", " ]")
-          :with_pair(function()
-            return false
-          end)
-          :with_move(function(opts)
-            return opts.prev_char:match(".%]") ~= nil
-          end)
-          :use_key("]"),
-      })
+      return {
+        npairs.setup({
+          disable_filetype = {
+            "ledger",
+            "markdown",
+            "text",
+            "norg",
+          },
+        }),
+        npairs.add_rules({
+          Rule(" ", " "):with_pair(function(opts)
+            local pair = opts.line:sub(opts.col - 1, opts.col)
+            return vim.tbl_contains({ "()", "[]", "{}" }, pair)
+          end),
+          Rule("( ", " )")
+            :with_pair(function()
+              return false
+            end)
+            :with_move(function(opts)
+              return opts.prev_char:match(".%)") ~= nil
+            end)
+            :use_key(")"),
+          Rule("{ ", " }")
+            :with_pair(function()
+              return false
+            end)
+            :with_move(function(opts)
+              return opts.prev_char:match(".%}") ~= nil
+            end)
+            :use_key("}"),
+          Rule("[ ", " ]")
+            :with_pair(function()
+              return false
+            end)
+            :with_move(function(opts)
+              return opts.prev_char:match(".%]") ~= nil
+            end)
+            :use_key("]"),
+        }),
+      }
     end,
   },
 
@@ -127,20 +128,11 @@ return {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     cmd = { "TroubleToggle", "Trouble" },
-    opts = { use_diagnostic_signs = true },
     keys = {
-      { "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
-      { "<leader>xX", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
-      { "<leader>xL", "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
-      { "<leader>xQ", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
+      { "<leader>xx", "<cmd>TroubleToggle <cr>" },
+      { "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>" },
+      { "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>" },
+      { "<leader>xq", "<cmd>TroubleToggle quickfix<cr>" },
     },
-    config = function()
-      vim.diagnostic.config({ virtual_text = false, underline = true, severity_sort = true })
-      local signs = { Error = "► ", Warn = "► ", Hint = "► ", Information = "► " }
-      for type, icon in pairs(signs) do
-        local hl = "DiagnosticSign" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-      end
-    end,
   },
 }
