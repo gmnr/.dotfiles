@@ -83,6 +83,7 @@ vim.keymap.set("n", "<leader>yy", "<cmd>Telescope find_files theme=ivy<CR>", opt
 vim.keymap.set("n", "<leader>ys", "<cmd>Telescope git_status theme=ivy<CR>", opts)
 vim.keymap.set("n", "<leader>yc", "<cmd>Telescope git_branches theme=ivy<CR>", opts)
 vim.keymap.set("n", "<leader>yh", "<cmd>Telescope help_tags theme=ivy<CR>", opts)
+vim.keymap.set("n", "<leader>yf", "<cmd>Telescope file_browser theme=ivy<CR>", opts)
 vim.keymap.set("n", "<leader>yg", ":silent grep ")
 
 -- change the current directory to edited file
