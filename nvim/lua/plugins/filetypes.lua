@@ -19,7 +19,7 @@ return {
     end,
     ft = { "ledger" },
     keys = {
-      { mode = "i", "<CR>", "<cmd>lua BetterLedgerAlign()<CR><Right><CR>", { silent = true } },
+      { mode = "i", "<CR>", "<cmd>lua better_ledger_align()<CR><Right><CR>", { silent = true } },
     },
   },
 
