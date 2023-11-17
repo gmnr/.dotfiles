@@ -13,8 +13,8 @@ return {
         "SirVer/ultisnips",
         config = function()
           vim.g.UltiSnipsExpandTrigger = "<Tab>"
-          vim.g.UltiSnipsJumpForwardTrigger = "<Tab>"
-          vim.g.UltiSnipsJumpBackwardTrigger = "<S-Tab>"
+          vim.g.UltiSnipsJumpForwardTrigger = "<C-n>"
+          vim.g.UltiSnipsJumpBackwardTrigger = "<C-e>"
           vim.g.UltiSnipsSnippetDirectories = { "snppts" }
         end,
       },
