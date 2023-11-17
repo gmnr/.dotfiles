@@ -140,7 +140,7 @@ return {
   -- lsp
   {
     "neovim/nvim-lspconfig",
-    ft = { "python", "lua", "bash" },
+    ft = { "python", "lua", "sh" },
     config = function()
       -- config lspgconfig
       local nvim_lsp = require("lspconfig")
@@ -188,7 +188,6 @@ return {
       move_in_saga = { prev = "<C-y>", next = "<C-k>" },
       diagnostic_header = { " ", " ", " ", "ﴞ " },
       show_diagnostic_source = true,
-      -- diagnostic_source_bracket = {},
       max_preview_lines = 10,
       code_action_icon = "",
       code_action_num_shortcut = true,
