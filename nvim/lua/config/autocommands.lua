@@ -26,12 +26,6 @@ api.nvim_create_autocmd("FileType", {
 })
 
 api.nvim_create_autocmd("FileType", {
-  desc = "Autoalign amounts on ledger files when pressing enter",
-  pattern = { "ledger" },
-  command = "inoremap <silent> <CR> <C-r>=v:lua.BetterLedgerAlign()<CR><Right><CR>",
-})
-
-api.nvim_create_autocmd("FileType", {
   desc = "automatically close temporasy buffers with q",
   pattern = {
     "qf",
@@ -53,7 +47,7 @@ api.nvim_create_autocmd("FileType", {
 })
 
 api.nvim_create_autocmd("BufWritePre", {
-  desc = "Remove trailing spaces",
+  desc = "Remove trailing spaces in journal files",
   pattern = { "*.journal" },
   command = "%s/\\s\\+$//e",
 })

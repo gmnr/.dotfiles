@@ -18,9 +18,11 @@ return {
       vim.g.ledger_decimal_sep = ","
     end,
     ft = { "ledger" },
+    keys = {
+      { mode = "i", "<CR>", "<cmd>lua BetterLedgerAlign()<CR><Right><CR>", { silent = true } },
+    },
   },
 
-  -- vim-markdown
   {
     "preservim/vim-markdown",
     config = function()
