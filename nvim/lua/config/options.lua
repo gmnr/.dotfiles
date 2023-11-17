@@ -21,7 +21,7 @@ vim.opt.smartcase = true
 vim.opt.expandtab = true
 
 -- don't redraw screen while executing macros
-vim.opt.lazyredraw = true
+-- vim.opt.lazyredraw = true
 
 -- when substituting the g flag is always enabled
 vim.opt.gdefault = true

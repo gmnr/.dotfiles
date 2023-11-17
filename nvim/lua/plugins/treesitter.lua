@@ -15,6 +15,7 @@ return {
           "ledger",
           "lua",
           "markdown",
+          "markdown_inline",
           "python",
         },
         highlight = {

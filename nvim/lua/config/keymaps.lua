@@ -1,4 +1,5 @@
 -- MAPPINGS
+local opts = { silent = true }
 -- set leader
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false }) -- improve performance of leader key
 vim.g.mapleader = " "
@@ -41,23 +42,13 @@ vim.keymap.set(
   "n",
   "<leader>fd",
   ':lua require("telescope.builtin").find_files({cwd="~/.dotfiles/nvim/lua/"})<CR>',
-  { silent = true }
+  opts
 )
-vim.keymap.set(
-  "n",
-  "<leader>fn",
-  ':lua Annotate()<CR>:exe "e +$ ~/.notes/notepad/".strftime("%Y%m%d").".md"<CR>',
-  { silent = true }
-)
-vim.keymap.set("n", "<leader>fu", ":Lazy<CR>")
+vim.keymap.set("n", "<leader>fn", ':lua Annotate()<CR>:exe "e +$ ~/.notes/notepad/".strftime("%Y%m%d").".md"<CR>', opts)
+vim.keymap.set("n", "<leader>fu", ":Lazy<CR>", opts)
 
 -- open notes
-vim.keymap.set(
-  "n",
-  "<leader>pl",
-  ':lua require("telescope.builtin").find_files({cwd="~/.notes"})<CR>',
-  { silent = true }
-)
+vim.keymap.set("n", "<leader>pl", ':lua require("telescope.builtin").find_files({cwd="~/.notes"})<CR>', opts)
 
 -- quick save and exit
 vim.keymap.set("n", "<leader>ww", ":w<CR>")
@@ -79,21 +70,21 @@ vim.keymap.set("n", "<leader>tt", ":%s/")
 vim.keymap.set("n", "<BS>", "<C-^>")
 
 -- map vim-fugitive
-vim.keymap.set("n", "<leader>gs", ":Git<CR>")
-vim.keymap.set("n", "<leader>gy", ":Git push<CR>")
-vim.keymap.set("n", "<leader>gm", ":diffget //2<CR>")
-vim.keymap.set("n", "<leader>gi", ":diffget //3<CR>")
+vim.keymap.set("n", "<leader>gs", ":Git<CR>", opts)
+vim.keymap.set("n", "<leader>gy", ":Git push<CR>", opts)
+vim.keymap.set("n", "<leader>gm", ":diffget //2<CR>", opts)
+vim.keymap.set("n", "<leader>gi", ":diffget //3<CR>", opts)
 
 -- telescope mappings
-vim.keymap.set("n", "<leader><space>", ":lua Project_files()<CR>", { silent = true })
-vim.keymap.set("n", "<leader>/", ":Telescope live_grep<CR>", { silent = true })
-vim.keymap.set("n", "<leader>;", ":Telescope commands<CR>", { silent = true })
-vim.keymap.set("n", "<leader>,", ":Telescope buffers<CR>", { silent = true })
+vim.keymap.set("n", "<leader><space>", ":lua Project_files()<CR>", opts)
+vim.keymap.set("n", "<leader>/", ":Telescope live_grep<CR>", opts)
+vim.keymap.set("n", "<leader>;", ":Telescope commands<CR>", opts)
+vim.keymap.set("n", "<leader>,", ":Telescope buffers<CR>", opts)
 
-vim.keymap.set("n", "<leader>ys", ":Telescope git_status<CR>", { silent = true })
-vim.keymap.set("n", "<leader>yc", ":Telescope git_branches<CR>", { silent = true })
-vim.keymap.set("n", "<leader>ya", ":Telescope find_files<CR>", { silent = true })
-vim.keymap.set("n", "<leader>yh", ":Telescope help_tags<CR>", { silent = true })
+vim.keymap.set("n", "<leader>ys", ":Telescope git_status<CR>", opts)
+vim.keymap.set("n", "<leader>yc", ":Telescope git_branches<CR>", opts)
+vim.keymap.set("n", "<leader>ya", ":Telescope find_files<CR>", opts)
+vim.keymap.set("n", "<leader>yh", ":Telescope help_tags<CR>", opts)
 vim.keymap.set("n", "<leader>yg", ":silent grep ")
 vim.keymap.set("n", "<leader>yu", ":Telescope ")
 
@@ -104,7 +95,7 @@ vim.keymap.set("n", "<leader>cd", ":cd %:h<CR>")
 vim.keymap.set("n", "<leader><Tab>", "1z=")
 
 -- quickrun
-vim.keymap.set("n", "<leader>pp", ":w<CR>:QuickRun<CR>")
+vim.keymap.set("n", "<leader>pp", ":w<CR>:QuickRun<CR>", opts)
 
 -- toggle paste and manage copy
 vim.keymap.set("n", "<leader>jj", ":set invpaste paste?<CR>")
@@ -132,45 +123,45 @@ vim.keymap.set("n", "za", "zo")
 vim.keymap.set("n", "zo", "za")
 
 -- hledger formatting
-vim.keymap.set("n", "<leader>bb", ":lua BetterLedgerAlign()<CR>")
+vim.keymap.set("n", "<leader>bb", ":lua BetterLedgerAlign()<CR>", opts)
 vim.keymap.set(
   "n",
   "<leader>ba",
   ":!/usr/local/bin/hledger -f /Users/guido/.finance/all.journal payees > /Users/guido/.finance/.src/completion-source/payees<CR>",
-  { silent = true }
+  opts
 )
 vim.keymap.set(
   "n",
   "<leader>bq",
   ":!/usr/local/bin/hledger -f /Users/guido/.finance/all.journal accounts | /usr/bin/python3 /Users/guido/.finance/.src/scripts/filter-account.py > /Users/guido/.finance/.src/completion-source/accounts<CR>",
-  { silent = true }
+  opts
 )
 
 -- gitsigns
-vim.keymap.set("n", "<leader>hh", ":Gitsigns preview_hunk<CR>")
-vim.keymap.set("n", "<leader>hb", ":Gitsigns blame_line<CR>")
-vim.keymap.set("n", "<leader>hB", ":Gitsigns toggle_current_line_blame<CR>")
-vim.keymap.set("n", "<leader>hS", ":Gitsigns stage_buffer<CR>")
-vim.keymap.set("n", "<leader>hR", ":Gitsigns reset_buffer<CR>")
-vim.keymap.set("n", "<leader>hd", ":Gitsigns diffthis<CR>")
-vim.keymap.set("n", "<leader>hu", ":Gitsigns undo_stage_hunk<CR>")
-vim.keymap.set({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>", { silent = true })
-vim.keymap.set({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>", { silent = true })
-vim.keymap.set("n", "]c", '&diff ? "]c" : ":Gitsigns next_hunk<CR>"', { expr = true })
-vim.keymap.set("n", "[c", '&diff ? "[c" : ":Gitsigns prev_hunk<CR>"', { expr = true })
-
--- diagnostic
-local diagnostic_goto = function(next, severity)
-  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
-  severity = severity and vim.diagnostic.severity[severity] or nil
-  return function()
-    go({ severity = severity })
-  end
-end
-vim.keymap.set("n", "<leader>ll", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
-vim.keymap.set("n", "]d", diagnostic_goto(true))
-vim.keymap.set("n", "[d", diagnostic_goto(false))
+vim.keymap.set("n", "<leader>hh", ":Gitsigns preview_hunk<CR>", opts)
+vim.keymap.set("n", "<leader>hb", ":Gitsigns blame_line<CR>", opts)
+vim.keymap.set("n", "<leader>hB", ":Gitsigns toggle_current_line_blame<CR>", opts)
+vim.keymap.set("n", "<leader>hS", ":Gitsigns stage_buffer<CR>", opts)
+vim.keymap.set("n", "<leader>hR", ":Gitsigns reset_buffer<CR>", opts)
+vim.keymap.set("n", "<leader>hd", ":Gitsigns diffthis<CR>", opts)
+vim.keymap.set("n", "<leader>hu", ":Gitsigns undo_stage_hunk<CR>", opts)
+vim.keymap.set({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>", opts)
+vim.keymap.set({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>", opts)
+vim.keymap.set("n", "]c", '&diff ? "]c" : ":Gitsigns next_hunk<CR>"', { expr = true, silent = true })
+vim.keymap.set("n", "[c", '&diff ? "[c" : ":Gitsigns prev_hunk<CR>"', { expr = true, silent = true })
 
 --  silence grep when grepping
 vim.cmd("cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'")
 vim.cmd("cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'")
+
+-- lsp
+vim.keymap.set("n", "<leader>E", ":Lspsaga hover_doc<CR>", opts)
+vim.keymap.set("n", "[d", ":Lspsaga diagnostic_jump_prev<CR>", opts)
+vim.keymap.set("n", "]d", ":Lspsaga diagnostic_jump_next<CR>", opts)
+vim.keymap.set("n", "gd", ":Telescope lsp_definitions<CR>", opts)
+vim.keymap.set("n", "gr", ":Telescope lsp_references<CR>", opts)
+vim.keymap.set("n", "<leader>ll", ":Lspsaga show_line_diagnostics<CR>", opts)
+vim.keymap.set("n", "<leader>lL", ":Lspsaga show_cursor_diagnostics<CR>", opts)
+vim.keymap.set("n", "<leader>la", ":Lspsaga code_action<CR>", opts)
+vim.keymap.set("n", "<leader>lf", ":Lspsaga finder<CR>", opts)
+vim.keymap.set("n", "<leader>lr", ":Lspsaga rename<CR>", opts)
