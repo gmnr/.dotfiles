@@ -55,3 +55,8 @@ function _G.Project_files()
     require("telescope.builtin").find_files()
   end
 end
+
+-- open notes from terminal
+function _G.Open_notes()
+  require("telescope.builtin").find_files({ cwd = "~/.notes" })
+end
