@@ -51,17 +51,17 @@ vim.keymap.set("n", "<leader>fu", ":Lazy<CR>", opts)
 vim.keymap.set("n", "<leader>pl", ':lua require("telescope.builtin").find_files({cwd="~/.notes"})<CR>', opts)
 
 -- quick save and exit
-vim.keymap.set("n", "<leader>ww", ":w<CR>")
-vim.keymap.set("n", "<leader>wq", ":Wd<CR>")
-vim.keymap.set("n", "<leader>qq", ":bd!<CR>")
-vim.keymap.set("n", "<leader>QQ", ":q!<CR>")
-vim.keymap.set("n", "<leader>QA", ":qa!<CR>")
+vim.keymap.set("n", "<leader>ww", ":w<CR>", opts)
+vim.keymap.set("n", "<leader>wq", ":Wd<CR>", opts)
+vim.keymap.set("n", "<leader>qq", ":bd!<CR>", opts)
+vim.keymap.set("n", "<leader>QQ", ":q!<CR>", opts)
+vim.keymap.set("n", "<leader>QA", ":qa!<CR>", opts)
 
 -- open and close quickfix and location list
-vim.keymap.set("n", "<leader>qo", ":cope<CR>")
-vim.keymap.set("n", "<leader>qc", ":ccl<CR>")
-vim.keymap.set("n", "<leader>lo", ":lopen<CR>")
-vim.keymap.set("n", "<leader>lc", ":lclose<CR>")
+vim.keymap.set("n", "<leader>qo", ":cope<CR>", opts)
+vim.keymap.set("n", "<leader>qc", ":ccl<CR>", opts)
+vim.keymap.set("n", "<leader>lo", ":lopen<CR>", opts)
+vim.keymap.set("n", "<leader>lc", ":lclose<CR>", opts)
 
 --  quick search
 vim.keymap.set("n", "<leader>tt", ":%s/")
@@ -89,7 +89,7 @@ vim.keymap.set("n", "<leader>yg", ":silent grep ")
 vim.keymap.set("n", "<leader>yu", ":Telescope ")
 
 -- change the current directory to edited file
-vim.keymap.set("n", "<leader>cd", ":cd %:h<CR>")
+vim.keymap.set("n", "<leader>cd", ":cd %:h<CR>", opts)
 
 -- add autocorrect
 vim.keymap.set("n", "<leader><Tab>", "1z=")
@@ -98,14 +98,14 @@ vim.keymap.set("n", "<leader><Tab>", "1z=")
 vim.keymap.set("n", "<leader>pp", ":w<CR>:QuickRun<CR>", opts)
 
 -- toggle paste and manage copy
-vim.keymap.set("n", "<leader>jj", ":set invpaste paste?<CR>")
-vim.keymap.set("n", "<leader>cp", ":w !pbcopy<CR>")
+vim.keymap.set("n", "<leader>jj", ":set invpaste paste?<CR>", opts)
+vim.keymap.set("n", "<leader>cp", ":w !pbcopy<CR>", opts)
 
 -- change mappings for location list navigation
-vim.keymap.set("n", "[w", ":lprevious<CR>")
-vim.keymap.set("n", "]w", ":lnext<CR>")
-vim.keymap.set("n", "[W", ":lfirst<CR>")
-vim.keymap.set("n", "]W", ":llast<CR>")
+vim.keymap.set("n", "[w", ":lprevious<CR>", opts)
+vim.keymap.set("n", "]w", ":lnext<CR>", opts)
+vim.keymap.set("n", "[W", ":lfirst<CR>", opts)
+vim.keymap.set("n", "]W", ":llast<CR>", opts)
 
 -- change prefix for window navigation
 vim.keymap.set("n", "<leader>aa", "<C-w>w")
@@ -123,16 +123,17 @@ vim.keymap.set("n", "za", "zo")
 vim.keymap.set("n", "zo", "za")
 
 -- hledger formatting
-vim.keymap.set("n", "<leader>bb", ":lua BetterLedgerAlign()<CR>", opts)
+vim.keymap.set("n", "<leader>ep", ":lua BetterLedgerAlign()<CR>", opts)
+vim.keymap.set("n", "<leader>ee", ":e +$ ~/.finance/periods/2023.journal<CR>", opts)
 vim.keymap.set(
   "n",
-  "<leader>ba",
+  "<leader>ea",
   ":!/usr/local/bin/hledger -f /Users/guido/.finance/all.journal payees > /Users/guido/.finance/.src/completion-source/payees<CR>",
   opts
 )
 vim.keymap.set(
   "n",
-  "<leader>bq",
+  "<leader>eq",
   ":!/usr/local/bin/hledger -f /Users/guido/.finance/all.journal accounts | /usr/bin/python3 /Users/guido/.finance/.src/scripts/filter-account.py > /Users/guido/.finance/.src/completion-source/accounts<CR>",
   opts
 )
