@@ -37,22 +37,17 @@ vim.keymap.set("n", "<C-f>", "<C-u>")
 vim.keymap.set("n", "<C-s>", "<C-d>")
 
 -- open and load .vimrc
-vim.keymap.set(
-  "n",
-  "<leader>fd",
-  '<cmd>lua require("telescope.builtin").find_files({cwd="~/.dotfiles/nvim/lua/"})<CR>',
-  opts
-)
+vim.keymap.set("n", "<leader>fd", "<cmd>Telescope find_files cwd=~/.dotfiles/nvim theme=ivy<CR>", opts)
 vim.keymap.set(
   "n",
   "<leader>fn",
-  '<cmd>lua Annotate()<CR><cmd>exe "e +$ ~/.notes/notepad/".strftime("%Y%m%d").".md"<CR>',
+  '<cmd>lua annotate()<CR><cmd>exe "e +$ ~/.notes/notepad/".strftime("%Y%m%d").".md"<CR>',
   opts
 )
 vim.keymap.set("n", "<leader>fu", "<cmd>Lazy<CR>", opts)
 
 -- open notes
-vim.keymap.set("n", "<leader>pl", '<cmd>lua require("telescope.builtin").find_files({cwd="~/.notes"})<CR>', opts)
+vim.keymap.set("n", "<leader>fa", "<cmd>Telescope find_files cwd=~/.notes theme=ivy<CR>", opts)
 
 -- quick save and exit
 vim.keymap.set("n", "<leader>ww", "<cmd>w<CR>", opts)
@@ -80,16 +75,15 @@ vim.keymap.set("n", "<leader>gm", "<cmd>diffget //2<CR>", opts)
 vim.keymap.set("n", "<leader>gi", "<cmd>diffget //3<CR>", opts)
 
 -- telescope mappings
-vim.keymap.set("n", "<leader><space>", "<cmd>lua Project_files()<CR>", opts)
-vim.keymap.set("n", "<leader>/", "<cmd>Telescope live_grep<CR>", opts)
-vim.keymap.set("n", "<leader>;", "<cmd>Telescope commands<CR>", opts)
-vim.keymap.set("n", "<leader>,", "<cmd>Telescope buffers<CR>", opts)
-vim.keymap.set("n", "<leader>yy", "<cmd>Telescope find_files<CR>", opts)
-vim.keymap.set("n", "<leader>ys", "<cmd>Telescope git_status<CR>", opts)
-vim.keymap.set("n", "<leader>yc", "<cmd>Telescope git_branches<CR>", opts)
-vim.keymap.set("n", "<leader>yh", "<cmd>Telescope help_tags<CR>", opts)
-vim.keymap.set("n", "<leader>yg", "<cmd>silent grep ")
-vim.keymap.set("n", "<leader>ya", "<cmd>Telescope ")
+vim.keymap.set("n", "<leader><space>", "<cmd>lua project_files()<CR>", opts)
+vim.keymap.set("n", "<leader>/", "<cmd>Telescope live_grep theme=ivy<CR>", opts)
+vim.keymap.set("n", "<leader>;", "<cmd>Telescope commands theme=ivy<CR>", opts)
+vim.keymap.set("n", "<leader>,", "<cmd>Telescope buffers theme=ivy<CR>", opts)
+vim.keymap.set("n", "<leader>yy", "<cmd>Telescope find_files theme=ivy<CR>", opts)
+vim.keymap.set("n", "<leader>ys", "<cmd>Telescope git_status theme=ivy<CR>", opts)
+vim.keymap.set("n", "<leader>yc", "<cmd>Telescope git_branches theme=ivy<CR>", opts)
+vim.keymap.set("n", "<leader>yh", "<cmd>Telescope help_tags theme=ivy<CR>", opts)
+vim.keymap.set("n", "<leader>yg", ":silent grep ")
 
 -- change the current directory to edited file
 vim.keymap.set("n", "<leader>cd", "<cmd>cd %<cmd>h<CR>", opts)
@@ -126,7 +120,7 @@ vim.keymap.set("n", "za", "zo")
 vim.keymap.set("n", "zo", "za")
 
 -- hledger formatting
-vim.keymap.set("n", "<leader>ep", "<cmd>lua BetterLedgerAlign()<CR>", opts)
+vim.keymap.set("n", "<leader>ep", "<cmd>lua better_ledger_align()<CR>", opts)
 vim.keymap.set("n", "<leader>ee", "<cmd>e +$ ~/.finance/periods/2023.journal<CR>", opts)
 vim.keymap.set(
   "n",
@@ -151,8 +145,8 @@ vim.keymap.set("n", "<leader>hd", "<cmd>Gitsigns diffthis<CR>", opts)
 vim.keymap.set("n", "<leader>hu", "<cmd>Gitsigns undo_stage_hunk<CR>", opts)
 vim.keymap.set({ "n", "v" }, "<leader>hs", "<cmd>Gitsigns stage_hunk<CR>", opts)
 vim.keymap.set({ "n", "v" }, "<leader>hr", "<cmd>Gitsigns reset_hunk<CR>", opts)
-vim.keymap.set("n", "]c", '&diff ? "]c" <cmd> "<cmd>Gitsigns next_hunk<CR>"', { expr = true, silent = true })
-vim.keymap.set("n", "[c", '&diff ? "[c" <cmd> "<cmd>Gitsigns prev_hunk<CR>"', { expr = true, silent = true })
+vim.keymap.set("n", "]c", '&diff ? "]c" : ":Gitsigns next_hunk<CR>"', { expr = true, silent = true })
+vim.keymap.set("n", "[c", '&diff ? "[c" : ":Gitsigns prev_hunk<CR>"', { expr = true, silent = true })
 
 --  silence grep when grepping
 vim.cmd("cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'")
