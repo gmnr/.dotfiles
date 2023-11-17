@@ -11,26 +11,26 @@ return {
       vim.cmd("colorscheme tokyonight-storm")
 
       -- add colors to types in autocompletion
-      vim.cmd("highlight! CmpItemAbbrDeprecated guibg=NONE guifg=#808080")
-      vim.cmd("highlight! CmpItemAbbrMatch      guibg=NONE guifg=#98C379")
-      vim.cmd("highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#98C379")
-      vim.cmd("highlight! CmpItemKindInterface  guibg=NONE guifg=#98C379")
-      vim.cmd("highlight! CmpItemKindUnit       guibg=NONE guifg=#98C379")
-      vim.cmd("highlight! CmpItemKindFunction   guibg=NONE guifg=#C678DD")
-      vim.cmd("highlight! CmpItemKindKeyword    guibg=NONE guifg=#C678DD")
-      vim.cmd("highlight! CmpItemKindMethod     guibg=NONE guifg=#E06C75")
-      vim.cmd("highlight! CmpItemKindProperty   guibg=NONE guifg=#E06C75")
-      vim.cmd("highlight! CmpItemKindVariable   guibg=NONE guifg=#61AFEF")
-      vim.cmd("highlight! CmpItemKindText       guibg=NONE guifg=#ABB2BF")
-      vim.cmd("highlight! CmpItemKindClass      guibg=NONE guifg=#E5C07B")
+      -- vim.cmd("highlight! CmpItemAbbrDeprecated guibg=NONE guifg=#808080")
+      -- vim.cmd("highlight! CmpItemAbbrMatch      guibg=NONE guifg=#98C379")
+      -- vim.cmd("highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#98C379")
+      -- vim.cmd("highlight! CmpItemKindInterface  guibg=NONE guifg=#98C379")
+      -- vim.cmd("highlight! CmpItemKindUnit       guibg=NONE guifg=#98C379")
+      -- vim.cmd("highlight! CmpItemKindFunction   guibg=NONE guifg=#C678DD")
+      -- vim.cmd("highlight! CmpItemKindKeyword    guibg=NONE guifg=#C678DD")
+      -- vim.cmd("highlight! CmpItemKindMethod     guibg=NONE guifg=#E06C75")
+      -- vim.cmd("highlight! CmpItemKindProperty   guibg=NONE guifg=#E06C75")
+      -- vim.cmd("highlight! CmpItemKindVariable   guibg=NONE guifg=#61AFEF")
+      -- vim.cmd("highlight! CmpItemKindText       guibg=NONE guifg=#ABB2BF")
+      -- vim.cmd("highlight! CmpItemKindClass      guibg=NONE guifg=#E5C07B")
 
-      -- modify spell error highlighings
+      -- -- modify spell error highlighings
       vim.cmd("highlight! SpellBad              guibg=NONE guifg=#E5C07B")
       vim.cmd("highlight! SpellCap              guibg=NONE guifg=#E5C07B")
       vim.cmd("highlight! SpellLocal            guibg=NONE guifg=#E5C07B")
       vim.cmd("highlight! SpellRare             guibg=NONE guifg=#E5C07B")
 
-      -- define custom colors for gitsigns
+      -- -- define custom colors for gitsigns
       vim.cmd("highlight! GitSignsAdd           guibg=NONE guifg=#92BE65")
       vim.cmd("highlight! GitSignsAddNr         guibg=NONE guifg=#92BE65")
       vim.cmd("highlight! GitSignsChange        guibg=NONE guifg=#7AA2F7")
@@ -181,14 +181,28 @@ return {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {
-      -- add any options here
+      lsp = {
+        override = {
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+          ["vim.lsp.util.stylize_markdown"] = true,
+          ["cmp.entry.get_documentation"] = true,
+        },
+      },
+      presets = {
+        bottom_search = true,
+        command_palette = true,
+        long_message_to_split = true,
+        lsp_doc_border = true,
+      },
+      routes = {
+        {
+          view = "notify",
+          filter = { event = "msg_showmode" },
+        },
+      },
     },
     dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
     },
   },
