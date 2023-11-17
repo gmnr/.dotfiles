@@ -16,11 +16,6 @@ vim.keymap.set({ "n", "v" }, "m", "h")
 vim.keymap.set({ "n", "v" }, "i", "l")
 vim.keymap.set({ "n", "x" }, "n", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 vim.keymap.set({ "n", "x" }, "e", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-
--- clear search with esc
-vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>")
-
--- remap old hjkl & capital
 vim.keymap.set({ "n", "v" }, "h", "e")
 vim.keymap.set({ "n", "v" }, "j", "m")
 vim.keymap.set({ "n", "v" }, "k", "n")
@@ -29,6 +24,9 @@ vim.keymap.set({ "n", "v" }, "H", "E")
 vim.keymap.set({ "n", "v" }, "K", "N")
 vim.keymap.set({ "n", "v" }, "L", "I")
 vim.keymap.set({ "n", "v" }, "N", "J")
+
+-- clear search with esc
+vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>")
 
 -- remap redo command
 vim.keymap.set("n", "<C-p>", "<C-r>")
@@ -156,7 +154,7 @@ vim.cmd("cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^gr
 vim.cmd("cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'")
 
 -- lsp
-vim.keymap.set("n", "<leader>E", ":Lspsaga hover_doc<CR>", opts)
+vim.keymap.set("n", "E", ":Lspsaga hover_doc<CR>", opts)
 vim.keymap.set("n", "[d", ":Lspsaga diagnostic_jump_prev<CR>", opts)
 vim.keymap.set("n", "]d", ":Lspsaga diagnostic_jump_next<CR>", opts)
 vim.keymap.set("n", "gd", ":Telescope lsp_definitions<CR>", opts)
