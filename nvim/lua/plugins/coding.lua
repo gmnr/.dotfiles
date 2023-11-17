@@ -124,15 +124,57 @@ return {
     end,
   },
 
+  -- diagnostic
   {
     "folke/trouble.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    event = "LspAttach",
     cmd = { "TroubleToggle", "Trouble" },
     keys = {
-      { "<leader>xx", "<cmd>TroubleToggle <cr>" },
-      { "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>" },
-      { "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>" },
-      { "<leader>xq", "<cmd>TroubleToggle quickfix<cr>" },
+      { "<leader>xx", "<cmd>TroubleToggle <CR>" },
+      { "<leader>xx", "<cmd>TroubleToggle document_diagnostics<CR>" },
+      { "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<CR>" },
+      { "<leader>xq", "<cmd>TroubleToggle quickfix<CR>" },
     },
+  },
+
+  -- lsp
+  {
+    "neovim/nvim-lspconfig",
+    event = "LspAttach",
+    config = function()
+      -- config lspgconfig
+      local nvim_lsp = require("lspconfig")
+      local servers = {
+        "pyright",
+        "lua_ls",
+        "bashls",
+      }
+      for _, lsp in ipairs(servers) do
+        nvim_lsp[lsp].setup({
+          root_dir = nvim_lsp.util.root_pattern(".git"),
+        })
+      end
+
+      -- fix global variable vim not found
+      nvim_lsp.lua_ls.setup({
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" },
+            },
+          },
+        },
+      })
+    end,
+  },
+
+  -- IDE capabilities
+  {
+    "nvimdev/lspsaga.nvim",
+    event = "LspAttach",
+    config = function()
+      require("lspsaga").setup({})
+    end,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 }
