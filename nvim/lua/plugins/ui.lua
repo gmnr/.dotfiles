@@ -43,6 +43,7 @@ return {
   -- indent blankline
   {
     "lukas-reineke/indent-blankline.nvim",
+    event = "VeryLazy",
     opts = {
       indent = {
         char = "│",
@@ -52,7 +53,6 @@ return {
       exclude = {
         filetypes = {
           "help",
-          -- "Trouble",
           "ledger",
           "lazy",
           "mason",
@@ -65,6 +65,7 @@ return {
   -- indent scope
   {
     "echasnovski/mini.indentscope",
+    event = "VeryLazy",
     opts = {
       symbol = "│",
       options = { try_as_border = true },
@@ -73,7 +74,6 @@ return {
       vim.api.nvim_create_autocmd("FileType", {
         pattern = {
           "help",
-          -- "Trouble",
           "ledger",
           "lazy",
           "mason",
@@ -88,6 +88,7 @@ return {
   -- gitsigns
   {
     "lewis6991/gitsigns.nvim",
+    event = "VeryLazy",
     opts = {
       signs = {
         add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },

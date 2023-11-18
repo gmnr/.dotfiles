@@ -1,21 +1,22 @@
 return {
 
-  "tpope/vim-commentary",
-
   "tpope/vim-fugitive",
 
-  "tpope/vim-repeat",
+  { "tpope/vim-commentary", event = "VeryLazy" },
 
-  "tpope/vim-speeddating",
+  { "tpope/vim-repeat", event = "VeryLazy" },
 
-  "tpope/vim-surround",
+  { "tpope/vim-speeddating", event = "VeryLazy" },
 
-  "tpope/vim-unimpaired",
+  { "tpope/vim-surround", event = "VeryLazy" },
 
-  "wellle/targets.vim",
+  { "tpope/vim-unimpaired", event = "VeryLazy" },
+
+  { "wellle/targets.vim", event = "VeryLazy" },
 
   {
     "windwp/nvim-autopairs",
+    event = "VeryLazy",
     config = function()
       local npairs = require("nvim-autopairs")
       local Rule = require("nvim-autopairs.rule")
