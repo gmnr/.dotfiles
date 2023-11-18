@@ -51,7 +51,7 @@ vim.keymap.set("n", "<leader>fa", "<cmd>Telescope find_files cwd=~/.notes theme=
 
 -- quick save and exit
 vim.keymap.set("n", "<leader>ww", "<cmd>w<CR>", opts)
-vim.keymap.set("n", "<leader>wq", "<cmd>Wd<CR>", opts)
+vim.keymap.set("n", "<leader>wq", "<cmd>WRCL<CR>", opts)
 vim.keymap.set("n", "<leader>qq", "<cmd>bd!<CR>", opts)
 vim.keymap.set("n", "<leader>QQ", "<cmd>q!<CR>", opts)
 vim.keymap.set("n", "<leader>QA", "<cmd>qa!<CR>", opts)
@@ -75,16 +75,18 @@ vim.keymap.set("n", "<leader>gm", "<cmd>diffget //2<CR>", opts)
 vim.keymap.set("n", "<leader>gi", "<cmd>diffget //3<CR>", opts)
 
 -- telescope mappings
+vim.keymap.set("n", "<leader>yg", ":silent grep ")
+vim.keymap.set("n", "<leader>yy", ":Telescope ")
 vim.keymap.set("n", "<leader><space>", "<cmd>lua project_files()<CR>", opts)
 vim.keymap.set("n", "<leader>/", "<cmd>Telescope live_grep theme=ivy<CR>", opts)
 vim.keymap.set("n", "<leader>;", "<cmd>Telescope commands theme=ivy<CR>", opts)
 vim.keymap.set("n", "<leader>,", "<cmd>Telescope buffers theme=ivy<CR>", opts)
-vim.keymap.set("n", "<leader>yy", "<cmd>Telescope find_files theme=ivy<CR>", opts)
+vim.keymap.set("n", "<leader>ya", "<cmd>Telescope find_files theme=ivy<CR>", opts)
+vim.keymap.set("n", "<leader>yd", "<cmd>Telescope diagnostics theme=ivy<CR>", opts)
 vim.keymap.set("n", "<leader>ys", "<cmd>Telescope git_status theme=ivy<CR>", opts)
 vim.keymap.set("n", "<leader>yc", "<cmd>Telescope git_branches theme=ivy<CR>", opts)
 vim.keymap.set("n", "<leader>yh", "<cmd>Telescope help_tags theme=ivy<CR>", opts)
 vim.keymap.set("n", "<leader>yf", "<cmd>Telescope file_browser theme=ivy<CR>", opts)
-vim.keymap.set("n", "<leader>yg", ":silent grep ")
 
 -- change the current directory to edited file
 vim.keymap.set("n", "<leader>cd", "<cmd>cd %<cmd>h<CR>", opts)
