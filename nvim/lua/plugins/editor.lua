@@ -16,7 +16,7 @@ return {
 
   {
     "windwp/nvim-autopairs",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
     config = function()
       local npairs = require("nvim-autopairs")
       local Rule = require("nvim-autopairs.rule")
