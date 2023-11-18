@@ -24,10 +24,10 @@ return {
             i = {
               ["<ESC>"] = actions.close, -- don't enable normal mode
               ["<C-u>"] = false, -- clear prompt with C-u
-              ["<C-n>"] = actions.move_selection_next,
-              ["<C-e>"] = actions.move_selection_previous,
-              ["<C-k>"] = actions.preview_scrolling_down,
-              ["<C-y>"] = actions.preview_scrolling_up,
+              ["<C-k>"] = actions.move_selection_next,
+              ["<C-y>"] = actions.move_selection_previous,
+              ["<C-n>"] = actions.preview_scrolling_down,
+              ["<C-e>"] = actions.preview_scrolling_up,
             },
           },
           prompt_prefix = " ",
