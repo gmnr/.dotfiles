@@ -122,7 +122,7 @@ vim.keymap.set("n", "<leader>ai", "<C-w>l")
 vim.keymap.set("n", "za", "zo")
 vim.keymap.set("n", "zo", "za")
 
--- hledger formatting
+-- hledger plugs
 vim.keymap.set("n", "<leader>ep", "<cmd>lua better_ledger_align()<CR>", opts)
 vim.keymap.set("n", "<leader>ee", "<cmd>e +$ ~/.finance/periods/2023.journal<CR>", opts)
 vim.keymap.set(
