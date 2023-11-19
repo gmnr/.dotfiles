@@ -40,6 +40,7 @@ alias nn='nvim "+lua project_files()"'
 alias copy='pbcopy'
 alias g='run_git'
 alias a='nvim --headless +"lua annotate()" +"q!" && nvim +$ ~/.notes/notepad/$(date +%Y%m%d).md'
+alias aa='nvim "+lua open_notes()"'
 alias tree='tree -I .git'
 
 # ledger aliases

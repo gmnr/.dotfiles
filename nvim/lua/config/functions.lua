@@ -25,7 +25,6 @@ end
 -- go to root dir when using telescope
 function _G.project_files()
   local is_inside_work_tree = {}
-  local ivy = require("telescope.themes").get_ivy()
 
   local cwd = vim.fn.getcwd()
   if is_inside_work_tree[cwd] == nil then
@@ -34,8 +33,12 @@ function _G.project_files()
   end
 
   if is_inside_work_tree[cwd] then
-    require("telescope.builtin").git_files(ivy)
+    require("telescope.builtin").git_files()
   else
-    require("telescope.builtin").find_files(ivy)
+    require("telescope.builtin").find_files()
   end
+end
+
+function _G.open_notes()
+  require("telescope.builtin").find_files({ cwd = "~/.notes" })
 end
