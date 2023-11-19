@@ -32,17 +32,18 @@ return {
           },
           prompt_prefix = " ",
           selection_caret = " ",
-          layout_strategy = "horizontal",
-          layout_config = {
-            horizontal = {
-              prompt_position = "top",
-              preview_width = 0.5,
-            },
-            width = 0.8,
-            height = 0.8,
-            preview_cutoff = 120,
-          },
           sorting_strategy = "ascending",
+          layout_strategy = "bottom_pane",
+          preview_cutoff = 120,
+          layout_config = {
+            height = 25,
+          },
+          border = true,
+          borderchars = {
+            prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
+            results = { " " },
+            preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+          },
           winblend = 0,
           pickers = {
             find_files = {
