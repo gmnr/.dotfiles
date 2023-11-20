@@ -47,7 +47,7 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>fu", "<cmd>Lazy<CR>", opts)
 
 -- open notes
-vim.keymap.set("n", "<leader>fa", "<cmd>Telescope find_files cwd=~/.notes<CR>", opts)
+vim.keymap.set("n", "<leader>yn", "<cmd>Telescope find_files cwd=~/.notes<CR>", opts)
 
 -- quick save and exit
 vim.keymap.set("n", "<leader>ww", "<cmd>w<CR>", opts)
