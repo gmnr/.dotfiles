@@ -54,6 +54,7 @@ vim.keymap.set("n", "<leader>ww", "<cmd>w<CR>", opts)
 vim.keymap.set("n", "<leader>wq", "<cmd>WRCL<CR>", opts)
 vim.keymap.set("n", "<leader>qq", "<cmd>bd!<CR>", opts)
 vim.keymap.set("n", "<leader>QQ", "<cmd>q!<CR>", opts)
+vim.keymap.set("n", "<leader>WQ", "<cmd>wq!<CR>", opts)
 vim.keymap.set("n", "<leader>QA", "<cmd>qa!<CR>", opts)
 
 -- open and close quickfix and location list
