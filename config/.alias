@@ -19,7 +19,7 @@ else
 fi
 
 # advent of code utilities
-alias aocg='~/Coding/advent-of-code/utils/startup.sh'
+alias aocc='~/Coding/advent-of-code/utils/startup.sh'
 alias aocd='cd ~/Coding/advent-of-code'
 alias aoc='cd ~/Coding/advent-of-code && nvim'
 
