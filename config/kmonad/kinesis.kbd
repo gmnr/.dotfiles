@@ -68,7 +68,7 @@
   _    _    _    _    _    _                   _    _    _    _    _    _
   _  @work   @chrome   @msg    _    _                   _   _    _    @term    _    _
   _  _   _   _   _   _     left    down    up    right    _    _
-  _ _    _    @cal    _    _                   home    pgdn    pgup    end    _ rsft
+  _ _    _    @cal    _    _                   home    end    <    >    _ rsft
        _  _  _ _                          _   _ _    _
 
                            lctl del   ralt rctl

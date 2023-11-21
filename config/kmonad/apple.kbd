@@ -55,7 +55,7 @@
   _  _    _    _    _    _    _    _    _    _    _    _    =    del
   _  @work   @chrome   @msg   _   _   _   _   _   @term   _   [    ]    \
   _  _  _   _   _   _    left    down    up    right    _    '    ret
-  _ _    _    @cal    _    _    home    pgdn    pgup    end    /    rsft up
+  _ _    _    @cal    _    _    home    end    <    >    /    rsft up
   fn   lctl lalt lmet           @s_spc            rmet ralt left down rght
 )
 
