@@ -75,7 +75,8 @@ vim.keymap.set("n", "<leader>gi", "<cmd>diffget //3<CR>", opts)
 
 -- telescope mappings
 vim.keymap.set("n", "<leader>yg", ":silent grep ")
-vim.keymap.set("n", "<leader>yy", ":Telescope ")
+vim.keymap.set("n", "<leader>yu", ":Telescope ")
+vim.keymap.set("n", "<leader>yy", "<cmd>Telescope resume<CR>", opts)
 vim.keymap.set("n", "<leader><space>", "<cmd>lua project_files()<CR>", opts)
 vim.keymap.set("n", "<leader>/", "<cmd>Telescope live_grep<CR>", opts)
 vim.keymap.set("n", "<leader>;", "<cmd>Telescope commands<CR>", opts)
