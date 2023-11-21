@@ -82,3 +82,6 @@ api.nvim_create_autocmd("QuickFixCmdPost", {
   pattern = "l*",
   command = "lwindow",
 })
+
+-- enable line numbers in preview
+vim.cmd("autocmd User TelescopePreviewerLoaded setlocal number")
