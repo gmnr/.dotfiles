@@ -20,6 +20,17 @@ return {
 
       return {
         defaults = {
+          vimgrep_arguments = {
+            "rg",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
+            "--hidden",
+            "--glob=!.git/",
+          },
           mappings = {
             i = {
               ["<ESC>"] = actions.close, -- don't enable normal mode
@@ -47,7 +58,7 @@ return {
           winblend = 0,
           pickers = {
             find_files = {
-              find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" }, -- look into hidden dirs but not .git
+              find_command = { "rg", "--files", "--hidden", "--glob=!.git/" }, -- look into hidden dirs but not .git
             },
           },
           extensions = {
