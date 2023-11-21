@@ -39,6 +39,7 @@ return {
               ["<C-y>"] = actions.move_selection_previous,
               ["<C-n>"] = actions.preview_scrolling_down,
               ["<C-e>"] = actions.preview_scrolling_up,
+              ["<C-d>"] = actions.select_vertical,
             },
           },
           prompt_prefix = " ",
@@ -58,8 +59,18 @@ return {
           winblend = 0,
           pickers = {
             find_files = {
-              find_command = { "rg", "--files", "--hidden", "--glob=!.git/" }, -- look into hidden dirs but not .git
+              find_command = { "rg", "--files", "--hidden" },
             },
+          },
+          file_ignore_patterns = {
+            "^.vim/",
+            "^.local/",
+            "^.cache/",
+            "^Downloads/",
+            "^.git/",
+            "^Library/",
+            "^plugged/",
+            "^node_modules/",
           },
           extensions = {
             fzf = {
