@@ -39,6 +39,18 @@ function _G.project_files()
   end
 end
 
+-- open notes in their directory
 function _G.open_notes()
   require("telescope.builtin").find_files({ cwd = "~/.notes" })
+end
+
+-- update payees and account
+function _G.hledger_update()
+  os.execute(
+    "/usr/local/bin/hledger -f /Users/guido/.finance/all.journal payees > /Users/guido/.finance/.src/completion-source/payees"
+  )
+  os.execute(
+    "/usr/local/bin/hledger -f /Users/guido/.finance/all.journal accounts | /usr/bin/python3 /Users/guido/.finance/.src/scripts/filter-account.py > /Users/guido/.finance/.src/completion-source/accounts"
+  )
+  print("Payees and Accounts Updated")
 end

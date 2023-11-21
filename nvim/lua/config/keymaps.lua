@@ -126,18 +126,7 @@ vim.keymap.set("n", "zo", "za")
 -- hledger plugs
 vim.keymap.set("n", "<leader>ep", "<cmd>lua better_ledger_align()<CR>", opts)
 vim.keymap.set("n", "<leader>ee", "<cmd>e +$ ~/.finance/periods/2023.journal<CR>", opts)
-vim.keymap.set(
-  "n",
-  "<leader>ea",
-  "<cmd>!/usr/local/bin/hledger -f /Users/guido/.finance/all.journal payees > /Users/guido/.finance/.src/completion-source/payees<CR>",
-  opts
-)
-vim.keymap.set(
-  "n",
-  "<leader>eq",
-  "<cmd>!/usr/local/bin/hledger -f /Users/guido/.finance/all.journal accounts | /usr/bin/python3 /Users/guido/.finance/.src/scripts/filter-account.py > /Users/guido/.finance/.src/completion-source/accounts<CR>",
-  opts
-)
+vim.keymap.set("n", "<leader>ea", "<cmd>lua hledger_update()<CR>", opts)
 
 -- gitsigns
 vim.keymap.set("n", "<leader>hh", "<cmd>Gitsigns preview_hunk<CR>", opts)
