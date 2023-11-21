@@ -39,6 +39,11 @@ function _G.project_files()
   end
 end
 
+-- live grep
+function _G.open_live_grep()
+  require("telescope.builtin").live_grep()
+end
+
 -- open notes in their directory
 function _G.open_notes()
   require("telescope.builtin").find_files({ cwd = "~/.notes" })
