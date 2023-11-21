@@ -8,33 +8,13 @@
   l = log --oneline
   dd = diff
   ss = status
+  sh = show
   au = add -u
   pu = push origin master
   cm = commit -m
   co = checkout
   br = branch -v
   rb = rebase -i
-
-[color]
-  branch = auto
-  diff = auto
-  status = auto
-
-[color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
-
-[color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
-
-[color "status"]
-  added = green
-  changed = yellow
-  untracked = red
 
 [pager]
   diff = diff-so-fancy | less --tabs=4 -RFX
