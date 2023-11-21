@@ -71,7 +71,7 @@ function run_git() {
   if [[ $# -gt 0 ]] then
     git $@
   else
-    lazygit
+    nvim +Git +only
   fi
 }
 
@@ -95,15 +95,12 @@ if [ -f ~/.alias ]; then
 fi
 
 # make vim default editor
-export VISUAL=nvim
-export EDITOR="$VISUAL"
+export EDITOR=nvim
+export VISUAL="$EDITOR"
 export PAGER=bat
 
 # export the location of the dotfiles
 export DOTFILES=~/.dotfiles
-
-# add theme for bat
-export BAT_THEME="base16-256"
 
 # add bash-completion
 if [ -f /usr/local/share/bash-completion/bash_completion ]; then
