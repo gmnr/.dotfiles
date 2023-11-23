@@ -81,6 +81,7 @@ return {
   -- formatter
   {
     "stevearc/conform.nvim",
+    event = { "BufWritePre" },
     dependencies = {
       "williamboman/mason.nvim",
       config = function()
@@ -96,7 +97,6 @@ return {
         },
       },
     },
-    event = { "BufWritePre" },
     cmd = "ConformInfo",
     lazy = true,
     keys = {
