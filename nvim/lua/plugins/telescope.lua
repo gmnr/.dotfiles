@@ -63,7 +63,6 @@ return {
             },
           },
           file_ignore_patterns = {
-            "^.vim/",
             "^.local/",
             "^.cache/",
             "^Downloads/",
