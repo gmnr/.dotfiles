@@ -89,7 +89,7 @@ vim.keymap.set("n", "<leader>yh", "<cmd>Telescope help_tags<CR>", opts)
 vim.keymap.set("n", "<leader>yf", "<cmd>Telescope file_browser<CR>", opts)
 
 -- change the current directory to edited file
-vim.keymap.set("n", "<leader>cd", "<cmd>cd %<cmd>h<CR>", opts)
+vim.keymap.set("n", "<leader>cd", "<cmd>cd %:p:h<CR>", opts)
 
 -- add autocorrect
 vim.keymap.set("n", "<leader><Tab>", "1z=")
