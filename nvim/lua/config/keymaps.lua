@@ -95,7 +95,7 @@ vim.keymap.set("n", "<leader>cd", "<cmd>cd %:p:h<CR>", opts)
 vim.keymap.set("n", "<leader><Tab>", "1z=")
 
 -- quickrun
-vim.keymap.set("n", "<leader>pp", "<cmd>w<CR><cmd>QuickRun<CR>", opts)
+vim.keymap.set("n", "<leader>ff", "<cmd>w<CR><cmd>QuickRun<CR>", opts)
 
 -- toggle paste and manage copy
 vim.keymap.set("n", "<leader>jj", "<cmd>set invpaste paste?<CR>", opts)
