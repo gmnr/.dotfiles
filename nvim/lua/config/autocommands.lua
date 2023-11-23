@@ -30,6 +30,7 @@ api.nvim_create_autocmd("FileType", {
   pattern = {
     "qf",
     "man",
+    "quickrun",
     "help",
     "lspinfo",
     "checkhealth",
