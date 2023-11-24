@@ -8,22 +8,6 @@ vim.g.mapleader = " "
 -- fix Y behaviour
 vim.keymap.set("n", "Y", "y$")
 
--- saner line navigation
--- vim.keymap.set("n", "M", "^")
--- vim.keymap.set("n", "I", "$")
--- vim.keymap.set({ "n", "v" }, "m", "h")
--- vim.keymap.set({ "n", "v" }, "i", "l")
--- vim.keymap.set({ "n", "x" }, "n", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
--- vim.keymap.set({ "n", "x" }, "e", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
--- vim.keymap.set({ "n", "v" }, "h", "e")
--- vim.keymap.set({ "n", "v" }, "j", "m")
--- vim.keymap.set({ "n", "v" }, "k", "n")
--- vim.keymap.set({ "n", "v" }, "l", "i")
--- vim.keymap.set({ "n", "v" }, "H", "E")
--- vim.keymap.set({ "n", "v" }, "K", "N")
--- vim.keymap.set({ "n", "v" }, "L", "I")
--- vim.keymap.set({ "n", "v" }, "N", "J")
-
 -- clear search with esc
 vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>")
 
