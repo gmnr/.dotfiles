@@ -19,17 +19,18 @@ vim.keymap.set("n", "<C-f>", "<C-u>")
 vim.keymap.set("n", "<C-s>", "<C-d>")
 
 -- open and load .vimrc
-vim.keymap.set("n", "<leader>fd", "<cmd>Telescope find_files cwd=~/.dotfiles/nvim<CR>", opts)
+vim.keymap.set("n", "<leader>ss", "<cmd>Telescope find_files cwd=~/.dotfiles/nvim<CR>", opts)
+vim.keymap.set("n", "<leader>su", "<cmd>Lazy<CR>", opts)
+
+-- open notes
+vim.keymap.set("n", "<leader>uu", "<cmd>Telescope find_files cwd=~/.notes<CR>", opts)
+vim.keymap.set("n", "<leader>uy", "<cmd>Telescope live_grep cwd=~/.notes<CR>", opts)
 vim.keymap.set(
   "n",
-  "<leader>fn",
+  "<leader>ua",
   '<cmd>lua annotate()<CR><cmd>exe "e +$ ~/.notes/notepad/".strftime("%Y%m%d").".md"<CR>',
   opts
 )
-vim.keymap.set("n", "<leader>fu", "<cmd>Lazy<CR>", opts)
-
--- open notes
-vim.keymap.set("n", "<leader>yn", "<cmd>Telescope find_files cwd=~/.notes<CR>", opts)
 
 -- quick save and exit
 vim.keymap.set("n", "<leader>ww", "<cmd>w<CR>", opts)

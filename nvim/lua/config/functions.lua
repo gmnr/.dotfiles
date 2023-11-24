@@ -44,9 +44,19 @@ function _G.open_live_grep()
   require("telescope.builtin").live_grep()
 end
 
+-- open config in their directory
+function _G.open_conf()
+  require("telescope.builtin").find_files({ cwd = "~/.dotfiles" })
+end
+
 -- open notes in their directory
 function _G.open_notes()
   require("telescope.builtin").find_files({ cwd = "~/.notes" })
+end
+
+-- open grep in notes directory
+function _G.open_grep_notes()
+  require("telescope.builtin").live_grep({ cwd = "~/.notes" })
 end
 
 -- update payees and account
