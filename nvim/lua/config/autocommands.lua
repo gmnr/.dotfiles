@@ -31,6 +31,7 @@ api.nvim_create_autocmd("FileType", {
     "qf",
     "man",
     "quickrun",
+    "fugitive",
     "help",
     "lspinfo",
     "checkhealth",
