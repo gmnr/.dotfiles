@@ -52,7 +52,7 @@ vim.keymap.set("n", "<leader>tt", ":%s/")
 vim.keymap.set("n", "<BS>", "<C-^>")
 
 -- map vim-fugitive
-vim.keymap.set("n", "<leader>gg", "<cmd>Git<CR>", opts)
+vim.keymap.set("n", "<leader>gg", "<cmd>vertical Git<CR>", opts)
 vim.keymap.set("n", "<leader>gy", "<cmd>Git push<CR>", opts)
 vim.keymap.set("n", "<leader>gf", "<cmd>diffget //2<CR>", opts)
 vim.keymap.set("n", "<leader>gu", "<cmd>diffget //3<CR>", opts)
