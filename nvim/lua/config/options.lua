@@ -77,3 +77,6 @@ vim.opt.grepformat = "%f:%l:%c:%m"
 
 -- update wildignore
 vim.opt.wildignore = vim.opt.wildignore + { "**/.git/*" }
+
+-- set automatic cd
+vim.opt.autochdir = true
