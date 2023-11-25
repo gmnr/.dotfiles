@@ -29,23 +29,3 @@ Return
         Send {Blind}{Ctrl Up}
 Return
 
-; ctrl + numpad to send fn keys
-^Numpad1::send, {F1}
-^Numpad2::send, {F2}
-^Numpad3::send, {F3}
-^Numpad4::send, {F4}
-^Numpad5::send, {F5}
-^Numpad6::send, {F6}
-^Numpad7::send, {F7}
-^Numpad8::send, {F8}
-^Numpad9::send, {F9}
-
-; open calculator
-^Numpad0::
-IfWinNotExist, Calculator
-    Run calc.exe
-else
-{
-    WinActivate
-    return
-}
