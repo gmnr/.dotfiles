@@ -43,8 +43,8 @@ alias g='run_git'
 alias ua='nvim --headless +"lua annotate()" +"q!" && nvim +$ ~/.notes/notepad/$(date +%Y%m%d).md'
 alias uu='nvim "+lua open_notes()"'
 alias uy='nvim "+lua open_grep_notes()"'
-alias ss='nvim "+lua open_conf()"'
-alias tree='tree -I .git'
+alias conf='nvim "+lua open_conf()"'
+alias tree='tree -I .git -a'
 
 # ledger aliases
 alias hl='hledger --pretty'

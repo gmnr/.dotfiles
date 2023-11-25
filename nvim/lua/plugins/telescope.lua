@@ -32,13 +32,13 @@ return {
             "--glob=!.git/",
           },
           file_ignore_patterns = {
-            "^.local/",
-            "^.cache/",
+            ".local/",
+            ".cache/",
             "^Downloads/",
-            "^.git/",
-            "^Library/",
-            "^plugged/",
-            "^node_modules/",
+            ".git/",
+            "Library/",
+            "plugged/",
+            "node_modules/",
           },
           mappings = {
             i = {
