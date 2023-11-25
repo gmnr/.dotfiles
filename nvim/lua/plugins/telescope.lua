@@ -31,6 +31,15 @@ return {
             "--hidden",
             "--glob=!.git/",
           },
+          file_ignore_patterns = {
+            "^.local/",
+            "^.cache/",
+            "^Downloads/",
+            "^.git/",
+            "^Library/",
+            "^plugged/",
+            "^node_modules/",
+          },
           mappings = {
             i = {
               ["<ESC>"] = actions.close, -- don't enable normal mode
@@ -57,31 +66,22 @@ return {
             preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
           },
           winblend = 0,
-          pickers = {
-            find_files = {
-              find_command = { "rg", "--files", "--hidden" },
-            },
+        },
+        pickers = {
+          find_files = {
+            find_command = { "fd", "--type", "f", "--color=never", "--hidden" },
           },
-          file_ignore_patterns = {
-            "^.local/",
-            "^.cache/",
-            "^Downloads/",
-            "^.git/",
-            "^Library/",
-            "^plugged/",
-            "^node_modules/",
+        },
+        extensions = {
+          fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
           },
-          extensions = {
-            fzf = {
-              fuzzy = true,
-              override_generic_sorter = true,
-              override_file_sorter = true,
-              case_mode = "smart_case",
-            },
-            file_browser = {
-              theme = "ivy",
-              hijack_netrw = true,
-            },
+          file_browser = {
+            theme = "ivy",
+            hijack_netrw = true,
           },
         },
       }

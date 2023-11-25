@@ -19,7 +19,7 @@ vim.keymap.set("n", "<C-f>", "<C-u>")
 vim.keymap.set("n", "<C-s>", "<C-d>")
 
 -- open and load .vimrc
-vim.keymap.set("n", "<leader>ss", "<cmd>Telescope find_files cwd=~/.dotfiles/nvim<CR>", opts)
+vim.keymap.set("n", "<leader>ss", "<cmd>Telescope find_files cwd=~/.dotfiles<CR>", opts)
 vim.keymap.set("n", "<leader>su", "<cmd>Lazy<CR>", opts)
 
 -- open notes
