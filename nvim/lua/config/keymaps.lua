@@ -130,7 +130,7 @@ vim.cmd("cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^gr
 vim.cmd("cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'")
 
 -- lsp
-vim.keymap.set("n", "E", "<cmd>Lspsaga hover_doc<CR>", opts)
+vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
 vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 vim.keymap.set("n", "<leader>ll", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
