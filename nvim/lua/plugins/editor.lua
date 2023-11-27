@@ -70,6 +70,7 @@ return {
     ft = {
       "python",
       "javascript",
+      "sh",
     },
     config = function()
       vim.cmd(
