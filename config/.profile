@@ -31,7 +31,7 @@ function show_user() {
 function inbox_count() {
   inbox=$(task count +inbox pro:"" -COMPLETED -DELETED)
   if [[ $inbox -gt 0 ]]; then
-    task_display=" I: $inbox "
+    task_display=" I:$inbox "
   else
     task_display=" "
   fi
