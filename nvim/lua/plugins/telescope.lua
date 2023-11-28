@@ -80,7 +80,6 @@ return {
             case_mode = "smart_case",
           },
           file_browser = {
-            theme = "ivy",
             hijack_netrw = true,
           },
         },
