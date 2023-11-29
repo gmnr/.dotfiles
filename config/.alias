@@ -10,13 +10,8 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 # colors on ls
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    alias ll='gls -alth --color=auto'
-    alias ls='gls --color=auto'
-else
-    alias ll='ls -alth --color=auto'
-    alias ls='ls --color=auto'
-fi
+alias ls='eza'
+alias ll='eza --long --header --git'
 
 # advent of code utilities
 alias aocc='~/Coding/advent-of-code/utils/startup.sh'
