@@ -16,7 +16,6 @@ vim.keymap.set("n", "<C-p>", "<C-r>")
 
 -- override scrolling
 vim.keymap.set("n", "<C-f>", "<C-u>")
-vim.keymap.set("n", "<C-s>", "<C-d>")
 
 -- open and load .vimrc
 vim.keymap.set("n", "<leader>fd", "<cmd>Telescope find_files cwd=~/.dotfiles<CR>", opts)
