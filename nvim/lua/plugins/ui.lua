@@ -41,6 +41,7 @@ return {
           "help",
           "ledger",
           "lazy",
+          "man",
           "mason",
         },
       },
@@ -62,6 +63,7 @@ return {
           "help",
           "ledger",
           "lazy",
+          "man",
           "mason",
         },
         callback = function()
