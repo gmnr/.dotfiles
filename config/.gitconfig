@@ -16,12 +16,40 @@
   br = branch -v
   rb = rebase -i
 
-[interactive]
-	diffFilter = diff-so-fancy --patch
+[core]
+  pager = delta
 
-[pager]
-  diff = diff-so-fancy | less --tabs=4 -RFX
-  show = diff-so-fancy | less --tabs=4 -RFX
+[interactive]
+  diffFilter = delta --color-only --features=interactive
+
+[delta]
+  features = decorations
+  line-numbers = true
+  side-by-side = true
+  true-color = always
+  minus-style                   = syntax "#3f2d3d"
+  minus-non-emph-style          = syntax "#3f2d3d"
+  minus-emph-style              = syntax "#763842"
+  minus-empty-line-marker-style = syntax "#3f2d3d"
+  line-numbers-minus-style      = "#b2555b"
+  plus-style                    = syntax "#283b4d"
+  plus-non-emph-style           = syntax "#283b4d"
+  plus-emph-style               = syntax "#316172"
+  plus-empty-line-marker-style  = syntax "#283b4d"
+  line-numbers-plus-style       = "#266d6a"
+  line-numbers-zero-style       = "#3b4261"
+
+[delta "interactive"]
+  keep-plus-minus-markers = false
+
+[delta "decorations"]
+  commit-decoration-style = blue ol
+  commit-style = raw
+  file-style = omit
+  hunk-header-decoration-style = blue box
+  hunk-header-file-style = red
+  hunk-header-line-number-style = "#067a00"
+  hunk-header-style = file line-number syntax
 
 [core]
   excludesfile = /Users/guido/.gitexcludes
@@ -29,6 +57,3 @@
 
 [credential]
   helper = osxkeychain
-
-[diff-so-fancy]
-	markEmptyLines = false
