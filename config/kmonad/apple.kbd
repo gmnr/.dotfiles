@@ -16,17 +16,6 @@
     term (cmd-button "open /Applications/Alacritty.app")
   
     num (layer-toggle num)
-
-    fun_1 (tap-hold-next-release 250 1 f1)
-    fun_2 (tap-hold-next-release 250 2 f2)
-    fun_3 (tap-hold-next-release 250 3 f3)
-    fun_4 (tap-hold-next-release 250 4 f4)
-    fun_5 (tap-hold-next-release 250 5 f5)
-    fun_6 (tap-hold-next-release 250 6 f6)
-    fun_7 (tap-hold-next-release 250 7 f7)
-    fun_8 (tap-hold-next-release 250 8 f8)
-    fun_9 (tap-hold-next-release 250 9 f9)
-    fun_0 (tap-hold-next-release 250 0 f10)
 )
 
 
@@ -42,7 +31,7 @@
 
 (deflayer colemak-dh
   caps  brdn   brup   f11  f12   f5   f6   prev   pp   next   mute  vold  volu
-  `  @fun_1    @fun_2    @fun_3    @fun_4    @fun_5    @fun_6    @fun_7    @fun_8    @fun_9    @fun_0    -    =    bspc
+  `  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    f    p    b    j    l    u    y    ;    [    ]    \
   @c_esc  a    r    s    t    g    m    n    e   i    o    '    ret
   lsft  z    x    c    d    v    k    h    ,    .    /    rsft  up 
@@ -52,7 +41,7 @@
 
 (deflayer nav
   _  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
-  _  _    _    _    _    _    _    _    _    _    _    _    =    del
+  _  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12   del
   _  @work   @chrome   @msg   _   _   _   _   _   @term   _   [    ]    \
   _  _  _   _   _   _    left    down    up    right    _    '    ret
   _ _    _    @cal    _    _    home    end    <    >    /    rsft up
