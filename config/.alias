@@ -11,12 +11,11 @@ alias ...='cd ../..'
 
 # colors on ls
 alias ls='eza'
-alias ll='eza --long --header --git'
+alias ll='eza --long --header --all --git'
 
 # advent of code utilities
-alias aocc='~/Coding/advent-of-code/utils/startup.sh'
+alias aoc='~/Coding/advent-of-code/utils/startup.sh'
 alias aocd='cd ~/Coding/advent-of-code'
-alias aoc='cd ~/Coding/advent-of-code && nvim'
 
 # rename programs
 alias python='python3'
