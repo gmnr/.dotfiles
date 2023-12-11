@@ -26,11 +26,10 @@ api.nvim_create_autocmd("FileType", {
 })
 
 api.nvim_create_autocmd("FileType", {
-  desc = "automatically close temporasy buffers with q",
+  desc = "automatically close temporary buffers with q",
   pattern = {
     "qf",
     "man",
-    "quickrun",
     "fugitive",
     "help",
     "lspinfo",
@@ -38,7 +37,32 @@ api.nvim_create_autocmd("FileType", {
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
-    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+    vim.keymap.set("n", "q", "<cmd>close<CR>", { buffer = event.buf, silent = true })
+  end,
+})
+
+local OperateQuickrun = api.nvim_create_augroup("OperateQuickrun", { clear = true })
+vim.api.nvim_create_autocmd({ "WinNew" }, {
+  group = OperateQuickrun,
+  pattern = { "*" },
+  callback = function()
+    vim.api.nvim_create_autocmd({ "BufNew" }, {
+      desc = "close quickrun window from src buffer",
+      pattern = { "quickrun://output" },
+      once = true,
+      callback = function()
+        vim.keymap.set("n", "q", "<cmd>bw! quickrun://output<CR>", { silent = true })
+      end,
+    })
+  end,
+})
+
+api.nvim_create_autocmd("BufUnload", {
+  desc = "restore macro functionality when buff is closed",
+  group = OperateQuickrun,
+  pattern = { "quickrun://output" },
+  callback = function()
+    vim.keymap.set("n", "q", "q", { silent = true })
   end,
 })
 
