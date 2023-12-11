@@ -88,7 +88,9 @@ return {
 
       -- enable snippets
       cmp.setup({
-        completion = { completeopt = "menu, menuone, noinsert" },
+        completion = {
+          completeopt = "menu,menuone,noinsert",
+        },
         snippet = {
           expand = function(args)
             vim.fn["UltiSnips#Anon"](args.body)
@@ -118,7 +120,7 @@ return {
           -- use C-n and C-p for triggering completion
           ["<C-k>"] = cmp.mapping(function()
             if cmp.visible() then
-              cmp.select_next_item()
+              cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
             else
               cmp.complete()
             end
@@ -126,18 +128,18 @@ return {
 
           ["<C-y>"] = cmp.mapping(function()
             if cmp.visible() then
-              cmp.select_prev_item()
+              cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
             else
               cmp.complete()
             end
           end, { "i", "c" }),
 
-          ["<C-f>"] = cmp.mapping({
+          ["<esc>"] = cmp.mapping({
             i = cmp.mapping.abort(),
             c = cmp.mapping.close(),
           }),
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
-          ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+          -- ["<Tab>"] = cmp.mapping.confirm({ select = false }),
         },
 
         -- add ordinary sources
