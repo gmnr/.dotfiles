@@ -27,18 +27,6 @@ return {
       local cmp = require("cmp")
       local lspkind = require("lspkind")
 
-      -- disable auto completion for text heavy types
-      cmp.setup.filetype({
-        "markdown",
-        "gitcommit",
-        "text",
-        "norg",
-      }, {
-        completion = {
-          autocomplete = false,
-        },
-      })
-
       -- create custom source for nvim-cmp
       cmp.register_source("hledger_completion", {
         complete = function(self, params, callback)
@@ -77,18 +65,16 @@ return {
             end,
           },
         }),
-        completion = {
-          autocomplete = false,
-        },
         matching = {
           disallow_fuzzy_matching = false,
           disallow_partial_fuzzy_matching = false,
         },
       })
 
-      -- enable snippets
+      -- setup completion
       cmp.setup({
         completion = {
+          autocomplete = false,
           completeopt = "menu,menuone,noinsert",
         },
         snippet = {
@@ -144,7 +130,13 @@ return {
 
         -- add ordinary sources
         sources = cmp.config.sources({
-          { name = "nvim_lsp" },
+          -- Dont suggest Text from nvm_lsp
+          {
+            name = "nvim_lsp",
+            entry_filter = function(entry, ctx)
+              return cmp.lsp.CompletionItemKind.Text ~= entry:get_kind()
+            end,
+          },
           { name = "ultisnips" },
           { name = "buffer" },
         }),
@@ -155,22 +147,19 @@ return {
         sources = {
           { name = "buffer" },
         },
-        completion = {
-          autocomplete = false,
-        },
       })
 
-      -- disable autocompletion for commands
+      -- pull data only from comdline and paths
       cmp.setup.cmdline(":", {
-        completion = {
-          autocomplete = false,
-        },
-        -- pull data only from comdline and paths
         sources = cmp.config.sources({
           { name = "path" },
           { name = "cmdline" },
         }),
       })
+
+      -- to insert `(` after select function or method item
+      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
     end,
   },
 
