@@ -42,20 +42,10 @@ return {
           return ""
         end
       end
+
+      -- set specific mapping
+      vim.keymap.set({ "i" }, "<CR>", "<cmd>lua better_ledger_align()<CR><Right><CR>", { silent = true })
     end,
     ft = { "ledger" },
-    keys = {
-      { mode = "i", "<CR>", "<cmd>lua better_ledger_align()<CR><Right><CR>", { silent = true } },
-    },
-  },
-
-  {
-    "preservim/vim-markdown",
-    config = function()
-      vim.g.vim_markdown_folding_disabled = 1
-      vim.g.vim_markdown_conceal = 2
-      vim.g.vim_markdown_frontmatter = 1
-    end,
-    ft = { "markdown" },
   },
 }
