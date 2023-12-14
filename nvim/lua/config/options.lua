@@ -8,6 +8,9 @@ vim.opt.termguicolors = true
 -- round indent to multiples of shiftwidth
 vim.opt.shiftround = true
 
+-- splitbelow
+vim.opt.splitbelow = true
+
 -- enable cursorline
 vim.opt.cursorline = true
 
