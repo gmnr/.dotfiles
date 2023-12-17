@@ -16,7 +16,6 @@ return {
 
   {
     "windwp/nvim-autopairs",
-    -- event = "VeryLazy",
     config = function()
       local npairs = require("nvim-autopairs")
       local Rule = require("nvim-autopairs.rule")
@@ -130,8 +129,8 @@ return {
     event = "LspAttach",
     cmd = { "TroubleToggle", "Trouble" },
     keys = {
-      { "<leader>xx", "<cmd>TroubleToggle <CR>" },
-      { "<leader>xx", "<cmd>TroubleToggle document_diagnostics<CR>" },
+      { "<leader>xx", "<cmd>TroubleToggle<CR>" },
+      { "<leader>xd", "<cmd>TroubleToggle document_diagnostics<CR>" },
       { "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<CR>" },
       { "<leader>xq", "<cmd>TroubleToggle quickfix<CR>" },
     },
