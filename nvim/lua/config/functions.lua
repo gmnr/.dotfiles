@@ -44,6 +44,11 @@ function _G.open_live_grep()
   require("telescope.builtin").live_grep()
 end
 
+-- live grep
+function _G.open_git_status()
+  require("telescope.builtin").git_status()
+end
+
 -- open config in their directory
 function _G.open_conf()
   require("telescope.builtin").find_files({ cwd = "~/.dotfiles" })
