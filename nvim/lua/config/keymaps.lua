@@ -101,6 +101,10 @@ vim.keymap.set("n", "<leader>am", "<C-w>h")
 vim.keymap.set("n", "<leader>an", "<C-w>j")
 vim.keymap.set("n", "<leader>ae", "<C-w>k")
 vim.keymap.set("n", "<leader>ai", "<C-w>l")
+vim.keymap.set("n", "<leader>aM", "<C-w>H")
+vim.keymap.set("n", "<leader>aN", "<C-w>J")
+vim.keymap.set("n", "<leader>aE", "<C-w>K")
+vim.keymap.set("n", "<leader>aI", "<C-w>L")
 
 -- swap fold command
 vim.keymap.set("n", "za", "zo")
