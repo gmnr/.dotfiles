@@ -3,9 +3,8 @@
   email = guido.minieri@gmail.com
 
 [alias]
-  ll = log --pretty=format:"\"%C(yellow)%h %Cgreen%ad %Cblue[%cn] %C(auto)%d %Creset%s\"" --decorate --date=short
-  all = log --pretty=format:"\"%C(yellow)%h %Cgreen%cd %Cblue[%cn] %C(auto)%d %Creset%s\"" --graph --date=relative --decorate --all
-  l = log --oneline
+  l = log --pretty=format:"\"%C(yellow)%h %Cgreen%ad %Cblue[%cn] %C(auto)%d %Creset%s\"" --decorate --date=short
+  ll = log --pretty=format:"\"%C(yellow)%h %Cgreen%cd %Cblue[%cn] %C(auto)%d %Creset%s\"" --graph --date=relative --decorate --all
   dd = diff
   ss = status
   sh = show
