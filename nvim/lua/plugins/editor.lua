@@ -12,7 +12,22 @@ return {
 
   { "tpope/vim-unimpaired", event = "VeryLazy" },
 
-  { "wellle/targets.vim", event = "VeryLazy" },
+  {
+    "wellle/targets.vim",
+    event = "VeryLazy",
+    config = function()
+      vim.cmd([[
+      nnoremap <silent> <Leader>a :set opfunc=Append<CR>g@
+      nnoremap <silent> <Leader>i :set opfunc=Insert<CR>g@
+      function! Append(type, ...)
+          call feedkeys("`]a", 'n')
+      endfunction
+      function! Insert(type, ...)
+          call feedkeys("`[i", 'n')
+      endfunction
+      ]])
+    end,
+  },
 
   {
     "ahmedkhalf/project.nvim",
