@@ -15,6 +15,7 @@
     msg (cmd-button "open /Applications/WhatsApp.app")
     work (cmd-button "open /Applications/Microsoft\\ Remote\\ Desktop.app")
     term (cmd-button "open /Applications/Alacritty.app")
+    alfred (cmd-button "open /Applications/Alfred\\ 5.app")
   
     num (layer-toggle num)
 )
