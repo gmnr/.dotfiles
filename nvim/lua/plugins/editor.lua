@@ -205,7 +205,7 @@ return {
     config = function()
       require("lspsaga").setup({})
       vim.diagnostic.config({ virtual_text = false, underline = true, severity_sort = true })
-      local signs = { Error = "", Warn = "", Hint = "", Information = "" }
+      local signs = { Error = "✘", Warn = "", Hint = "⚑", Information = "»" }
       for type, icon in pairs(signs) do
         local hl = "DiagnosticSign" .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
@@ -216,7 +216,7 @@ return {
       border_style = "single",
       saga_winblend = 0,
       move_in_saga = { prev = "<C-y>", next = "<C-k>" },
-      diagnostic_header = { " ", " ", " ", "ﴞ " },
+      diagnostic_header = { "✘ ", " ", "⚑ ", "» " },
       show_diagnostic_source = true,
       max_preview_lines = 10,
       code_action_icon = "",
