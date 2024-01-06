@@ -112,7 +112,7 @@ vim.keymap.set("n", "zo", "za")
 
 -- hledger plugs
 vim.keymap.set("n", "<leader>eu", "<cmd>lua better_ledger_align()<CR>", opts)
-vim.keymap.set("n", "<leader>ee", "<cmd>e +$ ~/.finance/periods/2023.journal<CR>", opts)
+vim.keymap.set("n", "<leader>ee", "<cmd>e +$ ~/.finance/periods/2024.journal<CR>", opts)
 vim.keymap.set("n", "<leader>ea", "<cmd>lua hledger_update()<CR>", opts)
 
 -- gitsigns
