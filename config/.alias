@@ -10,7 +10,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 # colors on ls
-alias ls='eza'
+alias ls='eza --all'
 alias ll='eza --long --header --all --git'
 
 # advent of code utilities
