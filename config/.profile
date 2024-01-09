@@ -31,18 +31,24 @@ function show_user() {
 function inbox_count() {
   inbox=$(task count +inbox pro:"" -COMPLETED -DELETED)
   if [[ $inbox -gt 0 ]]; then
-    task_display=" I:$inbox "
+    task_display="I:$inbox "
   else
-    task_display=" "
+    task_display=""
   fi
   [[ -n "$task_display"  ]] && echo "$task_display"
 }
 
-# (old), dislays >> (virtual env) user@hostname:workingdir <git branch>
-# EMBEDDED_PS1='$(virtualenv_info)\[\033[1;91m\]\u\[\033[00m\]@\[\033[1;94m\]\h\[\033[00m\]:\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)\[\033[00m\]'
+function next_count() {
+  t_next=$(task count status:pending \(+next or sched.before:tom\) -wait)
+  if [[ $t_next -gt 0 ]]; then
+    task_display="N:$t_next "
+  else
+    task_display=""
+  fi
+  [[ -n "$task_display"  ]] && echo "$task_display"
+}
 
-# (new prompt), dislays >> inbox GTD user (if different) hostname (if different) workingdir <git branch>
-EMBEDDED_PS1='\[\033[1;95m\]$(inbox_count)\[\033[1;91m\]$(show_user)\[\033[1;94m\]$(show_hostname)\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)'
+EMBEDDED_PS1='\[\033[1;95m\] $(inbox_count)\[\033[1;94m\]$(next_count)\[\033[1;91m\]$(show_user)\[\033[1;94m\]$(show_hostname)\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)'
 
 # guide to colors
 # 91 red
@@ -54,11 +60,6 @@ EMBEDDED_PS1='\[\033[1;95m\]$(inbox_count)\[\033[1;91m\]$(show_user)\[\033[1;94m
 # 97 grey
 
 reset_readline_prompt_mode_strings () {
-    # old config
-    # bind "set vi-ins-mode-string \"${EMBEDDED_PS1@P}\1\e[00m\2$\""
-    # bind "set vi-cmd-mode-string \"${EMBEDDED_PS1@P}\1\e[00m\2:\""
-
-    # new config
     bind "set vi-ins-mode-string \"${EMBEDDED_PS1@P}\1\e[91m\2>\1\e[0m\2\""
     bind "set vi-cmd-mode-string \"${EMBEDDED_PS1@P}\1\e[91m\2>\1\e[93m\2\""
 }
@@ -123,6 +124,53 @@ complete -o nospace -F _task t
 complete -o nospace -F _task ta
 complete -o nospace -F _task c
 
+## TASKWARRIOR CONFIG ##
+# check if projects don't have any next action
+function stale_project() {
+  cmd=$(python - <<EOF
+import tasklib
+tw = tasklib.TaskWarrior()
+result = set(tw.execute_command(['+PROJECT', '+PENDING', '+READY', '_projects'])) - set(tw.execute_command(['+PROJECT', '+PENDING', '+next', '_projects'])) - set(tw.execute_command(['+PROJECT', '+PENDING', '+SCHEDULED', '_projects'])) - set(tw.execute_command(['+PROJECT', '+PENDING', '+wait', '_projects']))
+for i in result:
+  print(i)
+EOF
+)
+if [ "$cmd" != "" ]; then
+  echo "Attention: The following projects don't currently have a next action:"
+  for elem in $cmd; do
+    echo "- $elem"
+  done
+else
+  echo "No projects have unassigned tasks."
+fi
+}
+
+# processes id by moving them from one tag to the other
+function task_mod() {
+  task_n=$1
+  shift
+  task mod $task_n -inbox $*
+}
+
+# read notes linked to fi
+function read_task() {
+  dir=~/.notes/task
+  if [ $# -eq 0 ]; then
+    NOTES=""
+    for file in $dir/*.md; do
+      file=$(basename ${file%.*})
+      NOTES=$NOTES","$(task _get "$file".id)
+    done
+    task ${NOTES:1}
+  else
+    note=$dir/$(task _get $1.uuid).md
+    if [ -f "$note" ]; then
+      cat $note
+    else
+      echo 'There is no note associated with that ID.'
+    fi
+  fi
+}
 ## HLEDGER CONFIG ##
 # add ledger_file
 export LEDGER_FILE=$HOME/.finance/all.journal
