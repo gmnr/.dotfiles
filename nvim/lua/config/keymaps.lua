@@ -76,7 +76,7 @@ vim.keymap.set("n", "<leader>yf", "<cmd>Telescope file_browser<CR>", opts)
 vim.keymap.set("n", "<leader>cd", "<cmd>cd %:p:h<CR>", opts)
 
 -- add autocorrect
-vim.keymap.set("n", "<leader><Tab>", "1z=")
+vim.keymap.set("n", "<leader><Tab>", "[s1z=")
 
 -- quickrun
 vim.keymap.set("n", "<leader>ff", "<cmd>w<CR><cmd>QuickRun<CR>", opts)
