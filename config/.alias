@@ -53,21 +53,12 @@ alias p='cat ~/.finance/prices/current_prices.journal'
 
 # taskwarrior aliases
 alias t='task'
+alias ta='task add'
 alias tn='~/.dotfiles/config/tasks/task-note.py'
-alias tq='read_task'
-alias c='task add +inbox'
-alias tm='task_mod'
+alias tf='read_task'
+alias to='task_mod'
 alias te='task edit'
-alias ts='stale_project'
-
-# reports
-alias tt='echo " -- NEXT TASKS --"; task next'
-alias ty='echo " -- SCHEDULED TASKS --"; task ticker'
-alias tl='echo " -- LATER TASKS --"; task later'
-alias to='echo " -- DELEGATED TASKS --"; task wait'
-alias tp='echo " -- LIST PROJECTS --"; task projects +PROJECT'
-alias tpp='echo " -- PROJECT-LESS TASKS --"; task prj'
-alias ti='echo " -- INBOX --"; task inbox'
+alias ti='task pro:inbox'
 
 # kmonad
 alias QQ='sudo killall kmonad'
