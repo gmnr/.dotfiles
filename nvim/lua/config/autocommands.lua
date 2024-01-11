@@ -20,6 +20,14 @@ api.nvim_create_autocmd("FileType", {
 })
 
 api.nvim_create_autocmd("FileType", {
+  desc = "close editing the task",
+  pattern = { "taskedit" },
+  callback = function()
+    vim.keymap.set("n", "<leader>wq", "ZZ", { silent = true })
+  end,
+})
+
+api.nvim_create_autocmd("FileType", {
   desc = "Indent at 2 spaces on ledger files",
   pattern = { "ledger" },
   command = "setlocal ts=2 sw=2 sts=2",
