@@ -29,26 +29,43 @@ function show_user() {
 }
 
 function inbox_count() {
-  inbox=$(task count +inbox pro:"" -COMPLETED -DELETED)
-  if [[ $inbox -gt 0 ]]; then
-    task_display="I:$inbox "
-  else
-    task_display=""
-  fi
-  [[ -n "$task_display"  ]] && echo "$task_display"
+  cmd=$(python - <<EOF
+import tasklib
+tw = tasklib.TaskWarrior()
+result = tw.execute_command(['count', 'project:inbox', '-COMPLETED', '-DELETED'])
+if result:
+  print(result[0])
+else:
+  print("")
+EOF
+)
+if [ "$cmd" != "" ]; then
+  echo "I:$cmd "
+else
+  echo ""
+fi
 }
 
-function next_count() {
-  t_next=$(task count status:pending \(+next or sched.before:tom\) -wait)
-  if [[ $t_next -gt 0 ]]; then
-    task_display="N:$t_next "
-  else
-    task_display=""
-  fi
-  [[ -n "$task_display"  ]] && echo "$task_display"
+function task_context() {
+  cmd=$(python - <<EOF
+import tasklib
+tw = tasklib.TaskWarrior()
+result = tw.execute_command(['context', 'show'])
+if len(result) > 1:
+  s = result[0].split("'")
+  print(s[1])
+else:
+  print("")
+EOF
+)
+if [ "$cmd" != "" ]; then
+  echo "[$cmd] "
+else
+  echo ""
+fi
 }
 
-EMBEDDED_PS1='\[\033[1;95m\] $(inbox_count)\[\033[1;94m\]$(next_count)\[\033[1;91m\]$(show_user)\[\033[1;94m\]$(show_hostname)\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)'
+EMBEDDED_PS1='\[\033[1;94m\] $(task_context)\[\033[1;95m\]$(inbox_count)\[\033[1;91m\]$(show_user)\[\033[1;94m\]$(show_hostname)\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)'
 
 # guide to colors
 # 91 red
@@ -122,29 +139,9 @@ fi
 complete -o bashdefault -o default -o nospace -F __git_wrap__git_main g
 complete -o nospace -F _task t
 complete -o nospace -F _task ta
-complete -o nospace -F _task c
+complete -o nospace -F _task to
 
 ## TASKWARRIOR CONFIG ##
-# check if projects don't have any next action
-function stale_project() {
-  cmd=$(python - <<EOF
-import tasklib
-tw = tasklib.TaskWarrior()
-result = set(tw.execute_command(['+PROJECT', '+PENDING', '+READY', '_projects'])) - set(tw.execute_command(['+PROJECT', '+PENDING', '+next', '_projects'])) - set(tw.execute_command(['+PROJECT', '+PENDING', '+SCHEDULED', '_projects'])) - set(tw.execute_command(['+PROJECT', '+PENDING', '+wait', '_projects']))
-for i in result:
-  print(i)
-EOF
-)
-if [ "$cmd" != "" ]; then
-  echo "Attention: The following projects don't currently have a next action:"
-  for elem in $cmd; do
-    echo "- $elem"
-  done
-else
-  echo "No projects have unassigned tasks."
-fi
-}
-
 # processes id by moving them from one tag to the other
 function task_mod() {
   task_n=$1
