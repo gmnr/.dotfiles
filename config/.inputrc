@@ -6,16 +6,12 @@ set colored-stats on
 set visible-stats on
 
 # Use the text that has already been typed as the prefix for searching through
-# # commands (basically more intelligent Up/Down behavior)
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 
 # vim keys in terminal
-# add mode into prompt
 set editing-mode vi
 set show-mode-in-prompt on
-#set vi-ins-mode-string \1\e[4 q\2
-#set vi-cmd-mode-string \1\e[2 q\2
 set vi-ins-mode-string "+"
 set vi-cmd-mode-string ":"
 
@@ -24,4 +20,4 @@ set keyseq-timeout 30
 
 # clear screen also in vim-insert mode
 set keymap vi-insert
-Control-l: clear-screen    # these are for vi-insert mode
+Control-l: clear-screen
