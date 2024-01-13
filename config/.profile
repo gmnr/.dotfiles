@@ -8,73 +8,44 @@ function parse_git_branch {
       git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/<\1$(parse_git_dirty)> /"
   }
 
-# show hostname if is different from mbp
-function show_hostname() {
-  if [[ `hostname -s` == "mbp" ]]; then
-    host_value=""
-  else
-    host_value="@\h"
-  fi
-  [[ -n "$host_value"  ]] && echo "$host_value "
-}
+# function inbox_count() {
+#   cmd=$(python - <<EOF
+# import tasklib
+# tw = tasklib.TaskWarrior()
+# result = tw.execute_command(['count', 'project:inbox', '-COMPLETED', '-DELETED'])
+# if result:
+#   print(result[0])
+# else:
+#   print("")
+# EOF
+# )
+# if [ "$cmd" != "" ]; then
+#   echo "I:$cmd "
+# else
+#   echo ""
+# fi
+# }
 
-# show user if it's not guido
-function show_user() {
-  if [[ `whoami` == "guido" ]]; then
-    user_value=""
-  else
-    user_value="\u"
-  fi
-  [[ -n "$user_value"  ]] && echo "$user_value"
-}
+# function task_context() {
+#   cmd=$(python - <<EOF
+# import tasklib
+# tw = tasklib.TaskWarrior()
+# result = tw.execute_command(['context', 'show'])
+# if len(result) > 1:
+#   s = result[0].split("'")
+#   print(s[1])
+# else:
+#   print("")
+# EOF
+# )
+# if [ "$cmd" != "" ]; then
+#   echo "[$cmd] "
+# else
+#   echo ""
+# fi
+# }
 
-function inbox_count() {
-  cmd=$(python - <<EOF
-import tasklib
-tw = tasklib.TaskWarrior()
-result = tw.execute_command(['count', 'project:inbox', '-COMPLETED', '-DELETED'])
-if result:
-  print(result[0])
-else:
-  print("")
-EOF
-)
-if [ "$cmd" != "" ]; then
-  echo "I:$cmd "
-else
-  echo ""
-fi
-}
-
-function task_context() {
-  cmd=$(python - <<EOF
-import tasklib
-tw = tasklib.TaskWarrior()
-result = tw.execute_command(['context', 'show'])
-if len(result) > 1:
-  s = result[0].split("'")
-  print(s[1])
-else:
-  print("")
-EOF
-)
-if [ "$cmd" != "" ]; then
-  echo "[$cmd] "
-else
-  echo ""
-fi
-}
-
-EMBEDDED_PS1='\[\033[1;94m\] $(task_context)\[\033[1;95m\]$(inbox_count)\[\033[1;91m\]$(show_user)\[\033[1;94m\]$(show_hostname)\[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)'
-
-# guide to colors
-# 91 red
-# 92 green
-# 93 yellow
-# 94 blue
-# 95 magenta
-# 96 cyan
-# 97 grey
+EMBEDDED_PS1=' \[\033[1;92m\]\w\[\033[1;96m\] $(parse_git_branch)\[\033[1;91m\]'
 
 reset_readline_prompt_mode_strings () {
     bind "set vi-ins-mode-string \"${EMBEDDED_PS1@P}\1\e[91m\2>\1\e[0m\2\""
