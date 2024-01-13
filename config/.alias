@@ -10,8 +10,8 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 # colors on ls
-alias ls='eza --all'
-alias ll='eza --long --header --all --git'
+alias ls='eza --all --git-ignore'
+alias ll='eza --long --header --all --git --sort=modified --reverse'
 
 # advent of code utilities
 alias aoc='~/Coding/advent-of-code/utils/startup.sh'
