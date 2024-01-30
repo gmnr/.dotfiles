@@ -14,6 +14,18 @@ api.nvim_create_autocmd("FileType", {
 })
 
 api.nvim_create_autocmd("FileType", {
+  desc = "Disable numbers for text heavy buffers",
+  pattern = {
+    "markdown",
+    "text",
+    "ledger",
+    "fugitive",
+    "gitcommit",
+  },
+  command = "setlocal nonumber",
+})
+
+api.nvim_create_autocmd("FileType", {
   desc = "Disable spell in help files",
   pattern = { "help" },
   command = "setlocal nospell",
