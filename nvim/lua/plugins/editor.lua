@@ -141,6 +141,10 @@ return {
       formatters_by_ft = {
         lua = { "stylua" },
         python = { "black" },
+        json = { "jq" },
+        javascript = { "prettier" },
+        html = { "prettier" },
+        markdown = { "prettier" },
       },
       format_on_save = { timeout_ms = 500, lsp_fallback = true },
       formatters = {
