@@ -17,7 +17,6 @@
     term (cmd-button "open /Applications/Alacritty.app")
     alfred (cmd-button "open /Applications/Alfred\\ 5.app")
   
-    num (layer-toggle num)
 )
 
 
@@ -37,27 +36,17 @@
   tab  q    w    f    p    b    j    l    u    y    ;    [    ]    \
   @c_esc  a    r    s    t    g    m    n    e   i    o    '    ret
   lsft  z    x    c    d    v    k    h    ,    .    /    rsft  up 
-  @num   lctl  lalt  lmet           @s_spc            rmet  ralt  left  down  rght 
+  _   lctl  lalt  lmet           @s_spc            rmet  ralt  left  down  rght 
 )
 
 
 (deflayer nav
   _  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
   _  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12   del
-  _  @work   @chrome   @msg   _   _   _   _   _   @term   _   [    ]    \
-  _  _  _   _   _   @mail    left    down    up    right    _    '    ret
+  _  @work   _   @msg   _   _   _   _   _   @term   _   [    ]    \
+  _  _  _   _   _   @mail    left    down    up    right    @chrome    '    ret
   _ _    _    @cal    _    _    home    end    <    >    /    rsft up
   fn   lctl lalt lmet           @s_spc            rmet ralt left down rght
-)
-
-
-(deflayer num
-  _  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
-  _  _    _    _    _    _    _    _    /    *    -    _    =    bspc
-  _  _    _    _    _    _    _    7    8    9    +    [    ]    \
-  _ _    _    _    _    _    _    4    5    6    _    '    ret
-  _ _    _    _    _    _    _    1    2    3    /    rsft up
-  fn   lctl lalt lmet           @s_spc            0 , left down rght
 )
 
 

@@ -9,7 +9,6 @@
     c_esc (around ctl (tap-hold-next 200 (around (release-only ctl) esc) XX))
     s_spc (tap-hold-next-release 180 spc (layer-toggle nav))
 
-    num (layer-toggle num)
     med (layer-toggle med)
 
     chrome (cmd-button "open /Applications/Google\\ Chrome.app")
@@ -48,7 +47,7 @@
 
                            lmet  del    ralt  rctl
                     @s_spc alt f11    f12   ret bspc
-                                 @num   @med
+                                 _   @med
 )
 
 
@@ -56,27 +55,12 @@
   esc  F1   F2   F3   F4   F5   F6   F7   F8   F9   F10  F11  F12  prnt slck pause
 
   f12    f1   f2   f3   f4   f5                  f6   f7   f8  f9   f10   f11
-  _  @work   @chrome   @msg    _    _                   _   _    _    @term    _    _
-  _  _   _   _   _   @mail     left    down    up    right    _    _
+  _  @work   _   @msg    _    _                   _   _    _    @term    _    _
+  _  _   _   _   _   @mail     left    down    up    right    @chrome    _
   _ _    _    @cal    _    _                   home    end    <    >    _ rsft
        _  _  _ _                          _   _ _    _
 
                            lctl del   ralt rctl
-                       spc del  home   pgup  ret bspc
-                                 end   pgdn
-)
-
-
-(deflayer num
-  esc  F1   F2   F3   F4   F5   F6   F7   F8   F9   F10  F11  F12  prnt slck pause
-
-  _    _    _    _    _    _                   _    _    /    *    _    _
-  _  _    _    _    _    _                   _    7    8    9    -    _
-  _ _    _    _    _    _                   _    4    5    6    +    _
-  _ _    _    _    _    _                   _    1    2    3    _ rsft
-       grv  `  left rght                          XX   0 ,    ]
-
-                           lctl del   rmet rctl
                        spc del  home   pgup  ret bspc
                                  end   pgdn
 )
