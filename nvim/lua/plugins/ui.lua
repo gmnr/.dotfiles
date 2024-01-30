@@ -165,4 +165,11 @@ return {
       extensions = { "fugitive" },
     },
   },
+
+  -- zen-mode
+  {
+    "folke/zen-mode.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
 }

@@ -141,3 +141,6 @@ vim.keymap.set("n", "<leader>lL", "<cmd>Lspsaga show_cursor_diagnostics<CR>", op
 vim.keymap.set("n", "<leader>la", "<cmd>Lspsaga code_action<CR>", opts)
 vim.keymap.set("n", "<leader>lf", "<cmd>Lspsaga finder<CR>", opts)
 vim.keymap.set("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", opts)
+
+-- zenmode
+vim.keymap.set("n", "<leader>zz", "<cmd>ZenMode<CR>", opts)
