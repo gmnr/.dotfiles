@@ -174,7 +174,7 @@ return {
   -- lsp
   {
     "neovim/nvim-lspconfig",
-    ft = { "python", "lua", "sh" },
+    ft = { "python", "lua", "sh", "markdown" },
     config = function()
       -- config lspgconfig
       local nvim_lsp = require("lspconfig")
@@ -182,6 +182,7 @@ return {
         "pyright",
         "lua_ls",
         "bashls",
+        "marksman",
       }
       for _, lsp in ipairs(servers) do
         nvim_lsp[lsp].setup({
