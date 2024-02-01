@@ -52,6 +52,7 @@ api.nvim_create_autocmd("FileType", {
     "qf",
     "man",
     "fugitive",
+    "git",
     "help",
     "lspinfo",
     "checkhealth",
