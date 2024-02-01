@@ -21,6 +21,7 @@ api.nvim_create_autocmd("FileType", {
     "ledger",
     "fugitive",
     "gitcommit",
+    "taskedit",
   },
   command = "setlocal nonumber",
 })
