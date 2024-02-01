@@ -43,8 +43,8 @@
 (deflayer nav
   _  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
   _  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12   del
-  _  @work   _   @msg   _   _   _   _   _   @term   _   [    ]    \
-  _  _  _   _   _   @mail    left    down    up    right    @chrome    '    ret
+  _  @work   _   @chrome   _   _   _   _   _   @msg   _   [    ]    \
+  _  _  _   _   _   @mail    left    down    up    right    @term    '    ret
   _ _    _    @cal    _    _    home    end    <    >    /    rsft up
   fn   lctl lalt lmet           @s_spc            rmet ralt left down rght
 )
