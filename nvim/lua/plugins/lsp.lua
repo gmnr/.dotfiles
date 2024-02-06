@@ -69,6 +69,7 @@ return {
         python = { "black" },
         json = { "jq" },
         javascript = { "prettier" },
+        typescript = { "prettier" },
         html = { "prettier" },
         markdown = { "prettier" },
       },

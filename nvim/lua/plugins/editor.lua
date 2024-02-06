@@ -99,6 +99,7 @@ return {
     ft = {
       "python",
       "javascript",
+      "typescript",
       "sh",
     },
     config = function()
