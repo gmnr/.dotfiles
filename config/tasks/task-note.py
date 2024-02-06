@@ -14,6 +14,7 @@ from datetime import datetime
 NOTES_DIR = "~/.notes/task"
 EDITOR = os.environ["EDITOR"]
 
+
 def write_note(task_id: int):
     """Open `$EDITOR` to take notes about task with ID `task_id`."""
     task_uuid = os.popen(f"task _get {task_id}.uuid").read().rstrip()
@@ -38,9 +39,12 @@ def write_note(task_id: int):
 
     os.execlp(EDITOR, EDITOR, notes_file, "+normal G")
 
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Write Taskwarrior notes")
-    parser.add_argument('task_id', metavar='ID', type=int, help="ID of the task to note")
+    parser.add_argument(
+        "task_id", metavar="ID", type=int, help="ID of the task to note"
+    )
     args = parser.parse_args()
 
     write_note(args.task_id)
