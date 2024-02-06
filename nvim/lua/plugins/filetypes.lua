@@ -18,7 +18,7 @@ return {
       vim.g.ledger_decimal_sep = ","
 
       -- define function to align at <CR>
-      function better_ledger_align()
+      function Better_ledger_align()
         if string.find(vim.fn.getline("."):sub(-1), "%d") then
           local str = vim.fn.getline(".")
           local elements = {}
@@ -44,7 +44,7 @@ return {
       end
 
       -- set specific mapping
-      vim.keymap.set({ "i" }, "<CR>", "<cmd>lua better_ledger_align()<CR><Right><CR>", { silent = true })
+      vim.keymap.set({ "i" }, "<CR>", "<cmd>lua Better_ledger_align()<CR><Right><CR>", { silent = true })
     end,
     ft = { "ledger" },
   },
