@@ -103,7 +103,28 @@ return {
     "nvimdev/lspsaga.nvim",
     event = "LspAttach",
     config = function()
-      require("lspsaga").setup({})
+      require("lspsaga").setup({
+        code_action = {
+          keys = {
+            quit = "<C-q>",
+            exec = "<CR>",
+          },
+        },
+        lightbulb = {
+          enable = true,
+          sign = true,
+          enable_in_insert = false,
+          sign_priority = 20,
+          virtual_text = false,
+        },
+        rename = {
+          keys = {
+            quit = "<C-q>",
+            exec = "<CR>",
+          },
+        },
+      })
+
       vim.diagnostic.config({ virtual_text = false, underline = true, severity_sort = true })
       local signs = { Error = "✘", Warn = "", Hint = "⚑", Information = "»" }
       for type, icon in pairs(signs) do
@@ -112,54 +133,5 @@ return {
       end
     end,
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-      border_style = "single",
-      saga_winblend = 0,
-      move_in_saga = { prev = "<C-y>", next = "<C-k>" },
-      diagnostic_header = { "✘ ", " ", "⚑ ", "» " },
-      show_diagnostic_source = true,
-      max_preview_lines = 10,
-      code_action_icon = "",
-      code_action_num_shortcut = true,
-      code_action_lightbulb = {
-        enable = true,
-        sign = true,
-        enable_in_insert = true,
-        sign_priority = 20,
-        virtual_text = true,
-      },
-      finder_icons = {
-        def = "  ",
-        ref = "諭 ",
-        link = "  ",
-      },
-      finder_request_timeout = 1500,
-      finder_action_keys = {
-        open = "o",
-        vsplit = "s",
-        split = "i",
-        tabe = "t",
-        quit = "q",
-        scroll_down = "<C-f>",
-        scroll_up = "<C-b>", -- quit can be a table
-      },
-      code_action_keys = {
-        quit = "q",
-        exec = "<CR>",
-      },
-      rename_action_quit = "q",
-      rename_in_select = true,
-      show_outline = {
-        win_position = "right",
-        win_with = "",
-        win_width = 30,
-        auto_enter = true,
-        auto_preview = true,
-        virt_text = "┃",
-        jump_key = "o",
-        auto_refresh = true,
-      },
-      server_filetype_map = {},
-    },
   },
 }
