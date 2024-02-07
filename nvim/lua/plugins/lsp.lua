@@ -72,6 +72,7 @@ return {
         typescript = { "prettier" },
         html = { "prettier" },
         markdown = { "prettier" },
+        sql = { "sql_formatter" },
       },
       format_on_save = { timeout_ms = 500, lsp_fallback = true },
       formatters = {
