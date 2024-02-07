@@ -18,6 +18,7 @@ return {
           "markdown_inline",
           "regex",
           "python",
+          "sql",
         },
         highlight = {
           enable = true,
