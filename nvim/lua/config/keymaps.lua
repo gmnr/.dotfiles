@@ -92,19 +92,16 @@ vim.keymap.set("n", "[W", "<cmd>lfirst<CR>", opts)
 vim.keymap.set("n", "]W", "<cmd>llast<CR>", opts)
 
 -- change prefix for window navigation
-vim.keymap.set("n", "<leader>wa", "<C-w>w")
-vim.keymap.set("n", "<leader>wo", "<C-w>o")
-vim.keymap.set("n", "<leader>wc", "<C-w>c")
-vim.keymap.set("n", "<leader>w-", "<C-w>v")
-vim.keymap.set("n", "<leader>w=", "<C-w>s")
-vim.keymap.set("n", "<leader>wm", "<C-w>h")
-vim.keymap.set("n", "<leader>wn", "<C-w>j")
-vim.keymap.set("n", "<leader>we", "<C-w>k")
-vim.keymap.set("n", "<leader>wi", "<C-w>l")
-vim.keymap.set("n", "<leader>wM", "<C-w>H")
-vim.keymap.set("n", "<leader>wN", "<C-w>J")
-vim.keymap.set("n", "<leader>wE", "<C-w>K")
-vim.keymap.set("n", "<leader>wI", "<C-w>L")
+vim.keymap.set("n", "<C-w>-", "<C-w>v")
+vim.keymap.set("n", "<C-w>=", "<C-w>s")
+vim.keymap.set("n", "<C-w>m", "<C-w>h")
+vim.keymap.set("n", "<C-w>n", "<C-w>j")
+vim.keymap.set("n", "<C-w>e", "<C-w>k")
+vim.keymap.set("n", "<C-w>i", "<C-w>l")
+vim.keymap.set("n", "<C-w>M", "<C-w>H")
+vim.keymap.set("n", "<C-w>N", "<C-w>J")
+vim.keymap.set("n", "<C-w>E", "<C-w>K")
+vim.keymap.set("n", "<C-w>I", "<C-w>L")
 
 -- swap fold command
 vim.keymap.set("n", "za", "zo")
@@ -145,3 +142,8 @@ vim.keymap.set("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", opts)
 
 -- zenmode
 vim.keymap.set("n", "<leader>zz", "<cmd>ZenMode<CR>", opts)
+
+-- DB interaction
+vim.keymap.set("n", "<leader>mm", "<cmd>DBUIToggle<CR>", opts)
+vim.keymap.set("n", "<leader>mf", ":normal vip<CR><Plug>(DBUI_ExecuteQuery)", opts)
+vim.keymap.set("n", "<leader>mw", "<Plug>(DBUI_SaveQuery)", opts)
