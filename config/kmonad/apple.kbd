@@ -6,7 +6,7 @@
 
 
 (defalias
-    c_esc (around ctl (tap-hold-next 200 (around (release-only ctl) esc) XX))
+    c_esc (around ctl (tap-hold-next 250 (around (release-only ctl) esc) XX))
     s_spc (tap-hold-next-release 180 spc (layer-toggle nav))
 
     chrome (cmd-button "open /Applications/Google\\ Chrome.app")
