@@ -66,7 +66,7 @@ vim.opt.complete = ""
 vim.opt.conceallevel = 2
 
 -- diff options
-vim.opt.diffopt = "filler,iwhite,internal,algorithm:patience"
+vim.opt.diffopt = "filler,internal,algorithm:patience"
 
 -- set language of spell
 vim.opt.spelllang = { "en_us", "it" }
