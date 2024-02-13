@@ -13,7 +13,7 @@ function _G.annotate()
   local f = io.open(fullpath, "r")
   if f ~= nil and io.close(f) then
     local file = io.open(fullpath, "a")
-    file:write("\n--------------------------------------------------------------------------------")
+    file:write("\n\n---\n")
     file:write("\n> UPDATED @ " .. time)
     file:close()
   else
