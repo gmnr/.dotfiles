@@ -15,14 +15,18 @@
   br = branch -v
   rb = rebase -i
 
-[core]
-  pager = delta
-
 [interactive]
   diffFilter = delta --color-only --features=interactive
 
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
 [delta]
   features = decorations
+  navitate = true
   line-numbers = true
   side-by-side = true
   true-color = always
@@ -51,6 +55,7 @@
   hunk-header-style = file line-number syntax
 
 [core]
+  pager = delta
   excludesfile = /Users/guido/.gitexcludes
   editor = nvim
 
