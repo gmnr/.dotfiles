@@ -9,9 +9,9 @@
     c_esc (around ctl (tap-hold-next 250 (around (release-only ctl) esc) XX))
     s_spc (tap-hold-next-release 180 spc (layer-toggle nav))
 
-    chrome (cmd-button "open /Applications/Google\\ Chrome.app")
-    cal (cmd-button "open -a /Applications/Google\\ Chrome.app 'https://calendar.google.com/calendar/u/0/r'")
-    mail (cmd-button "open -a /Applications/Google\\ Chrome.app 'https://mail.google.com/mail/u/0/#inbox'")
+    browser (cmd-button "open /Applications/Safari.app")
+    cal (cmd-button "open -a /Applications/Safari.app 'https://calendar.google.com/calendar/u/0/r'")
+    mail (cmd-button "open -a /Applications/Safari.app 'https://mail.google.com/mail/u/0/#inbox'")
     msg (cmd-button "open /Applications/WhatsApp.app")
     work (cmd-button "open /Applications/Microsoft\\ Remote\\ Desktop.app")
     term (cmd-button "open /Applications/Alacritty.app")
@@ -43,7 +43,7 @@
 (deflayer nav
   _  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
   _  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12   del
-  _  @work   _   @chrome   _   _   _   _   _   @msg   _   [    ]    \
+  _  @work   _   @browser   _   _   _   _   _   @msg   _   [    ]    \
   _  _  _   _   _   @mail    left    down    up    right    @term    '    ret
   _ _    _    @cal    _    _    home    end    <    >    /    rsft up
   fn   lctl lalt lmet           @s_spc            rmet ralt left down rght

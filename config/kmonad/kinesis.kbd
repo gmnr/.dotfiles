@@ -11,9 +11,9 @@
 
     med (layer-toggle med)
 
-    chrome (cmd-button "open /Applications/Google\\ Chrome.app")
-    mail (cmd-button "open -a /Applications/Google\\ Chrome.app 'https://mail.google.com/mail/u/0/#inbox'")
-    cal (cmd-button "open -a /Applications/Google\\ Chrome.app 'https://calendar.google.com/calendar/u/0/r'")
+    browser (cmd-button "open /Applications/Safari.app")
+    mail (cmd-button "open -a /Applications/Safari.app 'https://mail.google.com/mail/u/0/#inbox'")
+    cal (cmd-button "open -a /Applications/Safari.app 'https://calendar.google.com/calendar/u/0/r'")
     msg (cmd-button "open /Applications/WhatsApp.app")
     work (cmd-button "open /Applications/Microsoft\\ Remote\\ Desktop.app")
     term (cmd-button "open /Applications/Alacritty.app")
@@ -55,7 +55,7 @@
   esc  F1   F2   F3   F4   F5   F6   F7   F8   F9   F10  F11  F12  prnt slck pause
 
   f12    f1   f2   f3   f4   f5                  f6   f7   f8  f9   f10   f11
-  _  @work   _   @chrome    _    _                   _   _    _    @msg    _    _
+  _  @work   _   @browser    _    _                   _   _    _    @msg    _    _
   _  _   _   _   _   @mail     left    down    up    right    @term    _
   _ _    _    @cal    _    _                   home    end    <    >    _ rsft
        _  _  _ _                          _   _ _    _
