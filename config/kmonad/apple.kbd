@@ -10,7 +10,7 @@
     s_spc (tap-hold-next-release 180 spc (layer-toggle nav))
 
     browser (cmd-button "open /Applications/Safari.app")
-    cal (cmd-button "open -a /Applications/Safari.app 'https://calendar.google.com/calendar/u/0/r'")
+    cal (cmd-button "open /System/Applications/Calendar.app")
     mail (cmd-button "open -a /Applications/Safari.app 'https://mail.google.com/mail/u/0/#inbox'")
     msg (cmd-button "open /Applications/WhatsApp.app")
     work (cmd-button "open /Applications/Microsoft\\ Remote\\ Desktop.app")
