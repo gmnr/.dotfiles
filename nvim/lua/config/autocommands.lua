@@ -21,7 +21,6 @@ api.nvim_create_autocmd("FileType", {
     "ledger",
     "fugitive",
     "gitcommit",
-    "taskedit",
   },
   command = "setlocal nonumber",
 })
@@ -30,14 +29,6 @@ api.nvim_create_autocmd("FileType", {
   desc = "Disable spell in help files",
   pattern = { "help" },
   command = "setlocal nospell",
-})
-
-api.nvim_create_autocmd("FileType", {
-  desc = "close editing the task",
-  pattern = { "taskedit" },
-  callback = function()
-    vim.keymap.set("n", "<leader>wq", "ZZ", { silent = true })
-  end,
 })
 
 api.nvim_create_autocmd("FileType", {

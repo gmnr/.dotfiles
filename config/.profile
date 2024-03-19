@@ -59,11 +59,6 @@ if [ -f /usr/local/share/bash-completion/bash_completion ]; then
     . /usr/local/share/bash-completion/bash_completion
 fi
 
-# add completion for taskwarrior and others
-if [ -f /usr/local/etc/bash-completion.d ]; then
-    . /usr/local/etc/bash-completion.d
-fi
-
 # add git-completion
 if [ -f /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash ]; then
     . /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
@@ -71,37 +66,7 @@ fi
 
 # make completion work for aliases
 complete -o bashdefault -o default -o nospace -F __git_wrap__git_main g
-complete -o nospace -F _task t
-complete -o nospace -F _task ta
-complete -o nospace -F _task to
 
-## TASKWARRIOR CONFIG ##
-# processes id by moving them from one tag to the other
-function task_mod() {
-  task_n=$1
-  shift
-  task mod $task_n -inbox $*
-}
-
-# read notes linked to fi
-function read_task() {
-  dir=~/.notes/task
-  if [ $# -eq 0 ]; then
-    NOTES=""
-    for file in $dir/*.md; do
-      file=$(basename ${file%.*})
-      NOTES=$NOTES","$(task _get "$file".id)
-    done
-    task ${NOTES:1}
-  else
-    note=$dir/$(task _get $1.uuid).md
-    if [ -f "$note" ]; then
-      cat $note
-    else
-      echo 'There is no note associated with that ID.'
-    fi
-  fi
-}
 ## HLEDGER CONFIG ##
 # add ledger_file
 export LEDGER_FILE=$HOME/.finance/all.journal

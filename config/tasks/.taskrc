@@ -1,9 +1,0 @@
-# Taskwarrior program configuration file.
-# Use the command 'task show' to see all defaults and overrides
-news.version=2.6.0
-data.location=~/.task
-weekstart=monday
-search.case.sensitive=no
-default.project=inbox
-context.work.read=pro.not:personal
-context=work
