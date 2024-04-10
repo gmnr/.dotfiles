@@ -7,7 +7,7 @@
 
 (defalias
     c_esc (around ctl (tap-hold-next 250 (around (release-only ctl) esc) XX))
-    s_spc (tap-hold-next-release 180 spc (layer-toggle nav))
+    s_spc (tap-hold-next-release 200 spc (layer-toggle nav))
 
     browser (cmd-button "open /Applications/Safari.app")
     out (cmd-button "open /System/Applications/Mail.app")
