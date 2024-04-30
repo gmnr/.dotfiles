@@ -107,6 +107,11 @@ vim.keymap.set("n", "<C-w>I", "<C-w>L")
 vim.keymap.set("n", "za", "zo")
 vim.keymap.set("n", "zo", "za")
 
+-- open link in browser
+vim.keymap.set("n", "gx", function()
+  vim.fn.jobstart({ "open", vim.fn.expand("<cfile>") }, { detach = true })
+end, opts)
+
 -- hledger plugs
 vim.keymap.set("n", "<leader>eu", "<cmd>lua Better_ledger_align()<CR>", opts)
 vim.keymap.set("n", "<leader>ee", "<cmd>e +$ ~/.finance/periods/2024.journal<CR>", opts)
