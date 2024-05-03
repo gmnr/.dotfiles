@@ -51,13 +51,6 @@ return {
         end,
       })
 
-      -- add source for db files
-      cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
-        sources = cmp.config.sources({
-          { name = "vim-dadbod-completion", trigger_characters = { "." } },
-        }),
-      })
-
       -- add source only for ledger file
       cmp.setup.filetype("ledger", {
         sources = cmp.config.sources({
