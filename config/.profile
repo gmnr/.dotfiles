@@ -122,8 +122,8 @@ function dad() {
   hledger -f ~/.finance/others/alfredo.journal bs --pretty -V --drop 1 "$@" | ~/.finance/.src/scripts/colorize-report.py report
 }
 
-function fede() {
+function pivot() {
   clear;
-  hledger -f ~/.finance/others/fede.journal bs --pretty -V --drop 1 "$@" | ~/.finance/.src/scripts/colorize-report.py report
+  hledger is --pretty -lS --pivot payee -p thismonth "$@" | ~/.finance/.src/scripts/colorize-report.py pivot
 }
 
