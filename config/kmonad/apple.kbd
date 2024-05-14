@@ -16,6 +16,9 @@
     msg (cmd-button "open /Applications/WhatsApp.app")
     term (cmd-button "open /Applications/Alacritty.app")
     alfred (cmd-button "open /Applications/Alfred\\ 5.app")
+    onedrive (cmd-button "open /Users/guido/Library/CloudStorage/OneDrive-ImpresaMinieriSpa")
+    desk (cmd-button "open /Users/guido/Desktop")
+    down (cmd-button "open /Users/guido/Downloads")
   
 )
 
@@ -42,7 +45,7 @@
 
 (deflayer nav
   _  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
-  _  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12   del
+  _  f1   f2   f3   f4   f5   f6   f7   f8   @down   @desk  @onedrive  f12   del
   _  _   _   @cal   @browser   _   _   @msg   @mail   @thing   _   [    ]    \
   _  _  _   _   _   _    left    down    up    right    @term    '    ins
   _ _  _    _    _    _    _    _    _    <    >    /    rsft up
