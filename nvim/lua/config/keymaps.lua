@@ -107,11 +107,6 @@ vim.keymap.set("n", "<C-w>I", "<C-w>L")
 vim.keymap.set("n", "za", "zo")
 vim.keymap.set("n", "zo", "za")
 
--- open link in browser
-vim.keymap.set("n", "gx", function()
-  vim.fn.jobstart({ "open", vim.fn.expand("<cfile>") }, { detach = true })
-end, opts)
-
 -- hledger plugs
 vim.keymap.set("n", "<leader>eu", "<cmd>lua Better_ledger_align()<CR>", opts)
 vim.keymap.set("n", "<leader>ee", "<cmd>e +$ ~/.finance/periods/2024.journal<CR>", opts)
@@ -136,8 +131,6 @@ vim.cmd("cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lg
 
 -- lsp
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
-vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 vim.keymap.set("n", "<leader>ll", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 vim.keymap.set("n", "<leader>lL", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
 vim.keymap.set("n", "<leader>la", "<cmd>Lspsaga code_action<CR>", opts)
@@ -147,8 +140,3 @@ vim.keymap.set("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", opts)
 
 -- zenmode
 vim.keymap.set("n", "<leader>zz", "<cmd>ZenMode<CR>", opts)
-
--- DB interaction
-vim.keymap.set("n", "<leader>mm", "<cmd>DBUIToggle<CR>", opts)
-vim.keymap.set("n", "<leader>mf", ":normal vip<CR><Plug>(DBUI_ExecuteQuery)", opts)
-vim.keymap.set("n", "<leader>mw", "<Plug>(DBUI_SaveQuery)", opts)
