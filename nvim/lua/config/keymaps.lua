@@ -71,6 +71,7 @@ vim.keymap.set("n", "<leader>ys", "<cmd>Telescope git_status<CR>", opts)
 vim.keymap.set("n", "<leader>yc", "<cmd>Telescope git_branches<CR>", opts)
 vim.keymap.set("n", "<leader>yh", "<cmd>Telescope help_tags<CR>", opts)
 vim.keymap.set("n", "<leader>yf", "<cmd>Telescope file_browser<CR>", opts)
+vim.keymap.set("n", "<leader>yx", "<cmd>Telescope ultisnips<CR>", opts)
 
 -- change the current directory to edited file
 vim.keymap.set("n", "<leader>cd", "<cmd>cd %:p:h<CR>", opts)

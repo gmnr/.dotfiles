@@ -8,12 +8,28 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-file-browser.nvim",
       {
+        "fhill2/telescope-ultisnips.nvim",
+        config = function()
+          require("telescope").load_extension("ultisnips")
+        end,
+      },
+      {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
         cond = function()
           return vim.fn.executable("make") == 1
         end,
       },
+      {
+        "SirVer/ultisnips",
+        config = function()
+          vim.g.UltiSnipsExpandTrigger = "<Tab>"
+          vim.g.UltiSnipsJumpForwardTrigger = "<C-n>"
+          vim.g.UltiSnipsJumpBackwardTrigger = "<C-e>"
+          vim.g.UltiSnipsSnippetDirectories = { "snppts" }
+        end,
+      },
+      "honza/vim-snippets",
     },
     opts = function()
       local actions = require("telescope.actions")

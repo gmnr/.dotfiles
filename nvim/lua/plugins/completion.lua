@@ -1,6 +1,6 @@
 return {
 
-  -- completion & snippets
+  -- completion
   {
     "hrsh7th/nvim-cmp",
     event = { "InsertEnter", "CmdlineEnter" },
@@ -10,17 +10,6 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-path",
       "onsails/lspkind.nvim",
-      {
-        "SirVer/ultisnips",
-        config = function()
-          vim.g.UltiSnipsExpandTrigger = "<Tab>"
-          vim.g.UltiSnipsJumpForwardTrigger = "<C-n>"
-          vim.g.UltiSnipsJumpBackwardTrigger = "<C-e>"
-          vim.g.UltiSnipsSnippetDirectories = { "snppts" }
-        end,
-      },
-      "honza/vim-snippets",
-      "quangnguyen30192/cmp-nvim-ultisnips",
     },
     config = function()
       -- Completion config
@@ -77,11 +66,6 @@ return {
           autocomplete = false,
           completeopt = "menu,menuone,noinsert",
         },
-        snippet = {
-          expand = function(args)
-            vim.fn["UltiSnips#Anon"](args.body)
-          end,
-        },
 
         -- format autocompletion
         formatting = {
@@ -135,7 +119,6 @@ return {
               return cmp.lsp.CompletionItemKind.Text ~= entry:get_kind()
             end,
           },
-          { name = "ultisnips" },
           { name = "buffer" },
         }),
       })
