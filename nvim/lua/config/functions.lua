@@ -71,7 +71,7 @@ function _G.hledger_update()
     "/usr/local/bin/hledger -f /Users/guido/.finance/all.journal payees > /Users/guido/.finance/.src/completion-source/payees"
   )
   os.execute(
-    "/usr/local/bin/hledger -f /Users/guido/.finance/all.journal accounts | /usr/bin/python3 /Users/guido/.finance/.src/scripts/filter-account.py > /Users/guido/.finance/.src/completion-source/accounts"
+    "/usr/local/bin/hledger -f /Users/guido/.finance/all.journal accounts | /usr/bin/python3.11 /Users/guido/.finance/.src/scripts/filter-account.py > /Users/guido/.finance/.src/completion-source/accounts"
   )
   print("Payees and Accounts Updated")
 end
