@@ -18,8 +18,8 @@ alias aoc='~/Coding/advent-of-code/utils/startup.sh'
 alias aocd='cd ~/Coding/advent-of-code'
 
 # rename programs
-alias python='python3'
-alias pip='pip3'
+alias python3='/usr/local/bin/python3.11'
+alias pip3='/usr/local/bin/pip3.11'
 alias less='less -R'
 alias mv='mv -v'
 alias rm='rm -i -v'
