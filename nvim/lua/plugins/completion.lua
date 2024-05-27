@@ -119,14 +119,14 @@ return {
               return cmp.lsp.CompletionItemKind.Text ~= entry:get_kind()
             end,
           },
-          { name = "buffer" },
+          { name = "buffer", max_item_count = 5 },
         }),
       })
 
       -- for search completion pull data only from buffers
       cmp.setup.cmdline("/", {
         sources = {
-          { name = "buffer" },
+          { name = "buffer", max_item_count = 5 },
         },
       })
 
@@ -134,7 +134,7 @@ return {
       cmp.setup.cmdline(":", {
         sources = cmp.config.sources({
           { name = "path" },
-          { name = "cmdline" },
+          { name = "cmdline", max_item_count = 5 },
         }),
       })
 
