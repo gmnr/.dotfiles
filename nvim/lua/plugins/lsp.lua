@@ -36,6 +36,16 @@ return {
       })
 
       -- ignore vim global in lua files
+      require("lspconfig").pyright.setup({
+        settings = {
+          python = {
+            pythonPath = "/usr/local/bin/python3.11",
+            pythonVersion = "3.11",
+          },
+        },
+      })
+
+      -- ignore vim global in lua files
       require("lspconfig").lua_ls.setup({
         settings = {
           Lua = {
