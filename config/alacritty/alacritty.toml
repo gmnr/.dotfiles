@@ -40,13 +40,13 @@ unfocused_hollow = true
 size = 14.5
 
 [font.normal]
-family = "MesloLGS Nerd Font Mono"
+family = "RobotoMono Nerd Font Mono"
 
 [font.bold]
-family = "MesloLGS Nerd Font Mono"
+family = "RobotoMono Nerd Font Mono"
 
 [font.italic]
-family = "MesloLGS Nerd Font Mono"
+family = "RobotoMono Nerd Font Mono"
 
 [font.offset]
 x = 0
