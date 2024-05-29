@@ -63,7 +63,7 @@
        _  _  home  end                          pgdn   pgup  _    _
 
                            lctl del   ralt rctl
-                       spc del  home   pgup  ins bspc
+                       spc del  home   pgup  end bspc
                                  end   pgdn
 )
 
