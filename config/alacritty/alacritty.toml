@@ -36,9 +36,6 @@ foreground = "0xc0caf5"
 style = "Block"
 unfocused_hollow = true
 
-[env]
-TERM = "screen-256color"
-
 [font]
 size = 14.5
 
