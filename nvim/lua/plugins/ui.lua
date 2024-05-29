@@ -10,12 +10,6 @@ return {
     config = function()
       vim.cmd("colorscheme tokyonight-storm")
 
-      -- modify spell error highlighings
-      vim.cmd("highlight! SpellBad              guibg=NONE guifg=#E5C07B")
-      vim.cmd("highlight! SpellCap              guibg=NONE guifg=#E5C07B")
-      vim.cmd("highlight! SpellLocal            guibg=NONE guifg=#E5C07B")
-      vim.cmd("highlight! SpellRare             guibg=NONE guifg=#E5C07B")
-
       -- define custom colors for gitsigns
       vim.cmd("highlight! GitSignsAdd           guibg=NONE guifg=#92BE65")
       vim.cmd("highlight! GitSignsAddNr         guibg=NONE guifg=#92BE65")
