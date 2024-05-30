@@ -94,13 +94,15 @@ return {
   {
     "folke/trouble.nvim",
     event = "LspAttach",
-    cmd = { "TroubleToggle", "Trouble" },
     keys = {
-      { "<leader>xx", "<cmd>TroubleToggle<CR>" },
-      { "<leader>xd", "<cmd>TroubleToggle document_diagnostics<CR>" },
-      { "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<CR>" },
-      { "<leader>xq", "<cmd>TroubleToggle quickfix<CR>" },
+      { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>" },
+      { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>" },
+      { "<leader>xs", "<cmd>Trouble symbols toggle focus=false<cr>" },
+      { "<leader>xl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>" },
+      { "<leader>xL", "<cmd>Trouble loclist toggle<cr>" },
+      { "<leader>xq", "<cmd>Trouble qflist toggle<cr>" },
     },
+    opts = {}, -- don't omit
   },
 
   -- lsp saga
@@ -130,12 +132,20 @@ return {
         },
       })
 
-      vim.diagnostic.config({ virtual_text = false, underline = true, severity_sort = true })
-      local signs = { Error = "✘", Warn = "", Hint = "⚑", Information = "»" }
-      for type, icon in pairs(signs) do
-        local hl = "DiagnosticSign" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-      end
+      -- vim diagnostic config
+      vim.diagnostic.config({
+        virtual_text = false,
+        underline = true,
+        severity_sort = true,
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = "✘",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.HINT] = "⚑",
+            [vim.diagnostic.severity.INFO] = "»",
+          },
+        },
+      })
     end,
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
