@@ -39,8 +39,8 @@ return {
       require("lspconfig").pyright.setup({
         settings = {
           python = {
-            pythonPath = "/usr/local/bin/python3.11",
-            pythonVersion = "3.11",
+            pythonPath = "/usr/local/bin/python3.12",
+            pythonVersion = "3.12",
           },
         },
       })
