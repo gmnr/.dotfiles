@@ -60,6 +60,11 @@ return {
         },
       })
 
+      -- add source for sql
+      cmp.setup.filetype("sql", {
+        sources = cmp.config.sources({ { name = "vim-dadbod-completion" } }),
+      })
+
       -- setup completion
       cmp.setup({
         completion = {
