@@ -10,7 +10,7 @@
     s_spc (tap-hold-next-release 200 spc (layer-toggle nav))
 
     browser (cmd-button "open /Applications/Safari.app")
-    mail (cmd-button "open /System/Applications/Mail.app")
+    mail (cmd-button "open /Applications/Microsoft\\ Outlook.app")
     thing (cmd-button "open /Applications/Things3.app")
     cal (cmd-button "open /System/Applications/Calendar.app")
     msg (cmd-button "open /Applications/WhatsApp.app")
