@@ -62,7 +62,7 @@ return {
       "DBUIAddConnection",
       "DBUIFindBuffer",
     },
-    keys = { { "<leader>dd", "<cmd>DBUIToggle<cr>" } },
+    keys = { { "<leader>DD", "<cmd>DBUIToggle<cr>" }, { "<leader>dd", "<cmd>DBUI<cr>" } },
     init = function()
       vim.g.db_ui_win_position = "right"
       vim.g.db_ui_show_help = 0
