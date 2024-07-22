@@ -26,3 +26,7 @@ defaults write com.apple.screencapture type -string "png"
 
 # Disable shadow in screenshots
 defaults write com.apple.screencapture disable-shadow -bool true
+
+# Use italian locales on EXCEL!!!
+defaults write .GlobalPreferences AppleLocale en_IT
+
