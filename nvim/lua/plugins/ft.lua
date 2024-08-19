@@ -48,4 +48,9 @@ return {
     end,
     ft = { "ledger" },
   },
+
+  {
+    "OXY2DEV/markview.nvim",
+    ft = "markdown",
+  },
 }
