@@ -71,6 +71,11 @@ complete -o bashdefault -o default -o nospace -F __git_wrap__git_main g
 # add ledger_file
 export LEDGER_FILE=$HOME/.finance/all.journal
 
+# open p7m
+function p7m() {
+  openssl cms -decrypt -in "$1" -inform DER -verify -noverify -out "$2"
+}
+
 # helper functions !! with colors !!
 function is() {
   clear;
