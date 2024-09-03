@@ -18,79 +18,69 @@ vim.keymap.set("n", "<C-p>", "<C-r>")
 vim.keymap.set("n", "<C-f>", "<C-u>")
 
 -- open and load .vimrc
-vim.keymap.set("n", "<leader>fd", "<cmd>Telescope find_files cwd=~/.dotfiles<CR>", opts)
-vim.keymap.set("n", "<leader>fu", "<cmd>Lazy<CR>", opts)
+vim.keymap.set("n", "<leader>fd", "<cmd>Telescope find_files cwd=~/.dotfiles<CR>", { desc = "Open .dotfiles" }, opts)
+vim.keymap.set("n", "<leader>fu", "<cmd>Lazy<CR>", { desc = "Lazy" }, opts)
 
 -- open notes
-vim.keymap.set("n", "<leader>uu", "<cmd>Telescope find_files cwd=~/.notes<CR>", opts)
-vim.keymap.set("n", "<leader>uy", "<cmd>Telescope live_grep cwd=~/.notes<CR>", opts)
+vim.keymap.set("n", "<leader>uu", "<cmd>Telescope find_files cwd=~/.notes<CR>", { desc = "Open file in Notes" }, opts)
+vim.keymap.set("n", "<leader>uy", "<cmd>Telescope live_grep cwd=~/.notes<CR>", { desc = "Search files in Notes" }, opts)
 vim.keymap.set(
   "n",
   "<leader>ua",
   '<cmd>lua annotate()<CR><cmd>exe "e +$ ~/.notes/notepad/".strftime("%Y%m%d").".md"<CR>',
+  { desc = "Add new note" },
   opts
 )
 
 -- quick save and exit
-vim.keymap.set("n", "<leader>ww", "<cmd>w<CR>", opts)
-vim.keymap.set("n", "<leader>wq", "<cmd>WRCL<CR>", opts)
-vim.keymap.set("n", "<leader>qq", "<cmd>bd!<CR>", opts)
-vim.keymap.set("n", "<leader>QQ", "<cmd>q!<CR>", opts)
-vim.keymap.set("n", "<leader>WQ", "<cmd>wq!<CR>", opts)
-vim.keymap.set("n", "<leader>QA", "<cmd>qa!<CR>", opts)
+vim.keymap.set("n", "<leader>ww", "<cmd>w<CR>", { desc = "Save" }, opts)
+vim.keymap.set("n", "<leader>wq", "<cmd>WRCL<CR>", { desc = "Save and exit" }, opts)
+vim.keymap.set("n", "<leader>qq", "<cmd>bd!<CR>", { desc = "Close buffer" }, opts)
+vim.keymap.set("n", "<leader>QQ", "<cmd>q!<CR>", { desc = "Force close" }, opts)
+vim.keymap.set("n", "<leader>WQ", "<cmd>wq!<CR>", { desc = "Force close and save" }, opts)
+vim.keymap.set("n", "<leader>QA", "<cmd>qa!<CR>", { desc = "Close all" }, opts)
 
--- open and close quickfix and location list
-vim.keymap.set("n", "<leader>qo", "<cmd>cope<CR>", opts)
-vim.keymap.set("n", "<leader>qc", "<cmd>ccl<CR>", opts)
-vim.keymap.set("n", "<leader>lo", "<cmd>lopen<CR>", opts)
-vim.keymap.set("n", "<leader>lc", "<cmd>lclose<CR>", opts)
+-- open quickfix list
+vim.keymap.set("n", "<leader>qo", "<cmd>cope<CR>", { desc = "Open quickfix list" }, opts)
 
 --  quick search
-vim.keymap.set("n", "<leader>tt", ":%s/")
+vim.keymap.set("n", "<leader>t", ":%s/", { desc = "Search in buffer" })
 
 -- remap backspace to lats used buffer
 vim.keymap.set("n", "<BS>", "<C-^>")
 
 -- map vim-fugitive
-vim.keymap.set("n", "<leader>gg", "<cmd>vertical Git<CR>", opts)
-vim.keymap.set("n", "<leader>gy", "<cmd>Git push<CR>", opts)
-vim.keymap.set("n", "<leader>gf", "<cmd>diffget //2<CR>", opts)
-vim.keymap.set("n", "<leader>gu", "<cmd>diffget //3<CR>", opts)
+vim.keymap.set("n", "<leader>gg", "<cmd>vertical Git<CR>", { desc = "Open git" }, opts)
+vim.keymap.set("n", "<leader>gy", "<cmd>Git push<CR>", { desc = "Push git commits" }, opts)
 
 -- telescope mappings
-vim.keymap.set("n", "<leader>yg", ":silent grep ")
-vim.keymap.set("n", "<leader>yu", ":Telescope ")
-vim.keymap.set("n", "<leader>yy", "<cmd>Telescope resume<CR>", opts)
-vim.keymap.set("n", "<leader><space>", "<cmd>lua project_files()<CR>", opts)
-vim.keymap.set("n", "<leader>/", "<cmd>Telescope live_grep<CR>", opts)
-vim.keymap.set("n", "<leader>;", "<cmd>Telescope commands<CR>", opts)
-vim.keymap.set("n", "<leader>,", "<cmd>Telescope buffers<CR>", opts)
-vim.keymap.set("n", "<leader>ya", "<cmd>Telescope find_files<CR>", opts)
-vim.keymap.set("n", "<leader>yd", "<cmd>Telescope diagnostics<CR>", opts)
-vim.keymap.set("n", "<leader>ys", "<cmd>Telescope git_status<CR>", opts)
-vim.keymap.set("n", "<leader>yc", "<cmd>Telescope git_branches<CR>", opts)
-vim.keymap.set("n", "<leader>yh", "<cmd>Telescope help_tags<CR>", opts)
-vim.keymap.set("n", "<leader>yf", "<cmd>Telescope file_browser<CR>", opts)
-vim.keymap.set("n", "<leader>yx", "<cmd>Telescope ultisnips<CR>", opts)
+vim.keymap.set("n", "<leader>yg", ":silent grep ", { desc = "Grep" })
+vim.keymap.set("n", "<leader>yu", ":Telescope ", { desc = "Precompile Telescope" })
+vim.keymap.set("n", "<leader>yy", "<cmd>Telescope resume<CR>", { desc = "Resume Telescope" }, opts)
+vim.keymap.set("n", "<leader><space>", "<cmd>lua project_files()<CR>", { desc = "Find in git" }, opts)
+vim.keymap.set("n", "<leader>/", "<cmd>Telescope live_grep<CR>", { desc = "Search live grep" }, opts)
+vim.keymap.set("n", "<leader>;", "<cmd>Telescope commands<CR>", { desc = "Search commands" }, opts)
+vim.keymap.set("n", "<leader>,", "<cmd>Telescope buffers<CR>", { desc = "Open buffers" }, opts)
+vim.keymap.set("n", "<leader>ya", "<cmd>Telescope find_files<CR>", { desc = "Search in all files" }, opts)
+vim.keymap.set("n", "<leader>yd", "<cmd>Telescope diagnostics<CR>", { desc = "Open diagnostics" }, opts)
+vim.keymap.set("n", "<leader>ys", "<cmd>Telescope git_status<CR>", { desc = "Find in git status" }, opts)
+vim.keymap.set("n", "<leader>yc", "<cmd>Telescope git_branches<CR>", { desc = "Checkout git branches" }, opts)
+vim.keymap.set("n", "<leader>yh", "<cmd>Telescope help_tags<CR>", { desc = "Browse help tags" }, opts)
+vim.keymap.set("n", "<leader>yf", "<cmd>Telescope file_browser<CR>", { desc = "Browse files" }, opts)
+vim.keymap.set("n", "<leader>yx", "<cmd>Telescope ultisnips<CR>", { desc = "Browse snippets" }, opts)
 
 -- change the current directory to edited file
-vim.keymap.set("n", "<leader>cd", "<cmd>cd %:p:h<CR>", opts)
+vim.keymap.set("n", "<leader>cd", "<cmd>cd %:p:h<CR>", { desc = "Update path to current diresctory" }, opts)
 
 -- add autocorrect
-vim.keymap.set("n", "<leader><Tab>", "[s1z=")
+vim.keymap.set("n", "<leader><Tab>", "[s1z=", { desc = "Quick spell" })
 
 -- quickrun
-vim.keymap.set("n", "<leader>ff", "<cmd>w<CR><cmd>QuickRun<CR>", opts)
+vim.keymap.set("n", "<leader>ff", "<cmd>w<CR><cmd>QuickRun<CR>", { desc = "Run buffer" }, opts)
 
 -- toggle paste and manage copy
-vim.keymap.set("n", "<leader>jj", "<cmd>set invpaste paste?<CR>", opts)
-vim.keymap.set("n", "<leader>cp", "<cmd>w !pbcopy<CR>", opts)
-
--- change mappings for location list navigation
-vim.keymap.set("n", "[w", "<cmd>lprevious<CR>", opts)
-vim.keymap.set("n", "]w", "<cmd>lnext<CR>", opts)
-vim.keymap.set("n", "[W", "<cmd>lfirst<CR>", opts)
-vim.keymap.set("n", "]W", "<cmd>llast<CR>", opts)
+vim.keymap.set("n", "<leader>jj", "<cmd>set invpaste paste?<CR>", { desc = "Set raw paste" }, opts)
+vim.keymap.set("n", "<leader>cp", "<cmd>w !pbcopy<CR>", { desc = "Copy buffer" }, opts)
 
 -- change prefix for window navigation
 vim.keymap.set("n", "<C-w>-", "<C-w>v")
@@ -109,20 +99,26 @@ vim.keymap.set("n", "za", "zo")
 vim.keymap.set("n", "zo", "za")
 
 -- hledger plugs
-vim.keymap.set("n", "<leader>eu", "<cmd>lua Better_ledger_align()<CR>", opts)
-vim.keymap.set("n", "<leader>ee", "<cmd>e +$ ~/.finance/periods/2024.journal<CR>", opts)
-vim.keymap.set("n", "<leader>ea", "<cmd>lua hledger_update()<CR>", opts)
+vim.keymap.set("n", "<leader>eu", "<cmd>lua Better_ledger_align()<CR>", { desc = "Align amount" }, opts)
+vim.keymap.set(
+  "n",
+  "<leader>ee",
+  "<cmd>e +$ ~/.finance/periods/2024.journal<CR>",
+  { desc = "Open current journal" },
+  opts
+)
+vim.keymap.set("n", "<leader>ea", "<cmd>lua hledger_update()<CR>", { desc = "Update payees and accounts" }, opts)
 
 -- gitsigns
-vim.keymap.set("n", "<leader>hh", "<cmd>Gitsigns preview_hunk<CR>", opts)
-vim.keymap.set("n", "<leader>hb", "<cmd>Gitsigns blame_line<CR>", opts)
-vim.keymap.set("n", "<leader>hB", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)
-vim.keymap.set("n", "<leader>hQ", "<cmd>Gitsigns stage_buffer<CR>", opts)
-vim.keymap.set("n", "<leader>hR", "<cmd>Gitsigns reset_buffer<CR>", opts)
-vim.keymap.set("n", "<leader>hd", "<cmd>Gitsigns diffthis<CR>", opts)
-vim.keymap.set("n", "<leader>hu", "<cmd>Gitsigns undo_stage_hunk<CR>", opts)
-vim.keymap.set({ "n", "v" }, "<leader>hq", "<cmd>Gitsigns stage_hunk<CR>", opts)
-vim.keymap.set({ "n", "v" }, "<leader>hr", "<cmd>Gitsigns reset_hunk<CR>", opts)
+vim.keymap.set("n", "<leader>gh", "<cmd>Gitsigns preview_hunk<CR>", { desc = "Preview hunk" }, opts)
+vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns blame_line<CR>", { desc = "Blame line" }, opts)
+vim.keymap.set("n", "<leader>gB", "<cmd>Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle line blame" }, opts)
+vim.keymap.set("n", "<leader>gQ", "<cmd>Gitsigns stage_buffer<CR>", { desc = "Stage buffer" }, opts)
+vim.keymap.set("n", "<leader>gR", "<cmd>Gitsigns reset_buffer<CR>", { desc = "Reset buffer" }, opts)
+vim.keymap.set("n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>", { desc = "Diff this" }, opts)
+vim.keymap.set("n", "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>", { desc = "Undo stage hunk" }, opts)
+vim.keymap.set({ "n", "v" }, "<leader>gq", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Stage hunk" }, opts)
+vim.keymap.set({ "n", "v" }, "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Reset hunk" }, opts)
 vim.keymap.set("n", "]c", '&diff ? "]c" : ":Gitsigns next_hunk<CR>"', { expr = true, silent = true })
 vim.keymap.set("n", "[c", '&diff ? "[c" : ":Gitsigns prev_hunk<CR>"', { expr = true, silent = true })
 
@@ -132,9 +128,9 @@ vim.cmd("cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lg
 
 -- lsp
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
-vim.keymap.set("n", "<leader>ll", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
-vim.keymap.set("n", "<leader>lL", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
-vim.keymap.set("n", "<leader>la", "<cmd>Lspsaga code_action<CR>", opts)
-vim.keymap.set("n", "<leader>lf", "<cmd>Lspsaga finder<CR>", opts)
-vim.keymap.set("n", "<leader>lf", "<cmd>Lspsaga outline<CR>", opts)
-vim.keymap.set("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", opts)
+vim.keymap.set("n", "<leader>ll", "<cmd>Lspsaga show_line_diagnostics<CR>", { desc = "Show line diagnostic" }, opts)
+vim.keymap.set("n", "<leader>lL", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { desc = "Show cursor diagnostic" }, opts)
+vim.keymap.set("n", "<leader>la", "<cmd>Lspsaga code_action<CR>", { desc = "Code action" }, opts)
+vim.keymap.set("n", "<leader>lf", "<cmd>Lspsaga finder<CR>", { desc = "Finder" }, opts)
+vim.keymap.set("n", "<leader>lf", "<cmd>Lspsaga outline<CR>", { desc = "Outline" }, opts)
+vim.keymap.set("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", { desc = "Rename" }, opts)

@@ -70,6 +70,7 @@ return {
         function()
           require("conform").format({ async = true, lsp_fallback = true })
         end,
+        desc = "Run conform",
         mode = "",
       },
     },
