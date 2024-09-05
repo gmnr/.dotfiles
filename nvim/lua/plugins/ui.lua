@@ -149,6 +149,7 @@ return {
     event = "VeryLazy",
     opts = {
       preset = "modern",
+      delay = 350,
     },
   },
 }
