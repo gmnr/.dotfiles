@@ -17,7 +17,9 @@
     msg (cmd-button "open /Applications/WhatsApp.app")
     term (cmd-button "open /Applications/Alacritty.app")
     alfred (cmd-button "open /Applications/Alfred\\ 5.app")
-  
+    find (cmd-button "open /Users/guido/Downloads")
+    icloud (cmd-button "open /Users/guido/Library/Mobile\\ Documents/com~apple~CloudDocs")
+    drive (cmd-button "open /Users/guido/Library/CloudStorage/OneDrive-ImpresaMinieriSpa")
 )
 
 
@@ -44,7 +46,7 @@
   caps f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12        ssrq slck pause
   `    1    2    3    4    5    6    7    8    9    _    _    =    bspc  ins  home pgup  nlck kp/  kp*  kp-
   tab  q    @music    @cal    @browser    b    j    @msg    @mail    @thing    ;    [    ]    ret   del  end  pgdn  kp7  kp8  kp9  kp+
-  @c_esc a    r    s    t    g    left    down    up    right    @term    '    \                          kp4  kp5  kp6
+  @c_esc @icloud    r    @drive    @find    g    left    down    up    right    @term    '    \                          kp4  kp5  kp6
   lsft 102d z    x    c    v    b    n    m    <    >    /    rsft            up         kp1  kp2  kp3  kprt
   lctl lalt lmet         @s_spc                rmet ralt cmp  rctl       left down rght  kp0  kp.
 )
