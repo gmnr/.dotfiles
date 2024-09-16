@@ -51,4 +51,5 @@ alias p='cat ~/.finance/prices/current_prices.journal'
 
 # kmonad
 alias QQ='sudo killall kmonad'
-alias qq='~/.dotfiles/config/kmonad/startup.sh'
+alias qq='~/.dotfiles/config/kmonad/startup.sh 1'
+alias qf='~/.dotfiles/config/kmonad/startup.sh 2'
