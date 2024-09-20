@@ -39,7 +39,7 @@
   tab  q    w    f    p    b    j    l    u    y    ;    [    ]    ret   del  end  pgdn  kp7  kp8  kp9  kp+
   @c_esc a    r    s    t    g    m    n    e    i    o    '    \                          kp4  kp5  kp6
   lsft 102d z    x    c    d    v    k    h    ,    .    /    rsft            up         kp1  kp2  kp3  kprt
-  lctl lalt lmet         @s_spc                rmet ralt cmp  rctl       left down rght  kp0  kp.
+  lctl lalt lmet         @s_spc                rmet ralt cmp  rctl       left down rght  kp0  ,
 )
 
 (deflayer nav
