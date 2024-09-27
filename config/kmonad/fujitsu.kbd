@@ -13,6 +13,7 @@
     browser (cmd-button "open /Applications/Safari.app")
     mail (cmd-button "open /Applications/Microsoft\\ Outlook.app")
     thing (cmd-button "open /Applications/Things3.app")
+    notes (cmd-button "open -a Notes")
     cal (cmd-button "open /System/Applications/Calendar.app")
     msg (cmd-button "open /Applications/WhatsApp.app")
     term (cmd-button "open /Applications/Alacritty.app")
@@ -48,6 +49,6 @@
   @desk    1    2    3    4    5    6    7    8    9    _    _    =    bspc  ins  home pgup  nlck kp/  kp*  kp-
   @down  q    @music    @cal    @browser    b    j    @msg    @mail    @thing    ;    [    ]    ret   del  end  pgdn  kp7  kp8  kp9  kp+
   @icloud  _  _    _    _    g    left    down    up    right    @term    '    \                          kp4  kp5  kp6
-  @drive 102d z    x    c    v    b    n    m    <    >    /    rsft            up         kp1  kp2  kp3  kprt
+  @drive 102d z    x    c    v    b    n    m    <    >    @notes    rsft            up         kp1  kp2  kp3  kprt
   lctl lalt lmet         @s_spc                rmet ralt cmp  rctl       left down rght  kp0  kp.
 )
