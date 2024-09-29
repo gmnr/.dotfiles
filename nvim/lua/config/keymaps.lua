@@ -21,17 +21,6 @@ vim.keymap.set("n", "<C-f>", "<C-u>")
 vim.keymap.set("n", "<leader>fd", "<cmd>Telescope find_files cwd=~/.dotfiles<CR>", { desc = "Open .dotfiles" }, opts)
 vim.keymap.set("n", "<leader>fu", "<cmd>Lazy<CR>", { desc = "Lazy" }, opts)
 
--- open notes
-vim.keymap.set("n", "<leader>uu", "<cmd>Telescope find_files cwd=~/.notes<CR>", { desc = "Open file in Notes" }, opts)
-vim.keymap.set("n", "<leader>uy", "<cmd>Telescope live_grep cwd=~/.notes<CR>", { desc = "Search files in Notes" }, opts)
-vim.keymap.set(
-  "n",
-  "<leader>ua",
-  '<cmd>lua annotate()<CR><cmd>exe "e +$ ~/.notes/notepad/".strftime("%Y%m%d").".md"<CR>',
-  { desc = "Add new note" },
-  opts
-)
-
 -- quick save and exit
 vim.keymap.set("n", "<leader>ww", "<cmd>w<CR>", { desc = "Save" }, opts)
 vim.keymap.set("n", "<leader>wq", "<cmd>WRCL<CR>", { desc = "Save and exit" }, opts)
@@ -39,9 +28,6 @@ vim.keymap.set("n", "<leader>qq", "<cmd>bd!<CR>", { desc = "Close buffer" }, opt
 vim.keymap.set("n", "<leader>QQ", "<cmd>q!<CR>", { desc = "Force close" }, opts)
 vim.keymap.set("n", "<leader>WQ", "<cmd>wq!<CR>", { desc = "Force close and save" }, opts)
 vim.keymap.set("n", "<leader>QA", "<cmd>qa!<CR>", { desc = "Close all" }, opts)
-
--- open quickfix list
-vim.keymap.set("n", "<leader>qo", "<cmd>cope<CR>", { desc = "Open quickfix list" }, opts)
 
 --  quick search
 vim.keymap.set("n", "<leader>t", ":%s/", { desc = "Search in buffer" })
