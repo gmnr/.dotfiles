@@ -8,8 +8,8 @@ vim.g.mapleader = " "
 -- fix Y behaviour
 vim.keymap.set("n", "Y", "y$")
 
--- clear search with esc
-vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>")
+-- -- clear search with esc
+-- vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>")
 
 -- remap redo command
 vim.keymap.set("n", "<C-p>", "<C-r>")
@@ -56,7 +56,7 @@ vim.keymap.set("n", "<leader>yf", "<cmd>Telescope file_browser<CR>", { desc = "B
 vim.keymap.set("n", "<leader>yx", "<cmd>Telescope ultisnips<CR>", { desc = "Browse snippets" }, opts)
 
 -- change the current directory to edited file
-vim.keymap.set("n", "<leader>cd", "<cmd>cd %:p:h<CR>", { desc = "Update path to current diresctory" }, opts)
+vim.keymap.set("n", "<leader>cd", "<cmd>cd %:p:h<CR>", { desc = "Update path to current directory" }, opts)
 
 -- add autocorrect
 vim.keymap.set("n", "<leader><Tab>", "[s1z=", { desc = "Quick spell" })
