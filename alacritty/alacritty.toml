@@ -71,9 +71,13 @@ multiplier = 3
 save_to_clipboard = false
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
+# [shell]
+# program = "/usr/local/bin/tmux"
+# args = ["-u"]
+
 [shell]
-program = "/usr/local/bin/tmux"
-args = ["-u"]
+program = "/bin/zsh"
+args = ["--login"]
 
 [window]
 decorations = "buttonless"
