@@ -72,8 +72,8 @@ save_to_clipboard = false
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [shell]
-args = ["-u"]
 program = "/usr/local/bin/tmux"
+args = ["-u"]
 
 [window]
 decorations = "buttonless"
