@@ -23,7 +23,7 @@ function parse_git_branch() {
   }
 
 setopt PROMPT_SUBST
-PROMPT='%B%F{green}%~%f %F{cyan}$(parse_git_branch)%f%F{red}>%f%b '
+PROMPT='%B%F{green} %~%f %F{cyan}$(parse_git_branch)%f%F{red}>%f%b '
 
 # functions
 # open p7m
