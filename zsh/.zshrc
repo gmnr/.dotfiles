@@ -31,6 +31,15 @@ function p7m() {
   openssl cms -decrypt -in "$1" -inform DER -verify -noverify -out "$2"
 }
 
+# access config
+function cf() {
+  if [ $# -eq 0 ]; then
+    nvim "+lua open_conf()"
+  elif [[ "$1" == "zsh" ]]; then
+    nvim ~/.dotfiles/zsh/.zshrc
+  fi
+}
+
 # helper functions !! with colors !!
 function is() {
   clear;
@@ -130,7 +139,6 @@ alias ny='nvim "+lua open_live_grep()"'
 alias ns='nvim "+lua open_git_status()"'
 alias copy='pbcopy'
 alias g='run_git'
-alias cf='nvim "+lua open_conf()"'
 alias tree='tree -I .git -a'
 
 # ledger aliases
