@@ -8,9 +8,6 @@ vim.g.mapleader = " "
 -- fix Y behaviour
 vim.keymap.set("n", "Y", "y$")
 
--- -- clear search with esc
--- vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>")
-
 -- remap redo command
 vim.keymap.set("n", "<C-p>", "<C-r>")
 
