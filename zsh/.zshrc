@@ -1,17 +1,9 @@
-# remind of updates
-zstyle ':omz:update' mode reminder
-
 # improve performance
 autoload -U zmv
 setopt extended_glob
 
-# load plugins
-plugins=(git
-  zsh-syntax-highlighting
-  fzf
-  zsh-vi-mode)
-
-source $ZSH/oh-my-zsh.sh
+# enable vi mode
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # prompt
 function parse_git_dirty() {
