@@ -14,9 +14,9 @@ draw_bold_text_with_bright_colors = true
 background = '#24283b'
 foreground = '#c0caf5'
 
-#[colors.cursor]
-#cursor = '#c0caf5'
-#text = '#24283b'
+[colors.cursor]
+cursor = '#c0caf5'
+text = '#24283b'
 
 # Normal colors
 [colors.normal]
@@ -88,13 +88,9 @@ multiplier = 3
 save_to_clipboard = false
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
-# [shell]
-# program = "/usr/local/bin/tmux"
-# args = ["-u"]
-
 [shell]
-program = "/bin/zsh"
-args = ["--login"]
+program = "/usr/local/bin/tmux"
+args = ["-u"]
 
 [window]
 decorations = "buttonless"
