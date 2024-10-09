@@ -8,7 +8,7 @@ setopt extended_glob
 # load plugins
 plugins=(git
   zsh-syntax-highlighting
-  you-should-use
+  fzf
   zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
