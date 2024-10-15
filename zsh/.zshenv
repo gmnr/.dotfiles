@@ -2,9 +2,9 @@
 export EDITOR=nvim
 export VISUAL="$EDITOR"
 export PAGER=bat
-export ZSH="$HOME/.oh-my-zsh"
 export DOTFILES=~/.dotfiles
 export LEDGER_FILE=$HOME/.finance/all.journal
+export BAT_CONFIG_DIR=~/.dotfiles/bat/
 
 # select correct locale
 defaults write .GlobalPreferences AppleLocale en_IT
