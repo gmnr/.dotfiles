@@ -1,17 +1,12 @@
 %YAML 1.2
 ---
-# http://www.sublimetext.com/docs/3/syntax.html
 name: Ledger
 file_extensions:
   - ldg
   - ledger
-  - ldgr
   - journal
 scope: source.ledger
 
-# Beware !!!
-# Non-capturing group should begin with ?:
-# cf https://docs.python.org/3/library/re.html
 
 variables:
   indent: '[ \t]+'
@@ -30,7 +25,7 @@ variables:
   currency_name: '(?:[a-zA-Z]+)'
   currency_name_long: '(?:\"[^\"]+\")'
 
-  number: '-?\d+(?:,\d{3})*(?:\.\d{1,2})?'
+  number: '-?\d+(?:.\d{3})*(?:\,\d{1,2})?'
 
   comment_char: '(?:;|\#|\%|\||\*)'
   comment: '{{comment_char}}.*'
@@ -44,32 +39,19 @@ contexts:
         1: comment.line
 
     ## 1st line of entry
-    ##
     - match: '^(?={{date}})'
       push:
 
         # Date with possibly auxiliary date.
         - match: '({{date}})([=])?({{date}})?'
           captures:
-            1: string.other.date
-            2: punctuation.separator
-            3: string.other.date
+           1: punctuation.separator
 
-        # Cleared entry
-        - match: '\s+\*\s+({{payee}})'
-          captures:
-            1: markup.italic.desc
-
-        # Pending entry
-        - match: '(\s+!\s+)({{payee}})'
-          captures:
-            1: variable.other
-            2: invalid
-
-        # Non-cleared entry
+        # Entry
         - match: '\s+({{payee}})'
           captures:
-            1: invalid
+            1: variable.other
+
 
         - match: '\s*(;.*)'
           captures:
@@ -80,30 +62,23 @@ contexts:
           pop: true
 
     ## Account lines
-    ##
-
     - match: '^(?={{indent}}{{account}})'
       push:
 
         # Account name
         - match: '^({{indent}}{{account}})'
           captures:
-            1: constant.other
-
-        # Amount with style €10
-        - match: '{{hard_sep}}({{currency}}{{number}})'
-          captures:
-            1: variable.other.amount
+            1: variable.amount.ledger
 
         # Amount with style 10 EUR
         - match: '{{hard_sep}}({{number}} {{currency_name}})'
           captures:
-            1: variable.other.amount
+            1: constant.numeric.date.ledger
 
-        # Amount with style 10 "A currency with spaces"
-        - match: '{{hard_sep}}({{number}} {{currency_name_long}})'
+        # Amount with style 10 
+        - match: '{{hard_sep}}({{number}})'
           captures:
-            1: variable.other.amount
+            1: constant.numeric.date.ledger
 
         # Multiplier
         - match: '{{hard_sep}}({{number}})'
@@ -124,29 +99,37 @@ contexts:
       captures:
             1: comment.line
 
-    ## Command directives
-    ##
-
     # Account definition
     - match: ^(account) ({{account}})\s*$
       captures:
-        1: keyword.control
-        2: constant.other
+        1: keyword.alias.ledger
+        2: variable.other
 
     # Payee definition
     - match: ^(payee) ({{payee}})\s*$
       captures:
         1: keyword.control
-        2: markup.italic.desc
+        2: variable.other
+
+    # Payee definition
+    - match: ^(include) (.*)\s*$
+      captures:
+        1: punctuation.separator
+        2: variable.other
+
+    # unit of measure definition
+    - match: ^(\w+) (.*) (EUR)$
+      captures:
+        1: keyword.control
+        2: constant.numeric.date.ledger
+        3: string.unquoted.payee.ledger
+
 
     # Other definition
     - match: ^(\w+) (.*)$
       captures:
         1: keyword.control
         2: constant.other
-
-    ## Other
-    ##
 
     # Periodic transaction
     - match: ^(~)\s(.*?)$
@@ -159,3 +142,4 @@ contexts:
       captures:
         1: punctuation.section.automated
         2: string.regexp.expression
+
