@@ -76,4 +76,6 @@ return {
       })
     end,
   },
+
+  vim.treesitter.language.register("bash", "zsh"),
 }
