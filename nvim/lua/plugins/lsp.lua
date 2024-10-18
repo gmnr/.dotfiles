@@ -46,6 +46,11 @@ return {
       })
 
       -- ignore vim global in lua files
+      require("lspconfig").bashls.setup({
+        filetypes = { "sh", "zsh", "bash" },
+      })
+
+      -- ignore vim global in lua files
       require("lspconfig").lua_ls.setup({
         settings = {
           Lua = {
