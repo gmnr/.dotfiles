@@ -2,7 +2,12 @@
 autoload -U zmv
 setopt extended_glob
 
-autoload -Uz compinit && compinit
+# set autocompletion
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # enable vi mode
