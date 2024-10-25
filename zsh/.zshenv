@@ -5,6 +5,7 @@ export PAGER=bat
 export DOTFILES=~/.dotfiles
 export LEDGER_FILE=$HOME/.finance/all.journal
 export BAT_CONFIG_DIR=~/.dotfiles/bat/
+export CLICOLOR=1
 
 # create dot folder for zsh
 if [ -d ~/.config/zsh ]; then
