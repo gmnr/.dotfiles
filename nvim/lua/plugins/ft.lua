@@ -17,13 +17,18 @@ return {
       vim.g.ledger_bin = "hledger"
       vim.g.ledger_decimal_sep = ","
 
+      vim.cmd([[
+        au FileType ledger noremap <silent> { ?^\d<CR>
+        au FileType ledger noremap <silent> } /^\d<CR>
+        ]])
+
       -- define function to align at <CR>
-      function Better_ledger_align()
-        if string.find(vim.fn.getline("."):sub(-1), "%d") then
-          local str = vim.fn.getline(".")
+      function Hledger_CR()
+        local line = vim.fn.getline(".")
+        if string.find(line:sub(-1), "%d") then
           local elements = {}
 
-          for el in str:gmatch("%S+") do
+          for el in line:gmatch("%S+") do
             table.insert(elements, el)
           end
 
@@ -44,7 +49,7 @@ return {
       end
 
       -- set specific mapping
-      vim.keymap.set({ "i" }, "<CR>", "<cmd>lua Better_ledger_align()<CR><Right><CR>", { silent = true })
+      vim.keymap.set({ "i" }, "<CR>", "<cmd>lua Hledger_CR()<CR><Right><CR>", { silent = true })
     end,
     ft = { "ledger" },
   },

@@ -82,7 +82,7 @@ vim.keymap.set("n", "za", "zo")
 vim.keymap.set("n", "zo", "za")
 
 -- hledger plugs
-vim.keymap.set("n", "<leader>eu", "<cmd>lua Better_ledger_align()<CR>", { desc = "Align amount" }, opts)
+vim.keymap.set("n", "<leader>eu", "<cmd>lua Hledger_CR()<CR>", { desc = "Align amount" }, opts)
 vim.keymap.set(
   "n",
   "<leader>ee",
