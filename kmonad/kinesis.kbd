@@ -34,10 +34,10 @@
   tab  q    w    e    r    t                   y    u    i    o    p    \
   caps a    s    d    f    g                   h    j    k    l    ;    '
   lsft z    x    c    v    b                   n    m    ,    .    / rsft
-       grv  F13  left rght                          up   down [    ]
+       `    F13  left rght                          up   down [    ]
 
                            lctl lalt   rmet  rctl
-                       spc del  home   pgup  ret bspc
+                      bspc del  home   pgup  ret spc
                                  end   pgdn
 )
 
