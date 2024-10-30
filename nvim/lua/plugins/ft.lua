@@ -17,11 +17,6 @@ return {
       vim.g.ledger_bin = "hledger"
       vim.g.ledger_decimal_sep = ","
 
-      vim.cmd([[
-        au FileType ledger noremap <silent> { ?^\d<CR>
-        au FileType ledger noremap <silent> } /^\d<CR>
-        ]])
-
       -- define function to align at <CR>
       function Hledger_CR()
         local line = vim.fn.getline(".")
