@@ -27,7 +27,7 @@ vim.keymap.set("n", "<leader>WQ", "<cmd>wq!<CR>", { desc = "Force close and save
 vim.keymap.set("n", "<leader>QA", "<cmd>qa!<CR>", { desc = "Close all" }, opts)
 
 --  quick search
-vim.keymap.set("n", "<leader>t", ":%s/", { desc = "Search in buffer" })
+vim.keymap.set("n", "<leader>tt", ":%s/", { desc = "Search in buffer" })
 
 -- remap backspace to lats used buffer
 vim.keymap.set("n", "<BS>", "<C-^>")
