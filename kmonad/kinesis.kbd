@@ -8,8 +8,7 @@
 (defalias
     c_esc (around ctl (tap-hold-next 250 (around (release-only ctl) esc) XX))
     s_spc (tap-hold-next-release 350 spc (layer-toggle nav))
-
-    med (layer-toggle med)
+    alfred (tap-hold-next-release 250 (cmd-button "open /Applications/Alfred\\ 5.app") (layer-toggle med))
     rcmd (layer-toggle apps)
 
     music (cmd-button "open /Applications/Spotify.app")
@@ -20,7 +19,6 @@
     cal (cmd-button "open /System/Applications/Calendar.app")
     msg (cmd-button "open /Applications/WhatsApp.app")
     term (cmd-button "open /Applications/Alacritty.app")
-    alfred (cmd-button "open /Applications/Alfred\\ 5.app")
     down (cmd-button "open /Users/guido/Downloads")
     desk (cmd-button "open /Users/guido/Desktop")
     icloud (cmd-button "open /Users/guido/Library/Mobile\\ Documents/com~apple~CloudDocs")
@@ -54,7 +52,7 @@
 
                            lmet  del    ralt  @rcmd
                       @s_spc alt f11    f12   ret bspc
-                                   _    @med
+                                   _    _
 )
 
 
@@ -91,11 +89,11 @@
 (deflayer med
   esc  F1   F2   F3   F4   F5   F6   F7   F8   F9   F10  F11  F12  prnt slck pause
 
-  _    _    _    _    _    _                   _    _    _    _    _    _
-  _  _    prev    pp    next    _                   _    _    _    _    _    _
-  _ _    vold    mute    volu    _                   _    _    _    _    _    _
-  _ _    _    _    _    _                   _    _    _    _    _ rsft
-       grv  `  left rght                          _   down [    ]
+  _    _    _    _    _    _                    _    bspc    =    KpAsterisk    KpMinus    _
+  _ _    vold    mute    volu    _                 _    Kp7    Kp8    Kp9    KpPlus    _
+  _  _    prev    pp    next    _                  _    Kp4    Kp5    Kp6    KpPlus    _
+  _ _    _    _    _    _                   _    Kp1    Kp2    Kp3    _ rsft
+       _  _  _ _                             _   Kp0 ,    KpEnter
 
                            lctl lalt   rmet rctl
                        spc del  home   pgup  ret bspc
