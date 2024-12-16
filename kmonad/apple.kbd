@@ -59,7 +59,7 @@
 
 (deflayer apps
   _  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
-  @desk  f1   f2   f3   f4   f5   f6   f7   f8   f9   _  _  f12   del
+  @desk  f1   f2   f3   f4   f5   f6   f7   f8   f9   _  _  f12   M-bspc
   @down  _   @msg   @notes   _   M-b   _   _   _   _   _   [    ]    \
   @icloud  @term  @music   @thing  @browser   _    _    _    _    _    _    '    end
   @drive _  _    _    @cal    @mail    _    _    _    _    _    _    rsft up
