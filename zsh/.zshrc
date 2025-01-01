@@ -144,7 +144,7 @@ alias tree='tree -I .git -a'
 # ledger aliases
 alias hl='hledger --pretty'
 alias hlp='hledger print'
-alias e='nvim +$ ~/.finance/periods/2024.journal'
+alias e='nvim +$ ~/.finance/periods/2025.journal'
 alias ea='nvim +$ ~/.finance/others/alfredo.journal'
 alias roi='clear; hledger roi --pretty --pnl "unrealized" -V --inv'
 alias dadv='clear; hledger -f ~/.finance/others/alfredo.journal roi --pretty --pnl "unrealized" -V --inv VNGA'
