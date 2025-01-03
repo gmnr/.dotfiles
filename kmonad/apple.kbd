@@ -63,6 +63,6 @@
   @down  _   @msg   @notes   _   M-b   _   _   _   _   _   [    ]    \
   @icloud  @term  @music   @thing  @browser   _    _    _    _    _    _    '    end
   @drive _  _    _    @cal    @mail    _    _    _    _    _    _    rsft up
-  fn   lctl lalt lmet           _            @rcmd ralt M-left down M-rght
+  fn   lctl lalt lmet           _            @rcmd ralt M-left M-down M-rght
 )
 
