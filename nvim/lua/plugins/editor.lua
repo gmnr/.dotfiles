@@ -2,8 +2,6 @@ return {
 
   "tpope/vim-fugitive",
 
-  -- { "tpope/vim-commentary", event = "VeryLazy" },
-
   { "tpope/vim-repeat", event = "VeryLazy" },
 
   { "tpope/vim-speeddating", event = "VeryLazy" },
