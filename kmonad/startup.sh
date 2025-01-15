@@ -1,6 +1,6 @@
 # run kmonad for both "main" keyboards
 if [[ $1 -eq 1 ]]; then
-  sudo kmonad ~/.dotfiles/kmonad/apple.kbd &
+  sudo kmonad ~/.dotfiles/kmonad/m4.kbd &
   sudo kmonad ~/.dotfiles/kmonad/kinesis.kbd &
 fi
 
