@@ -20,7 +20,7 @@ return {
       cmp.register_source("hledger_completion", {
         complete = function(self, params, callback)
           local items = {}
-          for payee in io.lines("/Users/guido/.finance/.src/completion-source/payees") do
+          for payee in io.lines("/Users/gmnr/.finance/.src/completion-source/payees") do
             table.insert(items, {
               label = payee,
               insertText = payee .. " | ",
@@ -28,7 +28,7 @@ return {
               kind = cmp.lsp.CompletionItemKind.Class,
             })
           end
-          for account in io.lines("/Users/guido/.finance/.src/completion-source/accounts") do
+          for account in io.lines("/Users/gmnr/.finance/.src/completion-source/accounts") do
             table.insert(items, {
               label = account,
               insertText = account .. "   ",
