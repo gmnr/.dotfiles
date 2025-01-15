@@ -90,7 +90,8 @@ save_to_clipboard = false
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [terminal.shell]
-program = "/usr/local/bin/tmux"
+program = "/opt/homebrew/bin/tmux"
+
 args = ["-u"]
 
 [window]
