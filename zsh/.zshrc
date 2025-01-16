@@ -109,9 +109,9 @@ function run_git() {
 
 # folder
 alias dot='cd ~/.dotfiles'
-alias dev='cd ~/Coding'
-alias blog='cd ~/Coding/blog'
+alias blog='cd ~/.blog'
 alias finance='cd ~/.finance'
+alias aocd='cd ~/Documents/advent-of-code'
 alias ..='cd ..'
 alias ...='cd ../..'
 
@@ -120,8 +120,7 @@ alias ls='eza --all --git-ignore'
 alias ll='eza --long --header --all --git --sort=modified --reverse'
 
 # advent of code utilities
-alias aoc='~/Coding/advent-of-code/utils/startup.sh'
-alias aocd='cd ~/Coding/advent-of-code'
+alias aoc='~/Documents/advent-of-code/utils/startup.sh'
 
 # rename programs
 alias python='/usr/local/bin/python3'
