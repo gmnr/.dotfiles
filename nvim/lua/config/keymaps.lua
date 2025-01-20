@@ -86,7 +86,7 @@ vim.keymap.set("n", "<leader>eu", "<cmd>lua Hledger_CR()<CR>", opts)
 vim.keymap.set(
   "n",
   "<leader>ee",
-  "<cmd>e +$ ~/.finance/periods/2024.journal<CR>",
+  "<cmd>e +$ ~/.finance/periods/2025.journal<CR>",
   { desc = "Open current journal" },
   opts
 )
