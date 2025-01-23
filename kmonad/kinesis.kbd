@@ -17,12 +17,13 @@
     thing (cmd-button "open /Applications/Things3.app")
     notes (cmd-button "open -a Notes")
     cal (cmd-button "open /System/Applications/Calendar.app")
+    teams (cmd-button "open /Applications/Microsoft\\ Teams.app")
     msg (cmd-button "open /Applications/WhatsApp.app")
     term (cmd-button "open /Applications/Alacritty.app")
-    down (cmd-button "open /Users/guido/Downloads")
-    desk (cmd-button "open /Users/guido/Desktop")
-    icloud (cmd-button "open /Users/guido/Library/Mobile\\ Documents/com~apple~CloudDocs")
-    drive (cmd-button "open /Users/guido/Library/CloudStorage/OneDrive-ImpresaMinieriSpa")
+    down (cmd-button "open /Users/gmnr/Downloads")
+    desk (cmd-button "open /Users/gmnr/Desktop")
+    icloud (cmd-button "open /Users/gmnr/Library/Mobile\\ Documents/com~apple~CloudDocs")
+    drive (cmd-button "open /Users/gmnr/Library/CloudStorage/OneDrive-ImpresaMinieriSpa")
 )
 
 
@@ -77,7 +78,7 @@
   @desk    f1   f2   f3   f4   f5                  f6   f7   f8  f9   _   _
   @down  _   @msg   @notes    _    _                   _   _    _    _    _    _
   @icloud  @term   @music   @thing  @browser   _     _   _   _   _   _    _
-  @drive _    _    @cal    @mail    _                   _    _    _    _    _ rsft
+  @drive _    @teams    @cal    @mail    _                   _    _    _    _    _ rsft
        _  _  home  end                          pgdn   pgup  _    _
 
                             lctl del   ralt rctl
