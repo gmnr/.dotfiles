@@ -31,15 +31,6 @@ function decrypt() {
   openssl cms -decrypt -in "$1" -inform DER -verify -noverify -out "$2"
 }
 
-# access config
-function cf() {
-  if [ $# -eq 0 ]; then
-    nvim "+lua open_conf()"
-  elif [[ "$1" == "zsh" ]]; then
-    nvim ~/.dotfiles/zsh/.zshrc
-  fi
-}
-
 # helper functions !! with colors !!
 function is() {
   clear;
@@ -118,6 +109,9 @@ alias ...='cd ../..'
 # colors on ls
 alias ls='eza --all --git-ignore'
 alias ll='eza --long --header --all --git --sort=modified --reverse'
+
+# open config
+alias cfg='nvim "+lua open_conf()"'
 
 # advent of code utilities
 alias aoc='~/Documents/advent-of-code/utils/startup.sh'
