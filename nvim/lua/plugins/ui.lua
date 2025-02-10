@@ -20,53 +20,6 @@ return {
     end,
   },
 
-  -- indent blankline
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    event = "VeryLazy",
-    opts = {
-      indent = {
-        char = "│",
-        tab_char = "│",
-      },
-      scope = { enabled = false },
-      exclude = {
-        filetypes = {
-          "help",
-          "ledger",
-          "lazy",
-          "man",
-          "mason",
-        },
-      },
-    },
-    main = "ibl",
-  },
-
-  -- indent scope
-  {
-    "echasnovski/mini.indentscope",
-    event = "VeryLazy",
-    opts = {
-      symbol = "│",
-      options = { try_as_border = true },
-    },
-    init = function()
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = {
-          "help",
-          "ledger",
-          "lazy",
-          "man",
-          "mason",
-        },
-        callback = function()
-          vim.b.miniindentscope_disable = true
-        end,
-      })
-    end,
-  },
-
   -- gitsigns
   {
     "lewis6991/gitsigns.nvim",
