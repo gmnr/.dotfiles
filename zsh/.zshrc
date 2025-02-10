@@ -110,9 +110,6 @@ alias ...='cd ../..'
 alias ls='eza --all --git-ignore'
 alias ll='eza --long --header --all --git --sort=modified --reverse'
 
-# open config
-alias cfg='nvim "+lua open_conf()"'
-
 # advent of code utilities
 alias aoc='~/Documents/advent-of-code/utils/startup.sh'
 
@@ -127,9 +124,6 @@ alias upd='brew update && brew upgrade && nvim +"lua require(\"lazy\").sync()"'
 alias cat='bat --style="numbers,changes,header" --italic-text=always'
 alias rg='rg -S'
 alias n='nvim'
-alias nn='nvim "+lua project_files()"'
-alias ny='nvim "+lua open_live_grep()"'
-alias ns='nvim "+lua open_git_status()"'
 alias copy='pbcopy'
 alias g='run_git'
 alias tree='tree -I .git -a'

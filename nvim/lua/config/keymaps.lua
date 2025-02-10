@@ -15,7 +15,6 @@ vim.keymap.set("n", "<C-p>", "<C-r>")
 vim.keymap.set("n", "<C-f>", "<C-u>")
 
 -- open and load .vimrc
-vim.keymap.set("n", "<leader>fd", "<cmd>Telescope find_files cwd=~/.dotfiles<CR>", opts)
 vim.keymap.set("n", "<leader>fu", "<cmd>Lazy<CR>", opts)
 
 -- quick save and exit
@@ -27,7 +26,7 @@ vim.keymap.set("n", "<leader>WQ", "<cmd>wq!<CR>", opts)
 vim.keymap.set("n", "<leader>QA", "<cmd>qa!<CR>", opts)
 
 --  quick search
-vim.keymap.set("n", "<leader>tt", ":%s/", { desc = "Search in buffer" })
+vim.keymap.set("n", "<leader>tt", ":%s/")
 
 -- remap backspace to lats used buffer
 vim.keymap.set("n", "<BS>", "<C-^>")
@@ -36,27 +35,11 @@ vim.keymap.set("n", "<BS>", "<C-^>")
 vim.keymap.set("n", "<leader>gg", "<cmd>vertical Git<CR>", opts)
 vim.keymap.set("n", "<leader>gy", "<cmd>Git push<CR>", opts)
 
--- telescope mappings
-vim.keymap.set("n", "<leader>yg", ":silent grep ", { desc = "Grep" })
-vim.keymap.set("n", "<leader>yu", ":Telescope ", { desc = "Precompile Telescope" })
-vim.keymap.set("n", "<leader>yy", "<cmd>Telescope resume<CR>", opts)
-vim.keymap.set("n", "<leader><space>", "<cmd>lua project_files()<CR>", opts)
-vim.keymap.set("n", "<leader>/", "<cmd>Telescope live_grep<CR>", opts)
-vim.keymap.set("n", "<leader>;", "<cmd>Telescope commands<CR>", opts)
-vim.keymap.set("n", "<leader>,", "<cmd>Telescope buffers<CR>", opts)
-vim.keymap.set("n", "<leader>ya", "<cmd>Telescope find_files<CR>", opts)
-vim.keymap.set("n", "<leader>yd", "<cmd>Telescope diagnostics<CR>", opts)
-vim.keymap.set("n", "<leader>ys", "<cmd>Telescope git_status<CR>", opts)
-vim.keymap.set("n", "<leader>yc", "<cmd>Telescope git_branches<CR>", opts)
-vim.keymap.set("n", "<leader>yh", "<cmd>Telescope help_tags<CR>", opts)
-vim.keymap.set("n", "<leader>yf", "<cmd>Telescope file_browser<CR>", opts)
-vim.keymap.set("n", "<leader>yx", "<cmd>Telescope ultisnips<CR>", opts)
-
 -- change the current directory to edited file
 vim.keymap.set("n", "<leader>cd", "<cmd>cd %:p:h<CR>", opts)
 
 -- add autocorrect
-vim.keymap.set("n", "<leader><Tab>", "[s1z=", { desc = "Quick spell" })
+vim.keymap.set("n", "<leader><Tab>", "[s1z=")
 
 -- quickrun
 vim.keymap.set("n", "<leader>ff", "<cmd>w<CR><cmd>QuickRun<CR>", opts)
@@ -83,13 +66,7 @@ vim.keymap.set("n", "zo", "za")
 
 -- hledger plugs
 vim.keymap.set("n", "<leader>eu", "<cmd>lua Hledger_CR()<CR>", opts)
-vim.keymap.set(
-  "n",
-  "<leader>ee",
-  "<cmd>e +$ ~/.finance/periods/2025.journal<CR>",
-  { desc = "Open current journal" },
-  opts
-)
+vim.keymap.set("n", "<leader>ee", "<cmd>e +$ ~/.finance/periods/2025.journal<CR>", opts)
 vim.keymap.set("n", "<leader>ea", "<cmd>lua hledger_update()<CR>", opts)
 
 -- gitsigns
