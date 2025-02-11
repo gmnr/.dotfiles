@@ -121,7 +121,6 @@ return {
           { section = "startup" },
         },
       },
-      dim = {},
       explorer = { enabled = true },
       indent = {
         filter = function(buf)
@@ -256,7 +255,7 @@ return {
         end,
       },
       {
-        "<leader>yr",
+        "<leader>yx",
         function()
           Snacks.picker.diagnostics()
         end,
@@ -268,7 +267,7 @@ return {
         end,
       },
       {
-        "<leader>ym",
+        "<leader>yk",
         function()
           Snacks.picker.keymaps()
         end,
@@ -295,12 +294,6 @@ return {
         "<leader>yu",
         function()
           Snacks.picker.undo()
-        end,
-      },
-      {
-        "<leader>yc",
-        function()
-          Snacks.picker.colorschemes()
         end,
       },
       -- LSP
