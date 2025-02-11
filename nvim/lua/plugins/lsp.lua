@@ -100,8 +100,8 @@ return {
     "folke/trouble.nvim",
     event = "LspAttach",
     keys = {
-      { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>" },
-      { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>" },
+      { "<leader>xx", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>" },
+      { "<leader>XX", "<cmd>Trouble diagnostics toggle<cr>" },
       { "<leader>xs", "<cmd>Trouble symbols toggle focus=false<cr>" },
       { "<leader>xl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>" },
       { "<leader>xL", "<cmd>Trouble loclist toggle<cr>" },
