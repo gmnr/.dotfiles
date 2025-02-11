@@ -50,6 +50,18 @@ return {
   },
 
   {
+    "SirVer/ultisnips",
+    dependencies = { "honza/vim-snippets" },
+    ft = { "markdown", "ledger", "python", "javascript", "html", "css" },
+    config = function()
+      vim.g.UltiSnipsExpandTrigger = "<Tab>"
+      vim.g.UltiSnipsJumpForwardTrigger = "<C-n>"
+      vim.g.UltiSnipsJumpBackwardTrigger = "<C-e>"
+      vim.g.UltiSnipsSnippetDirectories = { "snppts" }
+    end,
+  },
+
+  {
     "OXY2DEV/markview.nvim",
     ft = "markdown",
     config = function()
