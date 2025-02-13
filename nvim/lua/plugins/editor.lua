@@ -103,6 +103,17 @@ return {
           { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
           { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
           { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+          {
+            icon = " ",
+            title = "Git Status",
+            section = "terminal",
+            enabled = function()
+              return Snacks.git.get_root() ~= nil
+            end,
+            cmd = "git --no-pager diff --stat -B -M -C",
+            indent = 2,
+            padding = 1,
+          },
           { section = "startup" },
         },
       },
@@ -143,7 +154,6 @@ return {
       quickfile = { enabled = true },
       scope = { enabled = true },
       scroll = { enabled = true },
-      words = { enabled = true },
     },
     keys = {
       {
