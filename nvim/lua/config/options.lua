@@ -62,6 +62,9 @@ vim.opt.wildignorecase = true
 -- disable ordinary autocompletion
 vim.opt.complete = ""
 
+-- automatically change dir
+vim.opt.autochdir = true
+
 -- enable concealing
 vim.opt.conceallevel = 2
 

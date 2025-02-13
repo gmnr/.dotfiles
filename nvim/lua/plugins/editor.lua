@@ -28,21 +28,6 @@ return {
   },
 
   {
-    "ahmedkhalf/project.nvim",
-    config = function()
-      require("project_nvim").setup({
-        sync_root_with_cwd = true,
-        respect_buf_cwd = true,
-        exclude_dirs = { "~/Documents/advent-of-code/*" },
-        update_focused_file = {
-          enable = true,
-          update_root = true,
-        },
-      })
-    end,
-  },
-
-  {
     "windwp/nvim-autopairs",
     config = function()
       local npairs = require("nvim-autopairs")
