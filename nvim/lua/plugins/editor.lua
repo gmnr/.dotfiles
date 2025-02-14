@@ -100,9 +100,30 @@ return {
       dashboard = {
         sections = {
           { section = "header" },
-          { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
-          { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
-          { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+          {
+            icon = " ",
+            title = "Keymaps",
+            indent = 2,
+            padding = 1,
+            {
+              icon = " ",
+              key = "a",
+              desc = "Find File",
+              action = ":lua Snacks.dashboard.pick('files', {hidden = true})",
+            },
+            { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+            { icon = " ", key = "/", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+            { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+            {
+              icon = " ",
+              key = "f",
+              desc = "Config",
+              action = ":lua Snacks.dashboard.pick('files', {cwd = '~/.dotfiles', hidden = true})",
+            },
+            { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
+            { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+          },
+          { icon = " ", title = "Projects", section = "projects", limit = 4, indent = 2, padding = 1 },
           {
             icon = " ",
             title = "Git Status",
@@ -137,6 +158,25 @@ return {
       },
       input = { enabled = true },
       picker = {
+        sources = {
+          buffers = { current = false },
+          files = { hidden = true },
+          projects = {
+            filter = { paths = { ["~/.local/share/nvim/lazy/snacks.nvim"] = false, ["/opt/homebrew"] = false } },
+          },
+          explorer = {
+            auto_close = true,
+            hidden = true,
+            win = {
+              list = {
+                keys = {
+                  ["<c-k>"] = { "list_down", mode = { "i", "n" } },
+                  ["<c-y>"] = { "list_up", mode = { "i", "n" } },
+                },
+              },
+            },
+          },
+        },
         layout = { preset = "ivy" },
         win = {
           input = {
@@ -190,13 +230,13 @@ return {
       {
         "<leader>fd",
         function()
-          Snacks.picker.files({ cwd = "~/.dotfiles", hidden = true })
+          Snacks.picker.files({ cwd = "~/.dotfiles" })
         end,
       },
       {
         "<leader>ya",
         function()
-          Snacks.picker.files({ cwd = Snacks.git.get_root(), hidden = true })
+          Snacks.picker.files({ cwd = Snacks.git.get_root() })
         end,
       },
       {
