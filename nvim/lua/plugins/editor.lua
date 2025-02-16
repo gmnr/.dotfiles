@@ -161,6 +161,7 @@ return {
         sources = {
           buffers = { current = false },
           files = { hidden = true },
+          grep = { hidden = true },
           projects = {
             filter = { paths = { ["~/.local/share/nvim/lazy/snacks.nvim"] = false, ["/opt/homebrew"] = false } },
           },
