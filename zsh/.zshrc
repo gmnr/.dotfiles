@@ -49,22 +49,22 @@ function bs() {
 
 function reg() {
   clear;
-  hledger reg -p thismonth "$@" | ~/.finance/.src/scripts/colorize-report.py register
+  hledger reg -p thismonth -w $COLUMNS "$@" | ~/.finance/.src/scripts/colorize-report.py register
 }
 
 function regg() {
   clear;
-  hledger reg "$@" | ~/.finance/.src/scripts/colorize-report.py register
+  hledger reg -w $COLUMNS "$@" | ~/.finance/.src/scripts/colorize-report.py register
 }
 
 function areg() {
   clear;
-  hledger areg -p thismonth "$@" | ~/.finance/.src/scripts/colorize-report.py areg
+  hledger areg -p thismonth -w $COLUMNS "$@" | ~/.finance/.src/scripts/colorize-report.py areg
 }
 
 function aregg() {
   clear;
-  hledger areg "$@" | ~/.finance/.src/scripts/colorize-report.py areg
+  hledger areg -w $COLUMNS "$@" | ~/.finance/.src/scripts/colorize-report.py areg
 }
 
 function bal() {
