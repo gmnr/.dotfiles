@@ -5,9 +5,6 @@ local opts = { silent = true }
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false }) -- improve performance of leader key
 vim.g.mapleader = " "
 
--- fix Y behaviour
-vim.keymap.set("n", "Y", "y$")
-
 -- remap redo command
 vim.keymap.set("n", "<C-p>", "<C-r>")
 
