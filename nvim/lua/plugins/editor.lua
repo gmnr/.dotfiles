@@ -118,6 +118,15 @@ return {
               desc = "Config",
               action = ":lua Snacks.dashboard.pick('files', {cwd = '~/.dotfiles', hidden = true})",
             },
+            {
+              icon = " ",
+              key = "g",
+              desc = "Git",
+              action = ":vertical Git",
+              enabled = function()
+                return Snacks.git.get_root() ~= nil
+              end,
+            },
             { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
             { icon = " ", key = "q", desc = "Quit", action = ":qa" },
           },
