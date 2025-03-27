@@ -8,8 +8,6 @@ return {
 
   { "tpope/vim-surround", event = "VeryLazy" },
 
-  { "tpope/vim-unimpaired", event = "VeryLazy" },
-
   {
     "wellle/targets.vim",
     event = "VeryLazy",
