@@ -194,6 +194,7 @@ return {
               ["<c-y>"] = { "list_up", mode = { "i", "n" } },
               ["<c-e>"] = { "preview_scroll_up", mode = { "i", "n" } },
               ["<c-n>"] = { "preview_scroll_down", mode = { "i", "n" } },
+              ["<c-d>"] = { "edit_vsplit", mode = { "i", "n" } },
             },
           },
         },
