@@ -5,6 +5,12 @@ local opts = { silent = true }
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false }) -- improve performance of leader key
 vim.g.mapleader = " "
 
+-- duplicate line and comment
+vim.keymap.set("n", "ycc", "yygccp", { remap = true })
+
+-- keep cursor in place when joining lines
+vim.keymap.set("n", "J", "mzJ`z:delmarks z<cr>")
+
 -- remap redo command
 vim.keymap.set("n", "<C-p>", "<C-r>")
 
