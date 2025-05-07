@@ -29,12 +29,6 @@ return {
         },
       })
 
-      mason_lspconfig.setup_handlers({
-        function(server_name)
-          require("lspconfig")[server_name].setup({})
-        end,
-      })
-
       -- ignore vim global in lua files
       require("lspconfig").pyright.setup({
         settings = {
