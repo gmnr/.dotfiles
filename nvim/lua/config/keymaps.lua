@@ -71,6 +71,9 @@ vim.keymap.set("n", "<leader>eu", "<cmd>lua Hledger_CR()<CR>", opts)
 vim.keymap.set("n", "<leader>ee", "<cmd>e +$ ~/.finance/periods/2025.journal<CR>", opts)
 vim.keymap.set("n", "<leader>ea", "<cmd>lua hledger_update()<CR>", opts)
 
+-- use mason
+vim.keymap.set("n", "<leader>fy", "<cmd>Mason<CR>")
+
 -- gitsigns
 vim.keymap.set("n", "<leader>gh", "<cmd>Gitsigns preview_hunk<CR>", opts)
 vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns blame_line<CR>", opts)

@@ -2,58 +2,43 @@ return {
 
   -- mason
   {
-    "williamboman/mason.nvim",
-    dependencies = { "neovim/nvim-lspconfig" },
-    build = ":MasonUpdate",
-    keys = { { "<leader>fy", "<cmd>Mason<cr>" } },
-    config = true,
+    "mason-org/mason-lspconfig.nvim",
     opts = {
       ensure_installed = {
-        "stylua",
+        "bashls",
+        "lua_ls",
+        "marksman",
         "pyright",
-        "black",
       },
     },
-  },
-
-  {
-    "williamboman/mason-lspconfig.nvim",
-    config = function()
-      local mason_lspconfig = require("mason-lspconfig")
-      mason_lspconfig.setup({
-        ensure_installed = {
-          "bashls",
-          "lua_ls",
-          "marksman",
-          "pyright",
-        },
-      })
-
-      -- ignore vim global in lua files
-      require("lspconfig").pyright.setup({
-        settings = {
-          python = {
-            pythonPath = "/usr/local/bin/python3",
+    dependencies = {
+      {
+        "mason-org/mason.nvim",
+        opts = {
+          ensure_installed = {
+            "stylua",
+            "pyright",
+            "black",
           },
         },
-      })
-
-      -- ignore vim global in lua files
-      require("lspconfig").bashls.setup({
-        filetypes = { "sh", "zsh", "bash" },
-      })
-
-      -- ignore vim global in lua files
-      require("lspconfig").lua_ls.setup({
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = { "vim" },
+      },
+      {
+        "neovim/nvim-lspconfig",
+        config = function()
+          vim.lsp.config("lua_ls", {
+            settings = { Lua = { diagnostics = { globals = { "vim" } } } },
+          })
+          vim.lsp.config("bashls", {
+            filetypes = { "zsh", "sh", "bash" },
+          })
+          vim.lsp.config("pyright", {
+            settings = {
+              python = { analysis = { diagnosticSeverityOverrides = { reportPossiblyUnboundVariable = "none" } } },
             },
-          },
-        },
-      })
-    end,
+          })
+        end,
+      },
+    },
   },
 
   -- formatter
