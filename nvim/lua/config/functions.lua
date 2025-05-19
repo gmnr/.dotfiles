@@ -1,7 +1,4 @@
 -- FUNCTIONS
--- save and close buffer
-vim.api.nvim_create_user_command("WRCL", "write|bdelete", {})
-
 -- update payees and account
 function _G.hledger_update()
   os.execute(
