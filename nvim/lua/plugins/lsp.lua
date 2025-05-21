@@ -26,7 +26,7 @@ return {
         "neovim/nvim-lspconfig",
         config = function()
           vim.lsp.config("lua_ls", {
-            settings = { Lua = { diagnostics = { globals = { "vim" } } } },
+            settings = { Lua = { diagnostics = { globals = { "vim", "Snacks" } } } },
           })
           vim.lsp.config("bashls", {
             filetypes = { "zsh", "sh", "bash" },
