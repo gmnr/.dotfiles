@@ -87,6 +87,7 @@ return {
       { "<leader>xq", "<cmd>Trouble qflist toggle<cr>" },
     },
     opts = {}, -- don't omit
+    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 
   -- lsp saga
@@ -131,6 +132,5 @@ return {
         },
       })
     end,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 }
