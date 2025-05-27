@@ -94,7 +94,6 @@ vim.cmd("cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lg
 -- lsp
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
 vim.keymap.set("n", "<leader>ll", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
-vim.keymap.set("n", "<leader>lL", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
 vim.keymap.set("n", "<leader>la", "<cmd>Lspsaga code_action<CR>", opts)
 vim.keymap.set("n", "<leader>lf", "<cmd>Lspsaga finder<CR>", opts)
 vim.keymap.set("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", opts)
