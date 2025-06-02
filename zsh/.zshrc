@@ -135,9 +135,8 @@ alias hlp='hledger print'
 alias e='nvim +$ ~/.finance/periods/2025.journal'
 alias ea='nvim +$ ~/.finance/others/alfredo.journal'
 alias roi='clear; hledger roi --pretty --pnl "unrealized" -V --inv'
-alias dadv='clear; hledger -f ~/.finance/others/alfredo.journal roi --pretty --pnl "unrealized" -V --inv VNGA'
 alias pp='python3 ~/.finance/.src/scripts/fetch-mkt-prices.py'
-alias p='cat ~/.finance/prices/current_prices.journal'
+alias prices='cat ~/.finance/prices/current_prices.journal'
 
 # kmonad
 alias QQ='sudo killall kmonad'
