@@ -114,8 +114,8 @@ alias ll='eza --long --header --all --git --sort=modified --reverse'
 alias aoc='~/Documents/advent-of-code/utils/startup.sh'
 
 # rename programs
-alias python='/usr/local/bin/python3'
-alias pip='/usr/local/bin/pip3'
+alias python='/usr/bin/python3'
+alias pip='/usr/bin/pip3'
 alias less='less -R'
 alias mv='mv -v'
 alias rm='rm -i -v'
