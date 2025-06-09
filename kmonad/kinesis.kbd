@@ -91,10 +91,10 @@
 (deflayer med
   esc  F1   F2   F3   F4   F5   F6   F7   F8   F9   F10  F11  F12  prnt slck pause
 
-  _    _    _    _    _    _                    _    bspc    =    KpAsterisk    KpMinus    _
-  _ _    vold    mute    volu    _                 _    Kp7    Kp8    Kp9    KpPlus    _
+  _    _    _    _    _    _                    _    bspc    =    KpSlash   KpAsterisk    _
+  _ _    vold    mute    volu    _                 _    Kp7    Kp8    Kp9    KpMinus    _
   _  _    prev    pp    next    _                  _    Kp4    Kp5    Kp6    KpPlus    _
-  _ _    _    _    _    _                   _    Kp1    Kp2    Kp3    _ rsft
+  _ _    _    _    _    _                   _    Kp1    Kp2    Kp3    KpEnter rsft
        _  _  _ _                             _   Kp0 ,    KpEnter
 
                            lctl lalt   rmet rctl
