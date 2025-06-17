@@ -27,6 +27,12 @@ vim.keymap.set("n", "<leader>qq", "<cmd>bd!<CR>", opts)
 vim.keymap.set("n", "<leader>QQ", "<cmd>q!<CR>", opts)
 vim.keymap.set("n", "<leader>QA", "<cmd>qa!<CR>", opts)
 
+-- disable keys navigaton keys
+vim.keymap.set({ "n", "i" }, "<Up>", "<Nop>", opts)
+vim.keymap.set({ "n", "i" }, "<Down>", "<Nop>", opts)
+vim.keymap.set({ "n", "i" }, "<Left>", "<Nop>", opts)
+vim.keymap.set({ "n", "i" }, "<Right>", "<Nop>", opts)
+
 --  quick search
 vim.keymap.set("n", "<leader>tt", ":%s/")
 
