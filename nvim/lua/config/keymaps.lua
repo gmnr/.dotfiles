@@ -33,6 +33,10 @@ vim.keymap.set({ "n", "i" }, "<Down>", "<Nop>", opts)
 vim.keymap.set({ "n", "i" }, "<Left>", "<Nop>", opts)
 vim.keymap.set({ "n", "i" }, "<Right>", "<Nop>", opts)
 
+-- navigate virtually wrapped lines
+vim.keymap.set("n", "j", "gj", opts)
+vim.keymap.set("n", "k", "gk", opts)
+
 --  quick search
 vim.keymap.set("n", "<leader>tt", ":%s/")
 
