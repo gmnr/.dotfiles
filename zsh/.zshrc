@@ -139,6 +139,5 @@ alias pp='python3 ~/.finance/.src/scripts/fetch-mkt-prices.py'
 alias prices='cat ~/.finance/prices/current_prices.journal'
 
 # kmonad
-alias QQ='sudo killall kmonad'
-alias qq='~/.dotfiles/kmonad/startup.sh 1'
-alias qk='~/.dotfiles/kmonad/startup.sh 2'
+alias qq='sudo killall kmonad && ~/.dotfiles/kmonad/startup.sh 1'
+alias ww='sudo killall kmonad && ~/.dotfiles/kmonad/startup.sh 2'
