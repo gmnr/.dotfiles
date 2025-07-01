@@ -60,18 +60,6 @@ vim.keymap.set("n", "<leader>ff", "<cmd>w<CR><cmd>QuickRun<CR>", opts)
 vim.keymap.set("n", "<leader>jj", "<cmd>set invpaste paste?<CR>", opts)
 vim.keymap.set("n", "<leader>cp", "<cmd>w !pbcopy<CR>", opts)
 
--- change prefix for window navigation
-vim.keymap.set("n", "<C-w>-", "<C-w>v")
-vim.keymap.set("n", "<C-w>=", "<C-w>s")
-vim.keymap.set("n", "<C-w>m", "<C-w>h")
-vim.keymap.set("n", "<C-w>n", "<C-w>j")
-vim.keymap.set("n", "<C-w>e", "<C-w>k")
-vim.keymap.set("n", "<C-w>i", "<C-w>l")
-vim.keymap.set("n", "<C-w>M", "<C-w>H")
-vim.keymap.set("n", "<C-w>N", "<C-w>J")
-vim.keymap.set("n", "<C-w>E", "<C-w>K")
-vim.keymap.set("n", "<C-w>I", "<C-w>L")
-
 -- swap fold command
 vim.keymap.set("n", "za", "zo")
 vim.keymap.set("n", "zo", "za")
