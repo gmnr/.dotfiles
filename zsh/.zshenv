@@ -6,6 +6,7 @@ export DOTFILES=~/.dotfiles
 export LEDGER_FILE=$HOME/.finance/all.journal
 export BAT_CONFIG_DIR=~/.dotfiles/bat/
 export CLICOLOR=1
+export LESSHISTFILE=-
 
 # add to path
 export PATH=/opt/homebrew/bin:$PATH
