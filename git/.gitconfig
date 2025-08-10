@@ -25,6 +25,9 @@
 [diff]
     colorMoved = default
 
+[init]
+  defaultBranch = master
+
 [delta]
   features = decorations
   navitate = true
