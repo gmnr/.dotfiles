@@ -9,8 +9,7 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "ycc", "yygccp", { remap = true })
 
 -- keep cursor in place when joining lines
--- vim.keymap.set("n", "J", "mzJ`z:delmarks z<cr>")
-vim.keymap.set("n", "J", "kJ")
+vim.keymap.set("n", "J", "mzJ`z:delmarks z<cr>")
 
 -- remap redo command
 vim.keymap.set("n", "<C-p>", "<C-r>")
