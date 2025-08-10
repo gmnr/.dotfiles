@@ -103,6 +103,7 @@ alias dot='cd ~/.dotfiles'
 alias blog='cd ~/.blog'
 alias finance='cd ~/.finance'
 alias aocd='cd ~/Documents/advent-of-code'
+alias sql='cd ~/Library/DBeaverData/workspace6/Terme/Scripts && run_git'
 alias ..='cd ..'
 alias ...='cd ../..'
 
