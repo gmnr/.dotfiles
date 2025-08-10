@@ -38,6 +38,14 @@ api.nvim_create_autocmd("FileType", {
 })
 
 api.nvim_create_autocmd("FileType", {
+  desc = "Join previous line in ledger only",
+  pattern = { "ledger" },
+  callback = function()
+    vim.keymap.set("n", "J", "kJ", { silent = true })
+  end,
+})
+
+api.nvim_create_autocmd("FileType", {
   desc = "automatically close temporary buffers with q",
   pattern = {
     "qf",
