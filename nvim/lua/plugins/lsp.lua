@@ -59,16 +59,12 @@ return {
     },
     opts = {
       -- log_level = vim.log.levels.DEBUG,
-      formatters_by_ft = {
-        lua = { "stylua" },
-        python = { "black" },
-        json = { "jq" },
-        javascript = { "prettier" },
-        typescript = { "prettier" },
-        html = { "prettier" },
-        markdown = { "prettier" },
-      },
       formatters = {
+        my_sql_formatter = {
+          command = "python3",
+          args = { "/Users/gmnr/.dotfiles/scripts/sql-formatter.py" },
+          stdin = true,
+        },
         prettier = {
           prepend_args = function()
             return {
@@ -79,6 +75,16 @@ return {
             }
           end,
         },
+      },
+      formatters_by_ft = {
+        lua = { "stylua" },
+        python = { "black" },
+        json = { "jq" },
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        html = { "prettier" },
+        markdown = { "prettier" },
+        sql = { "my_sql_formatter" },
       },
       format_on_save = { timeout_ms = 500, lsp_fallback = true },
     },

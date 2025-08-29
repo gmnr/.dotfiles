@@ -156,6 +156,7 @@ return {
             lazy = true,
             man = true,
             mason = true,
+            sql = true,
           }
           return vim.g.snacks_indent ~= false
             and b.snacks_indent ~= false
