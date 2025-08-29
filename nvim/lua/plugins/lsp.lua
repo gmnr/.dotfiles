@@ -58,6 +58,7 @@ return {
       },
     },
     opts = {
+      -- log_level = vim.log.levels.DEBUG,
       formatters_by_ft = {
         lua = { "stylua" },
         python = { "black" },
@@ -66,6 +67,18 @@ return {
         typescript = { "prettier" },
         html = { "prettier" },
         markdown = { "prettier" },
+      },
+      formatters = {
+        prettier = {
+          prepend_args = function()
+            return {
+              "--print-width",
+              "80",
+              "--prose-wrap",
+              "always",
+            }
+          end,
+        },
       },
       format_on_save = { timeout_ms = 500, lsp_fallback = true },
     },
