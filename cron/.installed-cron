@@ -1,2 +1,4 @@
-0 9-18 * * 1-5 /usr/local/bin/python3 /Users/USER/.finance/.src/scripts/fetch-mkt-prices.py > /dev/null 2>> /Users/USER/.finance/.src/logs/cron.log
-0 8-22/3 * * 6-7 /usr/local/bin/python3 /Users/USER/.finance/.src/scripts/fetch-mkt-prices.py > /dev/null 2>> /Users/USER/.finance/.src/logs/cron.log
+0 9-18 * * 1-5 /usr/bin/python3 /Users/gmnr/.finance/.src/scripts/fetch-mkt-prices.py > /dev/null 2>> /Users/gmnr/.finance/.src/logs/cron.log
+0 9-18 * * 1-5 /usr/bin/python3 /Users/gmnr/.finance/.src/scripts/capital-gain-taxes.py > /dev/null 2>> /Users/gmnr/.finance/.src/logs/cron.log
+0 8-22/3 * * 6-7 /usr/bin/python3 /Users/gmnr/.finance/.src/scripts/fetch-mkt-prices.py > /dev/null 2>> /Users/gmnr/.finance/.src/logs/cron.log
+0 8-22/3 * * 6-7 /usr/bin/python3 /Users/gmnr/.finance/.src/scripts/capital-gain-taxes.py > /dev/null 2>> /Users/gmnr/.finance/.src/logs/cron.log
