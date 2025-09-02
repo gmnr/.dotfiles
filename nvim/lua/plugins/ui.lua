@@ -90,7 +90,7 @@ return {
           lualine_a = { "mode" },
           lualine_b = {
             { get_root, separator = "", padding = { right = 0 } },
-            "branch",
+            { "branch", icon = "" },
             "diff",
             {
               "diagnostics",
