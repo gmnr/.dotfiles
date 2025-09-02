@@ -58,41 +58,62 @@ return {
   -- lualine
   {
     "nvim-lualine/lualine.nvim",
-    opts = {
-      options = {
-        icons_enabled = true,
-        theme = "auto",
-        component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
-        disabled_filetypes = {},
-        always_divide_middle = true,
-      },
-      sections = {
-        lualine_a = { "mode" },
-        lualine_b = {
-          "branch",
-          "diff",
-          {
-            "diagnostics",
-            sources = { "nvim_diagnostic" },
-            symbols = { error = "✘ ", warn = " ", info = "» ", hint = "⚑ " },
-          },
+    config = function()
+      local function get_root()
+        local cwd = require("snacks").git.get_root(vim.fn.expand("%:p"))
+        if cwd ~= nil then
+          local repo = string.gmatch(cwd, "/(%.?[%w-]+)$")
+          return repo()
+        else
+          return ""
+        end
+      end
+
+      local function location()
+        local cwd = require("snacks").git.get_root(vim.fn.expand("%:p"))
+        if cwd ~= nil then
+          return ""
+        else
+          return os.getenv("PWD")
+        end
+      end
+      require("lualine").setup({
+        options = {
+          icons_enabled = true,
+          theme = "auto",
+          component_separators = { left = "", right = "" },
+          section_separators = { left = "", right = "" },
+          disabled_filetypes = {},
+          always_divide_middle = true,
         },
-        lualine_c = { "filename" },
-        lualine_x = { "encoding", "filetype" },
-        lualine_y = { "progress" },
-        lualine_z = { "location" },
-      },
-      inactive_sections = {
-        lualine_a = { "filename" },
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = { "location" },
-        lualine_y = {},
-        lualine_z = {},
-      },
-      tabline = {},
-      extensions = { "fugitive" },
-    },
+        sections = {
+          lualine_a = { "mode" },
+          lualine_b = {
+            get_root,
+            "branch",
+            "diff",
+            {
+              "diagnostics",
+              sources = { "nvim_diagnostic" },
+              symbols = { error = "✘ ", warn = " ", info = "» ", hint = "⚑ " },
+            },
+          },
+          lualine_c = { location, "filename" },
+          lualine_x = { "encoding", "filetype" },
+          lualine_y = { "progress" },
+          lualine_z = { "location" },
+        },
+        inactive_sections = {
+          lualine_a = { "filename" },
+          lualine_b = {},
+          lualine_c = {},
+          lualine_x = { "location" },
+          lualine_y = {},
+          lualine_z = {},
+        },
+        tabline = {},
+        extensions = { "fugitive" },
+      })
+    end,
   },
 }
