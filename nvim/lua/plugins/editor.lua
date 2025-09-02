@@ -124,6 +124,7 @@ return {
             filter = { paths = { ["~/.local/share/nvim/lazy/snacks.nvim"] = false, ["/opt/homebrew"] = false } },
           },
           explorer = {
+            layout = { layout = { position = "right" } },
             auto_close = true,
             hidden = true,
             win = {
@@ -185,7 +186,7 @@ return {
         end,
       },
       {
-        "<leader>ye",
+        "<leader>yw",
         function()
           Snacks.explorer()
         end,
