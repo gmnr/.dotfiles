@@ -63,7 +63,7 @@ return {
         local cwd = require("snacks").git.get_root(vim.fn.expand("%:p"))
         if cwd ~= nil then
           local repo = string.gmatch(cwd, "/(%.?[%w-]+)$")
-          return repo()
+          return " " .. repo()
         else
           return ""
         end
@@ -89,7 +89,7 @@ return {
         sections = {
           lualine_a = { "mode" },
           lualine_b = {
-            get_root,
+            { get_root, separator = "", padding = { right = 0 } },
             "branch",
             "diff",
             {
@@ -112,7 +112,7 @@ return {
           lualine_z = {},
         },
         tabline = {},
-        extensions = { "fugitive" },
+        extensions = { "fugitive", "trouble" },
       })
     end,
   },
