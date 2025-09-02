@@ -159,7 +159,11 @@ return {
       {
         "<leader><space>",
         function()
-          Snacks.picker.smart()
+          if vim.loop.cwd() == "/Users/gmnr" then
+            Snacks.picker.projects()
+          else
+            Snacks.picker.smart()
+          end
         end,
       },
       {
