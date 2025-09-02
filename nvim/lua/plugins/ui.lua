@@ -60,13 +60,36 @@ return {
     "nvim-lualine/lualine.nvim",
     config = function()
       local function get_root()
-        local cwd = require("snacks").git.get_root(vim.fn.expand("%:p"))
-        if cwd ~= nil then
-          local repo = string.gmatch(cwd, "/(%.?[%w-]+)$")
-          return " " .. repo()
-        else
+        -- Get the directory of the current file
+        local current_file = vim.fn.expand("%:p:h")
+
+        if vim.bo.buftype ~= "" and vim.startswith(current_file, "fugitive:///") then
+          -- if is fugitive window show the repo name
+          current_file = os.getenv("PWD")
+
+          -- if is the no file special buffer
+        elseif current_file == "" or vim.fn.isdirectory(current_file) == 0 then
+          current_file = os.getenv("PWD")
+        end
+
+        -- Change to the directory of the current file
+        local cmd = "cd " .. current_file .. " && git rev-parse --show-toplevel 2>/dev/null"
+        local handle = io.popen(cmd)
+        local result = handle:read("*a")
+        handle:close()
+
+        -- Check if result is empty, indicating an error (not a git repo)
+        if result == "" then
           return ""
         end
+
+        -- Get the basename of the top-level directory
+        local basename_handle = io.popen("basename " .. result)
+        local basename_result = basename_handle:read("*a")
+        basename_handle:close()
+
+        local repo_name = basename_result:match("^%s*(.-)%s*$") -- trim any whitespace
+        return " " .. repo_name .. " "
       end
 
       local function location()
@@ -80,7 +103,6 @@ return {
       require("lualine").setup({
         options = {
           icons_enabled = true,
-          theme = "auto",
           component_separators = { left = "", right = "" },
           section_separators = { left = "", right = "" },
           disabled_filetypes = {},
@@ -90,7 +112,7 @@ return {
           lualine_a = { "mode" },
           lualine_b = {
             { get_root, separator = "", padding = { right = 0 } },
-            { "branch", icon = "" },
+            { "branch", icon = "", padding = { left = 0 } },
             "diff",
             {
               "diagnostics",
@@ -112,7 +134,7 @@ return {
           lualine_z = {},
         },
         tabline = {},
-        extensions = { "fugitive", "trouble" },
+        extensions = { "lazy", "quickfix", "trouble" },
       })
     end,
   },
