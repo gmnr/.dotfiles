@@ -88,8 +88,7 @@ return {
         local basename_result = basename_handle:read("*a")
         basename_handle:close()
 
-        local repo_name = basename_result:match("^%s*(.-)%s*$") -- trim any whitespace
-        return " " .. repo_name .. " "
+        return basename_result:match("^%s*(.-)%s*$") -- trim any whitespace
       end
 
       local function location()
@@ -111,8 +110,8 @@ return {
         sections = {
           lualine_a = { "mode" },
           lualine_b = {
-            { get_root, separator = "", padding = { right = 0 } },
-            { "branch", icon = "", padding = { left = 0 } },
+            { get_root, separator = "" },
+            { "branch", icon = "" },
             "diff",
             {
               "diagnostics",
