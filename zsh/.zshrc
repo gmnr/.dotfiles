@@ -34,17 +34,17 @@ function decrypt() {
 # helper functions !! with colors !!
 function is() {
   clear;
-  hledger is --pretty -lS --drop 1 -p thismonth "$@" | ~/.finance/.src/scripts/colorize-report.py report
+  hledger is -p thismonth "$@" | ~/.finance/.src/scripts/colorize-report.py report
 }
 
 function iss() {
   clear;
-  hledger is --pretty -lS --drop 1 -3 "$@" | ~/.finance/.src/scripts/colorize-report.py report
+  hledger is -3 "$@" | ~/.finance/.src/scripts/colorize-report.py report
 }
 
 function bs() {
   clear;
-  hledger bs --pretty -Vl --drop 1 "$@" | ~/.finance/.src/scripts/colorize-report.py report
+  hledger bs "$@" | ~/.finance/.src/scripts/colorize-report.py report
 }
 
 function reg() {
@@ -69,17 +69,17 @@ function aregg() {
 
 function bal() {
   clear;
-  hledger bal --pretty "$@" | ~/.finance/.src/scripts/colorize-report.py register
+  hledger bal "$@" | ~/.finance/.src/scripts/colorize-report.py register
 }
 
 function out() {
   clear;
-  hledger bal --pretty cash fineco -p thismonth -D --transpose -T amt:"<0" --drop 1 "$@" | ~/.finance/.src/scripts/colorize-report.py cf
+  hledger bal cash fineco -p thismonth -D --transpose -T amt:"<0" --drop 1 "$@" | ~/.finance/.src/scripts/colorize-report.py cf
 }
 
 function pvt() {
   clear;
-  hledger is --pretty -lS --pivot payee -p thismonth "$@" | ~/.finance/.src/scripts/colorize-report.py pivot
+  hledger is --pivot payee -p thismonth "$@" | ~/.finance/.src/scripts/colorize-report.py pivot
 }
 
 # open git
@@ -126,10 +126,10 @@ alias g='run_git'
 alias tree='tree -I .git -a'
 
 # ledger aliases
-alias hl='hledger --pretty'
+alias hl='hledger'
 alias hlp='hledger print'
 alias e='nvim +$ ~/.finance/periods/2025.journal'
-alias roi='clear; hledger roi --pretty --pnl "unrealized" -V --inv'
+alias roi='clear; hledger roi --pnl "unrealized" -V --inv'
 alias pp='python3 ~/.finance/.src/scripts/fetch-mkt-prices.py && python3 ~/.finance/.src/scripts/capital-gain-taxes.py'
 alias prices='cat ~/.finance/prices/current_prices.journal'
 
