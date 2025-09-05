@@ -100,7 +100,7 @@ function run_nvim() {
       nvim
     else
       if [[ $(parse_git_dirty) == '*' ]] then
-        nvim +"lua require(\"snacks\").picker.git_status()"
+        nvim +"lua require(\"snacks\").picker.git_diff()"
       else
         nvim +"lua require(\"snacks\").picker.files({ cwd = Snacks.git.get_root() })"
       fi
