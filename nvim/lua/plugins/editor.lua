@@ -180,7 +180,7 @@ return {
         end,
       },
       {
-        "<leader>n",
+        "<leader>yn",
         function()
           Snacks.picker.notifications()
         end,
