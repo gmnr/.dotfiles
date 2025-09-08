@@ -125,8 +125,8 @@ return {
             { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
             { icon = " ", key = "q", desc = "Quit", action = ":qa" },
           },
-          { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
           { icon = " ", title = "Projects", section = "projects", limit = 4, indent = 2, padding = 1 },
+          { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
           {
             icon = " ",
             title = "Git Status",
