@@ -2,10 +2,10 @@
 -- update payees and account
 function _G.hledger_update()
   os.execute(
-    "/opt/homebrew/bin/hledger -f /Users/gmnr/.finance/all.journal payees > /Users/gmnr/.finance/.src/completion-source/payees"
+    "/opt/homebrew/bin/hledger -f /Users/gmnr/.finance/all.journal payees > /Users/gmnr/.dotfiles/hledger/completion-source/payees"
   )
   os.execute(
-    "/opt/homebrew/bin/hledger -f /Users/gmnr/.finance/all.journal accounts | /usr/bin/python3 /Users/gmnr/.finance/.src/scripts/filter-account.py > /Users/gmnr/.finance/.src/completion-source/accounts"
+    "/opt/homebrew/bin/hledger -f /Users/gmnr/.finance/all.journal accounts | /usr/bin/python3 /Users/gmnr/.dotfiles/hledger/scripts/filter-account.py > /Users/gmnr/.dotfiles/hledger/completion-source/accounts"
   )
   print("Payees and Accounts Updated")
 end

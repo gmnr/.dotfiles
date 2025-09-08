@@ -105,7 +105,7 @@ return {
             padding = 1,
             { icon = " ", key = "a", desc = "New File", action = ":ene | startinsert" },
             { icon = " ", key = "s", desc = "Git Files", action = ":lua Snacks.dashboard.pick('git_status')" },
-            { icon = " ", key = "d", desc = "Git Hunk", action = ":lua Snacks.dashboard.pick('git_diff')" },
+            { icon = " ", key = "d", desc = "Git Hunks", action = ":lua Snacks.dashboard.pick('git_diff')" },
             { icon = " ", key = "/", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
             {
               icon = " ",

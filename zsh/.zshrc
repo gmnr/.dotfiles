@@ -34,52 +34,52 @@ function decrypt() {
 # helper functions !! with colors !!
 function is() {
   clear;
-  hledger is -p thismonth "$@" | ~/.finance/.src/scripts/colorize-report.py report
+  hledger is -p thismonth "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py report
 }
 
 function iss() {
   clear;
-  hledger is -3 "$@" | ~/.finance/.src/scripts/colorize-report.py report
+  hledger is -3 "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py report
 }
 
 function bs() {
   clear;
-  hledger bs "$@" | ~/.finance/.src/scripts/colorize-report.py report
+  hledger bs "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py report
 }
 
 function reg() {
   clear;
-  hledger reg -p thismonth -w $COLUMNS "$@" | ~/.finance/.src/scripts/colorize-report.py register
+  hledger reg -p thismonth -w $COLUMNS "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py register
 }
 
 function regg() {
   clear;
-  hledger reg -w $COLUMNS "$@" | ~/.finance/.src/scripts/colorize-report.py register
+  hledger reg -w $COLUMNS "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py register
 }
 
 function areg() {
   clear;
-  hledger areg -p thismonth -w $COLUMNS "$@" | ~/.finance/.src/scripts/colorize-report.py areg
+  hledger areg -p thismonth -w $COLUMNS "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py areg
 }
 
 function aregg() {
   clear;
-  hledger areg -w $COLUMNS "$@" | ~/.finance/.src/scripts/colorize-report.py areg
+  hledger areg -w $COLUMNS "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py areg
 }
 
 function bal() {
   clear;
-  hledger bal "$@" | ~/.finance/.src/scripts/colorize-report.py register
+  hledger bal "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py register
 }
 
 function out() {
   clear;
-  hledger bal cash fineco -p thismonth -D --transpose -T amt:"<0" --drop 1 "$@" | ~/.finance/.src/scripts/colorize-report.py cf
+  hledger bal cash fineco -p thismonth -D --transpose -T amt:"<0" --drop 1 "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py cf
 }
 
 function pvt() {
   clear;
-  hledger is --pivot payee -p thismonth "$@" | ~/.finance/.src/scripts/colorize-report.py pivot
+  hledger is --pivot payee -p thismonth "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py pivot
 }
 
 # open git
@@ -129,7 +129,7 @@ alias hl='hledger'
 alias hlp='hledger print'
 alias e='nvim +$ ~/.finance/periods/2025.journal'
 alias roi='clear; hledger roi --pnl "unrealized" -V --inv'
-alias pp='python3 ~/.finance/.src/scripts/fetch-mkt-prices.py && python3 ~/.finance/.src/scripts/capital-gain-taxes.py'
+alias pp='python3 ~/.dotfiles/hledger/scripts/fetch-mkt-prices.py && python3 ~/.dotfiles/hledger/scripts/capital-gain-taxes.py'
 alias prices='cat ~/.finance/prices/current_prices.journal'
 
 # kmonad
