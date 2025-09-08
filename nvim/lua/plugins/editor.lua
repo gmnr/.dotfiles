@@ -103,15 +103,9 @@ return {
             title = "Keymaps",
             indent = 2,
             padding = 1,
-            { icon = " ", key = "i", desc = "New File", action = ":ene | startinsert" },
-            { icon = " ", key = "s", desc = "Git Files", action = ":lua Snacks.dashboard.pick('git_status')" },
-            { icon = " ", key = "d", desc = "Git Hunk", action = ":lua Snacks.dashboard.pick('git_diff')" },
-            {
-              icon = " ",
-              key = "a",
-              desc = "Find File",
-              action = ":lua Snacks.dashboard.pick('files', {hidden = true})",
-            },
+            { icon = " ", key = "a", desc = "New File", action = ":ene | startinsert" },
+            { icon = " ", key = "s", desc = "Git Files", action = ":lua Snacks.dashboard.pick('git_status')" },
+            { icon = " ", key = "d", desc = "Git Hunk", action = ":lua Snacks.dashboard.pick('git_diff')" },
             { icon = " ", key = "/", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
             {
               icon = " ",
@@ -131,6 +125,7 @@ return {
             { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
             { icon = " ", key = "q", desc = "Quit", action = ":qa" },
           },
+          { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
           { icon = " ", title = "Projects", section = "projects", limit = 4, indent = 2, padding = 1 },
           {
             icon = " ",
