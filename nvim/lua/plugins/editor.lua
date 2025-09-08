@@ -95,6 +95,57 @@ return {
     lazy = false,
     opts = {
       bigfile = { enabled = true },
+      dashboard = {
+        sections = {
+          { section = "header" },
+          {
+            icon = " ",
+            title = "Keymaps",
+            indent = 2,
+            padding = 1,
+            { icon = " ", key = "i", desc = "New File", action = ":ene | startinsert" },
+            { icon = " ", key = "s", desc = "Git Files", action = ":lua Snacks.dashboard.pick('git_status')" },
+            { icon = " ", key = "d", desc = "Git Hunk", action = ":lua Snacks.dashboard.pick('git_diff')" },
+            {
+              icon = " ",
+              key = "a",
+              desc = "Find File",
+              action = ":lua Snacks.dashboard.pick('files', {hidden = true})",
+            },
+            { icon = " ", key = "/", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+            {
+              icon = " ",
+              key = "fd",
+              desc = "Config",
+              action = ":lua Snacks.dashboard.pick('files', {cwd = '~/.dotfiles', hidden = true})",
+            },
+            {
+              icon = " ",
+              key = "g",
+              desc = "Git",
+              action = ":vertical Git",
+              enabled = function()
+                return Snacks.git.get_root() ~= nil
+              end,
+            },
+            { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
+            { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+          },
+          { icon = " ", title = "Projects", section = "projects", limit = 4, indent = 2, padding = 1 },
+          {
+            icon = " ",
+            title = "Git Status",
+            section = "terminal",
+            enabled = function()
+              return Snacks.git.get_root() ~= nil
+            end,
+            cmd = "git --no-pager diff --stat -B -M -C",
+            indent = 2,
+            padding = 1,
+          },
+          { section = "startup" },
+        },
+      },
       explorer = { enabled = true },
       indent = {
         filter = function(buf)

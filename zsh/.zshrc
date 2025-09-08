@@ -91,25 +91,7 @@ function run_git() {
   fi
 }
 
-# open nvim
-function run_nvim() {
-  if [[ $# -gt 0 ]] then
-    nvim $@
-  else
-    if [[ $(git status 2> /dev/null) == "" ]] then
-      nvim
-    else
-      if [[ $(parse_git_dirty) == '*' ]] then
-        nvim +"lua require(\"snacks\").picker.git_diff()"
-      else
-        nvim +"lua require(\"snacks\").picker.files({ cwd = Snacks.git.get_root() })"
-      fi
-    fi
-  fi
-}
-
 # aliases
-
 # folder
 alias dot='cd ~/.dotfiles'
 alias blog='cd ~/.blog'
@@ -137,7 +119,7 @@ alias upd='brew update && brew upgrade && nvim +"lua require(\"lazy\").sync()"'
 alias cat='bat --style="numbers,changes,header" --italic-text=always'
 alias rg='rg -S'
 alias fd='fd -H -E .git'
-alias n='run_nvim'
+alias n='nvim'
 alias copy='pbcopy'
 alias g='run_git'
 alias tree='tree -I .git -a'
