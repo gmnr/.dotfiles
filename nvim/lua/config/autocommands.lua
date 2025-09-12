@@ -38,10 +38,11 @@ api.nvim_create_autocmd("FileType", {
 })
 
 api.nvim_create_autocmd("FileType", {
-  desc = "Join previous line in ledger only",
+  desc = "Define custom keymaps for ledger only",
   pattern = { "ledger" },
   callback = function()
-    vim.keymap.set("n", "J", "kJ", { silent = true })
+    vim.keymap.set("n", "J", "kJ", { silent = true }) -- join line from below
+    vim.keymap.set("n", "<leader>es", "0daWkJ$", { silent = true }) -- autojoin date and transaction
   end,
 })
 
