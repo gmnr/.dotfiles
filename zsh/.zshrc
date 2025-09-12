@@ -128,7 +128,6 @@ alias tree='tree -I .git -a'
 alias hl='hledger'
 alias hlp='hledger print'
 alias e='nvim +$ ~/.finance/periods/2025.journal'
-alias roi='clear; hledger roi --pnl "unrealized" -V --inv'
 alias pp='python3 ~/.dotfiles/hledger/scripts/fetch-mkt-prices.py && python3 ~/.dotfiles/hledger/scripts/capital-gain-taxes.py'
 alias prices='cat ~/.finance/prices/current_prices.journal'
 
