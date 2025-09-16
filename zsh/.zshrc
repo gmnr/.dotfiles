@@ -28,7 +28,7 @@ PROMPT='%B%F{green} %~%f %F{cyan}$(parse_git_branch)%f%F{red}>%f%b '
 # functions
 # open p7m
 function decrypt() {
-  openssl cms -decrypt -in "$1" -inform DER -verify -noverify -out "$2"
+  openssl cms -decrypt -in "$1" -inform DER -verify -noverify -out "${1%.p7m*}"
 }
 
 # helper functions !! with colors !!
