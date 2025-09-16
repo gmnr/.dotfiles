@@ -24,6 +24,9 @@
         Send "{Esc}"
 }
 
+; esc now capitalizes words
+Esc::CapsLock
+
 ; add colemak-dh matrix key maps
 SC012::f
 SC013::p
