@@ -89,10 +89,3 @@ vim.keymap.set("n", "[c", '&diff ? "[c" : ":Gitsigns prev_hunk<CR>"', { expr = t
 vim.cmd("cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'")
 vim.cmd("cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'")
 vim.cmd("cnoreabbrev <expr> G (getcmdtype() ==# ':' && getcmdline() =~# '^G') ? 'vertical G' : 'G'")
-
--- lsp
-vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
-vim.keymap.set("n", "<leader>ll", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
-vim.keymap.set("n", "<leader>la", "<cmd>Lspsaga code_action<CR>", opts)
-vim.keymap.set("n", "<leader>lf", "<cmd>Lspsaga finder<CR>", opts)
-vim.keymap.set("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", opts)

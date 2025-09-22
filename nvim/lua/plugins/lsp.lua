@@ -107,36 +107,7 @@ return {
     },
     opts = {}, -- don't omit
     dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
-
-  -- lsp saga
-  {
-    "nvimdev/lspsaga.nvim",
-    event = "LspAttach",
     config = function()
-      require("lspsaga").setup({
-        code_action = {
-          keys = {
-            quit = "<C-q>",
-            exec = "<CR>",
-          },
-        },
-        lightbulb = {
-          enable = true,
-          sign = true,
-          enable_in_insert = false,
-          sign_priority = 20,
-          virtual_text = false,
-        },
-        rename = {
-          keys = {
-            quit = "<C-q>",
-            exec = "<CR>",
-          },
-        },
-      })
-
-      -- vim diagnostic config
       vim.diagnostic.config({
         virtual_text = false,
         underline = true,
