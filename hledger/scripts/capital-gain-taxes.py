@@ -8,7 +8,6 @@ Based on current prices, calculate deferred tax on capital gain
 __author__ = "Guido Minieri"
 __license__ = "GPL"
 
-
 import os
 import locale
 from loguru import logger
@@ -30,7 +29,7 @@ with open("/Users/gmnr/.finance/prices/current_prices.journal", "r") as f:
 PRICES = {}
 for p in current_prices:
     _, _, ticker, amt = p.split()
-    PRICES[ticker] = float(amt.replace(",", "."))
+    PRICES[ticker] = locale.atof(amt)
 
 PAYLOAD = ""
 TAX_RATE = 0.26

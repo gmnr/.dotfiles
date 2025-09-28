@@ -11,7 +11,10 @@ __license__ = "GPL"
 import datetime
 import requests
 import sys
+import locale
 from loguru import logger
+
+locale.setlocale(locale.LC_ALL, "it_IT")
 
 # add log
 logger.add(
@@ -32,14 +35,7 @@ def fetch_quotes(stock):
     except:
         logger.error(f"Call to yahoo finance for {stock} has failed")
         return "ERROR"
-    res = str(
-        round(res["chart"]["result"][0]["meta"]["regularMarketPrice"], 2)
-    ).replace(".", ",")
-
-    _, decimals = res.split(",")
-    if len(decimals) != 2:
-        res += "0"
-    return res
+    return locale.str(round(res["chart"]["result"][0]["meta"]["regularMarketPrice"], 2))
 
 
 def fetch_crypto():
@@ -51,12 +47,7 @@ def fetch_crypto():
     except:
         logger.error(f"Call to coingecko for DOT-EUR has failed")
         return "ERROR"
-    res = str(round(res[ticker][curr], 2)).replace(".", ",")
-
-    _, decimals = res.split(",")
-    if len(decimals) != 2:
-        res += "0"
-    return res
+    return locale.str(round(res[ticker][curr], 2))
 
 
 # define dates used in the payload
