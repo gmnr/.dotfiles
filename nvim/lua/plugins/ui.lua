@@ -1,6 +1,6 @@
 return {
 
-  -- highlight
+  -- remove highlighted words when moving cursor
   "haya14busa/is.vim",
 
   -- colorscheme
