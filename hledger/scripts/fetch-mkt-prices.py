@@ -35,7 +35,9 @@ def fetch_quotes(stock):
     except:
         logger.error(f"Call to yahoo finance for {stock} has failed")
         return "ERROR"
-    return locale.str(round(res["chart"]["result"][0]["meta"]["regularMarketPrice"], 2))
+    return locale.currency(
+        round(res["chart"]["result"][0]["meta"]["regularMarketPrice"], 2), symbol=False
+    )
 
 
 def fetch_crypto():
@@ -47,7 +49,7 @@ def fetch_crypto():
     except:
         logger.error(f"Call to coingecko for DOT-EUR has failed")
         return "ERROR"
-    return locale.str(round(res[ticker][curr], 2))
+    return locale.currency(round(res[ticker][curr], 2), symbol=False)
 
 
 # define dates used in the payload
