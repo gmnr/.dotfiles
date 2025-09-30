@@ -23,6 +23,7 @@
     conflictstyle = zdiff3
 
 [diff]
+    submodule = log
     colorMoved = default
 
 [init]
@@ -30,7 +31,7 @@
 
 [delta]
   features = decorations
-  navitate = true
+  navigate = true
   line-numbers = true
   side-by-side = true
   true-color = always
@@ -39,7 +40,7 @@
   minus-non-emph-style          = syntax "#3f2d3d"
   minus-emph-style              = syntax "#763842"
   minus-empty-line-marker-style = syntax "#3f2d3d"
-  line-numbers-minus-style      = "#914c54"
+  line-numbers-minus-style      = red
   plus-style                    = syntax "#283b4d"
   plus-non-emph-style           = syntax "#283b4d"
   plus-emph-style               = syntax "#316172"
@@ -54,7 +55,7 @@
   commit-decoration-style = blue ol
   commit-style = raw
   file-style = omit
-  hunk-header-decoration-style = blue box
+  hunk-header-decoration-style = blue ul
   hunk-header-file-style = red
   hunk-header-line-number-style = "#067a00"
   hunk-header-style = file line-number syntax
@@ -63,6 +64,12 @@
   pager = delta
   excludesfile = /Users/gmnr/.dotfiles/git/.gitexcludes
   editor = nvim
+
+[pager]
+  blame  = delta
+  diff   = delta
+  reflog = delta
+  show   = delta
 
 [credential]
   helper = osxkeychain
