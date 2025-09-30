@@ -57,7 +57,7 @@
   file-style = omit
   hunk-header-decoration-style = blue ul
   hunk-header-file-style = red
-  hunk-header-line-number-style = "#067a00"
+  hunk-header-line-number-style = green
   hunk-header-style = file line-number syntax
 
 [core]
