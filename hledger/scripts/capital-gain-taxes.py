@@ -45,15 +45,15 @@ def calculate_tax(
 ):
     ACCOUNTS = {
         "DOT": (
-            "  liabilities:tax-deferred:investments:crypto:DOT  ",
+            "  liabilities:funds:deferred-tax:investments:crypto:DOT  ",
             "  expenses:taxes:deferred-capital-gain:crypto:DOT",
         ),
         "VWCE": (
-            "  liabilities:tax-deferred:investments:etf:VWCE.MI  ",
+            "  liabilities:funds:deferred-tax:investments:etf:VWCE.MI  ",
             "  expenses:taxes:deferred-capital-gain:etf:VWCE.MI",
         ),
         "IUSA": (
-            "  liabilities:tax-deferred:investments:etf:IUSA.MI  ",
+            "  liabilities:funds:deferred-tax:investments:etf:IUSA.MI  ",
             "  expenses:taxes:deferred-capital-gain:etf:IUSA.MI",
         ),
     }
