@@ -122,7 +122,6 @@ alias fd='fd -H -E .git'
 alias n='nvim'
 alias copy='pbcopy'
 alias g='run_git'
-alias tree='tree -I .git -a'
 
 # ledger aliases
 alias hl='hledger'
