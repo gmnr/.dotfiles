@@ -31,6 +31,23 @@ function decrypt() {
   openssl cms -decrypt -in "$1" -inform DER -verify -noverify -out "${1%.p7m*}"
 }
 
+# create dir and move into it
+function mkcd () {
+  \mkdir -p "$1"
+  cd "$1"
+}
+
+# cerate temp dir
+function tempe () {
+  cd "$(mktemp -d -p /tmp)"
+  chmod -R 0700 .
+  if [[ $# -eq 1 ]]; then
+    \mkdir -p "$1"
+    cd "$1"
+    chmod -R 0700 .
+  fi
+}
+
 # helper functions !! with colors !!
 function is() {
   clear;
@@ -121,6 +138,8 @@ alias rg='rg -S'
 alias fd='fd -H -E .git'
 alias n='nvim'
 alias copy='pbcopy'
+alias pasta='pbpaste'
+alias cpwd='pwd | tr -d '\n' | copy'
 alias g='run_git'
 
 # ledger aliases
