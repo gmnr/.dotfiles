@@ -4,7 +4,7 @@ export VISUAL="$EDITOR"
 export PAGER=bat
 export DOTFILES=~/.dotfiles
 export LEDGER_FILE=$HOME/.finance/all.journal
-export BAT_CONFIG_DIR=~/.dotfiles/bat/
+export BAT_CONFIG_DIR=$HOME/.dotfiles/bat/
 export CLICOLOR=1
 export LESSHISTFILE=-
 
