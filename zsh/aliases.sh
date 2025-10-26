@@ -1,9 +1,8 @@
 # aliases
-# folder
+# navigation
 alias dot='cd ~/.dotfiles'
 alias blog='cd ~/.blog'
 alias finance='cd ~/.finance'
-alias aocd='cd ~/Documents/advent-of-code'
 alias sql='cd ~/Library/DBeaverData/workspace6/Terme/Scripts && run_git'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -14,6 +13,7 @@ alias ll='eza --long --header --all --git --sort=modified --reverse'
 
 # advent of code utilities
 alias aoc='~/Documents/advent-of-code/utils/startup.sh'
+alias aocd='cd ~/Documents/advent-of-code'
 
 # rename programs
 alias python='/usr/bin/python3'
