@@ -1,14 +1,26 @@
 #Requires AutoHotkey v2.0
 #SingleInstance
-#Hotstring EndChars `n?.,! `t     ; enter, space and tab trigger the hotstring
 
-; send accented letters for string expansion
-:?:a''::{Asc 133}      ; à'
-:?:e""::{Asc 130}      ; é
-:?:e''::{Asc 138}      ; è
-:?:i''::{Asc 141}      ; ì
-:?:o''::{Asc 149}      ; ò
-:?:u''::{Asc 151}      ; ù
+; requires a colemak layout installed on win, and remaps the different keys for colemak-dh matrix
+SC014::b
+SC015::j
+SC023::m
+SC02f::d
+SC030::v
+SC031::k
+SC032::h
+SC022::g
+
+; hotstring for accented letters
+:?C*:a''::à
+:?C*:e""::é
+:?C*:e''::è
+:?C*:i''::ì
+:?C*:o''::ò
+:?C*:u''::ù
+
+; right altgr as winkey
+LControl & RAlt::RWin
 
 ; ctrl+ brackets to move between tabs
 ^[::^PgUp
@@ -16,35 +28,9 @@
 
 ; caps lock behavoiur >> tap for `esc` hold for `ctrl`
 *CapsLock::Send "{Blind}{Ctrl DownR}"
-
 *CapsLock Up::
 {
-    Send "{Blind}{Ctrl up}"
-    If (A_PriorKey = "CapsLock")
-        Send "{Esc}"
+  Send "{Blind}{Ctrl up}"
+  If (A_PriorKey = "CapsLock")
+    Send "{Esc}"
 }
-
-; esc now capitalizes words
-Esc::CapsLock
-
-; add colemak-dh matrix key maps
-SC012::f
-SC013::p
-SC014::b
-SC015::j
-SC016::l
-SC017::u
-SC018::y
-SC019::;
-SC01F::r
-SC020::s
-SC021::t
-SC023::m
-SC024::n
-SC025::e
-SC026::i
-SC027::o
-SC02f::d
-SC030::v
-SC031::k
-SC032::h
