@@ -88,4 +88,4 @@ vim.keymap.set("n", "[c", '&diff ? "[c" : ":Gitsigns prev_hunk<CR>"', { expr = t
 --  silence grep when grepping
 vim.cmd("cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'")
 vim.cmd("cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'")
-vim.cmd("cnoreabbrev <expr> G (getcmdtype() ==# ':' && getcmdline() =~# '^G') ? 'vertical G' : 'G'")
+vim.cmd("cnoreabbrev <expr> gg (getcmdtype() ==# ':' && getcmdline() =~# '^gg') ? 'vertical G' : 'gg'")
