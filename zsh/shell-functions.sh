@@ -20,12 +20,3 @@ function tempe () {
     chmod -R 0700 .
   fi
 }
-
-# open git
-function run_git() {
-  if [[ $# -gt 0 ]] then
-    git $@
-  else
-    nvim +"vert Git"
-  fi
-}
