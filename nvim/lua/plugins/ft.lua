@@ -52,7 +52,7 @@ return {
   {
     "SirVer/ultisnips",
     dependencies = { "honza/vim-snippets" },
-    ft = { "markdown", "ledger", "python", "javascript", "html", "css" },
+    ft = { "markdown", "ledger", "python", "javascript", "html", "css", "text" },
     config = function()
       vim.g.UltiSnipsExpandTrigger = "<Tab>"
       vim.g.UltiSnipsJumpForwardTrigger = "<C-n>"
