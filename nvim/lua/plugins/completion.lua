@@ -60,6 +60,12 @@ return {
         },
       })
 
+      cmp.setup.filetype({ "markdown", "text" }, {
+        sources = cmp.config.sources({
+          { name = "buffer", max_item_count = 5 },
+        }),
+      })
+
       -- setup completion
       cmp.setup({
         completion = {
@@ -119,7 +125,6 @@ return {
               return cmp.lsp.CompletionItemKind.Text ~= entry:get_kind()
             end,
           },
-          { name = "buffer", max_item_count = 5 },
         }),
       })
 
