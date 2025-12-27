@@ -72,6 +72,8 @@ return {
           current_file = os.getenv("PWD")
         end
 
+        current_file = current_file:gsub(" ", "\\ ")
+
         -- Change to the directory of the current file
         local cmd = "cd " .. current_file .. " && git rev-parse --show-toplevel 2>/dev/null"
         local handle = io.popen(cmd)
