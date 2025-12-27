@@ -60,9 +60,9 @@ return {
     opts = {
       -- log_level = vim.log.levels.DEBUG,
       formatters = {
-        my_sql_formatter = {
+        holywell_formatter = {
           command = "python3",
-          args = { "/Users/gmnr/.dotfiles/scripts/sql-formatter.py" },
+          args = { "/Users/gmnr/.dotfiles/formatting/sql-formatter.py" },
           stdin = true,
         },
         prettier = {
@@ -84,7 +84,7 @@ return {
         typescript = { "prettier" },
         html = { "prettier" },
         markdown = { "prettier" },
-        sql = { "my_sql_formatter" },
+        sql = { "holywell_formatter" },
       },
       format_on_save = { timeout_ms = 500, lsp_fallback = true },
     },
