@@ -61,6 +61,6 @@ function run_git() {
 # hledger aliases
 alias hl='hledger'
 alias hlp='hledger print'
-alias e='nvim +$ ~/.finance/periods/2025.journal'
+alias e='nvim +$ ~/.finance/periods/2026.journal'
 alias pp='python3 ~/.dotfiles/hledger/scripts/fetch-mkt-prices.py && python3 ~/.dotfiles/hledger/scripts/capital-gain-taxes.py'
 alias prices='cat ~/.finance/prices/current_prices.journal'
