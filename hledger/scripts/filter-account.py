@@ -28,7 +28,7 @@ snippets = [
     "assets:liquid:cash",
     "assets:liquid:fineco",
     "assets:liquid:paypal",
-    "expenses:transportation:car:fuel",
+    "expenses:transit:car:fuel",
     "expenses:food-bev:groceries",
     "expenses:food-bev:drinks",
 ]
