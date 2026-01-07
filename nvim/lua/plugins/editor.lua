@@ -176,8 +176,8 @@ return {
             win = {
               list = {
                 keys = {
-                  ["<c-k>"] = { "list_down", mode = { "i", "n" } },
-                  ["<c-y>"] = { "list_up", mode = { "i", "n" } },
+                  ["<c-j>"] = { "list_down", mode = { "i", "n" } },
+                  ["<c-k>"] = { "list_up", mode = { "i", "n" } },
                 },
               },
             },
@@ -188,8 +188,8 @@ return {
           input = {
             keys = {
               ["<Esc>"] = { "close", mode = { "n", "i" } },
-              ["<c-k>"] = { "list_down", mode = { "i", "n" } },
-              ["<c-y>"] = { "list_up", mode = { "i", "n" } },
+              ["<c-j>"] = { "list_down", mode = { "i", "n" } },
+              ["<c-k>"] = { "list_up", mode = { "i", "n" } },
               ["<c-e>"] = { "preview_scroll_up", mode = { "i", "n" } },
               ["<c-n>"] = { "preview_scroll_down", mode = { "i", "n" } },
               ["<c-d>"] = { "edit_vsplit", mode = { "i", "n" } },
