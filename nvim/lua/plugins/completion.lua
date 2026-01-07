@@ -73,19 +73,10 @@ return {
           completeopt = "menu,menuone,noinsert",
         },
 
-        -- format autocompletion
-        formatting = {
-          format = lspkind.cmp_format({
-            mode = "symbol_text",
-            maxwidth = 50,
-            ellipsis_char = "...",
-          }),
-        },
-
         -- style window for completion
         window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
+          completion = cmp.config.window.bordered({ border = "rounded" }),
+          documentation = cmp.config.window.bordered({ border = "rounded" }),
         },
 
         -- mappings for navigation
