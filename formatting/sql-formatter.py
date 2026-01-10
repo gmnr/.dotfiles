@@ -33,7 +33,7 @@ p = Popen(
         "/Users/gmnr/.local/share/nvim/mason/bin/prettier",
         "/tmp/formatting-tmp.sql",
         "--config",
-        "/Users/gmnr/.local/share/nvim/mason/packages/prettier/.prettierrc.yml",
+        "/Users/gmnr/.dotfiles/formatting/.prettierrc.yml"
     ],
     stdout=PIPE,
     stderr=PIPE,
