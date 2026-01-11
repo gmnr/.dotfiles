@@ -49,15 +49,6 @@ function pvt() {
   hledger is --pivot payee -p thismonth "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py pivot
 }
 
-# open git
-function run_git() {
-  if [[ $# -gt 0 ]] then
-    git $@
-  else
-    nvim +"vert Git"
-  fi
-}
-
 # hledger aliases
 alias hl='hledger'
 alias hlp='hledger print'
