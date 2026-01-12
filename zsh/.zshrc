@@ -25,6 +25,9 @@ function parse_git_branch() {
 setopt PROMPT_SUBST
 PROMPT='%B%F{green} %~%f %F{cyan}$(parse_git_branch)%f%F{red}>%f%b '
 
+# add to path
+export PATH=/opt/homebrew/bin:$PATH
+
 # load external config files
 . $HOME/.dotfiles/zsh/aliases.sh
 . $HOME/.dotfiles/zsh/shell-functions.sh

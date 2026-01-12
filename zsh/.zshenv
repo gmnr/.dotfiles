@@ -8,9 +8,6 @@ export BAT_CONFIG_DIR=$HOME/.dotfiles/bat/
 export CLICOLOR=1
 export LESSHISTFILE=-
 
-# add to path
-export PATH=/opt/homebrew/bin:$PATH
-
 # create dot folder for zsh
 if [ -d ~/.config/zsh ]; then
   export ZDOTDIR=~/.config/zsh
