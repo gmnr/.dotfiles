@@ -23,6 +23,7 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
+  rocks = { enabled = false },
   performance = {
     rtp = {
       disabled_plugins = {
