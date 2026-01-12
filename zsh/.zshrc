@@ -11,7 +11,7 @@ compinit -C
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # enable vi mode
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # prompt
 function parse_git_dirty() {
@@ -29,6 +29,6 @@ PROMPT='%B%F{green} %~%f %F{cyan}$(parse_git_branch)%f%F{red}>%f%b '
 export PATH=/opt/homebrew/bin:$PATH
 
 # load external config files
-. $HOME/.dotfiles/zsh/aliases.sh
-. $HOME/.dotfiles/zsh/shell-functions.sh
-. $HOME/.dotfiles/hledger/hledger-shell.sh
+source $HOME/.dotfiles/zsh/aliases.sh
+source $HOME/.dotfiles/zsh/shell-functions.sh
+source $HOME/.dotfiles/hledger/hledger-shell.sh
