@@ -11,7 +11,18 @@ function iss() {
 
 function bs() {
   clear;
+
+  # extract the period to which rebase the calculations
+  period=$(echo $@ | rg -e "-p \d{4}(\/\d+)?" -o | cut -d " " -f 2)
+
+  # execute the calculation on that interval
+  python3 ~/.dotfiles/hledger/scripts/capital-gain-taxes.py $period 2> /dev/null
+
+  # run the scri
   hledger bs "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py report
+
+  # restore the values at today
+  python3 ~/.dotfiles/hledger/scripts/capital-gain-taxes.py 2> /dev/null
 }
 
 function reg() {
