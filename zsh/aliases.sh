@@ -8,7 +8,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 # colors on ls
-alias ls='eza --all --git-ignore'
+alias ls='eza --all --git-ignore -I .gitignore'
 alias ll='eza --long --header --all --git --sort=modified --reverse'
 
 # advent of code utilities
