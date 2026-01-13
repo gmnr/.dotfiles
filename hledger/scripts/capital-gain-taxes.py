@@ -30,9 +30,10 @@ args = parser.parse_args()
 
 end = args.date
 if end:
-    if end.find("/"):
-        end_str = end
-        end = datetime.strptime(end, "%Y/%m")
+    if end.find("/") > 0:
+        year, month = end.split("/")
+        end_str = year + "/" + month.zfill(2)
+        end = datetime.strptime(end_str, "%Y/%m")
     else:
         end_str = f"{int(end)}/12"
         end = datetime(int(end), 12, 31)
@@ -114,7 +115,7 @@ def build_transactions(path, bv_acc, end):
                 date, *_ = head.split()
 
                 if end:
-                    date = datetime.strptime(date, "%Y/%m/%d")
+                    date = datetime.strptime(date, "%Y-%m-%d")
 
                     if date > end:
                         continue
@@ -130,7 +131,6 @@ def build_transactions(path, bv_acc, end):
 
 
 trans, book_value = build_transactions(PATH, book_value, end)
-print(end)
 
 BV = {}
 for tick, book_value in book_value.items():
