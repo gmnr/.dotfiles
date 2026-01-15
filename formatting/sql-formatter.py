@@ -33,7 +33,7 @@ p = Popen(
         "/Users/gmnr/.local/share/nvim/mason/bin/prettier",
         "/tmp/formatting-tmp.sql",
         "--config",
-        "/Users/gmnr/.dotfiles/formatting/.prettierrc.yml"
+        "/Users/gmnr/.dotfiles/formatting/.prettierrc.yml",
     ],
     stdout=PIPE,
     stderr=PIPE,
@@ -68,4 +68,6 @@ for line in lines:
         sql.append(line)
 
 sql = "\n".join(sql)
+sql = sql.replace("# gruppi", "#gruppi")
+sql = sql.replace("# cure", "#cure")
 print(sql, end="")
