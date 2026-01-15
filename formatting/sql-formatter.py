@@ -70,4 +70,5 @@ for line in lines:
 sql = "\n".join(sql)
 sql = sql.replace("# gruppi", "#gruppi")
 sql = sql.replace("# cure", "#cure")
+sql = sql.replace("YEAR (", "YEAR(")
 print(sql, end="")
