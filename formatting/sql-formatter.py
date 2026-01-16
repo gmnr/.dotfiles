@@ -39,7 +39,7 @@ p = Popen(
     stderr=PIPE,
 )
 stdout, stderr = p.communicate()
-sql = stdout.decode("ascii")
+sql = stdout.decode("utf-8")
 
 # transform and fix small errors
 add_one = False
@@ -66,13 +66,22 @@ for line in lines:
         sql.append(" " + line)
     else:
         sql.append(line)
-
 sql = "\n".join(sql)
-sql = sql.replace("# gruppi", "#gruppi")
-sql = sql.replace("# cure", "#cure")
-sql = sql.replace("YEAR (", "YEAR(")
+
+
+adj = {
+    "# gruppi": "#gruppi",
+    "# cure": "#cure",
+    "YEAR (": "YEAR(",
+}
+
+for k, v in adj.items():
+    sql = sql.replace(k, v)
+
+# add header and terminate transaction
 if not sql.startswith("--"):
     sql = "-- description\n" + sql
 if not sql[-1] == ";":
     sql = sql + ";"
+
 print(sql, end="")
