@@ -71,4 +71,8 @@ sql = "\n".join(sql)
 sql = sql.replace("# gruppi", "#gruppi")
 sql = sql.replace("# cure", "#cure")
 sql = sql.replace("YEAR (", "YEAR(")
+if not sql.startswith("--"):
+    sql = "-- description\n" + sql
+if not sql[-1] == ";":
+    sql = sql + ";"
 print(sql, end="")
