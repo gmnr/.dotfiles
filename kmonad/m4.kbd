@@ -17,6 +17,7 @@
     excel (cmd-button "open /Applications/Microsoft\\ Excel.app")
     ai (cmd-button "open https://gemini.google.com/app")
     teams (cmd-button "open /Applications/Microsoft\\ Teams.app")
+    db (cmd-button "open /Applications/DBeaver.app")
     thing (cmd-button "open /Applications/Things3.app")
     notes (cmd-button "open -a Notes")
     cal (cmd-button "open /System/Applications/Calendar.app")
@@ -63,9 +64,9 @@
 (deflayer apps
   _      _    _    _    _    _    _    _    _    _    _  _  _
   @desk  f1   f2   f3   f4   f5   f6   f7   f8   f9   _  _  f12   M-bspc
-  @down    @music   @msg   @notes  @ai        _    _    _    _    _    _    [    ]    \  
-  @icloud  @term  @excel   @thing  @browser   _    _    _    _    _    _    '    end
-  @drive   _    @teams    @cal    @mail    _    _    _    _    _    _    rsft up
+  @down    @music  @msg    @notes  @ai        _    _    _    _    _    _    [    ]    \  
+  @icloud  @term   @excel  @thing  @browser   _    _    _    _    _    _    '    end
+  @drive   @teams  @db     @cal    @mail    _    _    _    _    _    _    rsft up
   fn   lctl lalt lmet           @s_spc            rmet ralt M-left M-down M-rght
 )
 

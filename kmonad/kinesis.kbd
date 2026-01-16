@@ -21,6 +21,7 @@
     notes (cmd-button "open -a Notes")
     cal (cmd-button "open /System/Applications/Calendar.app")
     teams (cmd-button "open /Applications/Microsoft\\ Teams.app")
+    db (cmd-button "open /Applications/DBeaver.app")
     msg (cmd-button "open /Applications/WhatsApp.app")
     term (cmd-button "open /Applications/Alacritty.app")
     down (cmd-button "open /Users/gmnr/Downloads")
@@ -79,9 +80,9 @@
   esc  F1   F2   F3   F4   F5   F6   F7   F8   F9   F10  F11  F12  prnt slck pause
 
   @desk    f1   f2   f3   f4   f5                  f6   f7   f8  f9   _   _
-  @down  @music   @msg   @notes     @ai        _     _   _   _   _   _    _
-  @icloud  @term   @excel   @thing  @browser   _     _   _   _   _   _    _
-  @drive _    @teams    @cal    @mail    _                   _    _    _    _    _ rsft
+  @down    @music  @msg    @notes  @ai        _     _   _   _   _   _    _
+  @icloud  @term   @excel  @thing  @browser   _     _   _   _   _   _    _
+  @drive   @teams  @db     @cal    @mail      _     _   _   _   _   _  rsft
        _  _  home  end                          pgdn   pgup  _    _
 
                             lctl del   ralt rctl
