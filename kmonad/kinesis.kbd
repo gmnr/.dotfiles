@@ -26,6 +26,7 @@
     term (cmd-button "open /Applications/Alacritty.app")
     down (cmd-button "open /Users/gmnr/Downloads")
     desk (cmd-button "open /Users/gmnr/Desktop")
+    scans (cmd-button "open /Users/gmnr/Documents/Scans")
     icloud (cmd-button "open /Users/gmnr/Library/Mobile\\ Documents/com~apple~CloudDocs")
     drive (cmd-button "open /Users/gmnr/Library/CloudStorage/OneDrive-ImpresaMinieriSpa")
 )
@@ -83,7 +84,7 @@
   @down    @music  @msg    @notes  @ai        _     _   _   _   _   _    _
   @icloud  @term   @excel  @thing  @browser   _     _   _   _   _   _    _
   @drive   @teams  @db     @cal    @mail      _     _   _   _   _   _  rsft
-       _  _  home  end                          pgdn   pgup  _    _
+  @scans  _  home  end                          pgdn   pgup  _    _
 
                             lctl del   ralt rctl
                        spc alt  home   pgup  end del
