@@ -8,7 +8,7 @@ return {
         "bashls",
         "lua_ls",
         "marksman",
-        "pyright",
+        "basedpyright",
       },
     },
     dependencies = {
@@ -17,7 +17,6 @@ return {
         opts = {
           ensure_installed = {
             "stylua",
-            "pyright",
             "black",
           },
         },
@@ -31,9 +30,9 @@ return {
           vim.lsp.config("bashls", {
             filetypes = { "zsh", "sh", "bash" },
           })
-          vim.lsp.config("pyright", {
+          vim.lsp.config("basedpyright", {
             settings = {
-              python = { analysis = { diagnosticSeverityOverrides = { reportPossiblyUnboundVariable = "none" } } },
+              -- python = { analysis = { diagnosticSeverityOverrides = { reportPossiblyUnboundVariable = "none" } } },
             },
           })
 
@@ -42,8 +41,6 @@ return {
           function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
             opts = opts or {}
             opts.border = "rounded"
-            -- opts.max_width = 100
-            -- opts.max_height = 14
             return orig_util_open_floating_preview(contents, syntax, opts, ...)
           end
         end,
