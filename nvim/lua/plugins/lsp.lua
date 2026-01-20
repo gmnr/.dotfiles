@@ -32,7 +32,7 @@ return {
           })
           vim.lsp.config("basedpyright", {
             settings = {
-              -- python = { analysis = { diagnosticSeverityOverrides = { reportPossiblyUnboundVariable = "none" } } },
+              basedpyright = { analysis = { typeCheckingMode = 'basic' } },
             },
           })
 
