@@ -62,6 +62,14 @@ for line in lines:
         sql.append(line[6:])
         continue
 
+    if " INTO " in line:
+        pos = line.find(" INTO ")
+        sql.append(line[:pos])
+        offset = line.lstrip().find(" ") - 1
+        new_pos = line[::-1].find(" OTNI ") * -1
+        sql.append(" " * (offset) + "INTO " + line[new_pos:])
+        continue
+
     if add_one:
         sql.append(" " + line)
     else:
@@ -70,8 +78,7 @@ sql = "\n".join(sql)
 
 
 adj = {
-    "# gruppi": "#gruppi",
-    "# cure": "#cure",
+    "# ": "#",
     "YEAR (": "YEAR(",
 }
 
