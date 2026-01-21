@@ -62,12 +62,13 @@ for line in lines:
         sql.append(line[6:])
         continue
 
+    if "SELECT" in line:
+        into_offset = line.lstrip().find(" ") - 1
+
     if " INTO " in line:
         pos = line.find(" INTO ")
         sql.append(line[:pos])
-        offset = line.lstrip().find(" ") - 1
-        new_pos = line[::-1].find(" OTNI ") * -1
-        sql.append(" " * (offset) + "INTO " + line[new_pos:])
+        sql.append(" " * (into_offset) + line[pos + 1 :])
         continue
 
     if add_one:
