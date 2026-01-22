@@ -81,6 +81,8 @@ sql = "\n".join(sql)
 adj = {
     "# ": "#",
     "YEAR (": "YEAR(",
+    "MONTH (": "MONTH(",
+    "DAY (": "DAY(",
 }
 
 for k, v in adj.items():
