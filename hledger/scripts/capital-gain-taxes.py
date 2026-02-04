@@ -114,6 +114,11 @@ def build_transactions(path, bv_acc, end):
                 head, asset, *_ = tnx.split("\n")
                 date, *_ = head.split()
 
+                if any(
+                    x in tnx for x in ["2026-02-03"]
+                ):  # exclude transactions from bv calculations
+                    continue
+
                 if end:
                     date = datetime.strptime(date, "%Y-%m-%d")
 
