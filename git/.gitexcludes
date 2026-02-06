@@ -116,3 +116,6 @@ venv.bak/
 
 # Lazy.nvim json
 lazy-lock.json
+
+# hugo lock
+.hugo_build.lock
