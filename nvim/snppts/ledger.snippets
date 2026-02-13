@@ -2,6 +2,20 @@ snippet "^ " "YYYY-MM-DD" rA
 `!v strftime('%Y-%m-%d')` 
 endsnippet
 
+snippet autotrans "movement transaction" wA
+`!v strftime('%Y-%m-%d')` MINIERI GUIDO | autotransfer to revolut
+  assets:current:revolut                                120,00
+  assets:current:fineco
+
+endsnippet
+
+snippet schedacarb "movement transaction" wA
+`!v strftime('%Y-%m-%d')` IMPRESA MINIERI SPA | scheda carburante
+  expenses:transit:car:fuel                              50,00
+  revenues:reimbursement
+
+endsnippet
+
 snippet cash "snippet for cash" wA
 assets:current:cash
 endsnippet
