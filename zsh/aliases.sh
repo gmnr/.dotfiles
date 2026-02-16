@@ -37,3 +37,9 @@ alias gg='nvim +"vert Git"'
 alias qq='sudo killall kmonad && ~/.dotfiles/kmonad/startup.sh 1'
 alias ww='sudo killall kmonad && ~/.dotfiles/kmonad/startup.sh 2'
 alias QQ='sudo killall kmonad'
+
+# help
+alias bathelp='bat --plain --language=help'
+help() {
+    "$@" --help 2>&1 | bathelp
+}
