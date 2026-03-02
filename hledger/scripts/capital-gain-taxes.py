@@ -11,7 +11,7 @@ __license__ = "GPL"
 import os
 import locale
 import argparse
-from datetime import datetime
+from datetime import datetime, date, timedelta
 from loguru import logger
 
 locale.setlocale(locale.LC_ALL, "it_IT")
@@ -33,6 +33,12 @@ if end:
     if end.find("/") > 0:
         year, month = end.split("/")
         end_str = year + "/" + month.zfill(2)
+        end = datetime.strptime(end_str, "%Y/%m")
+    elif end == "lastmonth":
+        today = date.today()
+        first = today.replace(day=1)
+        last_month = first - timedelta(days=1)
+        end_str = last_month.strftime("%Y/%m")
         end = datetime.strptime(end_str, "%Y/%m")
     else:
         end_str = f"{int(end)}/12"

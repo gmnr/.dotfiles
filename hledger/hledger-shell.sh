@@ -13,7 +13,7 @@ function bs() {
   clear;
 
   # extract the period to which rebase the calculations
-  period=$(echo $@ | rg -e "-p \d{4}(\/\d+)?" -o | cut -d " " -f 2)
+  period=$(echo $@ | rg -e "-p \d{4}(\/\d+)?|lastmonth" -o | cut -d " " -f 2)
 
   # execute the calculation on that interval and run the report
   python3 ~/.dotfiles/hledger/scripts/capital-gain-taxes.py $period 2> /dev/null
