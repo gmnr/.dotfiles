@@ -31,7 +31,7 @@ if mode == "report":
     negative_amount = r"-\d+(\.\d{3})*(\,\d+)? [A-Z]{3,4}"
     positive_amount = r" \d+(\.\d{3})*(\,\d+)? [A-Z]{3,4}"
     titles = r"(Revenues|Expenses|Net:|Assets|Liabilities)"
-    months = r"(Total|Average|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|(20[0-9][0-9])(-[0-9]{2})?(-[0-9]{2})?)"
+    months = r"(Total|Average|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|(20[0-9][0-9])(-[0-9]{2})?(-[0-9]{2})?(Q[0-9]{1})?)"
     payee = r"~"
     account = r"\s[a-zA-Z:,-.]+([0-9]+)?[a-zA-Z:,-.]+\s"
 elif mode == "pivot":
@@ -40,7 +40,7 @@ elif mode == "pivot":
     negative_amount = r"-\d+(\.\d{3})*(\,\d+)? [A-Z]{3,4}"
     positive_amount = r" \d+(\.\d{3})*(\,\d+)? [A-Z]{3,4}"
     titles = r"(Revenues|Expenses|Net:|Assets|Liabilities)"
-    months = r"(Total|Average|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|(20[0-9][0-9])(-[0-9]{2})?(-[0-9]{2})?)"
+    months = r"(Total|Average|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|(20[0-9][0-9])(-[0-9]{2})?(-[0-9]{2})?(Q[0-9]{1})?)"
     payee = r"~"
     account = r"\s[0-9A-ZÀ-ÿ &'.]+\s"
 else:
@@ -49,7 +49,7 @@ else:
     negative_amount = r"-\d+(\.\d{3})*(\,\d+)? [A-Z]{3,4}"
     positive_amount = r" \d+(\.\d{3})*(\,\d+)? [A-Z]{3,4}"
     titles = r"(Revenues|Expenses|Net:|Assets|Liabilities)"
-    months = r"(Total|Average|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|(20[0-9][0-9])(-[0-9]{2})?(-[0-9]{2})?)"
+    months = r"(Total|Average|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|(20[0-9][0-9])(-[0-9]{2})?(-[0-9]{2})?(Q[0-9]{1})?)"
     payee = r"\s.+\s\|"
     account = r"\s\s[a-zA-Z: ,-.]+\s"
 
