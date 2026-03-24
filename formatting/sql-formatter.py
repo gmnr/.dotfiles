@@ -20,81 +20,20 @@ sql = sys.stdin.read().rstrip()
 with open("/tmp/formatting-tmp.sql", "w") as f:
     f.write(sql)
 
-my_env = {
+env = {
     **os.environ,
     "PATH": "/opt/homebrew/bin:" + os.environ["PATH"],
 }
-
 # execute command
 p = Popen(
-    env=my_env,
-    cwd="/Users/gmnr/.local/share/nvim/mason/packages/prettier",
-    args=[
-        "/Users/gmnr/.local/share/nvim/mason/bin/prettier",
-        "/tmp/formatting-tmp.sql",
-        "--config",
-        "/Users/gmnr/.dotfiles/formatting/.prettierrc.yml",
-    ],
+    env=env,
+    args=["npx", "holywell", "/tmp/formatting-tmp.sql"],
     stdout=PIPE,
     stderr=PIPE,
 )
+
 stdout, stderr = p.communicate()
 sql = stdout.decode("utf-8")
 
-# transform and fix small errors
-add_one = False
-if "RIGHT" in sql or "INNER" in sql:
-    add_one = True
-lines = sql.splitlines()
-sql = []
-for line in lines:
-    if " JOIN " in line and " ON " in line:
-        if "RIGHT" in line or "INNER" in line:
-            line = line.lstrip()
-        offset = line.find(" JOIN ") + 3
-        pos = line.find(" ON ")
-        new_pos = line[::-1].find(" NO ") * -1
-        sql.append(line[:pos])
-        sql.append(" " * (offset) + "ON " + line[new_pos:])
-        continue
-
-    if " WHEN " in line or " ELSE " in line:
-        sql.append(line[6:])
-        continue
-
-    if "SELECT" in line:
-        into_offset = line.lstrip().find(" ") - 1
-
-    if " INTO " in line:
-        pos = line.find(" INTO ")
-        sql.append(line[:pos])
-        sql.append(" " * (into_offset) + line[pos + 1 :])
-        continue
-
-    if add_one:
-        sql.append(" " + line)
-    else:
-        sql.append(line)
-sql = "\n".join(sql)
-
-
-adj = {
-    "# ": "#",
-    "@ ": "@",
-    "YEAR (": "YEAR(",
-    "MONTH (": "MONTH(",
-    "DAY (": "DAY(",
-    "getdate (": "GETDATE(",
-    " date": " DATE",
-}
-
-for k, v in adj.items():
-    sql = sql.replace(k, v)
-
-# add header and terminate transaction
-if not sql.startswith("--"):
-    sql = "-- description\n" + sql
-if not sql[-1] == ";":
-    sql = sql + ";"
-
-print(sql, end="")
+# print output
+print(sql[:-1], end="")
