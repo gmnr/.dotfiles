@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Wrap prettier-sql-plugin into a python script to format sql scripts
+Wrap holywell formatter into a python script to format sql scripts
 """
 
 __author__ = "Guido Minieri"
@@ -14,11 +14,7 @@ import os
 from subprocess import Popen, PIPE
 
 # read input
-sql = sys.stdin.read().rstrip()
-
-# create tmp file to be formatted and read
-with open("/tmp/formatting-tmp.sql", "w") as f:
-    f.write(sql)
+sql = sys.stdin.read()
 
 env = {
     **os.environ,
@@ -27,13 +23,22 @@ env = {
 # execute command
 p = Popen(
     env=env,
-    args=["npx", "holywell", "/tmp/formatting-tmp.sql"],
+    stdin=PIPE,
+    args=["npx", "holywell", "--dialect", "tsql"],
     stdout=PIPE,
     stderr=PIPE,
+    text=True,
 )
 
-stdout, stderr = p.communicate()
-sql = stdout.decode("utf-8")
+stdout, stderr = p.communicate(sql)
+output = stdout.rstrip()
+
+# parse special rules not covered by formatter
+reserved_keywords = ["format", "pivot"]
+for word in reserved_keywords:
+
+    if word in output:
+        output = output.replace(word, word.upper())
 
 # print output
-print(sql[:-1], end="")
+print(output, end="")
