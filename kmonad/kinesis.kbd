@@ -23,7 +23,7 @@
     teams (cmd-button "open /Applications/Microsoft\\ Teams.app")
     db (cmd-button "open /Applications/DBeaver.app")
     msg (cmd-button "open /Applications/WhatsApp.app")
-    term (cmd-button "open /Applications/Alacritty.app")
+    term (cmd-button "open /Applications/kitty.app")
     down (cmd-button "open /Users/gmnr/Downloads")
     desk (cmd-button "open /Users/gmnr/Desktop")
     scans (cmd-button "open /Users/gmnr/Documents/Scans")

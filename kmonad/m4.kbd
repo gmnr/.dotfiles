@@ -22,7 +22,7 @@
     notes (cmd-button "open -a Notes")
     cal (cmd-button "open /System/Applications/Calendar.app")
     msg (cmd-button "open /Applications/WhatsApp.app")
-    term (cmd-button "open /Applications/Alacritty.app")
+    term (cmd-button "open /Applications/kitty.app")
     alfred (cmd-button "open /Applications/Alfred\\ 5.app")
     down (cmd-button "open /Users/gmnr/Downloads")
     desk (cmd-button "open /Users/gmnr/Desktop")
