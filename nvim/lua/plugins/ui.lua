@@ -9,6 +9,10 @@ return {
     priority = 1000,
     config = function()
       vim.cmd("colorscheme tokyonight-storm")
+      vim.o.cmdheight = 1
+      require("vim._core.ui2").enable({
+        enable = true,
+      })
 
       -- define custom colors for gitsigns
       vim.cmd("highlight! GitSignsAdd           guibg=NONE guifg=#92BE65")

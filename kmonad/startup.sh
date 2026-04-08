@@ -1,3 +1,5 @@
+# #!/bin/sh
+
 # run kmonad for "main" keyboard
 if [[ $1 -eq 1 ]]; then
   sudo kmonad ~/.dotfiles/kmonad/m4.kbd &
