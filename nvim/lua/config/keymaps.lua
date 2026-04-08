@@ -46,6 +46,7 @@ vim.keymap.set("n", "<BS>", "<C-^>")
 -- map vim-fugitive
 vim.keymap.set("n", "<leader>gg", "<cmd>vertical Git<CR>", opts)
 vim.keymap.set("n", "<leader>gy", "<cmd>Git push<CR>", opts)
+vim.keymap.set("n", "<leader>gY", "<cmd>Git push -f<CR>", opts)
 
 -- change the current directory to edited file
 vim.keymap.set("n", "<leader>cd", "<cmd>cd %:p:h<CR>", opts)
