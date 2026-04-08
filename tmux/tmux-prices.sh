@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/zsh
 
-# load file 
+# load file
 src=`cat ~/.finance/prices/current_prices.journal`
 old=`tail -n 5 ~/.finance/prices/historic_prices.journal`
 

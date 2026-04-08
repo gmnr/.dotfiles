@@ -1,3 +1,4 @@
+#!/bin/zsh
 # aliases
 # navigation
 alias dot='cd ~/.dotfiles'

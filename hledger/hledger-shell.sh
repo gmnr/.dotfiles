@@ -1,59 +1,60 @@
+#!/bin/zsh
 # hledger helper functions
 function is() {
-  clear;
-  hledger is -p thismonth "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py report
+    clear;
+    hledger is -p thismonth "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py report
 }
 
 function iss() {
-  clear;
-  hledger is -3 "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py report
+    clear;
+    hledger is -3 "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py report
 }
 
 function bs() {
-  clear;
+    clear;
 
-  # extract the period to which rebase the calculations
-  period=$(echo $@ | rg -e "-p \d{4}(\/\d+)?|lastmonth" -o | cut -d " " -f 2)
+    # extract the period to which rebase the calculations
+    period=$(echo $@ | rg -e "-p \d{4}(\/\d+)?|lastmonth" -o | cut -d " " -f 2)
 
-  # execute the calculation on that interval and run the report
-  python3 ~/.dotfiles/hledger/scripts/capital-gain-taxes.py $period 2> /dev/null
-  hledger bs "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py report
+    # execute the calculation on that interval and run the report
+    python3 ~/.dotfiles/hledger/scripts/capital-gain-taxes.py $period 2> /dev/null
+    hledger bs "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py report
 
 }
 
 function reg() {
-  clear;
-  hledger reg -p thismonth -w $COLUMNS "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py register
+    clear;
+    hledger reg -p thismonth -w $COLUMNS "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py register
 }
 
 function regg() {
-  clear;
-  hledger reg -w $COLUMNS "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py register
+    clear;
+    hledger reg -w $COLUMNS "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py register
 }
 
 function areg() {
-  clear;
-  hledger areg -p thismonth -w $COLUMNS "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py areg
+    clear;
+    hledger areg -p thismonth -w $COLUMNS "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py areg
 }
 
 function aregg() {
-  clear;
-  hledger areg -w $COLUMNS "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py areg
+    clear;
+    hledger areg -w $COLUMNS "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py areg
 }
 
 function bal() {
-  clear;
-  hledger bal "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py register
+    clear;
+    hledger bal "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py register
 }
 
 function out() {
-  clear;
-  hledger bal cash fineco -p thismonth -D --transpose -T amt:"<0" --drop 1 "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py cf
+    clear;
+    hledger bal cash fineco -p thismonth -D --transpose -T amt:"<0" --drop 1 "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py cf
 }
 
 function pvt() {
-  clear;
-  hledger is --pivot payee -p thismonth "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py pivot
+    clear;
+    hledger is --pivot payee -p thismonth "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py pivot
 }
 
 # hledger aliases
