@@ -2,11 +2,11 @@ return {
 
   "tpope/vim-fugitive",
 
-  { "tpope/vim-repeat", event = "VeryLazy" },
+  { "tpope/vim-repeat",      event = "VeryLazy" },
 
   { "tpope/vim-speeddating", event = "VeryLazy" },
 
-  { "tpope/vim-surround", event = "VeryLazy" },
+  { "tpope/vim-surround",    event = "VeryLazy" },
 
   {
     "wellle/targets.vim",
@@ -46,29 +46,29 @@ return {
             return vim.tbl_contains({ "()", "[]", "{}" }, pair)
           end),
           Rule("( ", " )")
-            :with_pair(function()
-              return false
-            end)
-            :with_move(function(opts)
-              return opts.prev_char:match(".%)") ~= nil
-            end)
-            :use_key(")"),
+              :with_pair(function()
+                return false
+              end)
+              :with_move(function(opts)
+                return opts.prev_char:match(".%)") ~= nil
+              end)
+              :use_key(")"),
           Rule("{ ", " }")
-            :with_pair(function()
-              return false
-            end)
-            :with_move(function(opts)
-              return opts.prev_char:match(".%}") ~= nil
-            end)
-            :use_key("}"),
+              :with_pair(function()
+                return false
+              end)
+              :with_move(function(opts)
+                return opts.prev_char:match(".%}") ~= nil
+              end)
+              :use_key("}"),
           Rule("[ ", " ]")
-            :with_pair(function()
-              return false
-            end)
-            :with_move(function(opts)
-              return opts.prev_char:match(".%]") ~= nil
-            end)
-            :use_key("]"),
+              :with_pair(function()
+                return false
+              end)
+              :with_move(function(opts)
+                return opts.prev_char:match(".%]") ~= nil
+              end)
+              :use_key("]"),
         }),
       }
     end,
@@ -155,9 +155,9 @@ return {
             sql = true,
           }
           return vim.g.snacks_indent ~= false
-            and b.snacks_indent ~= false
-            and bo.buftype == ""
-            and not excluded_filetypes[bo.filetype]
+              and b.snacks_indent ~= false
+              and bo.buftype == ""
+              and not excluded_filetypes[bo.filetype]
         end,
       },
       input = { enabled = true },
@@ -173,14 +173,6 @@ return {
             layout = { layout = { position = "right" } },
             auto_close = true,
             hidden = true,
-            win = {
-              list = {
-                -- keys = {
-                  -- ["<c-k>"] = { "list_down", mode = { "i", "n" } },
-                  -- ["<c-y>"] = { "list_up", mode = { "i", "n" } },
-                -- },
-              },
-            },
           },
         },
         layout = { preset = "ivy" },
@@ -188,8 +180,6 @@ return {
           input = {
             keys = {
               ["<Esc>"] = { "close", mode = { "n", "i" } },
-              -- ["<c-k>"] = { "list_down", mode = { "i", "n" } },
-              -- ["<c-y>"] = { "list_up", mode = { "i", "n" } },
               ["<c-e>"] = { "preview_scroll_up", mode = { "i", "n" } },
               ["<c-n>"] = { "preview_scroll_down", mode = { "i", "n" } },
               ["<c-d>"] = { "edit_vsplit", mode = { "i", "n" } },
