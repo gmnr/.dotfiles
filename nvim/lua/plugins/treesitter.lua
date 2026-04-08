@@ -15,6 +15,7 @@ return {
 
       local ensureInstalled = {
         "bash",
+        "zsh",
         "css",
         "html",
         "javascript",

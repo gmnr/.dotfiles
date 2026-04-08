@@ -93,6 +93,7 @@ return {
         markdown = { "prettier" },
         sql = { "holywell_formatter" },
         sh = { "beautysh" },
+        zsh = { "beautysh" },
       },
       format_on_save = { timeout_ms = 500, lsp_fallback = true },
     },
