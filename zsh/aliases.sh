@@ -2,7 +2,7 @@
 # aliases
 # navigation
 alias dot='cd ~/.dotfiles'
-alias blog='~/.dotfiles/zsh/blog.sh'
+alias blog='~/.dotfiles/tmux/tmux-scripts/blog.sh'
 alias blogcd='cd ~/.blog'
 alias finance='cd ~/.finance'
 alias sql='cd ~/Library/DBeaverData/workspace6/Terme/Scripts && run_git'
