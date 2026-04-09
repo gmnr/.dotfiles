@@ -6,18 +6,15 @@ vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false }) -- imp
 vim.g.mapleader = " "
 
 -- duplicate line and comment
-vim.keymap.set("n", "ycc", "yygccp", { remap = true })
+vim.keymap.set("n", "ycc", "yygccp", opts)
 
 -- keep cursor in place when joining lines
 vim.keymap.set("n", "J", "mzJ`z:delmarks z<cr>")
 
--- remap redo command
-vim.keymap.set("n", "<C-p>", "<C-r>")
-
 -- override scrolling
 vim.keymap.set("n", "<C-f>", "<C-u>")
 
--- open and load .vimrc
+-- open and load Lazy
 vim.keymap.set("n", "<leader>fu", "<cmd>Lazy<CR>", opts)
 
 -- quick save and exit
