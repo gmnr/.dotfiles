@@ -78,7 +78,7 @@ vim.opt.spelllang = { "en_us", "it" }
 vim.opt.spellcapcheck = ""
 
 -- grep settings (use ripgrep)
-vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case --hidden --glob=!.git/"
+vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case --hidden --iglob=!**/.git/**"
 vim.opt.grepformat = "%f:%l:%c:%m"
 
 -- update wildignore
