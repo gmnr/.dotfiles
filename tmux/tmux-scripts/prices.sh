@@ -33,4 +33,4 @@ delta_iusa=`echo $delta_iusa | tr '.' ','`
 delta_dot=`echo $delta_dot | tr '.' ','`
 
 # expose calculation
-echo "#[fg=#1f2335,bg=#7aa2f7,bold] UPD:$timer #[fg=colour255,bg=#3f51b5] VWCE:$vwce  $delta_vwce #[bg=#f44336] IUSA:$iusa  $delta_iusa #[bg=#e6007a] DOT:$dot  $delta_dot"
+echo "#[fg=#1f2335,bg=#e0af68,bold] 󰚰 $timer#[fg=#e0af68]#[fg=#3d59a1,bg=#e0af68]#[bg=#3d59a1,fg=colour255] VWCE:$vwce ∆:$delta_vwce#[fg=#3d59a1]#[fg=#449dab,bg=#3d59a1]#[bg=#449dab,fg=colour255] IUSA:$iusa ∆:$delta_iusa#[fg=#449dab]#[fg=#db4b4b,bg=#449dab]#[bg=#db4b4b,fg=colour255] DOT:$dot ∆:$delta_dot"
