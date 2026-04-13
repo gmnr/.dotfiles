@@ -133,6 +133,14 @@ return {
     },
   },
 
+  -- colorizer
+  {
+    "catgoose/nvim-colorizer.lua",
+    lazy = true,
+    event = "BufReadPre",
+    opts = {},
+  },
+
   -- lualine
   {
     "nvim-lualine/lualine.nvim",
