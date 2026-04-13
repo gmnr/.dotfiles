@@ -179,7 +179,7 @@ return {
         return basename_result:match("^%s*(.-)%s*$") -- trim any whitespace
       end
 
-      local function location()
+      local function get_location()
         local cwd = require("snacks").git.get_root(vim.fn.expand("%:p"))
         if cwd ~= nil then
           return ""
@@ -190,7 +190,7 @@ return {
       require("lualine").setup({
         options = {
           icons_enabled = true,
-          component_separators = { left = "", right = "" },
+          component_separators = { left = " ", right = "" },
           section_separators = { left = "", right = "" },
           disabled_filetypes = {},
           always_divide_middle = true,
@@ -200,16 +200,16 @@ return {
           lualine_b = {
             { get_root, separator = "" },
             { "branch", icon = "" },
-            "diff",
+            {"diff", icon=""},
             {
               "diagnostics",
               sources = { "nvim_diagnostic" },
               symbols = { error = "✘ ", warn = " ", info = "» ", hint = "⚑ " },
             },
           },
-          lualine_c = { location, "filename" },
-          lualine_x = { "encoding", "filetype" },
-          lualine_y = { "progress" },
+          lualine_c = { get_location, "filename" },
+          lualine_x = { "filetype" },
+          lualine_y = { "encoding" },
           lualine_z = { "location" },
         },
         inactive_sections = {
