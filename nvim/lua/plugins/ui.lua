@@ -200,7 +200,7 @@ return {
           lualine_b = {
             { get_root, separator = "" },
             { "branch", icon = "" },
-            {"diff", icon=""},
+            { "diff", icon = "" },
             {
               "diagnostics",
               sources = { "nvim_diagnostic" },
