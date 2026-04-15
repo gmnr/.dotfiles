@@ -7,6 +7,7 @@ return {
       ensure_installed = {
         "bashls",
         "lua_ls",
+        "stylua",
         "marksman",
         "basedpyright",
       },
