@@ -189,7 +189,18 @@ return {
       },
       quickfile = { enabled = true },
       scope = { enabled = true },
-      scroll = { enabled = true },
+      scroll = {
+        enabled = true,
+        animate = {
+          duration = { step = 10, total = 100 },
+          easing = "linear",
+        },
+        animate_repeat = {
+          delay = 50, -- delay in ms before using the repeat animation
+          duration = { step = 3, total = 20 },
+          easing = "linear",
+        },
+      },
     },
     keys = {
       {
