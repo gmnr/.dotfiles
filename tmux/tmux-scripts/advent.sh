@@ -11,14 +11,14 @@ DAY=$(date +"%d")
 URL_DAY=$(date +"%-d")
 
 # Only create tmux session if it doesn't already exist
-if [ "$SESSIONEXISTS" = "" ]
+if [[ "$SESSIONEXISTS" = "" ]]
 then
     # Start New Session with our name
     tmux new-session -d -s $SESSION
 
-    if [ $MONTH -eq  12 ] && [ $DAY -lt 13 ]
+    if [[ $MONTH -eq  12 ]] && [[ $DAY -lt 13 ]]
     then
-        tmux rename-window -t $SESSION 'reference'
+        tmux rename-window -t $SESSION 'advent'
         tmux send-keys -t $SESSION "cd ~/Documents/advent-of-code/utils" C-M 'clear' C-M
         tmux send-keys -t $SESSION "python3 get_input.py" C-M 'clear' C-M
         tmux send-keys -t $SESSION "cat $ROOT/$YEAR/$DAY/input.txt" C-M
@@ -29,7 +29,7 @@ then
         tmux send-keys -t $SESSION "nvim $ROOT/$YEAR/$DAY.py" C-M
 
     else
-        tmux rename-window -t $SESSION 'reference'
+        tmux rename-window -t $SESSION 'advent'
         tmux send-keys -t $SESSION "cd ~/Documents/advent-of-code/" C-M 'clear' C-M
         tmux send-keys -t $SESSION "git status" C-M
         tmux new-window -t $SESSION -n 'coding'
