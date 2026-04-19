@@ -20,7 +20,7 @@ function parse_git_dirty() {
 
 # show `!` if on remote branch there are further commits
 function parse_git_upstream() {
-    [[ $(git branch -r | tail -n1| cut -d ' ' -f 4) != $(git rev-parse --short HEAD) ]] && echo "!"
+    [[ $(git branch -vr 2> /dev/null | tail -n1 | cut -d ' ' -f 4) != $(git rev-parse --short HEAD 2> /dev/null) ]] && echo " !"
 }
 
 function parse_git_branch() {
@@ -29,9 +29,6 @@ function parse_git_branch() {
 
 setopt PROMPT_SUBST
 PROMPT='%B%F{green} %~%f %F{cyan}$(parse_git_branch)%f%F{red}>%f%b '
-
-# add to path
-export PATH='/opt/homebrew/bin:$PATH'
 
 # load external config files
 source $HOME/.dotfiles/zsh/aliases.sh

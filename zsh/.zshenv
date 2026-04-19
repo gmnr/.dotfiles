@@ -17,3 +17,6 @@ fi
 
 # select correct locale
 defaults write .GlobalPreferences AppleLocale en_IT
+
+# add to path
+export PATH=/opt/homebrew/bin:$PATH
