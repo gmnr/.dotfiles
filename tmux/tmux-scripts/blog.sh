@@ -12,15 +12,15 @@ then
 
     # start server
     tmux rename-window -t $SESSION 'server'
-    tmux send-keys -t $SESSION 'cd ~/.blog' C-M 'clear' C-m
-    tmux send-keys -t $SESSION 'hugo server -D -F' C-m
+    tmux send-keys -t $SESSION 'cd ~/.blog' C-M 'clear' C-M
+    tmux send-keys -t $SESSION 'hugo server -D -F' C-M
     tmux split-window -t $SESSION
-    tmux send-keys -t $SESSION 'cd ~/.blog' C-M 'clear' C-m
+    tmux send-keys -t $SESSION 'cd ~/.blog' C-M 'clear' C-M
 
     # setup editing window
     tmux new-window -t $SESSION -n 'coding'
-    tmux send-keys -t $SESSION 'cd ~/.blog' C-M 'clear' C-m
-    tmux send-keys -t $SESSION "nvim" C-m
+    tmux send-keys -t $SESSION 'cd ~/.blog' C-M 'clear' C-M
+    tmux send-keys -t $SESSION "nvim" C-M
 
 fi
 
