@@ -10,9 +10,9 @@ export LESSHISTFILE=-
 
 # create dot folder for zsh
 if [ -d ~/.config/zsh ]; then
-  export ZDOTDIR=~/.config/zsh
+    export ZDOTDIR=~/.config/zsh
 else
-  mkdir -p ~/.config/zsh
+    mkdir -p ~/.config/zsh
 fi
 
 # select correct locale
