@@ -15,6 +15,7 @@
     music (cmd-button "open /Applications/Spotify.app")
     mail (cmd-button "open /Applications/Microsoft\\ Outlook.app")
     excel (cmd-button "open /Applications/Microsoft\\ Excel.app")
+    ppt (cmd-button "open /Applications/Microsoft\\ PowerPoint.app")
     ai (cmd-button "open https://gemini.google.com/app")
     teams (cmd-button "open /Applications/Microsoft\\ Teams.app")
     db (cmd-button "open /Applications/DBeaver.app")
@@ -65,8 +66,8 @@
   _      _    _    _    _    _    _    _    _    _    _  _  _
   @desk  f1   f2   f3   f4   f5   f6   f7   f8   f9   _  _  f12   M-bspc
   @down    @music  @msg    @notes  @ai        _    _    _    _    _    _    [    ]    \  
-  @icloud  @term   @excel  @thing  @browser   _    _    _    _    _    _    '    end
-  @drive   @teams  @db     @cal    @mail    _    _    _    _    _    _    rsft up
+  @icloud  @term   @excel  @thing  @browser   @ppt _    _    _    _    _    '    end
+  @drive   @teams  @db     @cal    @mail      _    _    _    _    _    _    rsft up
   fn   lctl lalt lmet           @s_spc            rmet ralt M-left M-down M-rght
 )
 
