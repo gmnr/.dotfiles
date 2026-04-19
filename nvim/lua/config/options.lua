@@ -69,7 +69,15 @@ vim.opt.autochdir = true
 vim.opt.conceallevel = 2
 
 -- diff options
-vim.opt.diffopt = "filler,internal,algorithm:patience"
+vim.opt.diffopt = {
+  "internal",
+  "filler",
+  "closeoff",
+  "indent-heuristic",
+  "linematch:60",
+  "algorithm:histogram",
+  "inline:char",
+}
 
 -- set language of spell
 vim.opt.spelllang = { "en_us", "it" }
