@@ -20,7 +20,7 @@ function parse_git_dirty() {
 
 # show `!` if on remote branch there are further commits
 function parse_git_upstream() {
-    [[ $(git branch -vr 2> /dev/null | tail -n1 | cut -d ' ' -f 4) != $(git rev-parse --short HEAD 2> /dev/null) ]] && echo " !"
+    [[ $(git branch -vr 2> /dev/null | tail -n1 | cut -d ' ' -f 4) != $(git rev-parse --short HEAD 2> /dev/null) ]] && echo "  "
 }
 
 function parse_git_branch() {
