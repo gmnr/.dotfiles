@@ -5,7 +5,7 @@ return {
     "mason-org/mason-lspconfig.nvim",
     opts = {
       ensure_installed = {
-        "bashls",
+        -- "bashls",
         "lua_ls",
         "stylua",
         "marksman",
@@ -19,34 +19,38 @@ return {
           ensure_installed = {
             "stylua",
             "black",
+            "prettier",
+            "beautysh",
           },
         },
       },
-      {
-        "neovim/nvim-lspconfig",
-        config = function()
-          vim.lsp.config("lua_ls", {
-            settings = { Lua = { diagnostics = { globals = { "vim", "Snacks" } } } },
-          })
-          vim.lsp.config("bashls", {
-            filetypes = { "zsh", "sh", "bash" },
-          })
-          vim.lsp.config("basedpyright", {
-            settings = {
-              basedpyright = { analysis = { typeCheckingMode = "basic" } },
-            },
-          })
-
-          -- add hover to lsp doc
-          local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-          function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-            opts = opts or {}
-            opts.border = "rounded"
-            return orig_util_open_floating_preview(contents, syntax, opts, ...)
-          end
-        end,
-      },
     },
+  },
+
+  -- lspconfig
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      vim.lsp.config("lua_ls", {
+        settings = { Lua = { diagnostics = { globals = { "vim", "Snacks" } } } },
+      })
+      -- vim.lsp.config("bashls", {
+      --   filetypes = { "sh", "zsh" },
+      -- })
+      vim.lsp.config("basedpyright", {
+        settings = {
+          basedpyright = { analysis = { typeCheckingMode = "basic" } },
+        },
+      })
+
+      -- add hover to lsp doc
+      local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+      function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+        opts = opts or {}
+        opts.border = "rounded"
+        return orig_util_open_floating_preview(contents, syntax, opts, ...)
+      end
+    end,
   },
 
   -- formatter
