@@ -70,7 +70,7 @@ return {
       formatters = {
         holywell_formatter = {
           command = "python3",
-          args = { "/Users/gmnr/.dotfiles/formatting/sql-formatter.py" },
+          args = { "/Users/gmnr/.dotfiles/sql/sql-formatter.py" },
           stdin = true,
         },
         prettier = {
