@@ -13,8 +13,7 @@ alias ls='eza --all --header --git --git-ignore -I .gitignore'
 alias ll='eza --long --header --all --git --sort=modified --reverse'
 
 # advent of code utilities
-alias aoc='~/Documents/advent-of-code/utils/startup.sh'
-alias aocd='cd ~/Documents/advent-of-code'
+alias aoc='~/.dotfiles/tmux/tmux-scripts/advent.sh'
 
 # rename programs
 alias python='/opt/homebrew/bin/python3'
