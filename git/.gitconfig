@@ -1,6 +1,16 @@
 [user]
   name = gmnr
   email = guido.minieri@gmail.com
+  
+[credential]
+  helper = osxkeychain
+
+[core]
+  pager = delta
+  excludesfile = /Users/gmnr/.dotfiles/git/.gitexcludes
+  editor = nvim
+  untrackedCache = true
+  fsmonitor = true
 
 [alias]
   l = log --pretty=format:"\"%C(yellow)%h %Cgreen%ad %Cblue[%cn] %C(auto)%d %Creset%s\"" --decorate --date=short
@@ -10,21 +20,44 @@
   ss = status
   st = stash
   au = add -u
-  pu = push origin master
+  pu = push
   cm = commit -m
   co = checkout
   br = branch -v
   rb = rebase -i
 
+[pager]
+  blame  = delta
+  diff   = delta
+  reflog = delta
+  show   = delta
+
 [interactive]
   diffFilter = delta --color-only --features=interactive
 
+[column]
+  ui = auto
+
+[branch]
+  sort = -committerdate
+
+[pull]
+  rebase = true
+
+[push]
+  default = current
+  autoSetupRemote = true
+
+[rebase]
+  autoStash = true
+
 [merge]
-    conflictstyle = zdiff3
+  conflictstyle = zdiff3
 
 [diff]
-    submodule = log
-    colorMoved = default
+  tool = delta
+  submodule = log
+  colorMoved = default
 
 [init]
   defaultBranch = master
@@ -59,17 +92,3 @@
   hunk-header-file-style = red
   hunk-header-line-number-style = green
   hunk-header-style = file line-number syntax
-
-[core]
-  pager = delta
-  excludesfile = /Users/gmnr/.dotfiles/git/.gitexcludes
-  editor = nvim
-
-[pager]
-  blame  = delta
-  diff   = delta
-  reflog = delta
-  show   = delta
-
-[credential]
-  helper = osxkeychain
