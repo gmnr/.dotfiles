@@ -1,6 +1,7 @@
 # improve performance
 autoload -U zmv
 setopt extended_glob
+export PATH=/opt/homebrew/bin:$PATH
 
 # set autocompletion
 autoload -Uz compinit

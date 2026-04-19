@@ -7,7 +7,6 @@ export LEDGER_FILE=$HOME/.finance/all.journal
 export BAT_CONFIG_DIR=$HOME/.dotfiles/bat/
 export CLICOLOR=1
 export LESSHISTFILE=-
-export PATH=/opt/homebrew/bin:$PATH
 
 # create dot folder for zsh
 if [ -d ~/.config/zsh ]; then
