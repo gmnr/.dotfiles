@@ -45,6 +45,9 @@ return {
 
       -- set specific mapping
       vim.keymap.set({ "i" }, "<CR>", "<cmd>lua Hledger_CR()<CR><Right><CR>", { silent = true })
+      vim.keymap.set("n", "<leader>ea", "<cmd>lua Hledger_CR()<CR>", { silent = true })
+      vim.keymap.set("n", "<leader>ee", "<cmd>e +$ ~/.finance/periods/2026.journal<CR>", { silent = true })
+      vim.keymap.set("n", "<leader>eu", "<cmd>lua hledger_update()<CR>", { silent = true })
     end,
     ft = { "ledger" },
   },
