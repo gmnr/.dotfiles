@@ -31,7 +31,7 @@ alias copy='pbcopy'
 alias pasta='pbpaste'
 alias cpwd='pwd | tr -d '\n' | copy'
 alias g='git'
-alias gg='nvim +"vert Git"'
+alias gg='nvim +Neogit'
 
 # kmonad
 alias qq='sudo killall kmonad && ~/.dotfiles/kmonad/startup.sh 1'
