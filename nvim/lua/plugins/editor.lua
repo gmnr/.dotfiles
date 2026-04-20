@@ -14,7 +14,15 @@ return {
     },
     opts = {
       graph_style = "kitty",
-      mappings = { status = { [">"] = "Toggle", ["<"] = "Toggle" }, popup = { ["?"] = false, ["g?"] = "HelpPopup" } },
+      mappings = {
+        status = {
+          [">"] = "Toggle",
+          ["<"] = "Toggle",
+          ["[c"] = "GoToPreviousHunkHeader",
+          ["]c"] = "GoToNextHunkHeader",
+        },
+        popup = { ["?"] = false, ["g?"] = "HelpPopup" },
+      },
       commit_editor = {
         spell_check = false,
       },
