@@ -34,9 +34,6 @@ vim.keymap.set("n", "<leader>tt", ":%s/")
 -- remap backspace to lats used buffer
 vim.keymap.set("n", "<BS>", "<C-^>")
 
--- change the current directory to edited file
-vim.keymap.set("n", "<leader>cd", "<cmd>cd %:p:h<CR>", opts)
-
 -- add autocorrect
 vim.keymap.set("n", "<leader><Tab>", "[s1z=")
 
@@ -79,8 +76,3 @@ vim.keymap.set({ "n", "v" }, "<leader>gq", "<cmd>Gitsigns stage_hunk<CR>", opts)
 vim.keymap.set({ "n", "v" }, "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", opts)
 vim.keymap.set("n", "]c", '&diff ? "]c" : ":Gitsigns next_hunk<CR>"', { expr = true, silent = true })
 vim.keymap.set("n", "[c", '&diff ? "[c" : ":Gitsigns prev_hunk<CR>"', { expr = true, silent = true })
-
---  silence grep when grepping
-vim.cmd("cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'")
-vim.cmd("cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'")
-vim.cmd("cnoreabbrev <expr> gg (getcmdtype() ==# ':' && getcmdline() =~# '^gg') ? 'vertical G' : 'gg'")
