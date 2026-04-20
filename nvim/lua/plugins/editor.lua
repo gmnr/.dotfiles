@@ -14,6 +14,7 @@ return {
     },
     opts = {
       kind = "vsplit",
+      graph_style = "kitty",
       mappings = { status = { [">"] = "Toggle", ["<"] = "Toggle" }, popup = { ["?"] = false, ["g?"] = "HelpPopup" } },
     },
   },
@@ -196,6 +197,7 @@ return {
           input = {
             keys = {
               ["<Esc>"] = { "close", mode = { "n", "i" } },
+              ["<c-o>"] = { "qflist", mode = { "i", "n" } },
               ["<c-e>"] = { "preview_scroll_up", mode = { "i", "n" } },
               ["<c-n>"] = { "preview_scroll_down", mode = { "i", "n" } },
               ["<c-d>"] = { "edit_vsplit", mode = { "i", "n" } },
