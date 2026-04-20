@@ -2,7 +2,6 @@
 # aliases
 # navigation
 alias dot='cd ~/.dotfiles'
-alias blog='~/.dotfiles/tmux/tmux-scripts/blog.sh'
 alias finance='cd ~/.finance'
 alias sql='cd ~/Library/DBeaverData/workspace6/Terme/Scripts && run_git'
 alias ..='cd ..'
@@ -12,8 +11,9 @@ alias ...='cd ../..'
 alias ls='eza --all --header --git --git-ignore -I .gitignore'
 alias ll='eza --long --header --all --git --sort=modified --reverse'
 
-# advent of code utilities
+# tmux session
 alias aoc='~/.dotfiles/tmux/tmux-scripts/advent.sh'
+alias blog='~/.dotfiles/tmux/tmux-scripts/blog.sh'
 
 # rename programs
 alias python='/opt/homebrew/bin/python3'
