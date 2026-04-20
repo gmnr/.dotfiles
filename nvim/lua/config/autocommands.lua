@@ -19,7 +19,6 @@ api.nvim_create_autocmd("FileType", {
     "markdown",
     "text",
     "ledger",
-    "fugitive",
     "gitcommit",
   },
   command = "setlocal nonumber",
@@ -51,7 +50,6 @@ api.nvim_create_autocmd("FileType", {
   pattern = {
     "qf",
     "man",
-    "fugitive",
     "git",
     "help",
     "lspinfo",

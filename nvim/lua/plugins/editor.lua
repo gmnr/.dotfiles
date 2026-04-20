@@ -12,7 +12,10 @@ return {
     keys = {
       { "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" },
     },
-    opts = { kind = "vsplit", mappings = { status = { [">"] = "Toggle", ["<"] = "Toggle" } } },
+    opts = {
+      kind = "vsplit",
+      mappings = { status = { [">"] = "Toggle", ["<"] = "Toggle" }, popup = { ["?"] = false, ["g?"] = "HelpPopup" } },
+    },
   },
 
   { "tpope/vim-repeat", event = "VeryLazy" },
