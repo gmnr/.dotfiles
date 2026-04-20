@@ -32,7 +32,7 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       vim.lsp.config("lua_ls", {
-        settings = { Lua = { diagnostics = { globals = { "vim", "Snacks" } } } },
+        settings = { Lua = { diagnostics = { globals = { "vim", "Snacks" }, disable = { "need-check-nil" } } } },
       })
       -- vim.lsp.config("bashls", {
       --   filetypes = { "sh", "zsh" },
@@ -65,7 +65,6 @@ return {
         function()
           require("conform").format({ async = true, lsp_fallback = true })
         end,
-        desc = "Run conform",
         mode = "",
       },
     },
