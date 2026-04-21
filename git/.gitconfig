@@ -85,10 +85,9 @@
   keep-plus-minus-markers = false
 
 [delta "decorations"]
-  commit-decoration-style = blue ol
-  commit-style = raw
+  commit-decoration-style = red ul ol
   file-style = omit
-  hunk-header-decoration-style = blue ul
-  hunk-header-file-style = red
+  hunk-header-decoration-style = white ul
+  hunk-header-file-style = yellow
   hunk-header-line-number-style = green
-  hunk-header-style = file line-number syntax
+  hunk-header-style = file syntax
