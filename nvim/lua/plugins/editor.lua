@@ -182,12 +182,31 @@ return {
             editPreset = "nvim-remote",
             edit = '[ -z "$NVIM" ] && (nvim -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" && nvim --server "$NVIM" --remote {{filename}})',
             editAtLine = '[ -z "$NVIM" ] && (nvim +{{line}} -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" &&  nvim --server "$NVIM" --remote {{filename}} && nvim --server "$NVIM" --remote-send ":{{line}}<CR>")',
-            editAtLineAndWait = "nvim +{{line}} {{filename}}",
-            openDirInEditor = '[ -z "$NVIM" ] && (nvim -- {{dir}}) || (nvim --server "$NVIM" --remote-send "q" && nvim --server "$NVIM" --remote {{dir}})',
+          },
+          notARepository = "skip",
+          keybinding = {
+            files = {
+              commitChanges = "C",
+              commitChangesWithEditor = "c",
+            },
+          },
+          gui = {
+            sidePanelWidth = 0.18,
+            showFileTree = false,
+            scrollHeight = 15,
+            scrollPastBottom = false,
+            commandLogSize = 3,
+            filterMode = "fuzzy",
+            mainPanelSplitMode = "vertical",
           },
           git = {
             paging = { pager = "delta --dark --paging=never", colorArg = "always" },
           },
+          promptToReturnFromSubprocess = false,
+        },
+        win = {
+          height = 0,
+          width = 0,
         },
       },
       picker = {
