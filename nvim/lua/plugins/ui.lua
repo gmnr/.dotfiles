@@ -149,12 +149,8 @@ return {
         -- Get the directory of the current file
         local current_file = vim.fn.expand("%:p:h")
 
-        if vim.bo.buftype ~= "" and vim.startswith(current_file, "Neogitstatus:///") then
-          -- if is git status window show the repo name
-          current_file = os.getenv("PWD")
-
-          -- if is the no file special buffer
-        elseif current_file == "" or vim.fn.isdirectory(current_file) == 0 then
+        -- if is the no file special buffer
+        if current_file == "" or vim.fn.isdirectory(current_file) == 0 then
           current_file = os.getenv("PWD")
         end
 

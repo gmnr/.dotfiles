@@ -1,34 +1,5 @@
 return {
 
-  {
-    "NeogitOrg/neogit",
-    lazy = true,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "sindrets/diffview.nvim",
-      "folke/snacks.nvim",
-    },
-    cmd = "Neogit",
-    keys = {
-      { "<leader>gg", "<cmd>Neogit<cr>" },
-    },
-    opts = {
-      graph_style = "kitty",
-      mappings = {
-        status = {
-          [">"] = "Toggle",
-          ["<"] = "Toggle",
-          ["[c"] = "GoToPreviousHunkHeader",
-          ["]c"] = "GoToNextHunkHeader",
-        },
-        popup = { ["?"] = false, ["g?"] = "HelpPopup" },
-      },
-      commit_editor = {
-        spell_check = false,
-      },
-    },
-  },
-
   { "tpope/vim-repeat", event = "VeryLazy" },
 
   { "tpope/vim-speeddating", event = "VeryLazy" },
@@ -144,7 +115,7 @@ return {
               icon = " ",
               key = "g",
               desc = "Git",
-              action = ":Neogit",
+              action = ":lua Snacks.lazygit()",
               enabled = function()
                 return Snacks.git.get_root() ~= nil
               end,
@@ -188,6 +159,20 @@ return {
         end,
       },
       input = { enabled = true },
+      lazygit = {
+        config = {
+          os = {
+            editPreset = "nvim-remote",
+            edit = '[ -z "$NVIM" ] && (nvim -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" && nvim --server "$NVIM" --remote {{filename}})',
+            editAtLine = '[ -z "$NVIM" ] && (nvim +{{line}} -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" &&  nvim --server "$NVIM" --remote {{filename}} && nvim --server "$NVIM" --remote-send ":{{line}}<CR>")',
+            editAtLineAndWait = "nvim +{{line}} {{filename}}",
+            openDirInEditor = '[ -z "$NVIM" ] && (nvim -- {{dir}}) || (nvim --server "$NVIM" --remote-send "q" && nvim --server "$NVIM" --remote {{dir}})',
+          },
+          git = {
+            paging = { pager = "delta --dark --paging=never", colorArg = "always" },
+          },
+        },
+      },
       picker = {
         sources = {
           buffers = { current = false },
