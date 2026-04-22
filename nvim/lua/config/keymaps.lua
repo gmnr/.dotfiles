@@ -5,13 +5,10 @@ local opts = { silent = true }
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false }) -- improve performance of leader key
 vim.g.mapleader = " "
 
--- duplicate line and comment
-vim.keymap.set("n", "ycc", "yygccp", opts)
-
 -- keep cursor in place when joining lines
 vim.keymap.set("n", "J", "mzJ`z:delmarks z<cr>")
 
--- override scrolling
+-- enable scrolling with one hand
 vim.keymap.set("n", "<C-f>", "<C-u>")
 
 -- open and load Lazy
@@ -53,11 +50,7 @@ vim.keymap.set({ "n", "v", "x" }, "<leader>aa", function()
     vim.cmd('silent noau normal! gg"+yG')
   end
   print("Buffer copied")
-end, { desc = "Copy selection or whole buffer to system clipboard" })
-
--- swap fold command
-vim.keymap.set("n", "za", "zo")
-vim.keymap.set("n", "zo", "za")
+end)
 
 -- hledger plugs
 vim.keymap.set("n", "<leader>ea", "<cmd>lua Hledger_CR()<CR>", opts)
