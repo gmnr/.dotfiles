@@ -62,11 +62,11 @@ api.nvim_create_autocmd("FileType", {
 })
 
 local OperateQuickrun = api.nvim_create_augroup("OperateQuickrun", { clear = true })
-vim.api.nvim_create_autocmd({ "WinNew" }, {
+api.nvim_create_autocmd({ "WinNew" }, {
   group = OperateQuickrun,
   pattern = { "*" },
   callback = function()
-    vim.api.nvim_create_autocmd({ "BufNew" }, {
+    api.nvim_create_autocmd({ "BufNew" }, {
       desc = "close quickrun window from src buffer",
       pattern = { "quickrun://output" },
       once = true,
@@ -107,7 +107,7 @@ api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
+api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   callback = function(args)
     require("conform").format({ bufnr = args.buf })
