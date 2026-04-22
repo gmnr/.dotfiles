@@ -3,7 +3,7 @@
 # navigation
 alias dot='cd ~/.dotfiles'
 alias finance='cd ~/.finance'
-alias sql='cd ~/Library/DBeaverData/workspace6/Terme/Scripts && run_git'
+alias sql='cd ~/.work_sql && run_git'
 alias ..='cd ..'
 alias ...='cd ../..'
 

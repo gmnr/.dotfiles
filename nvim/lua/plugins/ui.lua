@@ -149,7 +149,13 @@ return {
         -- Get the directory of the current file
         local current_file = vim.fn.expand("%:p:h")
 
-        -- if is the no file special buffer
+        if string.match(current_file, "Docs.*Hledger") then
+          return ".finance"
+        elseif string.find(current_file, "DBeaverData.*Script") then
+          return ".work_sql"
+        end
+
+        -- if is the no file special buffer then print simply the current directori (i.e. when opening nvim)
         if current_file == "" or vim.fn.isdirectory(current_file) == 0 then
           current_file = os.getenv("PWD")
         end
