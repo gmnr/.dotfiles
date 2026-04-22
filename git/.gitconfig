@@ -9,8 +9,6 @@
   pager = delta
   excludesfile = /Users/gmnr/.dotfiles/git/.gitexcludes
   editor = nvim
-  untrackedCache = true
-  fsmonitor = true
 
 [alias]
   l = log --pretty=format:"\"%C(yellow)%h %Cgreen%ad %Cblue[%cn] %C(auto)%d %Creset%s\"" --decorate --date=short
