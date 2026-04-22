@@ -184,6 +184,13 @@ return {
             editAtLine = '[ -z "$NVIM" ] && (nvim +{{line}} -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" &&  nvim --server "$NVIM" --remote {{filename}} && nvim --server "$NVIM" --remote-send ":{{line}}<CR>")',
           },
           notARepository = "skip",
+          keybinding = {
+            universal = {
+              confirm = "y",
+              confirmMenu = "y",
+              confirmSuggestion = "y",
+            },
+          },
           gui = {
             sidePanelWidth = 0.18,
             showFileTree = false,
