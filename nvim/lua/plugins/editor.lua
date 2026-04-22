@@ -184,12 +184,6 @@ return {
             editAtLine = '[ -z "$NVIM" ] && (nvim +{{line}} -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" &&  nvim --server "$NVIM" --remote {{filename}} && nvim --server "$NVIM" --remote-send ":{{line}}<CR>")',
           },
           notARepository = "skip",
-          keybinding = {
-            files = {
-              commitChanges = "C",
-              commitChangesWithEditor = "c",
-            },
-          },
           gui = {
             sidePanelWidth = 0.18,
             showFileTree = false,
