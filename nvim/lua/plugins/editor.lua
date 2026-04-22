@@ -195,6 +195,16 @@ return {
             commandLogSize = 3,
             filterMode = "fuzzy",
             mainPanelSplitMode = "vertical",
+            enlargedSideViewLocation = "top",
+          },
+          keybinding = {
+            files = {
+              toggleTreeView = "",
+            },
+            universal = {
+              nextScreenMode = "`",
+              prevScreenMode = "~",
+            },
           },
           git = {
             paging = { pager = "delta --dark --paging=never", colorArg = "always" },
