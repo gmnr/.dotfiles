@@ -128,3 +128,14 @@ api.nvim_create_autocmd("QuickFixCmdPost", {
   pattern = "l*",
   command = "lwindow",
 })
+
+api.nvim_create_autocmd("TermOpen", {
+  desc = "Suspend lazygit instead of closing and spawning a new instance everytime",
+  pattern = "*",
+  callback = function()
+    local term_title = vim.b.term_title
+    if term_title and term_title:match("lazygit") then
+      vim.keymap.set("t", "q", "<cmd>close<cr>", { buffer = false })
+    end
+  end,
+})

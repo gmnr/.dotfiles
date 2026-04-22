@@ -15,7 +15,9 @@ vim.keymap.set("n", "<C-f>", "<C-u>")
 vim.keymap.set("n", "<leader>fu", "<cmd>Lazy<CR>", opts)
 
 -- open lazygit
-vim.keymap.set("n", "<leader>gg", "<cmd>lua Snacks.lazygit()<CR>", opts)
+vim.keymap.set("n", "<leader>gg", function()
+  Snacks.lazygit()
+end, opts)
 
 -- quick save and exit
 vim.keymap.set("n", "<leader>ww", "<cmd>w<CR>", opts)
