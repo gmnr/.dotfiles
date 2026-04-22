@@ -185,6 +185,9 @@ return {
           },
           notARepository = "skip",
           gui = {
+            authorColors = {
+              gmnr = "#e0af68",
+            },
             sidePanelWidth = 0.18,
             showFileTree = false,
             scrollHeight = 15,
