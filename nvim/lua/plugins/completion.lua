@@ -76,7 +76,7 @@ return {
 
         -- style window for completion
         window = {
-          completion = cmp.config.window.bordered({ border = "rounded" }),
+          completion = cmp.config.window.bordered({ border = "rounded", max_height = 25 }),
           documentation = cmp.config.window.bordered({ border = "rounded" }),
         },
 
