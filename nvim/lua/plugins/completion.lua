@@ -120,10 +120,20 @@ return {
       })
 
       -- for search completion pull data only from buffers
-      cmp.setup.cmdline("/", {
+      cmp.setup.cmdline({ "/", "?" }, {
         sources = {
           { name = "buffer" },
         },
+        mapping = cmp.mapping.preset.cmdline({
+          ["<CR>"] = cmp.mapping({
+            c = function(fallback)
+              if cmp.visible() then
+                return cmp.confirm({ select = true })
+              end
+              fallback()
+            end,
+          }),
+        }),
       })
 
       -- pull data only from comdline and paths
@@ -131,6 +141,16 @@ return {
         sources = cmp.config.sources({
           { name = "path" },
           { name = "cmdline" },
+        }),
+        mapping = cmp.mapping.preset.cmdline({
+          ["<CR>"] = cmp.mapping({
+            c = function(fallback)
+              if cmp.visible() then
+                return cmp.confirm({ select = true })
+              end
+              fallback()
+            end,
+          }),
         }),
       })
 
