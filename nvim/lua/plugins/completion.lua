@@ -122,7 +122,7 @@ return {
       -- for search completion pull data only from buffers
       cmp.setup.cmdline("/", {
         sources = {
-          { name = "buffer", max_item_count = 5 },
+          { name = "buffer" },
         },
       })
 
@@ -130,7 +130,7 @@ return {
       cmp.setup.cmdline(":", {
         sources = cmp.config.sources({
           { name = "path" },
-          { name = "cmdline", max_item_count = 5 },
+          { name = "cmdline" },
         }),
       })
 
