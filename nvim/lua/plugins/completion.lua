@@ -125,39 +125,54 @@ return {
         }),
       })
 
+      local cmd_mapping = cmp.mapping.preset.cmdline({
+        ["<CR>"] = cmp.mapping({
+          c = function(fallback)
+            if cmp.visible() then
+              return cmp.confirm({ select = true })
+            end
+            fallback()
+          end,
+        }),
+
+        ["<C-k>"] = cmp.mapping(function()
+          if cmp.visible() then
+            cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+          else
+            cmp.complete()
+          end
+        end, { "i", "c" }),
+
+        ["<C-y>"] = cmp.mapping(function()
+          if cmp.visible() then
+            cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+          else
+            cmp.complete()
+          end
+        end, { "i", "c" }),
+      })
+
       -- for search completion pull data only from buffers
       cmp.setup.cmdline({ "/", "?" }, {
+        formatting = {
+          fields = { "abbr", "menu" },
+        },
         sources = {
           { name = "buffer" },
         },
-        mapping = cmp.mapping.preset.cmdline({
-          ["<CR>"] = cmp.mapping({
-            c = function(fallback)
-              if cmp.visible() then
-                return cmp.confirm({ select = true })
-              end
-              fallback()
-            end,
-          }),
-        }),
+        mapping = cmd_mapping,
       })
 
       -- pull data only from comdline and paths
       cmp.setup.cmdline(":", {
+        formatting = {
+          fields = { "abbr", "menu" },
+        },
         sources = cmp.config.sources({
           { name = "path" },
           { name = "cmdline" },
         }),
-        mapping = cmp.mapping.preset.cmdline({
-          ["<CR>"] = cmp.mapping({
-            c = function(fallback)
-              if cmp.visible() then
-                return cmp.confirm({ select = true })
-              end
-              fallback()
-            end,
-          }),
-        }),
+        mapping = cmd_mapping,
       })
 
       -- to insert `(` after select function or method item
