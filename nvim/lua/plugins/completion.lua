@@ -15,7 +15,6 @@ return {
     config = function()
       -- Completion config
       local cmp = require("cmp")
-      local lspkind = require("lspkind")
 
       -- create custom source for nvim-cmp
       cmp.register_source("hledger_completion", {
@@ -110,7 +109,7 @@ return {
 
         -- add ordinary sources
         sources = cmp.config.sources({
-          -- Dont suggest Text from nvm_lsp
+          -- Dont suggest Text when a lsp is active
           {
             name = "nvim_lsp",
             entry_filter = function(entry, ctx)
