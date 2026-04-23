@@ -58,6 +58,9 @@ return {
           disallow_fuzzy_matching = false,
           disallow_partial_fuzzy_matching = false,
         },
+        formatting = {
+          fields = { "abbr", "menu" },
+        },
       })
 
       cmp.setup.filetype({ "markdown", "text" }, {
