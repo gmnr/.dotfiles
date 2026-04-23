@@ -64,8 +64,11 @@ return {
       })
 
       cmp.setup.filetype({ "markdown", "text" }, {
+        formatting = {
+          fields = { "abbr", "menu" },
+        },
         sources = cmp.config.sources({
-          { name = "buffer", max_item_count = 5 },
+          { name = "buffer" },
         }),
       })
 
