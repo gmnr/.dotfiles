@@ -34,8 +34,7 @@ alias g='git'
 alias gg='nvim +"lua Snacks.lazygit()"'
 
 # kmonad
-alias qq='sudo killall kmonad && ~/.dotfiles/kmonad/startup.sh 1'
-alias ww='sudo killall kmonad && ~/.dotfiles/kmonad/startup.sh 2'
+alias kmd='cd ~/.dotfiles/keymaps/kmonad'
 alias QQ='sudo killall kmonad'
 
 # help
