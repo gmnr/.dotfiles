@@ -58,9 +58,7 @@ vim.keymap.set({ "n", "v", "x" }, "<leader>aa", function()
 end)
 
 -- hledger plugs
-vim.keymap.set("n", "<leader>ea", "<cmd>lua Hledger_CR()<CR>", opts)
 vim.keymap.set("n", "<leader>ee", "<cmd>e +$ ~/.finance/periods/2026.journal<CR>", opts)
-vim.keymap.set("n", "<leader>eu", "<cmd>lua hledger_update()<CR>", opts)
 
 -- use mason
 vim.keymap.set("n", "<leader>fy", "<cmd>Mason<CR>")
