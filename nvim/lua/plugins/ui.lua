@@ -92,6 +92,9 @@ return {
       vim.cmd("highlight! GitSignsChangeNr      guibg=NONE guifg=#7AA2F7")
       vim.cmd("highlight! GitSignsDelete        guibg=NONE guifg=#D74B4B")
       vim.cmd("highlight! GitSignsDeleteNr      guibg=NONE guifg=#D74B4B")
+
+      -- float border color
+      vim.cmd("highlight! FloatBorder      guibg=NONE guifg=#7aa2f7")
     end,
   },
 
@@ -121,7 +124,7 @@ return {
       status_formatter = nil,
       max_file_length = 40000,
       preview_config = {
-        border = "single",
+        border = "rounded",
         style = "minimal",
         relative = "cursor",
         row = 0,
