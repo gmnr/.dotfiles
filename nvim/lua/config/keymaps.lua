@@ -2,7 +2,7 @@
 local opts = { silent = true }
 
 -- set leader
-vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false }) -- improve performance of leader key
+vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
 vim.g.mapleader = " "
 
 -- keep cursor in place when joining lines
@@ -14,10 +14,12 @@ vim.keymap.set("n", "<C-f>", "<C-u>")
 -- open and load Lazy
 vim.keymap.set("n", "<leader>fu", "<cmd>Lazy<CR>", opts)
 
--- open lazygit
-vim.keymap.set("n", "<leader>gg", function()
-  Snacks.lazygit()
-end, opts)
+-- open Mason
+vim.keymap.set("n", "<leader>fy", "<cmd>Mason<CR>")
+
+-- git integration
+vim.keymap.set("n", "<leader>gg", "<cmd>lua Snacks.lazygit()<CR>)", opts)
+vim.keymap.set("n", "<leader>gB", "<cmd>lua Snacks.git.blame_line()<CR>", opts)
 
 -- quick save and exit
 vim.keymap.set("n", "<leader>ww", "<cmd>w<CR>", opts)
@@ -59,9 +61,6 @@ end)
 
 -- hledger plugs
 vim.keymap.set("n", "<leader>ee", "<cmd>e +$ ~/.finance/periods/2026.journal<CR>", opts)
-
--- use mason
-vim.keymap.set("n", "<leader>fy", "<cmd>Mason<CR>")
 
 -- gitsigns
 vim.keymap.set("n", "<leader>gh", "<cmd>Gitsigns preview_hunk<CR>", opts)
