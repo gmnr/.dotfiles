@@ -11,7 +11,6 @@ SC031::k
 SC032::h
 SC022::g
 
-
 ; implement accented letters w/ hotstring
 :?C*:a''::à
 :?C*:e""::é
@@ -20,12 +19,10 @@ SC022::g
 :?C*:o''::ò
 :?C*:u''::ù
 
-
 ; remap F10, F11 and F12 to media controls
-F10::Media_Prev
-F11::Media_Play_Pause
-F12::Media_Next
-
+F6::Media_Prev
+F7::Media_Play_Pause
+F8::Media_Next
 
 ; remap space plus keys
 Space::return
@@ -50,15 +47,12 @@ Space & 0::F10
 Space & -::F11
 Space & =::F12
 
-
 ; right altgr as winkey
 LControl & RAlt::RWin
-
 
 ; ctrl+ brackets to move between tabs
 ^[::^PgUp
 ^]::^PgDn
-
 
 ; caps lock behavoiur >> tap for esc and hold for ctrl
 *CapsLock::Send "{Blind}{Ctrl DownR}"
