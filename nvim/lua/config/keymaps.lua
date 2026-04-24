@@ -62,15 +62,12 @@ end)
 -- hledger plugs
 vim.keymap.set("n", "<leader>ee", "<cmd>e +$ ~/.finance/periods/2026.journal<CR>", opts)
 
--- gitsigns
+-- gitsigns mappings
 vim.keymap.set("n", "<leader>gh", "<cmd>Gitsigns preview_hunk<CR>", opts)
 vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns blame_line<CR>", opts)
-vim.keymap.set("n", "<leader>gB", "<cmd>Gitsigns toggle_current_line_blame<CR>", opts)
-vim.keymap.set("n", "<leader>gQ", "<cmd>Gitsigns stage_buffer<CR>", opts)
 vim.keymap.set("n", "<leader>gR", "<cmd>Gitsigns reset_buffer<CR>", opts)
 vim.keymap.set("n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>", opts)
 vim.keymap.set("n", "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>", opts)
-vim.keymap.set({ "n", "v" }, "<leader>gq", "<cmd>Gitsigns stage_hunk<CR>", opts)
 vim.keymap.set({ "n", "v" }, "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", opts)
 vim.keymap.set("n", "]c", '&diff ? "]c" : ":Gitsigns next_hunk<CR>"', { expr = true, silent = true })
 vim.keymap.set("n", "[c", '&diff ? "[c" : ":Gitsigns prev_hunk<CR>"', { expr = true, silent = true })
