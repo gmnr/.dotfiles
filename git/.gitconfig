@@ -16,10 +16,7 @@
   dd = diff
   sh = show
   ss = status
-  st = stash
-  au = add -u
   pu = push
-  cm = commit -m
   co = checkout
   br = branch -v
   rb = rebase -i
