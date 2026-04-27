@@ -36,7 +36,7 @@ vim.keymap.set("n", "k", "gk", opts)
 vim.keymap.set("n", "<leader>tt", ":%s/")
 
 -- disable highlight
-vim.keymap.set("n", "<esc>", "<cmd>noh<CR>", opts)
+vim.keymap.set({ "n", "i" }, "<esc>", "<cmd>noh<CR><esc>", opts)
 
 -- remap backspace to lats used buffer
 vim.keymap.set("n", "<BS>", "<C-^>")
