@@ -138,7 +138,7 @@ return {
     "catgoose/nvim-colorizer.lua",
     lazy = true,
     event = "BufReadPre",
-    opts = {},
+    opts = { filetypes = { "css", "tmux", "javascript", "html" } },
   },
 
   -- lualine
