@@ -155,7 +155,7 @@ return {
           return ".work_sql"
         end
 
-        -- if is the no file special buffer then print simply the current directori (i.e. when opening nvim)
+        -- if is the no file special buffer then print simply the current directory (i.e. when opening nvim)
         if current_file == "" or vim.fn.isdirectory(current_file) == 0 then
           current_file = os.getenv("PWD")
         end
