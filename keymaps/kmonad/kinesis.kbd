@@ -30,6 +30,7 @@
     scans (cmd-button "open /Users/gmnr/Documents/Scans")
     icloud (cmd-button "open /Users/gmnr/Library/Mobile\\ Documents/com~apple~CloudDocs")
     drive (cmd-button "open /Users/gmnr/Library/CloudStorage/OneDrive-ImpresaMinieriSpa")
+    finder (cmd-button "open -a Finder")
 )
 
 
@@ -88,7 +89,7 @@
   @scans  _  home  end                          pgdn   pgup  _    _
 
                             lctl del   ralt rctl
-                       spc alt  home   pgup  end del
+                   @finder alt  home   pgup  end del
                                  end   pgdn
 )
 
@@ -120,3 +121,4 @@
                        spc del  home   pgup  ret bspc
                                  end   pgdn
 )
+

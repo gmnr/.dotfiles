@@ -29,6 +29,7 @@
     desk (cmd-button "open /Users/gmnr/Desktop")
     icloud (cmd-button "open /Users/gmnr/Library/Mobile\\ Documents/com~apple~CloudDocs")
     drive (cmd-button "open /Users/gmnr/Library/CloudStorage/OneDrive-ImpresaMinieriSpa")
+    finder (cmd-button "open -a Finder")
 )
 
 
@@ -68,7 +69,6 @@
   @down    @music  @msg    @notes  @ai        _    _    _    _    _    _    [    ]    \  
   @icloud  @term   @excel  @thing  @browser   @ppt _    _    _    _    _    '    end
   @drive   @teams  @db     @cal    @mail      _    _    _    _    _    _    rsft up
-  fn   lctl lalt lmet           @s_spc            rmet ralt M-left M-down M-rght
+  fn   lctl lalt lmet           @finder            rmet ralt M-left M-down M-rght
 )
-
 
