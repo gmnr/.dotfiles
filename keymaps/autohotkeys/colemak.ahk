@@ -54,6 +54,9 @@ LControl & RAlt::RWin
 ^[::^PgUp
 ^]::^PgDn
 
+; use esc to remove capslock
+Esc::CapsLock
+
 ; caps lock behavoiur >> tap for esc and hold for ctrl
 *CapsLock::Send "{Blind}{Ctrl DownR}"
 *CapsLock Up::
