@@ -43,6 +43,15 @@ return {
         end
       end
 
+      vim.api.nvim_create_autocmd("FileType", {
+        desc = "Define custom keymaps for ledger only",
+        pattern = { "ledger" },
+        callback = function()
+          vim.keymap.set("n", "J", "kJ", { silent = true }) -- join line from below
+          vim.keymap.set("n", "<leader>es", "{2j0daWkJ$", { silent = true }) -- autojoin date and transaction
+        end,
+      })
+
       -- set specific mapping
       vim.keymap.set({ "i" }, "<CR>", "<cmd>lua Hledger_CR()<CR><Right><CR>", { silent = true })
       vim.keymap.set("n", "<leader>ea", "<cmd>lua Hledger_CR()<CR>", { silent = true })

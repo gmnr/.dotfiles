@@ -37,15 +37,6 @@ api.nvim_create_autocmd("FileType", {
 })
 
 api.nvim_create_autocmd("FileType", {
-  desc = "Define custom keymaps for ledger only",
-  pattern = { "ledger" },
-  callback = function()
-    vim.keymap.set("n", "J", "kJ", { silent = true }) -- join line from below
-    vim.keymap.set("n", "<leader>es", "0daWkJ$", { silent = true }) -- autojoin date and transaction
-  end,
-})
-
-api.nvim_create_autocmd("FileType", {
   desc = "automatically close temporary buffers with q",
   pattern = {
     "qf",
