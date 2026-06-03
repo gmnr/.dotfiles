@@ -65,3 +65,29 @@ Esc::CapsLock
     If (A_PriorKey = "CapsLock")
         Send "{Esc}"
 }
+
+; set toggle variable for gaming
+gaming_toggle := false
+
+; Define toggle hotkey
+F12:: {
+    global gaming_toggle
+    gaming_toggle := !gaming_toggle ; Flips the state
+    
+    if gaming_toggle
+        ToolTip("Remaps are ON")
+    else
+        ToolTip("Remaps are OFF")
+        
+    SetTimer () => ToolTip(), -1500
+}
+
+; apply remaps if the toggle is active
+#HotIf gaming_toggle
+r::s
+s::d
+f::e
+t::f
+b::t
+p::r
+#HotIf 
