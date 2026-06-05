@@ -12,6 +12,9 @@
     [_media (tap-hold-next-release 250 [ (layer-toggle media))
     rcmd (layer-toggle apps)
 
+    game (layer-switch gaming)
+    base (layer-switch colemak-dh)
+
     music (cmd-button "open /Applications/Spotify.app")
     browser (cmd-button "open /Applications/Safari.app")
     mail (cmd-button "open /Applications/Microsoft\\ Outlook.app")
@@ -60,7 +63,7 @@
 
                            lmet  del    ralt  @rcmd
                       @s_spc alt f11    f12   ret bspc
-                                   _    _
+                                   _    @game
 )
 
 
@@ -120,5 +123,19 @@
                            lctl lalt   rmet rctl
                        spc del  home   pgup  ret bspc
                                  end   pgdn
+)
+
+(deflayer gaming
+  esc  F1   F2   F3   F4   F5   F6   F7   F8   F9   F10  F11  F12  prnt slck pause
+
+  =    1    2    3    4    5                   6    7    8    9    0    -
+  tab  t    q    w    e    r                   y    u    i    o    p    \
+  caps g    a    s    d    f                   h    j    k    l    ;    '
+  lsft b    z    x    c    v                   n    m    ,    .    / rsft
+       `    F13  left rght                          up   down [    ]
+
+                           lctl lalt   rmet  rctl
+                      bspc del  home   pgup  ret spc
+                                 end   @base
 )
 
