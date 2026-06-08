@@ -70,7 +70,7 @@ Esc::CapsLock
 gaming_toggle := false
 
 ; Define toggle hotkey
-F12:: {
+RCtrl:: {
     global gaming_toggle
     gaming_toggle := !gaming_toggle ; Flips the state
     
