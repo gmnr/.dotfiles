@@ -62,8 +62,8 @@
           \  @alfred left right                          down  up @[_media    ]
 
                            lmet  del    ralt  @rcmd
-                      @s_spc alt f11    f12   ret bspc
-                                   _    @game
+                      @s_spc alt f11    @game ret bspc
+                                 f12    _
 )
 
 
