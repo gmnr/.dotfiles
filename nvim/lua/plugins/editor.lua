@@ -262,10 +262,10 @@ return {
       {
         "<leader><space>",
         function()
-          if vim.loop.cwd() == "/Users/gmnr" then
+          if Snacks.git.get_root() == nil then
             Snacks.picker.projects()
           else
-            Snacks.picker.smart()
+            Snacks.picker.files({ cwd = Snacks.git.get_root() })
           end
         end,
       },
@@ -303,7 +303,7 @@ return {
       {
         "<leader>ya",
         function()
-          Snacks.picker.files({ cwd = Snacks.git.get_root() })
+          Snacks.picker.smart()
         end,
       },
       {
