@@ -135,7 +135,7 @@
        `    F13  left rght                          up   down [    ]
 
                            lctl lalt   rmet  rctl
-                      bspc del  home   pgup  ret spc
-                                 end   @base
+                      bspc del  home   @base ret spc
+                                 end   pgup
 )
 
