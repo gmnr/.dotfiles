@@ -51,7 +51,7 @@ else:
     titles = r"(Revenues|Expenses|Net:|Assets|Liabilities)"
     months = r"(Total|Average|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|(20[0-9][0-9])(-[0-9]{2})?(-[0-9]{2})?(Q[0-9]{1})?)"
     payee = r"\s.+\s\|"
-    account = r"\s\s[a-zA-Z: ,-.]+\s"
+    account = r"\s\s[a-zA-Z'&0-9À-ÿ: ,-.]+\s"
 
 # map color to regex match
 mappings = {
