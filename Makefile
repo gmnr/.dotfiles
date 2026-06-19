@@ -1,4 +1,5 @@
--include secrets/.env.secret
+-include hledger/.secret
+-include sql/.secret
 
 all: setup
 
