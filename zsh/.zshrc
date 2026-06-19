@@ -26,6 +26,9 @@ function parse_git_branch() {
 setopt PROMPT_SUBST
 PROMPT='%B%F{green} %~%f %F{cyan}$(parse_git_branch)%f%F{red}>%f%b '
 
+# don't collapse space after autocomplete
+ZLE_SPACE_SUFFIX_CHARS=$'&|'
+
 # load external config files
 source $HOME/.dotfiles/zsh/aliases.sh
 source $HOME/.dotfiles/zsh/shell-functions.sh
