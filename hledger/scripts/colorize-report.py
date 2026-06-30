@@ -32,6 +32,7 @@ if mode == "report":
     positive_amount = r" \d+(\.\d{3})*(\,\d+)? [A-Z]{3,4}"
     titles = r"(Revenues|Expenses|Net:|Assets|Liabilities)"
     months = r"(Total|Average|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|(20[0-9][0-9])(-[0-9]{2})(-[0-9]{2})?(Q[0-9]{1})?)"
+    years = r"   (20[0-9][0-9]) "
     payee = r"~"
     account = r"\s[a-zA-Z:,-.]+([0-9]+)?[a-zA-Z:,-.]+\s"
 elif mode == "pivot":
@@ -41,6 +42,7 @@ elif mode == "pivot":
     positive_amount = r" \d+(\.\d{3})*(\,\d+)? [A-Z]{3,4}"
     titles = r"(Revenues|Expenses|Net:|Assets|Liabilities)"
     months = r"(Total|Average|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|(20[0-9][0-9])(-[0-9]{2})(-[0-9]{2})?(Q[0-9]{1})?)"
+    years = r"   (20[0-9][0-9]) "
     payee = r"~"
     account = r"\s[0-9A-ZÀ-ÿ &'.]+\s"
 else:
@@ -50,6 +52,7 @@ else:
     positive_amount = r" \d+(\.\d{3})*(\,\d+)? [A-Z]{3,4}"
     titles = r"(Revenues|Expenses|Net:|Assets|Liabilities)"
     months = r"(Total|Average|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|(20[0-9][0-9])(-[0-9]{2})(-[0-9]{2})?(Q[0-9]{1})?)"
+    years = r"   (20[0-9][0-9]) "
     payee = r"\s.+\s\|"
     account = r"\s\s[a-zA-Z'&0-9À-ÿ: ,-.]+\s"
 
@@ -60,6 +63,7 @@ mappings = {
     positive_amount: green,
     titles: magenta,
     months: yellow,
+    years: yellow,
     payee: magenta,
     account: blue,
     empty_val: grey,
