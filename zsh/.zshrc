@@ -14,6 +14,10 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # enable vi mode
 source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
+# disable execute prompt
+bindkey -e -r '^[x'
+bindkey -a -r ':'
+
 # show `*` if git status is dirty
 function parse_git_dirty() {
     [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working tree clean" ]] && echo "*"
