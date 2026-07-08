@@ -28,6 +28,14 @@ vim.keymap.set("n", "<leader>qq", "<cmd>bd!<CR>", opts)
 vim.keymap.set("n", "<leader>QQ", "<cmd>q!<CR>", opts)
 vim.keymap.set("n", "<leader>QA", "<cmd>qa!<CR>", opts)
 
+-- quicker mappings
+vim.keymap.set("n", "<leader>qk", function()
+  require("quicker").toggle({ focus = true })
+end, {})
+vim.keymap.set("n", "<leader>ql", function()
+  require("quicker").toggle({ loclist = true, focus = true })
+end, {})
+
 -- navigate virtually wrapped lines
 vim.keymap.set("n", "j", "gj", opts)
 vim.keymap.set("n", "k", "gk", opts)
