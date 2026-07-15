@@ -19,6 +19,7 @@ vim.keymap.set("n", "<leader>fy", "<cmd>Mason<CR>")
 
 -- git integration
 vim.keymap.set("n", "<leader>gg", "<cmd>vertical Git<CR>", opts)
+vim.keymap.set("n", "<leader>gp", "<cmd>Git pull<CR>", opts)
 vim.keymap.set("n", "<leader>gy", "<cmd>Git push<CR>", opts)
 vim.keymap.set("n", "<leader>gY", "<cmd>Git push -f<CR>", opts)
 vim.keymap.set("n", "<leader>gB", "<cmd>lua Snacks.git.blame_line()<CR>", opts)
