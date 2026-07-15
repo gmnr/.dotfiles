@@ -1,5 +1,7 @@
 return {
 
+  "tpope/vim-fugitive",
+
   {
     "monaqa/dial.nvim",
     event = "VeryLazy",
@@ -152,7 +154,7 @@ return {
               icon = " ",
               key = "g",
               desc = "Git",
-              action = ":lua Snacks.lazygit()",
+              action = ":vertical Git",
               enabled = function()
                 return Snacks.git.get_root() ~= nil
               end,
@@ -196,46 +198,6 @@ return {
         end,
       },
       input = { enabled = true },
-      lazygit = {
-        config = {
-          os = {
-            editPreset = "nvim-remote",
-            edit = '[ -z "$NVIM" ] && (nvim -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" && nvim --server "$NVIM" --remote {{filename}})',
-            editAtLine = '[ -z "$NVIM" ] && (nvim +{{line}} -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" &&  nvim --server "$NVIM" --remote {{filename}} && nvim --server "$NVIM" --remote-send ":{{line}}<CR>")',
-          },
-          notARepository = "skip",
-          gui = {
-            authorColors = {
-              gmnr = "#e0af68",
-            },
-            sidePanelWidth = 0.18,
-            showFileTree = false,
-            scrollHeight = 15,
-            scrollPastBottom = false,
-            commandLogSize = 3,
-            filterMode = "fuzzy",
-            mainPanelSplitMode = "vertical",
-            enlargedSideViewLocation = "top",
-          },
-          keybinding = {
-            files = {
-              toggleTreeView = "",
-            },
-            universal = {
-              nextScreenMode = "`",
-              prevScreenMode = "~",
-            },
-          },
-          git = {
-            paging = { pager = "delta --dark --paging=never", colorArg = "always" },
-          },
-          promptToReturnFromSubprocess = false,
-        },
-        win = {
-          height = 0,
-          width = 0,
-        },
-      },
       picker = {
         sources = {
           buffers = { current = false },

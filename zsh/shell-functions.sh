@@ -27,7 +27,7 @@ function run_git() {
     if [[ $# -gt 0 ]] then
         git $@
     else
-        nvim "+lua Snacks.lazygit()"
+        nvim +"vert Git"
     fi
 }
 

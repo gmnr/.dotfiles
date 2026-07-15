@@ -30,7 +30,7 @@ alias n='nvim'
 alias cpy='pbcopy'
 alias cpwd='pwd -P | tr -d '\n' | pbcopy'
 alias g='git'
-alias gg='nvim +"lua Snacks.lazygit()"'
+alias gg='nvim +"vert Git"'
 
 # kmonad
 alias kmd='cd ~/.dotfiles/keymaps/kmonad'
