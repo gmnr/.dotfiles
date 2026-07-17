@@ -16,6 +16,7 @@
   dd = diff
   sh = show
   ss = status
+  st = stash
   pu = push
   co = checkout
   br = branch -v
