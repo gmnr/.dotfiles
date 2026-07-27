@@ -3,8 +3,8 @@
 # Set Session Name
 SESSION="advent"
 SESSIONEXISTS=$(tmux list-sessions | grep $SESSION)
-
 ROOT="${HOME}/Documents/advent-of-code/"
+
 YEAR=$(date +"%Y")
 MONTH=$(date +"%m")
 DAY=$(date +"%d")
@@ -21,9 +21,10 @@ then
         tmux new-window -t $SESSION -n 'coding' "nvim $ROOT/$YEAR/$DAY.py"
 
     else
-        tmux rename-window -t $SESSION 'advent'
         tmux new-session -d -s $SESSION "cd $ROOT; git status"
-        tmux new-window -t $SESSION -n 'coding' "cd $ROOT; nvim"
+        tmux split-window -t $SESSION:1 -c "#{pane_current_path}"
+        tmux rename-window -t $SESSION 'advent'
+        tmux new-window -t $SESSION -n "coding" "cd $ROOT; nvim"
     fi
 fi
 
