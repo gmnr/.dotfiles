@@ -34,7 +34,7 @@ if mode == "report":
     months = r"(Total|Average|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|(20[0-9][0-9])(-[0-9]{2})(-[0-9]{2})?(Q[0-9]{1})?)"
     years = r"   (20[0-9][0-9]) "
     payee = r"~"
-    account = r"\s[a-zA-Z:,-.]+([0-9]+)?[a-zA-Z:,-.]+\s"
+    account = r"\s[a-zA-Z:,-.]+([0-9]+)?[a-zA-Z:,-.]+(-[0-9]+)?\s"
 elif mode == "pivot":
     date = r"[0-9]{4}[-/][0-9]{2}([-/][0-9]{2})?"
     empty_val = r"\s0\s"
