@@ -34,11 +34,15 @@ stdout, stderr = p.communicate(sql)
 output = stdout.rstrip()
 
 # parse special rules not covered by formatter
-reserved_keywords = ["format", "pivot"]
-for word in reserved_keywords:
+my_mapping = {
+    "format": "FORMAT",
+    "pivot": "PIVOT",
+    "\n\n": "\n",
+    " ON": "   ON",
+}
 
-    if word in output:
-        output = output.replace(word, word.upper())
+for map, replacement in my_mapping.items():
+    output = output.replace(map, replacement)
 
 # print output
 print(output, end="")
