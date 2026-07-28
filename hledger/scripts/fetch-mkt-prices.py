@@ -11,6 +11,7 @@ __license__ = "GPL"
 import datetime
 import requests
 import sys
+import re
 import locale
 from loguru import logger
 
@@ -52,6 +53,19 @@ def fetch_crypto():
     return locale.currency(round(res[ticker][curr], 2), symbol=False)
 
 
+def fetch_pension():
+    pension_url = f"https://it.investing.com/funds/allianz-insieme-linea-azionaria"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5.2 Safari/605.1.15"
+    }
+    try:
+        res = requests.get(pension_url, headers=headers).text
+    except:
+        logger.error(f"Call it investing pension has failed")
+        return "ERROR"
+    return set(re.findall(r'content="[a-zA-z ]+: (\d*,?\d*)', res)).pop()
+
+
 # define dates used in the payload
 date = "{:%Y-%m-%d %H:%M:%S}".format(datetime.datetime.now())
 trade_date = "{:%Y-%m-%d}".format(datetime.datetime.now())
@@ -61,6 +75,7 @@ payload = f"""; FETCHED @ {date}
 P {trade_date} VWCE {fetch_quotes('VWCE.MI').rjust(44, ' ')}
 P {trade_date} IUSA {fetch_quotes('IUSA.MI').rjust(44, ' ')}
 P {trade_date} DOT  {fetch_crypto().rjust(44, ' ')}
+P {trade_date} ALNZ {fetch_pension().rjust(44, ' ')}
 """
 
 # quit early if there is an error
@@ -73,4 +88,4 @@ with open("/Users/gmnr/.finance/prices/current_prices.journal", "w") as f:
     f.seek(0)
     f.write(payload)
 
-logger.info("Fetched prices for VWCE.MI, IUSA.MI, DOT-EUR")
+logger.info("Fetched prices for VWCE.MI, IUSA.MI, DOT-EUR, and ALLIANZ")
