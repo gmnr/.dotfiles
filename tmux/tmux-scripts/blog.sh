@@ -13,7 +13,7 @@ then
     tmux rename-window -t $SESSION 'server'
 
     # setup editing window
-    tmux new-window -t $SESSION -n "coding" "cd $ROOT; nvim"
+    tmux new-window -t $SESSION -n "writing" "cd $ROOT; nvim"
 fi
 
 # attach session
