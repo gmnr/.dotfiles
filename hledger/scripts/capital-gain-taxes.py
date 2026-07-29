@@ -68,16 +68,18 @@ else:
         PRICES[ticker] = locale.atof(amt)
 
 PAYLOAD = ""
-TAX_RATE = 0.26
+CAPITAL_GAIN_TAX = 0.26
+PENSION_TAX = 0.15
 PATH = "/Users/gmnr/.finance/investments/"
-book_value = {"DOT": (0, 0), "VWCE": (0, 0), "IUSA": (0, 0)}
+book_value = {"DOT": (0, 0), "VWCE": (0, 0), "IUSA": (0, 0), "ALNZ": (0, 0)}
 
 
 def calculate_tax(
     tnx,
     bv,
     prices=PRICES,
-    tax_rate=TAX_RATE,
+    stock_tax_rate=CAPITAL_GAIN_TAX,
+    pension_tax_rate=PENSION_TAX,
 ):
     ACCOUNTS = {
         "DOT": (
@@ -92,16 +94,23 @@ def calculate_tax(
             "  liabilities:funds:deferred-tax:investments:etf:IUSA.MI  ",
             "  expenses:taxes:deferred-capital-gain:etf:IUSA.MI",
         ),
+        "ALNZ": (
+            "  liabilities:funds:deferred-tax:tfr  ",
+            "  expenses:taxes:deferred-tfr",
+        ),
     }
     date, ticker, qnt, amt = tnx
-    if amt == 0:
+    if amt == 0 and ticker != "ALNZ":
         return False
 
     price = prices[ticker]
-    if price > bv[ticker]:
-        tax_amt = (price - bv[ticker]) * tax_rate * qnt
+    if ticker == "ALNZ":
+        tax_amt = price * qnt * pension_tax_rate
     else:
-        return False
+        if price > bv[ticker]:
+            tax_amt = (price - bv[ticker]) * stock_tax_rate * qnt
+        else:
+            return False
 
     return f"""{date} AGENZIA DELLE ENTRATE | deferred capital gain tax for {ticker}
 {ACCOUNTS[ticker][1]:<49}  {locale.currency(tax_amt, symbol=False, grouping=True):>11}
@@ -145,7 +154,10 @@ trans, book_value = build_transactions(PATH, book_value, end)
 
 BV = {}
 for tick, book_value in book_value.items():
-    BV[tick] = book_value[1] / book_value[0]
+    if book_value[1] == 0:
+        BV[tick] = book_value[0]
+    else:
+        BV[tick] = book_value[1] / book_value[0]
 
 for t in trans:
     tax = calculate_tax(t, BV)
