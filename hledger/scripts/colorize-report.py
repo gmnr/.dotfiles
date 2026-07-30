@@ -28,8 +28,8 @@ mode = sys.argv[1]
 if mode == "report":
     date = r"[0-9]{4}[-/][0-9]{2}([-/][0-9]{2})?"
     empty_val = r"\s0\s"
-    negative_amount = r"-\d+(\.\d{3})*(\,\d+)? [A-Z]{3,4}"
-    positive_amount = r" \d+(\.\d{3})*(\,\d+)? [A-Z]{3,4}"
+    negative_amount = r"-\d+(\.\d{3})*(\,\d+)?(€| [A-Z]{3,4})"
+    positive_amount = r" \d+(\.\d{3})*(\,\d+)?(€| [A-Z]{3,4})"
     titles = r"(Revenues|Expenses|Net:|Assets|Liabilities)"
     months = r"(Total|Average|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|(20[0-9][0-9])(-[0-9]{2})(-[0-9]{2})?(Q[0-9]{1})?)"
     years = r"   (20[0-9][0-9]) "
@@ -38,8 +38,8 @@ if mode == "report":
 elif mode == "pivot":
     date = r"[0-9]{4}[-/][0-9]{2}([-/][0-9]{2})?"
     empty_val = r"\s0\s"
-    negative_amount = r"-\d+(\.\d{3})*(\,\d+)? [A-Z]{3,4}"
-    positive_amount = r" \d+(\.\d{3})*(\,\d+)? [A-Z]{3,4}"
+    negative_amount = r"-\d+(\.\d{3})*(\,\d+)?(€| [A-Z]{3,4})"
+    positive_amount = r" \d+(\.\d{3})*(\,\d+)?(€| [A-Z]{3,4})"
     titles = r"(Revenues|Expenses|Net:|Assets|Liabilities)"
     months = r"(Total|Average|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|(20[0-9][0-9])(-[0-9]{2})(-[0-9]{2})?(Q[0-9]{1})?)"
     years = r"   (20[0-9][0-9]) "
@@ -48,8 +48,8 @@ elif mode == "pivot":
 else:
     date = r"[0-9]{4}[-/][0-9]{2}([-/][0-9]{2})?"
     empty_val = r"\s0\s"
-    negative_amount = r"-\d+(\.\d{3})*(\,\d+)? [A-Z]{3,4}"
-    positive_amount = r" \d+(\.\d{3})*(\,\d+)? [A-Z]{3,4}"
+    negative_amount = r"-\d+(\.\d{3})*(\,\d+)?(€| [A-Z]{3,4})"
+    positive_amount = r" \d+(\.\d{3})*(\,\d+)?(€| [A-Z]{3,4})"
     titles = r"(Revenues|Expenses|Net:|Assets|Liabilities)"
     months = r"(Total|Average|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|(20[0-9][0-9])(-[0-9]{2})(-[0-9]{2})?(Q[0-9]{1})?)"
     years = r"   (20[0-9][0-9]) "
