@@ -4,6 +4,7 @@
 alias dot='cd ~/.dotfiles'
 alias finance='cd ~/.finance'
 alias sql='cd ~/.work_sql && run_git'
+alias icloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
 alias ..='cd ..'
 alias ...='cd ../..'
 
