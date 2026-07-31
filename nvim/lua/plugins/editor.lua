@@ -229,7 +229,7 @@ return {
     },
     keys = {
       {
-        "<leader><space>",
+        "<leader>fd",
         function()
           if Snacks.git.get_root() == nil then
             Snacks.picker.projects()
@@ -264,7 +264,7 @@ return {
       },
       -- find
       {
-        "<leader>fd",
+        "<leader><space>",
         function()
           Snacks.picker.files({ cwd = "~/.dotfiles" })
         end,
