@@ -119,6 +119,7 @@ def load_prices(period_key):
         block = block.replace("-", "/")  # dates are written as YYYY-MM-DD
         if period_key in block:
             return parse_prices(block.splitlines()[1:])
+    return dict()
 
 
 # Transactions
@@ -129,6 +130,8 @@ def read_transactions(cutoff):
             if not entry.strip():
                 continue
             if any(excluded in entry for excluded in EXCLUDED_DATES):
+                continue
+            if entry[0] == ";":
                 continue
 
             header, asset_line, *_ = entry.splitlines()
