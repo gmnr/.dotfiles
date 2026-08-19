@@ -9,9 +9,9 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 # colors on ls
-alias ls='eza --git --git-ignore -I .gitignore --icons --group-directories-first'
-alias ll='eza --long --header --all --git --sort=modified --reverse --icons --group-directories-first --time-style=long-iso'
-alias tree='eza --tree --icons=auto'
+alias ls='eza --git --git-ignore -I .gitignore --icons --group-directories-first --color=always'
+alias ll='eza --long --header --all --git --sort=modified --reverse --icons --group-directories-first --time-style=long-iso --color=always'
+alias tree='eza --tree --icons=auto --color=always'
 
 # tmux session
 alias aoc='~/.dotfiles/tmux/tmux-scripts/advent.sh'
