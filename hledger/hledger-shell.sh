@@ -49,7 +49,7 @@ function bal() {
 
 function out() {
     clear;
-    hledger bal cash fineco -p thismonth -D --transpose -T amt:"<0" --drop 1 "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py cf
+    hledger bal current not:liabilities -p thismonth -D --transpose -T amt:"<0" --drop 1 "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py cf
 }
 
 function pvt() {
