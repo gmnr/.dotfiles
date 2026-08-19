@@ -9,8 +9,9 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 # colors on ls
-alias ls='eza --all --header --git --git-ignore -I .gitignore'
-alias ll='eza --long --header --all --git --sort=modified --reverse'
+alias ls='eza -all --header --git --git-ignore -I .gitignore --icons --group-directories-first'
+alias ll='eza --long --header --all --git --sort=modified --reverse --icons --group-directories-first --time-style=long-iso'
+alias tree='eza --tree --icons=auto'
 
 # tmux session
 alias aoc='~/.dotfiles/tmux/tmux-scripts/advent.sh'
@@ -23,6 +24,7 @@ alias less='less -R'
 alias mv='mv -v'
 alias rm='rm -i -v'
 alias cp='cp -v'
+alias df='df -h'
 alias upd='brew update && brew upgrade && nvim +"lua require(\"lazy\").sync()"'
 alias cat='bat --style="numbers,changes,header" --italic-text=always'
 alias rg='rg -S --smart-case --hidden --iglob=!.git/'
