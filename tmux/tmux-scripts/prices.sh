@@ -32,5 +32,11 @@ delta_vwce=`echo $delta_vwce | tr '.' ','`
 delta_iusa=`echo $delta_iusa | tr '.' ','`
 delta_dot=`echo $delta_dot | tr '.' ','`
 
-# expose calculation
-echo "#[fg=#1f2335,bg=#e0af68,bold] 󰚰 $timer#[fg=#e0af68]#[fg=#3d59a1,bg=#e0af68]#[bg=#3d59a1,fg=colour255] VWCE:$vwce ∆:$delta_vwce#[fg=#3d59a1]#[fg=#449dab,bg=#3d59a1]#[bg=#449dab,fg=colour255] IUSA:$iusa ∆:$delta_iusa#[fg=#449dab]#[fg=#db4b4b,bg=#449dab]#[bg=#db4b4b,fg=colour255] DOT:$dot ∆:$delta_dot"
+# expose calculation but shorten script if window length does not allow it
+COLS=$(tmux display-message -p "#{client_width}")
+if [ $COLS -lt 120 ]
+then
+    echo "#[fg=#1f2335,bg=#e0af68,bold] $timer#[fg=#e0af68]#[fg=#3d59a1,bg=#e0af68]#[bg=#3d59a1,fg=colour255] $vwce#[fg=#3d59a1]#[fg=#449dab,bg=#3d59a1]#[bg=#449dab,fg=colour255] $iusa#[fg=#449dab]#[fg=#db4b4b,bg=#449dab]#[bg=#db4b4b,fg=colour255] $dot"
+else
+    echo "#[fg=#1f2335,bg=#e0af68,bold] 󰚰 $timer#[fg=#e0af68]#[fg=#3d59a1,bg=#e0af68]#[bg=#3d59a1,fg=colour255] VWCE:$vwce  ∆:$delta_vwce#[fg=#3d59a1]#[fg=#449dab,bg=#3d59a1]#[bg=#449dab,fg=colour255] IUSA:$iusa  ∆:$delta_iusa#[fg=#449dab]#[fg=#db4b4b,bg=#449dab]#[bg=#db4b4b,fg=colour255] DOT:$dot  ∆:$delta_dot"
+fi
