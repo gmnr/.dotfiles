@@ -108,7 +108,9 @@ return {
       "sh",
     },
     config = function()
-      vim.cmd([[let g:quickrun_config = {'*': {'hook/time/enable': 1, 'hook/time/format': '[Finished in %gs]'}}]])
+      vim.cmd(
+        [[let g:quickrun_config = {'*': {'outputter/buffer/opener':'%{winwidth(0) * 2 < winheight(0) * 5 ? "16new" : "vnew"}','hook/time/enable': 1, 'hook/time/format': '[Finished in %gs]'}}]]
+      )
     end,
   },
 
