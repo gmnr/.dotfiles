@@ -8,6 +8,9 @@ then
 elif [[ $SESSION_NAME == "blog" ]]
 then
     echo "#9ece6a"
-else
+elif [[ $SESSION_NAME == "main" ]]
+then
     echo "#7aa2f7"
+else
+    echo "#a9b1d6"
 fi
