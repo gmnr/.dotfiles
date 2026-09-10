@@ -50,7 +50,17 @@ vim.keymap.set("n", "<leader>tt", ":%s/")
 vim.keymap.set({ "n", "i" }, "<esc>", "<cmd>noh<CR><esc>", opts)
 
 -- remap backspace to lats used buffer
-vim.keymap.set("n", "<BS>", "<C-^>")
+vim.keymap.set("n", "<BS>", function()
+  local max_buf = vim.fn.bufnr("$")
+  for i = 1, max_buf do
+    local alt = vim.fn.bufnr("#" .. i)
+    if alt > 0 and vim.fn.buflisted(alt) == 1 and not string.find(vim.fn.bufname(alt), "output") then
+      vim.cmd("buffer " .. alt)
+      return
+    end
+  end
+  vim.cmd("bprevious")
+end)
 
 -- add autocorrect
 vim.keymap.set("n", "<leader><Tab>", "[s1z=")
