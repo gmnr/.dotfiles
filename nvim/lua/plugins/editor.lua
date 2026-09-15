@@ -28,24 +28,30 @@ return {
   },
 
   {
-    "kylechui/nvim-surround",
+    "nvim-mini/mini.ai",
+    version = false,
     event = "VeryLazy",
+    config = function()
+      require("mini.ai").setup()
+    end,
   },
 
   {
-    "wellle/targets.vim",
+    "nvim-mini/mini.surround",
+    version = false,
     event = "VeryLazy",
     config = function()
-      vim.cmd([[
-      nnoremap <silent> <Leader>a :set opfunc=Append<CR>g@
-      nnoremap <silent> <Leader>i :set opfunc=Insert<CR>g@
-      function! Append(type, ...)
-          call feedkeys("`]a", 'n')
-      endfunction
-      function! Insert(type, ...)
-          call feedkeys("`[i", 'n')
-      endfunction
-      ]])
+      require("mini.surround").setup({
+        mappings = {
+          add = "<leader>sa",
+          delete = "<leader>sd",
+          find = "<leader>sf",
+          find_left = "<leader>sF",
+          highlight = "<leader>sh",
+          replace = "<leader>sc",
+          update_n_lines = "<leader>sn",
+        },
+      })
     end,
   },
 
