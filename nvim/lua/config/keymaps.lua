@@ -50,17 +50,33 @@ vim.keymap.set("n", "<leader>tt", ":%s/")
 vim.keymap.set({ "n", "i" }, "<esc>", "<cmd>noh<CR><esc>", opts)
 
 -- remap backspace to lats used buffer
+local mru = {}
+local function is_excluded(buf)
+  return vim.bo[buf].filetype == "quickrun"
+end
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  group = vim.api.nvim_create_augroup("MruBuffers", { clear = true }),
+  callback = function(args)
+    for i, b in ipairs(mru) do
+      if b == args.buf then
+        table.remove(mru, i)
+        break
+      end
+    end
+    table.insert(mru, 1, args.buf)
+  end,
+})
+
 vim.keymap.set("n", "<BS>", function()
-  local max_buf = vim.fn.bufnr("$")
-  for i = 1, max_buf do
-    local alt = vim.fn.bufnr("#" .. i)
-    if alt > 0 and vim.fn.buflisted(alt) == 1 and not string.find(vim.fn.bufname(alt), "output") then
-      vim.cmd("buffer " .. alt)
+  local cur = vim.api.nvim_get_current_buf()
+  for _, buf in ipairs(mru) do
+    if buf ~= cur and vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].buflisted and not is_excluded(buf) then
+      vim.api.nvim_set_current_buf(buf)
       return
     end
   end
-  vim.cmd("bprevious")
-end)
+end, { desc = "Last used buffer, skipping quickrun output" })
 
 -- add autocorrect
 vim.keymap.set("n", "<leader><Tab>", "[s1z=")
