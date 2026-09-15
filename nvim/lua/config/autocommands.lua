@@ -121,3 +121,13 @@ api.nvim_create_autocmd("QuickFixCmdPost", {
   pattern = "l*",
   command = "lwindow",
 })
+
+local mru = require("modules.mru_buffers")
+api.nvim_create_autocmd("BufEnter", {
+  group = api.nvim_create_augroup("MruBuffers", { clear = true }),
+  callback = function(args)
+    mru.record(args.buf)
+  end,
+})
+
+mru.record(api.nvim_get_current_buf())
