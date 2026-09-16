@@ -63,3 +63,8 @@ alias hlp='hledger print'
 alias e='nvim +$ ~/.finance/periods/2026.journal'
 alias pp='python3 ~/.dotfiles/hledger/scripts/fetch-mkt-prices.py && python3 ~/.dotfiles/hledger/scripts/capital-gain-taxes.py'
 alias prices='cat ~/.finance/prices/current_prices.journal'
+
+# hledger shorthand for zsh
+export TRAV=tag:travels
+export MIN=amt:"<0"
+export MAG=amt:">0"
