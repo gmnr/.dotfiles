@@ -14,6 +14,14 @@ if type brew &>/dev/null; then
     fi
 fi
 
+if [[ -z "$TMUX" && -n "$KITTY_WINDOW_ID" && -z "$TMUX_HANDLED" ]]; then
+    export TMUX_HANDLED=1
+    if command -v tmux >/dev/null 2>&1; then
+        tmux attach-session -t main 2>/dev/null || tmux new-session -s main
+        exit
+    fi
+fi
+
 autoload -Uz compinit
 if [[ -n ~/.zcompdump(N.mh+24) ]]; then
     compinit
