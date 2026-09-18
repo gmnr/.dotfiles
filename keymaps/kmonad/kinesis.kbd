@@ -12,6 +12,7 @@
     [_media (tap-hold-next-release 250 [ (layer-toggle media))
     rcmd (layer-toggle apps)
 
+    pass (layer-switch passthrough)
     game (layer-switch gaming)
     base (layer-switch colemak-dh)
 
@@ -61,7 +62,7 @@
   lsft    z    x    c    d    v                   k    h    ,    .    / rsft
           \  @alfred left right                          down  up @[_media    ]
 
-                           lmet  del    ralt  @rcmd
+                           lmet  del    @pass @rcmd
                       @s_spc alt f11    @game ret bspc
                                  f12    _
 )
@@ -139,3 +140,16 @@
                                  end   pgup
 )
 
+(deflayer passthrough
+  esc  F1   F2   F3   F4   F5   F6   F7   F8   F9   F10  F11  F12  prnt slck pause
+
+  =    1    2    3    4    5                   6    7    8    9    0    -
+  tab  q    w    e    r    t                   y    u    i    o    p    \
+  caps a    s    d    f    g                   h    j    k    l    ;    '
+  lsft z    x    c    v    b                   n    m    ,    .    / rsft
+       `    F13  left rght                          up   down [    ]
+
+                           lctl lalt   @base rctl
+                       spc del  home   rmet  ret bspc
+                                 end   pgdn
+)
