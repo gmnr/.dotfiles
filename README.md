@@ -1,7 +1,7 @@
 # (dot)dotfiles
 
 > _"Because spending 14 hours configuring a text editor to save 3 seconds a week
-> is an appropriate use of free will."_
+> is the best use of free will."_
 
 Welcome to my `.dotfiles`: the digital equivalent of a finely tuned racing car
 that only I know how to drive and regularly breaks when I touch the steering
@@ -11,14 +11,14 @@ wheel.
 
 ## What’s Inside?
 
-- **Terminal:** custom prompts, alias that only I understand and history a
-  plethora of tools that I set up and forgot;
+- **Terminal:** custom prompts, alias that only I understand and a plethora of
+  tools that I set up and forgot;
 - **Editor:** exclusively `nvim` designed to induce maximum aesthetic pleasure
   and minimum actual writing;
-- **Window Managers:** Beautiful `tmux` setups that look incredible until I try
+- **Window Managers:** beautiful `tmux` setups that look incredible until I try
   to share my screen;
-- **Developer Tools:** Scripts and config files meticulously crafted to avoid
-  standard terminal practices;
+- **Developer Tools:** scripts and config files meticulously crafted to avoid
+  standard terminal practices.
 
 ## Features & "Optimizations"
 
@@ -34,5 +34,6 @@ months, nod approvingly, and then overwrite them with my own configuration.
 
 ## License
 
-Do Whatever The Fuck You Want To Public License (WTFPL) / MIT.<br>If these break
-your machine, I will react with mild sympathy and zero liability.
+Do Whatever The Fuck You Want To Public License (WTFPL)/MIT.
+
+If these break your machine, I will react with mild sympathy and zero liability.
