@@ -35,10 +35,6 @@ alias cpwd='pwd -P | tr -d '\n' | pbcopy'
 alias g='git'
 alias gg='nvim +"vert Git"'
 
-# kmonad
-alias kmd='cd ~/.dotfiles/keymaps/kmonad'
-alias QQ='sudo killall kmonad'
-
 # help
 alias bathelp='bat --plain --language=help'
 help() {
