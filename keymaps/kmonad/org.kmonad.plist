@@ -1,15 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-  <dict>
+<dict>
     <key>Label</key>
     <string>org.kmonad</string>
-    <key>Program</key>
-    <string>/usr/local/bin/kmonad</string>
     <key>ProgramArguments</key>
     <array>
-      <string>/usr/local/bin/kmonad</string>
-      <string>/Users/gmnr/.dotfiles/keymaps/kmonad/[device].kbd</string>
+        <string>/usr/local/bin/kmonad</string>
+        <string>+RTS</string>
+        <string>-N1</string>
+        <string>-RTS</string>
+        <string>/Users/gmnr/.dotfiles/keymaps/kmonad/DEVICE.kbd</string>
     </array>
     <key>EnvironmentVariables</key>
     <dict>
@@ -19,15 +20,17 @@
         <string>en_US.UTF-8</string>
     </dict>
     <key>RunAtLoad</key>
-    <true />
+    <true/>
     <key>KeepAlive</key>
     <dict>
-    <key>SuccessfulExit</key>
-    <false/>
+        <key>SuccessfulExit</key>
+        <false/>
     </dict>
+    <key>AbandonProcessGroup</key>
+    <false/>
     <key>StandardOutPath</key>
-    <string>/tmp/kmonad.stdout</string>
+    <string>/tmp/kmonad.stdout.log</string>
     <key>StandardErrorPath</key>
-    <string>/tmp/kmonad.stderr</string>
-  </dict>
+    <string>/tmp/kmonad.stderr.log</string>
+</dict>
 </plist>
