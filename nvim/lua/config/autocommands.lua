@@ -100,6 +100,17 @@ api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+api.nvim_create_autocmd("CmdlineChanged", {
+  desc = "Allow expanding lowercase g to G in cmdline mode without overriding :global cmd",
+  group = api.nvim_create_augroup("ExpandG", { clear = true }),
+  callback = function()
+    if vim.fn.getcmdtype() == ":" and vim.fn.getcmdline() == "g " then
+      vim.fn.setcmdline("G ")
+      vim.fn.setcmdpos(3)
+    end
+  end,
+})
+
 api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   callback = function(args)
