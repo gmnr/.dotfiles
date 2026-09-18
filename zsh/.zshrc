@@ -4,11 +4,23 @@ setopt extended_glob
 export PATH=/opt/homebrew/bin:$PATH
 
 # set autocompletion
+if type brew &>/dev/null; then
+    if [[ -d "/opt/homebrew/share/zsh/site-functions" ]]; then
+        FPATH="/opt/homebrew/share/zsh/site-functions:${FPATH}"
+    elif [[ -d "/usr/local/share/zsh/site-functions" ]]; then
+        FPATH="/usr/local/share/zsh/site-functions:${FPATH}"
+    else
+        FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+    fi
+fi
+
 autoload -Uz compinit
-for dump in ~/.zcompdump(N.mh+24); do
+if [[ -n ~/.zcompdump(N.mh+24) ]]; then
     compinit
-done
-compinit -C
+else
+    compinit -C
+fi
+
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # enable vi mode
