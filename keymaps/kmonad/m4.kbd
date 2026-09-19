@@ -11,8 +11,8 @@
 
     rcmd (layer-toggle apps)
 
-    pass (layer-switch passthrough)
-    base (layer-switch colemak-dh)
+    pass (tap-hold 250 fn (layer-switch passthrough))
+    base (tap-hold 250 fn (layer-switch colemak-dh))
 
     browser (cmd-button "open /Applications/Safari.app")
     music (cmd-button "open /Applications/Spotify.app")
