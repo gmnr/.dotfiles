@@ -7,9 +7,6 @@
     <key>ProgramArguments</key>
     <array>
         <string>/usr/local/bin/kmonad</string>
-        <string>+RTS</string>
-        <string>-N1</string>
-        <string>-RTS</string>
         <string>/Users/gmnr/.dotfiles/keymaps/kmonad/DEVICE.kbd</string>
     </array>
     <key>EnvironmentVariables</key>
@@ -26,8 +23,6 @@
         <key>SuccessfulExit</key>
         <false/>
     </dict>
-    <key>AbandonProcessGroup</key>
-    <false/>
     <key>StandardOutPath</key>
     <string>/tmp/kmonad.stdout.log</string>
     <key>StandardErrorPath</key>
