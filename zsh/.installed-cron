@@ -5,3 +5,6 @@
 # in the weekend run the command every 3 hours between 08:00 and 22:00
 0 8-22/3 * * 6-7 /opt/homebrew/bin/python3 /Users/gmnr/.dotfiles/hledger/scripts/fetch-mkt-prices.py > /dev/null 2>> /Users/gmnr/.finance/.logs/cron.log
 0 8-22/3 * * 6-7 /opt/homebrew/bin/python3 /Users/gmnr/.dotfiles/hledger/scripts/capital-gain-taxes.py > /dev/null 2>> /Users/gmnr/.finance/.logs/cron.log
+
+# kill the service that keeps kmonad active every 3 hours to clean the zombie processes
+ 0 */3 * * * /usr/bin/pkill -x kmonad
