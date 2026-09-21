@@ -54,7 +54,7 @@ function out() {
 
 function pvt() {
     clear;
-    hledger is --pivot payee -p thismonth "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py pivot
+    hledger is --drop 0 --pivot payee -p thismonth "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py pivot
 }
 
 # hledger aliases
