@@ -12,9 +12,9 @@
     [_media (tap-hold-next-release 250 [ (layer-toggle media))
     rcmd (layer-toggle apps)
 
-    pass (tap-hold 250 fn (layer-switch passthrough))
-    game (tap-hold 250 fn (layer-switch gaming))
-    base (tap-hold 250 fn (layer-switch colemak-dh))
+    pass (tap-hold 250 rctl (layer-switch passthrough))
+    game (tap-hold 250 pgup (layer-switch gaming))
+    base (tap-hold 250 pgup (layer-switch colemak-dh))
 
 
     music (cmd-button "open /Applications/Spotify.app")
