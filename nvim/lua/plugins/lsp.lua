@@ -5,7 +5,6 @@ return {
     "mason-org/mason-lspconfig.nvim",
     opts = {
       ensure_installed = {
-        -- "bashls",
         "lua_ls",
         "stylua",
         "marksman",
@@ -37,9 +36,6 @@ return {
       vim.lsp.config("lua_ls", {
         settings = { Lua = { diagnostics = { globals = { "vim", "Snacks" }, disable = { "need-check-nil" } } } },
       })
-      -- vim.lsp.config("bashls", {
-      --   filetypes = { "sh", "zsh" },
-      -- })
       vim.lsp.config("basedpyright", {
         settings = {
           basedpyright = { analysis = { typeCheckingMode = "basic" } },
