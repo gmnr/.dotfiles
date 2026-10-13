@@ -34,7 +34,7 @@ alias n='nvim'
 alias cpy='pbcopy'
 alias cpwd='pwd -P | tr -d '\n' | pbcopy'
 alias g='git'
-alias gg='nvim +"vert Git"'
+alias gg='nvim +"Neogit"'
 
 # help
 alias bathelp='bat --plain --language=help'

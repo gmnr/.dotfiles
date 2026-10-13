@@ -117,8 +117,11 @@ return {
           icons_enabled = true,
           component_separators = { left = " ", right = "" },
           section_separators = { left = "", right = "" },
-          disabled_filetypes = {},
           always_divide_middle = true,
+          disabled_filetypes = {
+            statusline = { "NeogitStatus", "NeogitCommitView", "NeogitPopup" },
+            winbar = { "NeogitStatus", "NeogitCommitView", "NeogitPopup" },
+          },
         },
         sections = {
           lualine_a = { "mode" },

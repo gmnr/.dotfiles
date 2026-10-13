@@ -19,7 +19,7 @@ api.nvim_create_autocmd("FileType", {
     "markdown",
     "text",
     "ledger",
-    "fugitive",
+    "NeogitStatus",
     "gitcommit",
   },
   command = "setlocal nonumber",
@@ -42,7 +42,7 @@ api.nvim_create_autocmd("FileType", {
   pattern = {
     "qf",
     "man",
-    "fugitive",
+    "NeogitStatus",
     "git",
     "help",
     "lspinfo",
@@ -97,17 +97,6 @@ api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
   callback = function()
     vim.highlight.on_yank({ hlgroup = "IncSearch", timeout = 300 })
-  end,
-})
-
-api.nvim_create_autocmd("CmdlineChanged", {
-  desc = "Allow expanding lowercase g to G in cmdline mode without overriding :global cmd",
-  group = api.nvim_create_augroup("ExpandG", { clear = true }),
-  callback = function()
-    if vim.fn.getcmdtype() == ":" and vim.fn.getcmdline() == "g " then
-      vim.fn.setcmdline("G ")
-      vim.fn.setcmdpos(3)
-    end
   end,
 })
 

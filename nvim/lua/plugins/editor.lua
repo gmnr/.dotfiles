@@ -1,6 +1,28 @@
 return {
 
-  "tpope/vim-fugitive",
+  {
+    "NeogitOrg/neogit",
+    lazy = true,
+    dependencies = {
+      "sindrets/diffview.nvim",
+    },
+    cmd = "Neogit",
+    keys = {
+      { "<leader>gg", "<cmd>Neogit<cr>" },
+    },
+    opts = {
+      signs = {
+        section = { "◈", " " },
+      },
+      graph_style = "kitty",
+      mappings = {
+        status = {
+          [">"] = "Toggle",
+          ["<"] = "Toggle",
+        },
+      },
+    },
+  },
 
   {
     "monaqa/dial.nvim",
@@ -149,7 +171,7 @@ return {
               icon = " ",
               key = "g",
               desc = "Git",
-              action = ":vertical Git",
+              action = ":Neogit",
               enabled = function()
                 return Snacks.git.get_root() ~= nil
               end,
