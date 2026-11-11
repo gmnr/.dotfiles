@@ -12,6 +12,11 @@
     [_media (tap-hold-next-release 250 [ (layer-toggle media))
     rcmd (layer-toggle apps)
 
+    mc_left (around lctl (around lalt left))
+    mc_right (around lctl (around lalt right))
+    mc_up (around lctl (around lalt up))
+    mc_down (around lctl (around lalt down))
+
     pass (tap-hold 250 rctl (layer-switch passthrough))
     game (tap-hold 250 pgup (layer-switch gaming))
     base (tap-hold 250 pgup (layer-switch colemak-dh))
@@ -76,7 +81,7 @@
   _  _   _   _   _   _                     _  _  _  _  _  _
   _  _   _   _   _   _                     _  _  _  _  _  _
   _  _   _   _   _   _                     _  _  _  _  _ rsft
-       _  _  _  _                          _  _  _  _
+       _  _  @mc_left  @mc_right                          @mc_down  @mc_up  _  _
 
                             lctl del   ralt rctl
                        spc alt  home   pgup  end del
