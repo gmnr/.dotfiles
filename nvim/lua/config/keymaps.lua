@@ -58,14 +58,15 @@ vim.keymap.set("n", "<leader>ff", "<cmd>w<CR><cmd>QuickRun<CR>", opts)
 
 -- toggle paste and manage copy
 vim.keymap.set("n", "<leader>jj", "<cmd>set invpaste paste?<CR>", opts)
-vim.keymap.set({ "n", "v", "x" }, "<leader>aa", function()
+vim.keymap.set({ "n", "v", "x" }, "<leader>pp", function()
   local mode = vim.fn.mode()
   if mode == "v" or mode == "V" or mode == "\22" then
     vim.cmd('silent noau normal! "+y')
+    print("Selection copied!")
   else
     vim.cmd('silent noau normal! gg"+yG')
+    print("Buffer copied!")
   end
-  print("Buffer copied")
 end)
 
 -- hledger plugs
