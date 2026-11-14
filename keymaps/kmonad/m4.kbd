@@ -19,7 +19,7 @@
     mail (cmd-button "open /Applications/Microsoft\\ Outlook.app")
     excel (cmd-button "open /Applications/Microsoft\\ Excel.app")
     ppt (cmd-button "open /Applications/Microsoft\\ PowerPoint.app")
-    ai (cmd-button "open https://gemini.google.com/app")
+    ai (cmd-button "open https://www.claude.ai")
     teams (cmd-button "open /Applications/Microsoft\\ Teams.app")
     db (cmd-button "open /Applications/DBeaver.app")
     thing (cmd-button "open /Applications/Things3.app")
