@@ -8,7 +8,7 @@
 (defalias
     c_esc (around ctl (tap-hold-next 250 (around (release-only ctl) esc) XX))
     s_spc (tap-hold-next-release 350 spc (layer-toggle nav))
-    alfred (tap-hold-next-release 250 (cmd-button "open /Applications/Alfred\\ 5.app") (layer-toggle keypad))
+    alfred (tap-hold-next-release 250 (cmd-button "open /Applications/Alfred\\ 6.app") (layer-toggle keypad))
     [_media (tap-hold-next-release 250 [ (layer-toggle media))
     rcmd (layer-toggle apps)
 
