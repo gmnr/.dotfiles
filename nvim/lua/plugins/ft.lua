@@ -76,16 +76,20 @@ return {
     "OXY2DEV/markview.nvim",
     ft = "markdown",
     config = function()
+      local presets = require("markview.presets")
+
       require("markview").setup({
+        splitview_winopts = {
+          split = "right",
+        },
         preview = {
-          modes = { "n", "i", "no", "c" },
-          hybrid_modes = { "i" },
-          callbacks = {
-            on_enable = function(_, win)
-              vim.wo[win].conceallevel = 2
-              vim.wo[win].concealcursor = "nc"
-            end,
-          },
+          enable = false,
+          icon_provider = "devicons",
+        },
+        markdown = {
+          headings = presets.headings.marker,
+          horizontal_rules = presets.thin,
+          tables = presets.single,
         },
       })
     end,

@@ -25,6 +25,61 @@ api.nvim_create_autocmd("FileType", {
   command = "setlocal nonumber",
 })
 
+local group = api.nvim_create_augroup("MarkviewAutoSplit", { clear = true })
+
+local function is_md_file(buf)
+  return vim.bo[buf].filetype == "markdown" and vim.bo[buf].buftype == "" and api.nvim_buf_get_name(buf) ~= ""
+end
+
+local function open_split(buf)
+  if not is_md_file(buf) then
+    return
+  end
+  vim.schedule(function()
+    if api.nvim_buf_is_valid(buf) and api.nvim_get_current_buf() == buf then
+      pcall(vim.cmd, "Markview splitOpen")
+    end
+  end)
+end
+
+-- Open the preview split when a markdown file is opened
+api.nvim_create_autocmd("BufWinEnter", {
+  group = group,
+  pattern = "*.md",
+  callback = function(args)
+    open_split(args.buf)
+  end,
+})
+
+-- :q / :wq → close the preview first so Neovim doesn't linger with only the preview
+api.nvim_create_autocmd("QuitPre", {
+  group = group,
+  callback = function(args)
+    if is_md_file(args.buf) then
+      pcall(vim.cmd, "Markview splitClose")
+    end
+  end,
+})
+
+-- :bd or switching to another buffer → close the preview
+api.nvim_create_autocmd("BufWinLeave", {
+  group = group,
+  callback = function(args)
+    if is_md_file(args.buf) then
+      vim.schedule(function()
+        pcall(vim.cmd, "Markview splitClose")
+      end)
+    end
+  end,
+})
+
+-- The markdown buffer that triggered lazy-loading
+-- (remove this block if you get a double split on the first file)
+local cur = api.nvim_get_current_buf()
+if vim.bo[cur].filetype == "markdown" then
+  open_split(cur)
+end
+
 api.nvim_create_autocmd("FileType", {
   desc = "Disable spell in help files",
   pattern = { "help" },
