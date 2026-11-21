@@ -85,6 +85,18 @@ return {
             }
           end,
         },
+        br_newline = {
+          command = "sed",
+          args = {
+            "-e",
+            [=[/^[[:space:]]*\(```\|~~~\)/,/^[[:space:]]*\(```\|~~~\)/b]=],
+            "-e",
+            [=[/^[[:space:]]*|/b]=],
+            "-e",
+            [=[s/\(<br[[:space:]]*\/\{0,1\}>\)[[:space:]]*\([^[:space:]]\)/\1\n\2/g]=],
+          },
+          stdin = true,
+        },
       },
       formatters_by_ft = {
         lua = { "stylua" },
@@ -93,7 +105,7 @@ return {
         javascript = { "prettier" },
         typescript = { "prettier" },
         html = { "prettier" },
-        markdown = { "prettier" },
+        markdown = { "prettier", "br_newline" },
         sql = { "holywell_formatter" },
         sh = { "beautysh" },
         zsh = { "beautysh" },
