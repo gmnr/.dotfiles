@@ -191,17 +191,17 @@ def format_entry(txn, asset, tax):
 # main
 def set_locale():
     for name in ("it_IT.UTF-8", "it_IT"):
-        locale.setlocale(locale.LC_ALL, name)
-        return
+        try:
+            locale.setlocale(locale.LC_ALL, name)
+            return
+        except locale.Error:
+            continue
+    raise SystemExit("no Italian locale available")
 
 
 def parse_args():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "date",
-        nargs="?",
-        help="YYYY/MM, YYYY, or 'lastmonth'; defaults to current prices",
-    )
+    parser.add_argument("date", nargs="?", help="YYYY/MM, YYYY, or 'lastmonth'")
     return parser.parse_args()
 
 

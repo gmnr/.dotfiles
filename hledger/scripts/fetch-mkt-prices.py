@@ -9,11 +9,13 @@ __author__ = "Guido Minieri"
 __license__ = "GPL"
 
 import datetime
-import requests
-import sys
-import re
 import locale
+import re
+import sys
+import requests
 from loguru import logger
+
+TIMEOUT = 15
 
 locale.setlocale(locale.LC_ALL, "it_IT")
 
@@ -32,13 +34,12 @@ def fetch_quotes(stock):
         "User-Agent": "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.4; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2"
     }
     try:
-        res = requests.get(stocks_url, headers=headers).json()
-    except:
+        res = requests.get(stocks_url, headers=headers, timeout=TIMEOUT).json()
+        price = res["chart"]["result"][0]["meta"]["regularMarketPrice"]
+    except Exception:
         logger.error(f"Call to yahoo finance for {stock} has failed")
         return "ERROR"
-    return locale.currency(
-        round(res["chart"]["result"][0]["meta"]["regularMarketPrice"], 2), symbol=False
-    )
+    return locale.currency(round(price, 2), symbol=False)
 
 
 def fetch_crypto():
@@ -46,11 +47,11 @@ def fetch_crypto():
     curr = "eur"
     stocks_url = f"https://api.coingecko.com/api/v3/simple/price?ids={ticker}&vs_currencies={curr}"
     try:
-        res = requests.get(stocks_url).json()
-    except:
-        logger.error(f"Call to coingecko for DOT-EUR has failed")
+        price = requests.get(stocks_url, timeout=TIMEOUT).json()[ticker][curr]
+    except Exception:
+        logger.error("Call to coingecko for DOT-EUR has failed")
         return "ERROR"
-    return locale.currency(round(res[ticker][curr], 2), symbol=False)
+    return locale.currency(round(price, 2), symbol=False)
 
 
 def fetch_pension():
@@ -59,11 +60,11 @@ def fetch_pension():
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5.2 Safari/605.1.15"
     }
     try:
-        res = requests.get(pension_url, headers=headers).text
-    except:
-        logger.error(f"Call it investing pension has failed")
+        res = requests.get(pension_url, headers=headers, timeout=TIMEOUT).text
+        return set(re.findall(r'content="[a-zA-z ]+: (\d*,?\d*)', res)).pop()
+    except Exception:
+        logger.error("Call it investing pension has failed")
         return "ERROR"
-    return set(re.findall(r'content="[a-zA-z ]+: (\d*,?\d*)', res)).pop()
 
 
 # define dates used in the payload

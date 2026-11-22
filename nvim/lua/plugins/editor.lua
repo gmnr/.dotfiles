@@ -79,6 +79,7 @@ return {
 
   {
     "windwp/nvim-autopairs",
+    event = "InsertEnter",
     config = function()
       local npairs = require("nvim-autopairs")
       local Rule = require("nvim-autopairs.rule")
@@ -89,7 +90,6 @@ return {
             "ledger",
             "markdown",
             "text",
-            "norg",
           },
         }),
         npairs.add_rules({
@@ -173,7 +173,7 @@ return {
               desc = "Git",
               action = ":Neogit",
               enabled = function()
-                return Snacks.git.get_root() ~= nil
+                return require("modules.project").root() ~= nil
               end,
             },
             { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
@@ -186,7 +186,7 @@ return {
             title = "Git Status",
             section = "terminal",
             enabled = function()
-              return Snacks.git.get_root() ~= nil
+              return require("modules.project").root() ~= nil
             end,
             cmd = "git --no-pager diff --stat -B -M -C",
             indent = 2,
@@ -257,184 +257,90 @@ return {
         },
       },
     },
-    keys = {
-      {
-        "<leader>fd",
-        function()
-          if Snacks.git.get_root() == nil then
-            Snacks.picker.projects()
-          else
-            Snacks.picker.files({ cwd = Snacks.git.get_root() })
+    keys = function()
+      local function repo_root()
+        return { cwd = require("modules.project").root() }
+      end
+
+      local picker_keys = {
+        -- find
+        {
+          "<leader>fd",
+          function()
+            local root = require("modules.project").root()
+            if root then
+              Snacks.picker.files({ cwd = root })
+            else
+              Snacks.picker.projects()
+            end
+          end,
+          desc = "Files in repo (projects outside one)",
+        },
+        {
+          "<leader><space>",
+          "files",
+          function()
+            return { cwd = vim.env.DOTFILES }
+          end,
+          desc = "Dotfiles",
+        },
+        { "<leader>,", "buffers", desc = "Buffers" },
+        { "<leader>/", "grep", repo_root, desc = "Grep repo" },
+        { "<leader>yw", "explorer", repo_root, desc = "Explorer" },
+        { "<leader>ya", "smart", desc = "Smart find" },
+        { "<leader>yg", "git_files", desc = "Git files" },
+        { "<leader>yp", "projects", desc = "Projects" },
+
+        -- git
+        { "<leader>yb", "git_branches", desc = "Git branches" },
+        { "<leader>yl", "git_log", desc = "Git log" },
+        { "<leader>ys", "git_status", desc = "Git status" },
+        { "<leader>yd", "git_diff", desc = "Git diff (hunks)" },
+
+        -- search
+        { '<leader>y"', "registers", desc = "Registers" },
+        { "<leader>:", "commands", desc = "Commands" },
+        { "<leader>yh", "help", desc = "Help" },
+        { "<leader>yk", "keymaps", desc = "Keymaps" },
+        { "<leader>ym", "man", desc = "Man pages" },
+        { "<leader>yn", "notifications", desc = "Notifications" },
+        { "<leader>yq", "qflist", desc = "Quickfix list" },
+        { "<leader>yL", "loclist", desc = "Location list" },
+        { "<leader>yy", "resume", desc = "Resume last picker" },
+        { "<leader>yu", "undo", desc = "Undo history" },
+
+        { "<leader>yx", "diagnostics_buffer", desc = "Diagnostics (buffer)" },
+        { "<leader>yX", "diagnostics", desc = "Diagnostics (all)" },
+        {
+          "<leader>yS",
+          "lsp_symbols",
+          { layout = { preset = "right" }, jump = { close = false } },
+          desc = "Symbols sidebar",
+        },
+        {
+          "<leader>yR",
+          "lsp_references",
+          { layout = { preset = "right" }, jump = { close = false } },
+          desc = "References sidebar",
+        },
+
+        -- lsp
+        { "gd", "lsp_definitions", desc = "Definitions" },
+        { "gD", "lsp_declarations", desc = "Declarations" },
+        { "gI", "lsp_implementations", desc = "Implementations" },
+        { "gy", "lsp_type_definitions", desc = "Type definitions" },
+      }
+
+      return vim.tbl_map(function(row)
+        local lhs, picker, opts = row[1], row[2], row[3]
+        local rhs = picker
+        if type(picker) == "string" then
+          rhs = function()
+            Snacks.picker[picker](type(opts) == "function" and opts() or opts)
           end
-        end,
-      },
-      {
-        "<leader>,",
-        function()
-          Snacks.picker.buffers()
-        end,
-      },
-      {
-        "<leader>/",
-        function()
-          Snacks.picker.grep({ cwd = Snacks.git.get_root() })
-        end,
-      },
-      {
-        "<leader>yn",
-        function()
-          Snacks.picker.notifications()
-        end,
-      },
-      {
-        "<leader>yw",
-        function()
-          Snacks.explorer({ cwd = Snacks.git.get_root() })
-        end,
-      },
-      -- find
-      {
-        "<leader><space>",
-        function()
-          Snacks.picker.files({ cwd = "~/.dotfiles" })
-        end,
-      },
-      {
-        "<leader>ya",
-        function()
-          Snacks.picker.smart()
-        end,
-      },
-      {
-        "<leader>yg",
-        function()
-          Snacks.picker.git_files()
-        end,
-      },
-      {
-        "<leader>yp",
-        function()
-          Snacks.picker.projects()
-        end,
-      },
-      -- git
-      {
-        "<leader>yb",
-        function()
-          Snacks.picker.git_branches()
-        end,
-      },
-      {
-        "<leader>yl",
-        function()
-          Snacks.picker.git_log()
-        end,
-      },
-      {
-        "<leader>ys",
-        function()
-          Snacks.picker.git_status()
-        end,
-      },
-      {
-        "<leader>yd",
-        function()
-          Snacks.picker.git_diff()
-        end,
-      },
-      -- search
-      {
-        '<leader>y"',
-        function()
-          Snacks.picker.registers()
-        end,
-      },
-      {
-        "<leader>:",
-        function()
-          Snacks.picker.commands()
-        end,
-      },
-      {
-        "<leader>yx",
-        function()
-          Snacks.picker.diagnostics()
-        end,
-      },
-      {
-        "<leader>yh",
-        function()
-          Snacks.picker.help()
-        end,
-      },
-      {
-        "<leader>yk",
-        function()
-          Snacks.picker.keymaps()
-        end,
-      },
-      {
-        "<leader>ym",
-        function()
-          Snacks.picker.man()
-        end,
-      },
-      {
-        "<leader>yq",
-        function()
-          Snacks.picker.qflist()
-        end,
-      },
-      {
-        "<leader>yy",
-        function()
-          Snacks.picker.resume()
-        end,
-      },
-      {
-        "<leader>yu",
-        function()
-          Snacks.picker.undo()
-        end,
-      },
-      -- LSP
-      {
-        "gd",
-        function()
-          Snacks.picker.lsp_definitions()
-        end,
-      },
-      {
-        "gD",
-        function()
-          Snacks.picker.lsp_declarations()
-        end,
-      },
-      {
-        "gr",
-        function()
-          Snacks.picker.lsp_references()
-        end,
-        nowait = true,
-      },
-      {
-        "gI",
-        function()
-          Snacks.picker.lsp_implementations()
-        end,
-      },
-      {
-        "gy",
-        function()
-          Snacks.picker.lsp_type_definitions()
-        end,
-      },
-      {
-        "<leader>ss",
-        function()
-          Snacks.picker.lsp_symbols()
-        end,
-      },
-    },
+        end
+        return { lhs, rhs, desc = row.desc }
+      end, picker_keys)
+    end,
   },
 }

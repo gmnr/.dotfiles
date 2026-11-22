@@ -27,6 +27,19 @@ wheel.
 - Keybindings: customized to the point where typing on anyone else's laptop
   makes me look like I've never seen a keyboard before.
 
+## Install
+
+One command, on a Mac with [Homebrew](https://brew.sh) (safe to re-run; any real
+file it would replace is kept as `<file>.bak`):
+
+```bash
+git clone <this repo> ~/.dotfiles && cd ~/.dotfiles && make
+```
+
+Optional extras: `make ledger` (finance journal and crontab, needs
+`hledger/.secret`), `make sql` (needs `sql/.secret`). `make help` lists
+everything.
+
 ## Contributing
 
 Forks and Pull Requests are welcome, though I will likely stare at them for 3
@@ -34,6 +47,6 @@ months, nod approvingly, and then overwrite them with my own configuration.
 
 ## License
 
-Do Whatever The Fuck You Want To Public License (WTFPL)/MIT.
+Do Whatever The Fuck You Want To Public License (WTFPL)/MIT.<br>
 
 If these break your machine, I will react with mild sympathy and zero liability.

@@ -1,70 +1,37 @@
 #!/bin/zsh
 # hledger helper functions
-function is() {
-    clear;
-    hledger is -p thismonth "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py report
+function _hl() {
+    clear
+    hledger "${@:2}" | $DOTFILES/hledger/scripts/colorize-report.py "$1"
 }
 
-function iss() {
-    clear;
-    hledger is -3 "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py report
-}
+function is()    { _hl report   is -p thismonth "$@" }
+function iss()   { _hl report   is -3 "$@" }
+function reg()   { _hl register reg -p thismonth -w $COLUMNS "$@" }
+function regg()  { _hl register reg -w $COLUMNS "$@" }
+function areg()  { _hl areg     areg -p thismonth -w $COLUMNS "$@" }
+function aregg() { _hl areg     areg -w $COLUMNS "$@" }
+function bal()   { _hl register bal "$@" }
+function out()   { _hl cf       bal current not:liabilities -p thismonth -D --transpose -T amt:"<0" --drop 1 "$@" }
+function pvt()   { _hl pivot    is --drop 0 --pivot payee -p thismonth "$@" }
 
 function bs() {
-    clear;
-
     # extract the period to which rebase the calculations
-    period=$(echo $@ | rg -e "-p \d{4}(\/\d+)?|lastmonth" -o | cut -d " " -f 2)
+    local period=$(echo $@ | rg -e "-p \d{4}(\/\d+)?|lastmonth" -o | cut -d " " -f 2)
 
     # execute the calculation on that interval and run the report
-    python3 ~/.dotfiles/hledger/scripts/capital-gain-taxes.py $period 2> /dev/null
-    hledger bs "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py report
-
-}
-
-function reg() {
-    clear;
-    hledger reg -p thismonth -w $COLUMNS "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py register
-}
-
-function regg() {
-    clear;
-    hledger reg -w $COLUMNS "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py register
-}
-
-function areg() {
-    clear;
-    hledger areg -p thismonth -w $COLUMNS "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py areg
-}
-
-function aregg() {
-    clear;
-    hledger areg -w $COLUMNS "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py areg
-}
-
-function bal() {
-    clear;
-    hledger bal "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py register
-}
-
-function out() {
-    clear;
-    hledger bal current not:liabilities -p thismonth -D --transpose -T amt:"<0" --drop 1 "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py cf
-}
-
-function pvt() {
-    clear;
-    hledger is --drop 0 --pivot payee -p thismonth "$@" | ~/.dotfiles/hledger/scripts/colorize-report.py pivot
+    python3 $DOTFILES/hledger/scripts/capital-gain-taxes.py $period 2> /dev/null
+    _hl report bs "$@"
 }
 
 # hledger aliases
 alias hl='hledger'
 alias hlp='hledger print'
 alias e='nvim +$ ~/.finance/periods/2026.journal'
-alias pp='python3 ~/.dotfiles/hledger/scripts/fetch-mkt-prices.py && python3 ~/.dotfiles/hledger/scripts/capital-gain-taxes.py'
+alias pp='python3 $DOTFILES/hledger/scripts/fetch-mkt-prices.py && python3 $DOTFILES/hledger/scripts/capital-gain-taxes.py'
 alias prices='cat ~/.finance/prices/current_prices.journal'
 
 # hledger shorthand for zsh
-export TRAV=tag:travels
-export MIN=amt:"<0"
-export MAG=amt:">0"
+export TRAVELS=tag:travels
+export MINORE=amt:"<0"
+export MAGGIORE=amt:">0"

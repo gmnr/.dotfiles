@@ -9,8 +9,9 @@ __author__ = "Guido Minieri"
 __license__ = "GPL"
 
 
-import sys
 import os
+import re
+import sys
 from subprocess import Popen, PIPE
 
 # read input
@@ -33,16 +34,20 @@ p = Popen(
 stdout, stderr = p.communicate(sql)
 output = stdout.rstrip()
 
-# parse special rules not covered by formatter
+# fail loudly so conform keeps the buffer instead of replacing it with nothing
+if p.returncode != 0 or not output:
+    sys.stderr.write(stderr or "sqlriver produced no output\n")
+    sys.exit(p.returncode or 1)
+
 my_mapping = {
-    "format": "FORMAT",
-    "pivot": "PIVOT",
-    "\n\n": "\n",
-    " ON": "   ON",
+    r"\bformat\b": "FORMAT",
+    r"\bpivot\b": "PIVOT",
+    r"\n{2,}": "\n",
+    r" ON\b": "   ON",
 }
 
-for map, replacement in my_mapping.items():
-    output = output.replace(map, replacement)
+for pattern, replacement in my_mapping.items():
+    output = re.sub(pattern, replacement, output)
 
 # print output
 print(output, end="")

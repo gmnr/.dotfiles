@@ -3,7 +3,7 @@ return {
   -- html/css development
   {
     "mattn/emmet-vim",
-    config = function()
+    init = function()
       vim.g.user_emmet_mode = "nv"
       vim.g.user_emmet_leader_key = "<leader>"
     end,
@@ -16,46 +16,6 @@ return {
     config = function()
       vim.g.ledger_bin = "hledger"
       vim.g.ledger_decimal_sep = ","
-
-      -- define function to align at <CR>
-      function Hledger_CR()
-        local line = vim.fn.getline(".")
-        if string.find(line:sub(-1), "%d") then
-          local elements = {}
-
-          for el in line:gmatch("%S+") do
-            table.insert(elements, el)
-          end
-
-          local amt = elements[#elements]
-          if not string.find(amt, ",") then
-            vim.cmd("normal A,00")
-          else
-            local pos = string.find(amt, ",")
-            if pos == #amt - 1 then
-              vim.cmd("normal A0")
-            end
-          end
-          vim.cmd(":LedgerAlign")
-          return ""
-        else
-          return ""
-        end
-      end
-
-      vim.api.nvim_create_autocmd("FileType", {
-        desc = "Define custom keymaps for ledger only",
-        pattern = { "ledger" },
-        callback = function()
-          vim.keymap.set("n", "J", "kJ", { silent = true }) -- join line from below
-          vim.keymap.set("n", "<leader>es", "{2j0daWkJ$", { silent = true }) -- autojoin date and transaction
-        end,
-      })
-
-      -- set specific mapping
-      vim.keymap.set({ "i" }, "<CR>", "<cmd>lua Hledger_CR()<CR><Right><CR>", { silent = true })
-      vim.keymap.set("n", "<leader>ee", "<cmd>lua Hledger_CR()<CR>", { silent = true })
-      vim.keymap.set("n", "<leader>eu", "<cmd>lua hledger_update()<CR>", { silent = true })
     end,
     ft = { "ledger" },
   },
@@ -64,7 +24,7 @@ return {
     "SirVer/ultisnips",
     dependencies = { "honza/vim-snippets" },
     ft = { "markdown", "ledger", "python", "javascript", "html", "css", "text" },
-    config = function()
+    init = function()
       vim.g.UltiSnipsExpandTrigger = "<Tab>"
       vim.g.UltiSnipsJumpForwardTrigger = "<C-n>"
       vim.g.UltiSnipsJumpBackwardTrigger = "<C-e>"
@@ -92,6 +52,7 @@ return {
           tables = presets.single,
         },
       })
+      require("modules.markview_split").setup()
     end,
   },
 }

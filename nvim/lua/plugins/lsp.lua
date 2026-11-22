@@ -3,6 +3,7 @@ return {
   -- mason
   {
     "mason-org/mason-lspconfig.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       ensure_installed = {
         "lua_ls",
@@ -10,6 +11,7 @@ return {
         "marksman",
         "basedpyright",
       },
+      automatic_enable = { exclude = { "stylua" } },
     },
     dependencies = {
       {
@@ -17,12 +19,6 @@ return {
         opts = {
           ui = {
             border = "rounded",
-          },
-          ensure_installed = {
-            "stylua",
-            "black",
-            "prettier",
-            "beautysh",
           },
         },
       },
@@ -32,6 +28,7 @@ return {
   -- lspconfig
   {
     "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       vim.lsp.config("lua_ls", {
         settings = { Lua = { diagnostics = { globals = { "vim", "Snacks" }, disable = { "need-check-nil" } } } },
@@ -41,14 +38,6 @@ return {
           basedpyright = { analysis = { typeCheckingMode = "basic" } },
         },
       })
-
-      -- add hover to lsp doc
-      local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-      function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-        opts = opts or {}
-        opts.border = "rounded"
-        return orig_util_open_floating_preview(contents, syntax, opts, ...)
-      end
     end,
   },
 
@@ -62,7 +51,7 @@ return {
       {
         "<leader>cf",
         function()
-          require("conform").format({ async = true, lsp_fallback = true })
+          require("conform").format({ async = true, lsp_format = "fallback" })
         end,
         mode = "",
       },
@@ -110,26 +99,10 @@ return {
         sh = { "beautysh" },
         zsh = { "beautysh" },
       },
-      format_on_save = { timeout_ms = 500, lsp_fallback = true },
+      format_on_save = { timeout_ms = 500, lsp_format = "fallback" },
     },
     init = function()
       vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
     end,
-  },
-
-  -- diagnostic
-  {
-    "folke/trouble.nvim",
-    event = "LspAttach",
-    keys = {
-      { "<leader>xx", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>" },
-      { "<leader>XX", "<cmd>Trouble diagnostics toggle<cr>" },
-      { "<leader>xs", "<cmd>Trouble symbols toggle focus=false<cr>" },
-      { "<leader>xl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>" },
-      { "<leader>xL", "<cmd>Trouble loclist toggle<cr>" },
-      { "<leader>xq", "<cmd>Trouble qflist toggle<cr>" },
-    },
-    opts = {}, -- don't omit
-    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 }

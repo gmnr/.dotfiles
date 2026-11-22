@@ -2,7 +2,7 @@
 
 # Set Session Name
 SESSION="blog"
-SESSIONEXISTS=$(tmux list-sessions | grep $SESSION)
+SESSIONEXISTS=$(tmux has-session -t "=$SESSION" 2>/dev/null && echo yes)
 ROOT=$HOME/.blog
 
 # Only create tmux session if it doesn't already exist
@@ -18,4 +18,3 @@ fi
 
 # attach session
 tmux switch-client -t $SESSION
-tmux refresh-client -S

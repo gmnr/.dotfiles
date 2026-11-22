@@ -17,9 +17,6 @@ vim.keymap.set("n", "<leader>fu", "<cmd>Lazy<CR>", opts)
 -- open Mason
 vim.keymap.set("n", "<leader>fy", "<cmd>Mason<CR>")
 
--- git integration
-vim.keymap.set("n", "<leader>gB", "<cmd>lua Snacks.git.blame_line()<CR>", opts)
-
 -- quick save and exit
 vim.keymap.set("n", "<leader>ww", "<cmd>w<CR>", opts)
 vim.keymap.set("n", "<leader>wq", "<cmd>wq!<CR>", opts)
@@ -56,9 +53,8 @@ vim.keymap.set("n", "<leader><Tab>", "[s1z=")
 -- quickrun
 vim.keymap.set("n", "<leader>ff", "<cmd>w<CR><cmd>QuickRun<CR>", opts)
 
--- toggle paste and manage copy
-vim.keymap.set("n", "<leader>jj", "<cmd>set invpaste paste?<CR>", opts)
-vim.keymap.set({ "n", "v", "x" }, "<leader>pp", function()
+-- clipboard management
+vim.keymap.set({ "n", "v", "x" }, "<leader>aa", function()
   local mode = vim.fn.mode()
   if mode == "v" or mode == "V" or mode == "\22" then
     vim.cmd('silent noau normal! "+y')
@@ -77,7 +73,7 @@ vim.keymap.set("n", "<leader>gh", "<cmd>Gitsigns preview_hunk<CR>", opts)
 vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns blame_line<CR>", opts)
 vim.keymap.set("n", "<leader>gR", "<cmd>Gitsigns reset_buffer<CR>", opts)
 vim.keymap.set("n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>", opts)
-vim.keymap.set("n", "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>", opts)
+vim.keymap.set("n", "<leader>gu", "<cmd>Gitsigns stage_hunk<CR>", opts)
 vim.keymap.set({ "n", "v" }, "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", opts)
-vim.keymap.set("n", "]c", '&diff ? "]c" : ":Gitsigns next_hunk<CR>"', { expr = true, silent = true })
-vim.keymap.set("n", "[c", '&diff ? "[c" : ":Gitsigns prev_hunk<CR>"', { expr = true, silent = true })
+vim.keymap.set("n", "]c", '&diff ? "]c" : "<cmd>Gitsigns nav_hunk next<CR>"', { expr = true, silent = true })
+vim.keymap.set("n", "[c", '&diff ? "[c" : "<cmd>Gitsigns nav_hunk prev<CR>"', { expr = true, silent = true })

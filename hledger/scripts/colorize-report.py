@@ -25,34 +25,23 @@ reset = Fore.RESET
 
 mode = sys.argv[1]
 
+# patterns shared by every mode
+date = r"[0-9]{4}[-/][0-9]{2}([-/][0-9]{2})?"
+empty_val = r"\s0\s"
+negative_amount = r"-\d+(\.\d{3})*(\,\d+)?(€| [A-Z]{3,4})"
+positive_amount = r" \d+(\.\d{3})*(\,\d+)?(€| [A-Z]{3,4})"
+titles = r"(Revenues|Expenses|Net:|Assets|Liabilities)"
+months = r"(Total|Average|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|(20[0-9][0-9])(-[0-9]{2})(-[0-9]{2})?(Q[0-9]{1})?)"
+years = r"   (20[0-9][0-9]) "
+
+# patterns that differ per mode
 if mode == "report":
-    date = r"[0-9]{4}[-/][0-9]{2}([-/][0-9]{2})?"
-    empty_val = r"\s0\s"
-    negative_amount = r"-\d+(\.\d{3})*(\,\d+)?(€| [A-Z]{3,4})"
-    positive_amount = r" \d+(\.\d{3})*(\,\d+)?(€| [A-Z]{3,4})"
-    titles = r"(Revenues|Expenses|Net:|Assets|Liabilities)"
-    months = r"(Total|Average|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|(20[0-9][0-9])(-[0-9]{2})(-[0-9]{2})?(Q[0-9]{1})?)"
-    years = r"   (20[0-9][0-9]) "
     payee = r"~"
     account = r"\s[a-zA-Z:,-.]+([0-9]+)?[a-zA-Z:,-.]+(-[0-9]+)?\s"
 elif mode == "pivot":
-    date = r"[0-9]{4}[-/][0-9]{2}([-/][0-9]{2})?"
-    empty_val = r"\s0\s"
-    negative_amount = r"-\d+(\.\d{3})*(\,\d+)?(€| [A-Z]{3,4})"
-    positive_amount = r" \d+(\.\d{3})*(\,\d+)?(€| [A-Z]{3,4})"
-    titles = r"(Revenues|Expenses|Net:|Assets|Liabilities)"
-    months = r"(Total|Average|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|(20[0-9][0-9])(-[0-9]{2})(-[0-9]{2})?(Q[0-9]{1})?)"
-    years = r"   (20[0-9][0-9]) "
     payee = r"~"
     account = r"\s[0-9A-ZÀ-ÿ &'.\-]+\s"
 else:
-    date = r"[0-9]{4}[-/][0-9]{2}([-/][0-9]{2})?"
-    empty_val = r"\s0\s"
-    negative_amount = r"-\d+(\.\d{3})*(\,\d+)?(€| [A-Z]{3,4})"
-    positive_amount = r" \d+(\.\d{3})*(\,\d+)?(€| [A-Z]{3,4})"
-    titles = r"(Revenues|Expenses|Net:|Assets|Liabilities)"
-    months = r"(Total|Average|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|(20[0-9][0-9])(-[0-9]{2})(-[0-9]{2})?(Q[0-9]{1})?)"
-    years = r"   (20[0-9][0-9]) "
     payee = r"\s.+\s\|"
     account = r"\s\s[a-zA-Z'&0-9À-ÿ: ,-.]+\s"
 

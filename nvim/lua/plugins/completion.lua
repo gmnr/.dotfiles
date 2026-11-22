@@ -1,183 +1,64 @@
----@diagnostic disable: unused-local
 return {
 
-  -- completion
   {
-    "hrsh7th/nvim-cmp",
+    "saghen/blink.cmp",
+    version = "1.*",
     event = { "InsertEnter", "CmdlineEnter" },
-    dependencies = {
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-cmdline",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-path",
-      "onsails/lspkind.nvim",
-    },
-    config = function()
-      -- Completion config
-      local cmp = require("cmp")
+    opts = {
+      keymap = {
+        preset = "none",
+        ["<C-k>"] = { "select_next", "show" },
+        ["<C-y>"] = { "select_prev", "show" },
+        ["<C-e>"] = { "scroll_documentation_up", "fallback" },
+        ["<C-n>"] = { "scroll_documentation_down", "fallback" },
+        ["<Esc>"] = { "cancel", "fallback" },
+        ["<CR>"] = { "accept", "fallback" },
+      },
 
-      -- create custom source for nvim-cmp
-      cmp.register_source("hledger_completion", {
-        complete = function(self, params, callback)
-          local items = {}
-          for payee in io.lines("/Users/gmnr/.dotfiles/hledger/completion-source/payees") do
-            table.insert(items, {
-              label = payee,
-              insertText = payee .. " | ",
-              filterText = payee,
-              kind = cmp.lsp.CompletionItemKind.Class,
-            })
+      completion = {
+        menu = { auto_show = false, border = "rounded", max_height = 25 },
+        documentation = { window = { border = "rounded" } },
+        list = { selection = { preselect = true, auto_insert = false } },
+        accept = { auto_brackets = { enabled = true } }, -- replaces the autopairs hook
+      },
+
+      sources = {
+        default = { "lsp" },
+        per_filetype = {
+          ledger = { "hledger" },
+          markdown = { "buffer" },
+          text = { "buffer" },
+        },
+        providers = {
+          lsp = {
+            -- don't suggest Text items when an LSP is active
+            transform_items = function(_, items)
+              local text = vim.lsp.protocol.CompletionItemKind.Text
+              return vim.tbl_filter(function(item)
+                return item.kind ~= text
+              end, items)
+            end,
+          },
+          hledger = { name = "hledger", module = "modules.blink_hledger" },
+        },
+      },
+
+      cmdline = {
+        keymap = {
+          preset = "none",
+          ["<C-k>"] = { "select_next", "show" },
+          ["<C-y>"] = { "select_prev", "show" },
+          ["<CR>"] = { "accept", "fallback" },
+        },
+        -- search completes from the buffer, `:` from commands and paths
+        sources = function()
+          local type = vim.fn.getcmdtype()
+          if type == "/" or type == "?" then
+            return { "buffer" }
           end
-          for account in io.lines("/Users/gmnr/.dotfiles/hledger/completion-source/accounts") do
-            table.insert(items, {
-              label = account,
-              insertText = account .. "   ",
-              filterText = account,
-              kind = cmp.lsp.CompletionItemKind.Method,
-            })
-          end
-          callback({ items = items })
+          return type == ":" and { "cmdline" } or {}
         end,
-      })
-
-      -- add source only for ledger file
-      cmp.setup.filetype("ledger", {
-        sources = cmp.config.sources({
-          {
-            name = "hledger_completion",
-            entry_filter = function(entry, ctx)
-              if vim.api.nvim_get_current_line():sub(1, 2) == "  " then
-                return require("cmp").lsp.CompletionItemKind.Class ~= entry:get_kind()
-              else
-                return require("cmp").lsp.CompletionItemKind.Method ~= entry:get_kind()
-              end
-            end,
-          },
-        }),
-        matching = {
-          disallow_fuzzy_matching = false,
-          disallow_partial_fuzzy_matching = false,
-        },
-        formatting = {
-          fields = { "abbr", "menu" },
-        },
-      })
-
-      cmp.setup.filetype({ "markdown", "text" }, {
-        formatting = {
-          fields = { "abbr", "menu" },
-        },
-        sources = cmp.config.sources({
-          { name = "buffer" },
-        }),
-      })
-
-      -- setup completion
-      cmp.setup({
-        completion = {
-          autocomplete = false,
-          completeopt = "menu,menuone,noinsert,popup",
-        },
-
-        -- style window for completion
-        window = {
-          completion = cmp.config.window.bordered({ border = "rounded", max_height = 25 }),
-          documentation = cmp.config.window.bordered({ border = "rounded" }),
-        },
-
-        -- mappings for navigation
-        mapping = {
-          ["<C-e>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
-          ["<C-n>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-
-          -- use C-n and C-p for triggering completion
-          ["<C-k>"] = cmp.mapping(function()
-            if cmp.visible() then
-              cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-            else
-              cmp.complete()
-            end
-          end, { "i", "c" }),
-
-          ["<C-y>"] = cmp.mapping(function()
-            if cmp.visible() then
-              cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-            else
-              cmp.complete()
-            end
-          end, { "i", "c" }),
-
-          ["<esc>"] = cmp.mapping({
-            i = cmp.mapping.abort(),
-          }),
-          ["<CR>"] = cmp.mapping.confirm({ select = true }),
-        },
-
-        -- add ordinary sources
-        sources = cmp.config.sources({
-          -- Dont suggest Text when a lsp is active
-          {
-            name = "nvim_lsp",
-            entry_filter = function(entry, ctx)
-              return cmp.lsp.CompletionItemKind.Text ~= entry:get_kind()
-            end,
-          },
-        }),
-      })
-
-      local cmd_mapping = cmp.mapping.preset.cmdline({
-        ["<CR>"] = cmp.mapping({
-          c = function(fallback)
-            if cmp.visible() then
-              return cmp.confirm({ select = true })
-            end
-            fallback()
-          end,
-        }),
-
-        ["<C-k>"] = cmp.mapping(function()
-          if cmp.visible() then
-            cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-          else
-            cmp.complete()
-          end
-        end, { "i", "c" }),
-
-        ["<C-y>"] = cmp.mapping(function()
-          if cmp.visible() then
-            cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-          else
-            cmp.complete()
-          end
-        end, { "i", "c" }),
-      })
-
-      -- for search completion pull data only from buffers
-      cmp.setup.cmdline({ "/", "?" }, {
-        formatting = {
-          fields = { "abbr", "menu" },
-        },
-        sources = {
-          { name = "buffer" },
-        },
-        mapping = cmd_mapping,
-      })
-
-      -- pull data only from comdline and paths
-      cmp.setup.cmdline(":", {
-        formatting = {
-          fields = { "abbr", "menu" },
-        },
-        sources = cmp.config.sources({
-          { name = "path" },
-          { name = "cmdline" },
-        }),
-        mapping = cmd_mapping,
-      })
-
-      -- to insert `(` after select function or method item
-      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-    end,
+      },
+    },
   },
 }

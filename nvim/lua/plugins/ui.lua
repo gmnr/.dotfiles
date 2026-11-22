@@ -6,7 +6,6 @@ return {
     priority = 1000,
     config = function()
       vim.cmd("colorscheme tokyonight-storm")
-      vim.o.cmdheight = 1
 
       -- define custom colors for gitsigns
       vim.cmd("highlight! GitSignsAdd           guibg=NONE guifg=#92BE65")
@@ -21,38 +20,17 @@ return {
     end,
   },
 
+  -- icons
+  { "nvim-tree/nvim-web-devicons", lazy = true },
+
   -- gitsigns
   {
     "lewis6991/gitsigns.nvim",
     event = "VeryLazy",
     opts = {
-      signcolumn = true,
-      numhl = false,
-      linehl = false,
-      word_diff = false,
-      watch_gitdir = {
-        interval = 1000,
-        follow_files = true,
-      },
       attach_to_untracked = true,
-      current_line_blame = false,
-      current_line_blame_opts = {
-        virt_text = true,
-        virt_text_pos = "right_align",
-        delay = 1000,
-        ignore_whitespace = false,
-      },
-      sign_priority = 6,
-      update_debounce = 100,
-      status_formatter = nil,
-      max_file_length = 40000,
-      preview_config = {
-        border = "rounded",
-        style = "minimal",
-        relative = "cursor",
-        row = 0,
-        col = 1,
-      },
+      current_line_blame_opts = { virt_text_pos = "right_align" },
+      preview_config = { border = "rounded" },
     },
   },
 
@@ -68,49 +46,14 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     config = function()
+      local project = require("modules.project")
+
       local function get_root()
-        -- Get the directory of the current file
-        local current_file = vim.fn.expand("%:p:h")
-
-        if string.match(current_file, "Docs.*Hledger") then
-          return ".finance"
-        elseif string.find(current_file, "DBeaverData.*Script") then
-          return ".work_sql"
-        end
-
-        -- if is the no file special buffer then print simply the current directory (i.e. when opening nvim)
-        if current_file == "" or vim.fn.isdirectory(current_file) == 0 then
-          current_file = os.getenv("PWD")
-        end
-
-        current_file = current_file:gsub(" ", "\\ ")
-
-        -- Change to the directory of the current file
-        local cmd = "cd " .. current_file .. " && git rev-parse --show-toplevel 2>/dev/null"
-        local handle = io.popen(cmd)
-        local result = handle:read("*a")
-        handle:close()
-
-        -- Check if result is empty, indicating an error (not a git repo)
-        if result == "" then
-          return ""
-        end
-
-        -- Get the basename of the top-level directory
-        local basename_handle = io.popen("basename " .. result)
-        local basename_result = basename_handle:read("*a")
-        basename_handle:close()
-
-        return basename_result:match("^%s*(.-)%s*$") -- trim any whitespace
+        return project.name()
       end
 
       local function get_location()
-        local cwd = require("snacks").git.get_root(vim.fn.expand("%:p"))
-        if cwd ~= nil then
-          return ""
-        else
-          return os.getenv("PWD")
-        end
+        return project.root() and "" or os.getenv("PWD")
       end
       require("lualine").setup({
         options = {
@@ -149,7 +92,7 @@ return {
           lualine_z = {},
         },
         tabline = {},
-        extensions = { "lazy", "quickfix", "trouble" },
+        extensions = { "lazy", "quickfix" },
       })
     end,
   },

@@ -23,7 +23,7 @@ if [[ -z "$TMUX" && -n "$KITTY_WINDOW_ID" && -z "$TMUX_HANDLED" ]]; then
 fi
 
 autoload -Uz compinit
-if [[ -n ~/.zcompdump(N.mh+24) ]]; then
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
     compinit
 else
     compinit -C
@@ -38,14 +38,20 @@ source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 bindkey -e -r '^[x'
 bindkey -a -r ':'
 
-# show `*` if git status is dirty
-function parse_git_dirty() {
-    [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working tree clean" ]] && echo "*"
+# history settings
+HISTSIZE=50000
+SAVEHIST=50000
+setopt share_history hist_ignore_all_dups hist_ignore_space
+
+# show ` <branch> ` in git repos, with `*` if the work tree is dirty
+# (porcelain output doesn't depend on git's language or wording)
+function parse_git_branch() {
+  local ref
+  ref=$(git symbolic-ref --short -q HEAD 2> /dev/null || git rev-parse --short HEAD 2> /dev/null) || return
+  [[ -n $(git status --porcelain 2> /dev/null) ]] && ref+="*"
+  echo "<$ref> "
 }
 
-function parse_git_branch() {
-    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ <\1$(parse_git_dirty)> /"
-}
 
 setopt PROMPT_SUBST
 PROMPT='%B%F{green} %~%f %F{cyan}$(parse_git_branch)%f%F{red}>%f%b '
@@ -54,6 +60,6 @@ PROMPT='%B%F{green} %~%f %F{cyan}$(parse_git_branch)%f%F{red}>%f%b '
 ZLE_SPACE_SUFFIX_CHARS=$'&|'
 
 # load external config files
-source $HOME/.dotfiles/zsh/aliases.sh
-source $HOME/.dotfiles/zsh/shell-functions.sh
-source $HOME/.dotfiles/hledger/hledger-shell.sh
+source $DOTFILES/zsh/aliases.sh
+source $DOTFILES/zsh/shell-functions.sh
+source $DOTFILES/hledger/hledger-shell.sh

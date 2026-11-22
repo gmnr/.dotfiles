@@ -5,7 +5,7 @@ export PAGER=bat
 export DOTFILES=~/.dotfiles
 export ICLOUD=~/Library/Mobile\ Documents/com~apple~CloudDocs
 export LEDGER_FILE=$HOME/.finance/all.journal
-export BAT_CONFIG_DIR=$HOME/.dotfiles/bat/
+export BAT_CONFIG_DIR=$DOTFILES/bat/
 export CLICOLOR=1
 export LESSHISTFILE=-
 
@@ -18,6 +18,3 @@ if [ -d ~/.config/zsh ]; then
 else
     mkdir -p ~/.config/zsh
 fi
-
-# select correct locale
-defaults write .GlobalPreferences AppleLocale en_IT

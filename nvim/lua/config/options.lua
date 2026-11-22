@@ -92,6 +92,9 @@ vim.opt.grepformat = "%f:%l:%c:%m"
 -- update wildignore
 vim.opt.wildignore = vim.opt.wildignore + { "**/.git/*" }
 
+-- rounded borders everywhere
+vim.opt.winborder = "rounded"
+
 -- diagnostic options
 vim.diagnostic.config({
   virtual_text = false,

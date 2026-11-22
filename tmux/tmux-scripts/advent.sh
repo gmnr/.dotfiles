@@ -2,7 +2,7 @@
 
 # Set Session Name
 SESSION="advent"
-SESSIONEXISTS=$(tmux list-sessions | grep $SESSION)
+SESSIONEXISTS=$(tmux has-session -t "=$SESSION" 2>/dev/null && echo yes)
 ROOT=$HOME/Documents/advent-of-code/
 
 YEAR=$(date +"%Y")
@@ -29,4 +29,3 @@ fi
 
 # attach session
 tmux switch-client -t $SESSION
-tmux refresh-client -S

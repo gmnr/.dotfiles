@@ -22,12 +22,6 @@
   br = branch -v
   rb = rebase -i
 
-[pager]
-  blame  = delta
-  diff   = delta
-  reflog = delta
-  show   = delta
-
 [interactive]
   diffFilter = delta --color-only --features=interactive
 
@@ -51,7 +45,6 @@
   conflictstyle = zdiff3
 
 [diff]
-  tool = delta
   submodule = log
   colorMoved = default
 
