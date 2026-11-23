@@ -32,8 +32,6 @@ brew "zsh-vi-mode"
 cask "alfred"
 # Replacement for the built-in Cmd+Tab app switcher
 cask "bettercmdtab"
-# Anthropic's official Claude AI desktop app
-cask "claude"
 # Online diagram software
 cask "drawio"
 # Font management
