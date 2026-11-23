@@ -1,3 +1,16 @@
+-- inside an active LuaSnip snippet, jump between its placeholders first
+local function snippet_jump(dir)
+  return function()
+    local ls = package.loaded.luasnip
+    if ls and ls.jumpable(dir) then
+      vim.schedule(function()
+        ls.jump(dir)
+      end)
+      return true
+    end
+  end
+end
+
 return {
 
   {
@@ -9,8 +22,8 @@ return {
         preset = "none",
         ["<C-k>"] = { "select_next", "show" },
         ["<C-y>"] = { "select_prev", "show" },
-        ["<C-e>"] = { "scroll_documentation_up", "fallback" },
-        ["<C-n>"] = { "scroll_documentation_down", "fallback" },
+        ["<C-e>"] = { snippet_jump(-1), "scroll_documentation_up", "fallback" },
+        ["<C-n>"] = { snippet_jump(1), "scroll_documentation_down", "fallback" },
         ["<Esc>"] = { "cancel", "fallback" },
         ["<CR>"] = { "accept", "fallback" },
       },

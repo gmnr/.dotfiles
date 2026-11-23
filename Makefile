@@ -47,9 +47,8 @@ macos:  ## macOS preferences
 bat:  ## build bat's cache (tokyonight theme, ledger syntax)
 	BAT_CONFIG_DIR="$(DOTFILES)/bat" bat cache --build
 
-python:  ## uv-managed python as default python3, python CLI tools, hledger script env
+python:  ## uv-managed python as default python3, markitdown, hledger script env
 	uv python install 3.15 --default
-	uv tool install --managed-python --python 3.15 pynvim
 	uv tool install --managed-python --python 3.15 'markitdown==0.0.2'
 	uv sync --project hledger
 
