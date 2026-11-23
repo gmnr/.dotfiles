@@ -75,5 +75,17 @@ vim.keymap.set("n", "<leader>gR", "<cmd>Gitsigns reset_buffer<CR>", opts)
 vim.keymap.set("n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>", opts)
 vim.keymap.set("n", "<leader>gu", "<cmd>Gitsigns stage_hunk<CR>", opts)
 vim.keymap.set({ "n", "v" }, "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", opts)
-vim.keymap.set("n", "]c", '&diff ? "]c" : "<cmd>Gitsigns nav_hunk next<CR>"', { expr = true, silent = true })
-vim.keymap.set("n", "[c", '&diff ? "[c" : "<cmd>Gitsigns nav_hunk prev<CR>"', { expr = true, silent = true })
+vim.keymap.set("n", "]c", function()
+  if vim.wo.diff then
+    vim.cmd.normal({ "]c", bang = true })
+  else
+    require("gitsigns").nav_hunk("next")
+  end
+end, { silent = true, desc = "Next hunk" })
+vim.keymap.set("n", "[c", function()
+  if vim.wo.diff then
+    vim.cmd.normal({ "[c", bang = true })
+  else
+    require("gitsigns").nav_hunk("prev")
+  end
+end, { silent = true, desc = "Previous hunk" })
