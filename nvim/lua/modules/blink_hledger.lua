@@ -3,6 +3,7 @@ local source = {}
 local kind = vim.lsp.protocol.CompletionItemKind
 
 local payee_icon = "\u{F10C1}"
+local payee_hl = "BlinkCmpKindPayee"
 
 local account_icons = {
   assets = "\u{F0070}",
@@ -13,12 +14,37 @@ local account_icons = {
 }
 local default_account_icon = account_icons.assets
 
+local account_hls = {
+  assets = "BlinkCmpKindAssets", -- blue
+  liabilities = "BlinkCmpKindLiabilities", -- orange
+  expenses = "BlinkCmpKindExpenses", -- red
+  revenues = "BlinkCmpKindRevenues", -- green
+  -- equity: no entry, keeps the default color
+}
+
+local function set_highlights()
+  local function link(name, target)
+    vim.api.nvim_set_hl(0, name, { link = target, default = true })
+  end
+  link("BlinkCmpKindAssets", "Directory") -- blue
+  link("BlinkCmpKindLiabilities", "Constant") -- orange
+  link("BlinkCmpKindExpenses", "DiagnosticError") -- red
+  link("BlinkCmpKindRevenues", "String") -- green
+  link(payee_hl, "Function") -- purple
+end
+
+set_highlights()
+-- colorschemes clear custom highlights, so re-apply them after a switch
+vim.api.nvim_create_autocmd("ColorScheme", { callback = set_highlights })
+
 local function decorate(item)
   if item.kind == kind.Class then
-    item.kind_name, item.kind_icon = "Payee", payee_icon
+    item.kind_name, item.kind_icon, item.kind_hl = "Payee", payee_icon, payee_hl
   else
+    local top = item.label:match("^[^:]+")
     item.kind_name = "Account"
-    item.kind_icon = account_icons[item.label:match("^[^:]+")] or default_account_icon
+    item.kind_icon = account_icons[top] or default_account_icon
+    item.kind_hl = account_hls[top]
   end
 end
 
