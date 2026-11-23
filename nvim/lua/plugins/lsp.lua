@@ -79,7 +79,7 @@ return {
     opts = {
       -- log_level = vim.log.levels.DEBUG,
       formatters = {
-        holywell_formatter = {
+        sqlriver_formatter = {
           command = "python3",
           args = { "/Users/gmnr/.dotfiles/sql/sql-formatter.py" },
           stdin = true,
@@ -115,7 +115,7 @@ return {
         typescript = { "prettier" },
         html = { "prettier" },
         markdown = { "prettier", "br_newline" },
-        sql = { "holywell_formatter" },
+        sql = { "sqlriver_formatter" },
         sh = { "beautysh" },
         zsh = { "beautysh" },
       },
