@@ -2,7 +2,7 @@
 # hledger helper functions
 function _hl() {
     clear
-    hledger "${@:2}" | $DOTFILES/hledger/scripts/colorize-report.py "$1"
+    hledger "${@:2}" | uv run --project $DOTFILES/hledger $DOTFILES/hledger/scripts/colorize-report.py "$1"
 }
 
 function is()    { _hl report   is -p thismonth "$@" }
@@ -20,7 +20,7 @@ function bs() {
     local period=$(echo $@ | rg -e "-p \d{4}(\/\d+)?|lastmonth" -o | cut -d " " -f 2)
 
     # execute the calculation on that interval and run the report
-    python3 $DOTFILES/hledger/scripts/capital-gain-taxes.py $period 2> /dev/null
+    uv run --project $DOTFILES/hledger $DOTFILES/hledger/scripts/capital-gain-taxes.py $period 2> /dev/null
     _hl report bs "$@"
 }
 
@@ -28,7 +28,7 @@ function bs() {
 alias hl='hledger'
 alias hlp='hledger print'
 alias e='nvim +$ ~/.finance/periods/2026.journal'
-alias pp='python3 $DOTFILES/hledger/scripts/fetch-mkt-prices.py && python3 $DOTFILES/hledger/scripts/capital-gain-taxes.py'
+alias pp='uv run --project $DOTFILES/hledger $DOTFILES/hledger/scripts/fetch-mkt-prices.py && uv run --project $DOTFILES/hledger $DOTFILES/hledger/scripts/capital-gain-taxes.py'
 alias prices='cat ~/.finance/prices/current_prices.journal'
 
 # hledger shorthand for zsh

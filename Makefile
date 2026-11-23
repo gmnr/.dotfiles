@@ -17,7 +17,7 @@ endef
 
 all: install
 
-install: brew link macos bat nvim  ## everything that needs no secrets or sudo
+install: brew link macos bat python nvim  ## everything that needs no secrets or sudo
 	@echo "done: open a new kitty window to start tmux + zsh with the new config"
 
 setup: install
@@ -47,6 +47,12 @@ macos:  ## macOS preferences
 bat:  ## build bat's cache (tokyonight theme, ledger syntax)
 	BAT_CONFIG_DIR="$(DOTFILES)/bat" bat cache --build
 
+python:  ## uv-managed python as default python3, python CLI tools, hledger script env
+	uv python install 3.15 --default
+	uv tool install --managed-python --python 3.15 pynvim
+	uv tool install --managed-python --python 3.15 'markitdown==0.0.2'
+	uv sync --project hledger
+
 nvim:  ## install/update nvim plugins (lazy.nvim bootstraps itself)
 	nvim --headless "+Lazy! sync" +qa
 
@@ -70,5 +76,5 @@ sql:  ## work SQL repo at ~/.work_sql
 	@[ -d "$(HOME)/$(DB_PATH)" ] || git clone "$(DB_REPO)" "$(HOME)/$(DB_PATH)"
 	$(call link,$(HOME)/$(DB_PATH),$(HOME)/.work_sql)
 
-.PHONY: all install setup help brew link macos bat nvim ledger sql
+.PHONY: all install setup help brew link macos bat python nvim ledger sql
 

@@ -18,8 +18,8 @@ brew "mole"
 brew "neovim"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.15"
+# Python versions, tools and project environments
+brew "uv"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Terminal multiplexer

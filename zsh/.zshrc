@@ -1,7 +1,7 @@
 # improve performance
 autoload -U zmv
 setopt extended_glob
-export PATH=/opt/homebrew/bin:$PATH
+export PATH=$HOME/.local/bin:/opt/homebrew/bin:$PATH
 
 # set autocompletion
 if type brew &>/dev/null; then

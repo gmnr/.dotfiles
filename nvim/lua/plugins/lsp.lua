@@ -21,6 +21,26 @@ return {
             border = "rounded",
           },
         },
+        config = function(_, opts)
+          -- mason builds pip tools on the first `python3` in PATH: make that uv's,
+          -- however nvim was started
+          local uv_bin = vim.fn.expand("~/.local/bin")
+          if not vim.tbl_contains(vim.split(vim.env.PATH, ":"), uv_bin) then
+            vim.env.PATH = uv_bin .. ":" .. vim.env.PATH
+          end
+          require("mason").setup(opts)
+
+          -- formatters aren't LSP servers, so mason-lspconfig can't ensure them
+          local registry = require("mason-registry")
+          registry.refresh(function()
+            for _, name in ipairs({ "black", "beautysh" }) do
+              local pkg = registry.get_package(name)
+              if not pkg:is_installed() then
+                pkg:install()
+              end
+            end
+          end)
+        end,
       },
     },
   },

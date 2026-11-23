@@ -18,8 +18,7 @@ alias aoc='$DOTFILES/tmux/tmux-scripts/advent.sh'
 alias blog='$DOTFILES/tmux/tmux-scripts/blog.sh'
 
 # rename programs
-alias python='/opt/homebrew/bin/python3'
-alias pip='/opt/homebrew/bin/pip3'
+alias pip='uv pip'  # python/python3 come from uv (~/.local/bin)
 alias less='less -R'
 alias mv='mv -v'
 alias rm='rm -i -v'

@@ -3,6 +3,8 @@
  # update everything: Homebrew packages, nvim plugins, Mason tools
 function upd() {
     brew update && brew upgrade || return
+    uv tool upgrade --all
+    uv python upgrade
     nvim --headless "+Lazy! sync" +qa
     nvim --headless -c 'lua require("modules.mason_upgrade").run({ wait = true })' -c qa
 }
