@@ -218,8 +218,8 @@ return {
       picker = {
         sources = {
           buffers = { current = false },
-          files = { hidden = true, ignored = true },
-          grep = { hidden = true },
+          files = { hidden = true, ignored = true, exclude = { ".venv", "venv" } },
+          grep = { hidden = true, exclude = { ".venv", "venv" } },
           projects = {
             filter = { paths = { ["~/.local/share/nvim/lazy/snacks.nvim"] = false, ["/opt/homebrew"] = false } },
           },
