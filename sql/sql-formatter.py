@@ -14,18 +14,20 @@ import re
 import sys
 from subprocess import Popen, PIPE
 
+SQLRIVER = os.path.expanduser("~/.local/share/sqlriver/node_modules/.bin/sqlriver")
+
 # read input
 sql = sys.stdin.read()
 
 env = {
     **os.environ,
-    "PATH": "/opt/homebrew/bin:" + os.environ["PATH"],
+    "PATH": "/opt/homebrew/bin:" + os.environ.get("PATH", ""),
 }
 # execute command
 p = Popen(
     env=env,
     stdin=PIPE,
-    args=["sqlriver", "--dialect", "tsql"],
+    args=[SQLRIVER, "--dialect", "tsql"],
     stdout=PIPE,
     stderr=PIPE,
     text=True,
