@@ -16,7 +16,7 @@ brew "zsh-vi-mode"                # Better and friendly vi(vim) mode plugin for 
 cask "alfred"                     # Application launcher and productivity software
 cask "bettercmdtab"               # Replacement for the built-in Cmd+Tab app switcher
 cask "claude"                     # AI assistant
-cask "claudcode"                  # AI assistant in the terminal
+cask "claude-code"                # AI assistant in the terminal
 cask "drawio"                     # Online diagram software
 cask "font-roboto-mono-nerd-font" # Font management
 cask "iina"                       # Free and open-source media player

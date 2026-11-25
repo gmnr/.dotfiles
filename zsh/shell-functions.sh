@@ -1,6 +1,6 @@
 #!/bin/zsh
 # functions
- # update everything: Homebrew packages, nvim plugins, Mason tools
+# update everything: Homebrew packages, nvim plugins, Mason tools
 function upd() {
     brew update && brew upgrade || return
     uv tool upgrade --all

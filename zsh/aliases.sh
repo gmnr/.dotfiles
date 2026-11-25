@@ -2,8 +2,8 @@
 # aliases
 # navigation
 alias dot='cd "$DOTFILES"'
-alias finance='cd ~/.finance'
-alias sql='cd ~/.work_sql && run_git'
+alias finance='cd $HOME/.finance'
+alias sql='cd $HOME/.work_sql && run_git'
 alias icloud='cd "$ICLOUD"'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -18,7 +18,7 @@ alias aoc='$DOTFILES/tmux/tmux-scripts/advent.sh'
 alias blog='$DOTFILES/tmux/tmux-scripts/blog.sh'
 
 # rename programs
-alias pip='uv pip'  # python/python3 come from uv (~/.local/bin)
+alias pip='uv pip'
 alias less='less -R'
 alias mv='mv -v'
 alias rm='rm -i -v'
@@ -31,6 +31,7 @@ alias n='nvim'
 alias cpy='pbcopy'
 alias cpwd="pwd -P | tr -d '\n' | pbcopy"
 alias g='run_git'
+alias cl="$HOME/.dotfiles/tmux/tmux-scripts/claude.sh"
 
 # help
 alias bathelp='bat --plain --language=help'
