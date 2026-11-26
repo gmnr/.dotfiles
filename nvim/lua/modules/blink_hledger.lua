@@ -19,7 +19,6 @@ local account_hls = {
   liabilities = "BlinkCmpKindLiabilities", -- orange
   expenses = "BlinkCmpKindExpenses", -- red
   revenues = "BlinkCmpKindRevenues", -- green
-  -- equity: no entry, keeps the default color
 }
 
 local function set_highlights()

@@ -32,7 +32,7 @@ return {
         menu = { auto_show = false, border = "rounded", max_height = 25 },
         documentation = { window = { border = "rounded" } },
         list = { selection = { preselect = true, auto_insert = false } },
-        accept = { auto_brackets = { enabled = true } }, -- replaces the autopairs hook
+        accept = { auto_brackets = { enabled = false } },
       },
 
       sources = {
