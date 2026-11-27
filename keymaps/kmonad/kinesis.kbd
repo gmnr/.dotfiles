@@ -78,10 +78,10 @@
   esc  F1   F2   F3   F4   F5   F6   F7   F8   F9   F10  F11  F12  prnt slck pause
 
   _    f1   f2   f3   f4   f5                  f6   f7   f8  f9   _   _
-  _  _   _   _   _   _                     _  _  _  _  _  _
-  _  _   _   _   _   _                     _  _  _  _  _  _
-  _  _   _   _   _   _                     _  _  _  _  _ rsft
-       _  _  @mc_left  @mc_right                          @mc_down  @mc_up  _  _
+  _  _   _   _   _   _                         _   _   _   _   _   _
+  _  _   _   _   _   _                         _   _   _   _   _   _
+  _  _   _   _   _   _                         _   _   _   _   _  rsft
+       _  _  @mc_left  @mc_right                  @mc_down  @mc_up  _  _
 
                             lctl del   ralt rctl
                        spc alt  home   pgup  end del
@@ -92,11 +92,11 @@
 (deflayer apps
   esc  F1   F2   F3   F4   F5   F6   F7   F8   F9   F10  F11  F12  prnt slck pause
 
-  @desk    f1   f2   f3   f4   f5                  f6   f7   f8  f9   _   _
-  @down    @music  @msg    @notes  @ai        _     _   _   _   _   _    _
-  @icloud  @term   @excel  @thing  @browser   @ppt  _   _   _   _   _    _
-  @drive   @teams  @db     @cal    @mail      _     _   _   _   _   _  rsft
-  @scans  _  home  end                          pgdn   pgup  _    _
+  @desk    f1      f2      f3      f4        f5         f6   f7     f8  f9  _    _
+  @down    @music  @msg    @notes  @ai       _          _    _      _   _   _    _
+  @icloud  @term   @excel  @thing  @browser  @ppt       _    _      _   _   _    _
+  @drive   @teams  @db     @cal    @mail     _          _    _      _   _   _    rsft
+  @scans  _  home  end                                       pgdn   pgup    _    _
 
                             lctl del   ralt rctl
                    @finder alt  home   pgup  end del
@@ -107,11 +107,11 @@
 (deflayer keypad
   esc  F1   F2   F3   F4   F5   F6   F7   F8   F9   F10  F11  F12  prnt slck pause
 
-  _    _    _    _    _    _                    _    bspc    =    KpSlash   KpAsterisk    _
-  _ _    _    _    _    _                 _    Kp7    Kp8    Kp9    KpMinus    _
-  _  _    _    _    _    _                  _    Kp4    Kp5    Kp6    KpPlus    _
-  _ _    _    _    _    _                   _    Kp1    Kp2    Kp3    KpEnter rsft
-       _  _  _ _                             _   Kp0 ,    KpEnter
+  _  _    _    _    _    _                   =    bspc   KpSlash  KpAsterisk   KpMinus  _
+  _  _    _    _    _    _                   =    Kp7    Kp8      Kp9          KpPlus   _
+  _  _    _    _    _    _                   =    Kp4    Kp5      Kp6          KpPlus   _
+  _  _    _    _    _    _                   =    Kp1    Kp2      Kp3          KpEnter  rsft
+       _  _  _ _                             Kp0  Kp0    ,        KpEnter
 
                            lctl lalt   rmet rctl
                        spc del  home   pgup  ret bspc
@@ -121,11 +121,11 @@
 (deflayer media
   esc  F1   F2   F3   F4   F5   F6   F7   F8   F9   F10  F11  F12  prnt slck pause
 
-  _    _    _    _    _    _                    _    _    _    _   _    _
-  _ _    vold    mute    volu    _                 _    _    _    _    _    _
-  _  _    prev    pp    next    _                  _    _    _    _    _    _
-  _ _    _    _    _    _                   _    _    _    _    _ _
-       _  _  _ _                             _   _ _    _
+  _   _   _    _    _     _             _    _    _    _   _    _
+  _   _   vold mute volu  _             _    _    _    _   _    _
+  _   _   prev pp   next  _             _    _    _    _   _    _
+  _   _   _    _    _     _             _    _    _    _   _    _
+      _   _    _    _                        _    _    _   _
 
                            lctl lalt   rmet rctl
                        spc del  home   pgup  ret bspc
