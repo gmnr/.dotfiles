@@ -31,6 +31,7 @@ alias n='nvim'
 alias cpy='pbcopy'
 alias cpwd="pwd -P | tr -d '\n' | pbcopy"
 alias g='run_git'
+alias gg='run_git'
 alias cl="$HOME/.dotfiles/tmux/tmux-scripts/claude.sh"
 
 # help
