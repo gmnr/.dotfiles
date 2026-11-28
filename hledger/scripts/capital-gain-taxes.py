@@ -158,8 +158,9 @@ def book_values(transactions):
         paid = txn.quantity * txn.amount if txn.quantity < 0 else txn.amount
         totals[txn.ticker] = (quantity + txn.quantity, cost + paid)
 
+    # a fully sold position has no book value (and would divide by zero)
     return {
-        ticker: (cost / quantity if cost else quantity)
+        ticker: (cost / quantity if quantity > 0 else 0.0)
         for ticker, (quantity, cost) in totals.items()
     }
 
