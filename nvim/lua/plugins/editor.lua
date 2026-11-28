@@ -144,10 +144,15 @@ return {
       "typescript",
       "sh",
     },
-    config = function()
-      vim.cmd(
-        [[let g:quickrun_config = {'*': {'outputter/buffer/opener':'%{winwidth(0) * 2 < winheight(0) * 5 ? "16new" : "vnew"}','hook/time/enable': 1, 'hook/time/format': '[Finished in %gs]'}, 'python': {'command': 'uv', 'cmdopt': 'run', 'hook/shebang/enable': 0}}]]
-      )
+    init = function()
+      vim.g.quickrun_config = {
+        ["*"] = {
+          ["outputter/buffer/opener"] = '%{winwidth(0) * 2 < winheight(0) * 5 ? "16new" : "vnew"}',
+          ["hook/time/enable"] = 1,
+          ["hook/time/format"] = "[Finished in %gs]",
+        },
+        python = { command = "uv", cmdopt = "run", ["hook/shebang/enable"] = 0 },
+      }
     end,
   },
 

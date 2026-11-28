@@ -13,7 +13,7 @@ return {
   -- ledger
   {
     "ledger/vim-ledger",
-    config = function()
+    init = function()
       vim.g.ledger_bin = "hledger"
       vim.g.ledger_decimal_sep = ","
     end,
