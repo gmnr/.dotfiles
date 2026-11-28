@@ -1,6 +1,7 @@
 # improve performance
 autoload -U zmv
 setopt extended_glob
+typeset -U path  # no duplicate entries in nested shells
 export PATH=$HOME/.local/bin:/opt/homebrew/bin:$PATH
 
 # set autocompletion
