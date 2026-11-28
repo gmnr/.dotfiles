@@ -5,6 +5,7 @@ alias dot='cd "$DOTFILES"'
 alias finance='cd $HOME/.finance'
 alias sql='cd $HOME/.work_sql && run_git'
 alias icloud='cd "$ICLOUD"'
+alias dwn='cd $HOME/Downloads && eza --long --header --all --git --sort=modified --reverse --icons --group-directories-first --time-style=long-iso --color=auto'
 alias ..='cd ..'
 alias ...='cd ../..'
 
