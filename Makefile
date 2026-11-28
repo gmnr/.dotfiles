@@ -32,12 +32,11 @@ brew:  ## install the packages in Brewfile
 link:  ## symlink every config into place (real files are backed up to .bak)
 	@if [ ! -e "$(DOTFILES)" ]; then ln -s "$(CURDIR)" "$(DOTFILES)" && echo "linked $(DOTFILES) -> $(CURDIR)"; \
 	elif [ "$$(cd "$(DOTFILES)" && pwd -P)" != "$$(pwd -P)" ]; then echo "$(DOTFILES) exists and is a different folder"; exit 1; fi
-	@mkdir -p "$(CONFIG)/zsh" "$(CONFIG)/git"
+	@mkdir -p "$(CONFIG)/zsh"
 	$(call link,$(DOTFILES)/zsh/.zshenv,$(HOME)/.zshenv)
 	$(call link,$(DOTFILES)/zsh/.zshrc,$(CONFIG)/zsh/.zshrc)
 	$(call link,$(DOTFILES)/tmux/.tmux.conf,$(HOME)/.tmux.conf)
 	$(call link,$(DOTFILES)/git/.gitconfig,$(HOME)/.gitconfig)
-	$(call link,$(DOTFILES)/git/.gitexcludes,$(CONFIG)/git/ignore)
 	$(call link,$(DOTFILES)/nvim,$(CONFIG)/nvim)
 	$(call link,$(DOTFILES)/kitty,$(CONFIG)/kitty)
 
