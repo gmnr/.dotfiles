@@ -2,17 +2,20 @@
 local api = vim.api
 
 -- define groups
+local GenericGroup = api.nvim_create_augroup("GenericGroup", { clear = true })
 local OperateQuickrun = api.nvim_create_augroup("OperateQuickrun", { clear = true })
-local YankHighlight = api.nvim_create_augroup("YankHighlight", {})
+local YankHighlight = api.nvim_create_augroup("YankHighlight", { clear = true })
 
 api.nvim_create_autocmd("BufNewFile", {
   desc = "Import template for python files",
+  group = GenericGroup,
   pattern = { "*.py" },
   command = "0r ~/.dotfiles/nvim/templates/python.template",
 })
 
 api.nvim_create_autocmd("FileType", {
   desc = "automatically close temporary buffers with q",
+  group = GenericGroup,
   pattern = {
     "qf",
     "man",
@@ -48,6 +51,7 @@ api.nvim_create_autocmd("BufUnload", {
 
 api.nvim_create_autocmd("FileType", {
   desc = "Start git messages in insert mode",
+  group = GenericGroup,
   pattern = { "gitcommit", "gitrebase" },
   command = "startinsert | 1",
 })
