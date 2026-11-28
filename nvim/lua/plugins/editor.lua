@@ -151,6 +151,8 @@ return {
     init = function()
       vim.g.quickrun_config = {
         ["*"] = {
+          -- run from the script's own directory (restored afterwards), so relative paths work
+          ["hook/cd/directory"] = "%S:p:h",
           ["outputter/buffer/opener"] = '%{winwidth(0) * 2 < winheight(0) * 5 ? "16new" : "vnew"}',
           ["hook/time/enable"] = 1,
           ["hook/time/format"] = "[Finished in %gs]",
