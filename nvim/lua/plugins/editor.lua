@@ -37,14 +37,13 @@ return {
           augend.date.alias["%Y-%m-%d"],
         },
       })
-      vim.keymap.set("n", "<C-a>", require("dial.map").inc_normal(), { noremap = true })
-      vim.keymap.set("n", "<C-x>", require("dial.map").dec_normal(), { noremap = true })
+      vim.keymap.set("n", "<C-a>", require("dial.map").inc_normal())
+      vim.keymap.set("n", "<C-x>", require("dial.map").dec_normal())
     end,
   },
 
   {
     "stevearc/quicker.nvim",
-    event = "VeryLazy",
     ft = "qf",
     opts = {},
   },
@@ -93,45 +92,43 @@ return {
       local npairs = require("nvim-autopairs")
       local Rule = require("nvim-autopairs.rule")
 
-      return {
-        npairs.setup({
-          disable_filetype = {
-            "ledger",
-            "markdown",
-            "text",
-          },
-        }),
-        npairs.add_rules({
-          Rule(" ", " "):with_pair(function(opts)
-            local pair = opts.line:sub(opts.col - 1, opts.col)
-            return vim.tbl_contains({ "()", "[]", "{}" }, pair)
-          end),
-          Rule("( ", " )")
-            :with_pair(function()
-              return false
-            end)
-            :with_move(function(opts)
-              return opts.prev_char:match(".%)") ~= nil
-            end)
-            :use_key(")"),
-          Rule("{ ", " }")
-            :with_pair(function()
-              return false
-            end)
-            :with_move(function(opts)
-              return opts.prev_char:match(".%}") ~= nil
-            end)
-            :use_key("}"),
-          Rule("[ ", " ]")
-            :with_pair(function()
-              return false
-            end)
-            :with_move(function(opts)
-              return opts.prev_char:match(".%]") ~= nil
-            end)
-            :use_key("]"),
-        }),
-      }
+      npairs.setup({
+        disable_filetype = {
+          "ledger",
+          "markdown",
+          "text",
+        },
+      })
+      npairs.add_rules({
+        Rule(" ", " "):with_pair(function(opts)
+          local pair = opts.line:sub(opts.col - 1, opts.col)
+          return vim.tbl_contains({ "()", "[]", "{}" }, pair)
+        end),
+        Rule("( ", " )")
+          :with_pair(function()
+            return false
+          end)
+          :with_move(function(opts)
+            return opts.prev_char:match(".%)") ~= nil
+          end)
+          :use_key(")"),
+        Rule("{ ", " }")
+          :with_pair(function()
+            return false
+          end)
+          :with_move(function(opts)
+            return opts.prev_char:match(".%}") ~= nil
+          end)
+          :use_key("}"),
+        Rule("[ ", " ]")
+          :with_pair(function()
+            return false
+          end)
+          :with_move(function(opts)
+            return opts.prev_char:match(".%]") ~= nil
+          end)
+          :use_key("]"),
+      })
     end,
   },
 
