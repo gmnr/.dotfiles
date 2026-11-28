@@ -5,13 +5,17 @@ local function is_excluded(buf)
   return vim.bo[buf].filetype == "quickrun"
 end
 
-function M.record(buf)
+local function forget(buf)
   for i, b in ipairs(mru) do
     if b == buf then
       table.remove(mru, i)
-      break
+      return
     end
   end
+end
+
+function M.record(buf)
+  forget(buf)
   table.insert(mru, 1, buf)
 end
 
@@ -23,6 +27,25 @@ function M.goto_last()
       return
     end
   end
+end
+
+function M.setup()
+  local group = vim.api.nvim_create_augroup("MruBuffers", { clear = true })
+  vim.api.nvim_create_autocmd("BufEnter", {
+    group = group,
+    callback = function(args)
+      M.record(args.buf)
+    end,
+  })
+  vim.api.nvim_create_autocmd("BufWipeout", {
+    group = group,
+    callback = function(args)
+      forget(args.buf)
+    end,
+  })
+
+  -- the buffer nvim started on may never fire BufEnter
+  M.record(vim.api.nvim_get_current_buf())
 end
 
 return M
