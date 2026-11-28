@@ -33,7 +33,7 @@ return {
           -- formatters aren't LSP servers, so mason-lspconfig can't ensure them
           local registry = require("mason-registry")
           registry.refresh(function()
-            for _, name in ipairs({ "black", "beautysh" }) do
+            for _, name in ipairs({ "black", "beautysh", "prettier" }) do
               local pkg = registry.get_package(name)
               if not pkg:is_installed() then
                 pkg:install()
