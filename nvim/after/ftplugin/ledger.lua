@@ -26,5 +26,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   desc = "Remove whitespace",
   buffer = 0,
   group = vim.api.nvim_create_augroup("LedgerTrim" .. vim.api.nvim_get_current_buf(), { clear = true }),
-  command = [[%s/\s\+$//e]],
+  callback = function()
+    -- keep the cursor and the last search where they were
+    local view = vim.fn.winsaveview()
+    vim.cmd([[keeppatterns %s/\s\+$//e]])
+    vim.fn.winrestview(view)
+  end,
 })
