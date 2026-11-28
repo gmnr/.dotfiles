@@ -27,9 +27,11 @@ function bs() {
 # hledger aliases
 alias hl='hledger'
 alias hlp='hledger print'
-alias e='nvim +$ ~/.finance/periods/2026.journal'
 alias pp='uv run --project $DOTFILES/hledger $DOTFILES/hledger/scripts/fetch-mkt-prices.py && uv run --project $DOTFILES/hledger $DOTFILES/hledger/scripts/capital-gain-taxes.py'
 alias prices='cat ~/.finance/prices/current_prices.journal'
+
+# open this year's journal at the last line
+function e { nvim '+$' ~/.finance/periods/$(date +%Y).journal "$@" }
 
 # hledger shorthand for zsh
 export TRAVELS=tag:travels

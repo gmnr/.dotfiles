@@ -66,7 +66,9 @@ vim.keymap.set({ "n", "v", "x" }, "<leader>aa", function()
 end)
 
 -- hledger plugs
-vim.keymap.set("n", "<leader>ea", "<cmd>e +$ ~/.finance/periods/2026.journal<CR>", opts)
+vim.keymap.set("n", "<leader>ea", function()
+  require("modules.hledger").open_journal()
+end, opts)
 
 -- gitsigns mappings
 vim.keymap.set("n", "<leader>gh", "<cmd>Gitsigns preview_hunk<CR>", opts)
