@@ -31,12 +31,18 @@ fi
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
-# enable vi mode
-source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# enable vi mode but in insert
+function zvm_config() {
+    ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT  # always start in insert mode
+}
 
-# disable execute prompt
-bindkey -e -r '^[x'
-bindkey -a -r ':'
+# disable execute prompt (after zsh-vi-mode has set up its keymaps)
+function zvm_after_init() {
+    bindkey -M viins -r '^[x'
+    bindkey -M vicmd -r ':'
+}
+
+source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # history settings
 HISTSIZE=50000
@@ -46,10 +52,10 @@ setopt share_history hist_ignore_all_dups hist_ignore_space
 # show ` <branch> ` in git repos, with `*` if the work tree is dirty
 # (porcelain output doesn't depend on git's language or wording)
 function parse_git_branch() {
-  local ref
-  ref=$(git symbolic-ref --short -q HEAD 2> /dev/null || git rev-parse --short HEAD 2> /dev/null) || return
-  [[ -n $(git status --porcelain 2> /dev/null) ]] && ref+="*"
-  echo "<$ref> "
+    local ref
+    ref=$(git symbolic-ref --short -q HEAD 2> /dev/null || git rev-parse --short HEAD 2> /dev/null) || return
+    [[ -n $(git status --porcelain 2> /dev/null) ]] && ref+="*"
+    echo "<$ref> "
 }
 
 
