@@ -5,18 +5,22 @@ return {
     "folke/tokyonight.nvim",
     priority = 1000,
     config = function()
-      vim.cmd("colorscheme tokyonight-storm")
+      require("tokyonight").setup({
+        -- applied on every load of the colorscheme, so they survive a reload
+        on_highlights = function(hl)
+          -- custom colors for gitsigns
+          hl.GitSignsAdd = { fg = "#92BE65" }
+          hl.GitSignsAddNr = { fg = "#92BE65" }
+          hl.GitSignsChange = { fg = "#7AA2F7" }
+          hl.GitSignsChangeNr = { fg = "#7AA2F7" }
+          hl.GitSignsDelete = { fg = "#D74B4B" }
+          hl.GitSignsDeleteNr = { fg = "#D74B4B" }
 
-      -- define custom colors for gitsigns
-      vim.cmd("highlight! GitSignsAdd           guibg=NONE guifg=#92BE65")
-      vim.cmd("highlight! GitSignsAddNr         guibg=NONE guifg=#92BE65")
-      vim.cmd("highlight! GitSignsChange        guibg=NONE guifg=#7AA2F7")
-      vim.cmd("highlight! GitSignsChangeNr      guibg=NONE guifg=#7AA2F7")
-      vim.cmd("highlight! GitSignsDelete        guibg=NONE guifg=#D74B4B")
-      vim.cmd("highlight! GitSignsDeleteNr      guibg=NONE guifg=#D74B4B")
-
-      -- float border color
-      vim.cmd("highlight! FloatBorder      guibg=NONE guifg=#7aa2f7")
+          -- float border color
+          hl.FloatBorder = { fg = "#7aa2f7" }
+        end,
+      })
+      vim.cmd.colorscheme("tokyonight-storm")
     end,
   },
 
