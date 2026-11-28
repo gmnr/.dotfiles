@@ -13,7 +13,7 @@ import sys
 
 main_accounts = ["assets", "liabilities", "equity", "revenues", "expenses"]
 sub_accounts = [
-    "assets:liquid",
+    "assets:current",
     "assets:investments",
     "assets:credits",
     "assets:welfare",
@@ -25,18 +25,18 @@ sub_accounts = [
     "liabilities:tax-deferred",
 ]
 snippets = [
-    "assets:liquid:cash",
-    "assets:liquid:fineco",
-    "assets:liquid:paypal",
+    "assets:current:cash",
+    "assets:current:fineco",
+    "assets:current:paypal",
     "expenses:transit:car:fuel",
     "expenses:food-bev:groceries",
     "expenses:food-bev:drinks",
 ]
 
-excluded_accounts = main_accounts + sub_accounts + snippets
+excluded_accounts = set(main_accounts + sub_accounts + snippets)
 
 for acc in sys.stdin:
-    acc = acc[:-1]
+    acc = acc.rstrip("\n")
     if acc in excluded_accounts:
         continue
-    print(acc, sep="")
+    print(acc)
