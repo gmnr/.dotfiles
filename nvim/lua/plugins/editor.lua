@@ -8,7 +8,14 @@ return {
     },
     cmd = "Neogit",
     keys = {
-      { "<leader>gg", "<cmd>Neogit<cr>" },
+      {
+        "<leader>gg",
+        function()
+          -- the current file's repo (nil outside a repo: Neogit falls back to the cwd)
+          require("neogit").open({ cwd = require("modules.project").root() })
+        end,
+        desc = "Neogit (current file's repo)",
+      },
     },
     opts = {
       signs = {
@@ -299,14 +306,14 @@ return {
         { "<leader>/", "grep", repo_root, desc = "Grep repo" },
         { "<leader>yw", "explorer", repo_root, desc = "Explorer" },
         { "<leader>ya", "smart", desc = "Smart find" },
-        { "<leader>yg", "git_files", desc = "Git files" },
+        { "<leader>yg", "git_files", repo_root, desc = "Git files" },
         { "<leader>yp", "projects", desc = "Projects" },
 
         -- git
-        { "<leader>yb", "git_branches", desc = "Git branches" },
-        { "<leader>yl", "git_log", desc = "Git log" },
-        { "<leader>ys", "git_status", desc = "Git status" },
-        { "<leader>yd", "git_diff", desc = "Git diff (hunks)" },
+        { "<leader>yb", "git_branches", repo_root, desc = "Git branches" },
+        { "<leader>yl", "git_log", repo_root, desc = "Git log" },
+        { "<leader>ys", "git_status", repo_root, desc = "Git status" },
+        { "<leader>yd", "git_diff", repo_root, desc = "Git diff (hunks)" },
 
         -- search
         { '<leader>y"', "registers", desc = "Registers" },
