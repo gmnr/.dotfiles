@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Wrap holywell formatter into a python script to format sql scripts
+Wrap the sqlriver formatter into a python script to format sql scripts
 """
 
 __author__ = "Guido Minieri"

@@ -34,7 +34,7 @@ return {
         cut_selection_keys = "<Tab>", -- visual <Tab> saves the selection for ${VISUAL}
       })
 
-      -- own snippets (nvim/snppts/<filetype>.lua, priority 1000) win over honza/vim-snippets
+      -- own snippets (nvim/lua/snippets/<filetype>.lua, priority 1000) win over honza/vim-snippets
       require("luasnip.loaders.from_lua").lazy_load({ paths = { vim.fn.stdpath("config") .. "/lua/snippets" } })
       require("luasnip.loaders.from_snipmate").lazy_load({ default_priority = 1 })
 

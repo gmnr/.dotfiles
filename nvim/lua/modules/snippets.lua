@@ -1,4 +1,4 @@
--- Helpers for the LuaSnip snippet files in nvim/snppts/<filetype>.lua.
+-- Helpers for the LuaSnip snippet files in nvim/lua/snippets/<filetype>.lua.
 local M = {}
 
 local ls = require("luasnip")

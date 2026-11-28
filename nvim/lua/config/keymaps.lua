@@ -42,7 +42,7 @@ vim.keymap.set("n", "<leader>tt", ":%s/")
 -- disable highlight
 vim.keymap.set({ "n", "i" }, "<esc>", "<cmd>noh<CR><esc>", opts)
 
--- remap backspace to lats used buffer
+-- remap backspace to last used buffer
 vim.keymap.set("n", "<BS>", function()
   require("modules.mru_buffers").goto_last()
 end, opts)
